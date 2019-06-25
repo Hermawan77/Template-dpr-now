@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="20dp"
+    tools:context=".Input">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INPUTAN"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/namatext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:text="Nama"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_below="@+id/textview"
+        android:layout_toRightOf="@+id/namatext"
+        android:layout_marginTop="10dp"
+        android:hint="isikan nama lengkap" />
+
+    <TextView
+        android:id="@+id/emailtext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/namatext"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:text="Email"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/namatext"
+        android:layout_toRightOf="@+id/emailtext"
+        android:inputType="textEmailAddress"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:hint="isikan email anda"/>
+
+
+    <TextView
+        android:id="@+id/phonetext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailtext"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:text="Phone"/>
+
+    <EditText
+        android:id="@+id/Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailtext"
+        android:layout_toRightOf="@+id/phonetext"
+        android:inputType="phone"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:hint="isikan nomor handphone anda"/>
+
+    <TextView
+        android:id="@+id/jktext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phonetext"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:text="Jenis Kelamin"/>
+
+    <RadioGroup
+        android:id="@+id/jkgrup"
+        android:layout_below="@+id/Phone"
+        android:layout_toRightOf="@id/phonetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:textColor="@color/cardview_dark_background"
+                android:id="@+id/radioP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pria"/>
+            <RadioButton
+                android:textColor="@color/cardview_dark_background"
+                android:id="@+id/radioW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/radioP"
+                android:text="Wanita"/>
+        </RelativeLayout>
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/timetext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/jktext"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:text="Time"/>
+
+    <EditText
+        android:id="@+id/Time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/jkgrup"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/timetext"
+        android:hint="isikan waktu anda"
+        android:inputType="textMultiLine"
+        android:textSize="15dp"
+        android:layout_toRightOf="@+id/timetext" />
+
+    <EditText
+        android:id="@+id/Date"
+        android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Time"
+        android:layout_toRightOf="@id/timetext"
+            android:layout_marginTop="10dp"
+            android:hint="isikan tanggal anda"
+            android:inputType="datetime"
+            android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/datetext"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Date"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:text="Essai"/>
+
+    <EditText
+        android:id="@+id/essai"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/Date"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/datetext"
+        android:hint="isikan essai anda"
+        android:inputType="textMultiLine"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/toogletext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekBar"
+        android:layout_margin="10dp"
+        android:text="aktifkan layanan dalam bentuk toast"/>
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="ToggleButton"
+        android:layout_below="@+id/seekBar"/>
+
+    <Switch
+        android:id="@+id/switch1"
+        android:textColor="@color/cardview_dark_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch"
+        android:padding="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/toggleButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toogletext"
+        android:layout_margin="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="1dp"
+        android:text="ubah mode tampilan"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/checkBox"
+        android:layout_margin="15dp"
+        android:text="Simpan"/>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cardview_dark_background"
+        android:text="Anda menyetujui, bahwa data yang diinputkan adalah data yang sebenarnya"
+        android:layout_below="@+id/switch1"/>
+
+    <TextView
+        android:id="@+id/seekbartext"
+        android:layout_below="@+id/essai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Berapa penilaian anda terhadap aplikasi ini?"/>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekbartext"
+        android:max="100"
+        android:progress="75"
+        android:padding="10dp"/>
+
+
+</RelativeLayout>
