@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,10 +11,10 @@
         android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INPUTAN"
+        android:text="@string/judul_input"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
-        android:textSize="25dp"/>
+        android:textSize="@dimen/TS_judul"/>
 
     <TextView
         android:id="@+id/namatext"
@@ -23,18 +22,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textview"
         android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:text="Nama"/>
+        android:textSize="@dimen/TS_text"
+        android:text="@string/namatext"/>
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
+        android:textSize="@dimen/TS_text"
         android:layout_below="@+id/textview"
         android:layout_toRightOf="@+id/namatext"
         android:layout_marginTop="10dp"
-        android:hint="isikan nama lengkap" />
+        android:hint="@string/hint_namaisi"
+        android:layout_toEndOf="@+id/namatext" />
 
     <TextView
         android:id="@+id/emailtext"
@@ -42,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/namatext"
         android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:text="Email"/>
+        android:textSize="@dimen/TS_text"
+        android:text="@string/email"/>
 
     <AutoCompleteTextView
         android:id="@+id/Email"
@@ -52,9 +52,9 @@
         android:layout_below="@+id/namatext"
         android:layout_toRightOf="@+id/emailtext"
         android:inputType="textEmailAddress"
-        android:textSize="15dp"
+        android:textSize="@dimen/TS_text"
         android:layout_marginTop="10dp"
-        android:hint="isikan email anda"/>
+        android:hint="@string/hint_emailisi"/>
 
 
     <TextView
@@ -63,8 +63,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/emailtext"
         android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:text="Phone"/>
+        android:textSize="@dimen/TS_text"
+        android:text="@string/phone"/>
 
     <EditText
         android:id="@+id/Phone"
@@ -73,9 +73,10 @@
         android:layout_below="@+id/emailtext"
         android:layout_toRightOf="@+id/phonetext"
         android:inputType="phone"
-        android:textSize="15dp"
+        android:textSize="@dimen/TS_text"
         android:layout_marginTop="10dp"
-        android:hint="isikan nomor handphone anda"/>
+        android:hint="@string/hint_phone"
+        android:layout_toEndOf="@+id/phonetext" />
 
     <TextView
         android:id="@+id/jktext"
@@ -83,8 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/phonetext"
         android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:text="Jenis Kelamin"/>
+        android:textSize="@dimen/TS_text"
+        android:text="@string/jktext"/>
 
     <RadioGroup
         android:id="@+id/jkgrup"
@@ -92,7 +93,8 @@
         android:layout_toRightOf="@id/phonetext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:layout_toEndOf="@id/phonetext">
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -101,14 +103,17 @@
                 android:id="@+id/radioP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pria"/>
+                android:text="@string/pria"
+                tools:ignore="PrivateResource" />
             <RadioButton
                 android:textColor="@color/cardview_dark_background"
                 android:id="@+id/radioW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/radioP"
-                android:text="Wanita"/>
+                android:text="@string/wanita"
+                android:layout_toEndOf="@id/radioP"
+                tools:ignore="PrivateResource" />
         </RelativeLayout>
     </RadioGroup>
 
@@ -119,20 +124,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/jktext"
         android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:text="Time"/>
+        android:textSize="@dimen/TS_text"
+        android:text="@string/time"/>
 
     <EditText
         android:id="@+id/Time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/jkgrup"
+        android:layout_toRightOf="@+id/timetext"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/timetext"
-        android:hint="isikan waktu anda"
+        android:hint="@string/hint_time"
         android:inputType="textMultiLine"
-        android:textSize="15dp"
-        android:layout_toRightOf="@+id/timetext" />
+        android:textSize="@dimen/TS_text" />
 
     <EditText
         android:id="@+id/Date"
@@ -141,9 +146,10 @@
             android:layout_below="@+id/Time"
         android:layout_toRightOf="@id/timetext"
             android:layout_marginTop="10dp"
-            android:hint="isikan tanggal anda"
+            android:hint="@string/hint_date"
             android:inputType="datetime"
-            android:textSize="15dp"/>
+            android:textSize="@dimen/TS_text"
+        android:layout_toEndOf="@id/timetext" />
 
     <TextView
         android:id="@+id/datetext"
@@ -151,8 +157,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/Date"
         android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:text="Essai"/>
+        android:textSize="@dimen/TS_text"
+        android:text="@string/essai"/>
 
     <EditText
         android:id="@+id/essai"
@@ -161,9 +167,10 @@
         android:layout_below="@+id/Date"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/datetext"
-        android:hint="isikan essai anda"
+        android:hint="@string/hint_essai"
         android:inputType="textMultiLine"
-        android:textSize="15dp" />
+        android:textSize="@dimen/TS_text"
+        android:layout_toEndOf="@+id/datetext" />
 
     <TextView
         android:id="@+id/toogletext"
@@ -171,25 +178,28 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/seekBar"
         android:layout_margin="10dp"
-        android:text="aktifkan layanan dalam bentuk toast"/>
+        android:text="@string/toogletext"/>
 
     <ToggleButton
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="ToggleButton"
-        android:layout_below="@+id/seekBar"/>
+        android:text="@string/togglebutton"
+        android:layout_below="@+id/seekBar"
+        android:layout_alignParentEnd="true" />
 
     <Switch
         android:id="@+id/switch1"
         android:textColor="@color/cardview_dark_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Switch"
+        android:text="@string/switchtext"
         android:padding="10dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/toggleButton"/>
+        android:layout_below="@+id/toggleButton"
+        android:layout_alignParentEnd="true"
+        tools:ignore="PrivateResource" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -198,7 +208,7 @@
         android:layout_margin="10dp"
         android:layout_marginTop="25dp"
         android:layout_marginBottom="1dp"
-        android:text="ubah mode tampilan"
+        android:text="@string/ubah_mode"
         android:textAlignment="center" />
 
     <Button
@@ -207,15 +217,16 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/checkBox"
         android:layout_margin="15dp"
-        android:text="Simpan"/>
+        android:text="@string/simpan"/>
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/cardview_dark_background"
-        android:text="Anda menyetujui, bahwa data yang diinputkan adalah data yang sebenarnya"
-        android:layout_below="@+id/switch1"/>
+        android:text="@string/termtext"
+        android:layout_below="@+id/switch1"
+        tools:ignore="PrivateResource" />
 
     <TextView
         android:id="@+id/seekbartext"
@@ -223,7 +234,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Berapa penilaian anda terhadap aplikasi ini?"/>
+        android:text="@string/nilai_app"/>
 
     <SeekBar
         android:id="@+id/seekBar"

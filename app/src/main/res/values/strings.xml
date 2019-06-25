@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Template_dpr_now</string>
+    <string name="judul_input">INPUTAN</string>
+    <string name="namatext">Nama</string>
+    <string name="hint_namaisi">isikan nama lengkap</string>
+    <string name="email">Email</string>
+    <string name="hint_emailisi">isikan email anda</string>
+    <string name="phone">Phone</string>
+    <string name="hint_phone">isikan nomor handphone anda</string>
+    <string name="jktext">Jenis Kelamin</string>
+    <string name="pria">Pria</string>
+    <string name="wanita">Wanita</string>
+    <string name="time">Time</string>
+    <string name="hint_time">isikan waktu anda</string>
+    <string name="hint_date">isikan tanggal anda</string>
+    <string name="essai">Essai</string>
+    <string name="hint_essai">isikan essai anda</string>
+    <string name="toogletext">aktifkan layanan dalam bentuk toast</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="ubah_mode">ubah mode tampilan</string>
+    <string name="simpan">Simpan</string>
+    <string name="termtext">Anda menyetujui, bahwa data yang diinputkan adalah data yang sebenarnya</string>
+    <string name="nilai_app">Berapa penilaian anda terhadap aplikasi ini?</string>
+    <string name="switchtext">Switch</string>
 </resources>
