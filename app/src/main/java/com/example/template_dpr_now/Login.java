@@ -24,13 +24,12 @@ public class Login extends AppCompatActivity {
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        googleSignInButton = findViewById(R.id.button4);
+        googleSignInButton = findViewById(R.id.sign_in_button);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
