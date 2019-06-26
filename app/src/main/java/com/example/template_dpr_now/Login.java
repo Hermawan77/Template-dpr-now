@@ -82,7 +82,8 @@ public class Login extends AppCompatActivity {
     }
 
     public void masukEmail(View view) {
-
+        Intent i = new Intent(Login.this, Email.class);
+        startActivity(i);
     }
 
 
