@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorAccent"
     tools:context=".MulaiActivity">
 
-<ViewFlipper
+    <ViewFlipper
     android:id="@+id/v_flipper"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="200dp"
+        android:layout_margin="10dp"
     android:layout_centerHorizontal="true"
     />
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/menu1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:padding="25dp"
+            android:gravity="center"
+            android:text="Nama judul"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/rounded"/>
+
+        <Button
+            android:id="@+id/menu2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:padding="25dp"
+            android:gravity="center"
+            android:text="Nama judul"
+            android:layout_below="@+id/menu1"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/rounded"/>
+
+        <Button
+            android:id="@+id/menu3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:padding="25dp"
+            android:gravity="center"
+            android:text="Nama judul"
+            android:layout_below="@+id/menu2"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/rounded"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -132,7 +132,7 @@
                     android:hint="@string/hint_time"
                     android:layout_below="@id/jktext"
                     android:layout_toRightOf="@id/jktext"
-                    android:inputType="textMultiLine"
+                    android:inputType="time"
                     android:textSize="@dimen/TS_text" />
 
                 <TextView
