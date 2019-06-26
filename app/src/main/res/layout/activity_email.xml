@@ -10,12 +10,13 @@
     android:gravity="center"
     tools:context=".Email">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/E_mail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-Mail"
@@ -23,18 +24,58 @@
             android:inputType="textEmailAddress" />
 
         <EditText
+            android:id="@+id/passwordemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/E_mail"
             android:hint="Password"
             android:ems="10"
             android:inputType="textPassword"/>
 
         <TextView
-            android:id="@+id/daftar"
+            android:id="@+id/belumpunyaakun"
+            android:layout_below="@+id/passwordemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Lupa kata sandi?" />
-    </LinearLayout>
+            android:text=" Belum punya akun? Daftar" />
+
+        <TextView
+            android:id="@+id/lupakatasandi"
+            android:layout_below="@+id/belumpunyaakun"
+            android:layout_marginTop="5dp"
+            android:text=" Lupa kata sandi? Klik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/lupadisini"
+            android:text=" disini"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/daftardisini"
+            android:layout_toRightOf="@id/lupakatasandi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/daftardisini"
+            android:layout_below="@+id/passwordemail"
+            android:gravity="left"
+            android:textColor="@color/colorPrimary"
+            android:text=" disini"
+            android:layout_toRightOf="@+id/belumpunyaakun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/loginemail"
+            android:layout_below="@+id/lupakatasandi"
+            android:text="Login"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

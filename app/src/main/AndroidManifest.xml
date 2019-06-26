@@ -16,9 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Login">
+
         </activity>
+        <activity android:name=".Daftar"
+            android:label="Daftar Akun"/>
+        <activity android:name=".Email"
+            android:label="Login Email"/>
+        <activity android:name=".MainActivity"></activity>
+
         <activity android:name=".Input"
             android:label="Inputan CRUD"></activity>
         <activity android:name=".MulaiActivity"

@@ -4,6 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#fff"
+    android:gravity="center"
     tools:context=".Daftar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/E_maildaftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-Mail"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/passworddaftar"
+            android:layout_below="@+id/E_maildaftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:ems="10"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/punyaakun"
+            android:text="Sudah punya akun? Klik "
+            android:layout_below="@id/passworddaftar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/sudahpunya"
+            android:text="disini"
+            android:textColor="@color/colorPrimary"
+            android:layout_below="@id/passworddaftar"
+            android:layout_toRightOf="@id/punyaakun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/daftarakun"
+            android:layout_below="@+id/punyaakun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DAFTAR"/>
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
