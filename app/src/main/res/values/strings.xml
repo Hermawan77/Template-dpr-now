@@ -22,4 +22,6 @@
     <string name="termtext">Anda menyetujui, bahwa data yang diinputkan adalah data yang sebenarnya</string>
     <string name="nilai_app">Berapa penilaian anda terhadap aplikasi ini?</string>
     <string name="switchtext">Switch</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="waktu">Waktu</string>
 </resources>

@@ -7,244 +7,246 @@
     android:padding="20dp"
     tools:context=".Input">
 
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/judul_input"
-        android:textAlignment="center"
-        android:layout_centerHorizontal="true"
-        android:textSize="@dimen/TS_judul"/>
-
-    <TextView
-        android:id="@+id/namatext"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textview"
-        android:layout_marginTop="20dp"
-        android:textSize="@dimen/TS_text"
-        android:text="@string/namatext"/>
-
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/TS_text"
-        android:layout_below="@+id/textview"
-        android:layout_toRightOf="@+id/namatext"
-        android:layout_marginTop="10dp"
-        android:hint="@string/hint_namaisi"
-        android:layout_toEndOf="@+id/namatext" />
+        android:layout_centerVertical="true">
 
-    <TextView
-        android:id="@+id/emailtext"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/namatext"
-        android:layout_marginTop="20dp"
-        android:textSize="@dimen/TS_text"
-        android:text="@string/email"/>
-
-    <AutoCompleteTextView
-        android:id="@+id/Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/namatext"
-        android:layout_toRightOf="@+id/emailtext"
-        android:inputType="textEmailAddress"
-        android:textSize="@dimen/TS_text"
-        android:layout_marginTop="10dp"
-        android:hint="@string/hint_emailisi"/>
-
-
-    <TextView
-        android:id="@+id/phonetext"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/emailtext"
-        android:layout_marginTop="20dp"
-        android:textSize="@dimen/TS_text"
-        android:text="@string/phone"/>
-
-    <EditText
-        android:id="@+id/Phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/emailtext"
-        android:layout_toRightOf="@+id/phonetext"
-        android:inputType="phone"
-        android:textSize="@dimen/TS_text"
-        android:layout_marginTop="10dp"
-        android:hint="@string/hint_phone"
-        android:layout_toEndOf="@+id/phonetext" />
-
-    <TextView
-        android:id="@+id/jktext"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/phonetext"
-        android:layout_marginTop="20dp"
-        android:textSize="@dimen/TS_text"
-        android:text="@string/jktext"/>
-
-    <RadioGroup
-        android:id="@+id/jkgrup"
-        android:layout_below="@+id/Phone"
-        android:layout_toRightOf="@id/phonetext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_toEndOf="@id/phonetext">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <RadioButton
-                android:textColor="@color/cardview_dark_background"
-                android:id="@+id/radioP"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pria"
-                tools:ignore="PrivateResource" />
-            <RadioButton
-                android:textColor="@color/cardview_dark_background"
-                android:id="@+id/radioW"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/radioP"
-                android:text="@string/wanita"
-                android:layout_toEndOf="@id/radioP"
-                tools:ignore="PrivateResource" />
-        </RelativeLayout>
-    </RadioGroup>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/judul_input"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="@dimen/TS_judul" />
+
+                <TextView
+                    android:id="@+id/namatext"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/textview"
+                    android:text="@string/namatext"
+                    android:textSize="@dimen/TS_text" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/namatext"
+                    android:layout_below="@id/textview"
+                    android:hint="@string/hint_namaisi"
+                    android:textSize="@dimen/TS_text" />
+
+                <TextView
+                    android:id="@+id/emailtext"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/email"
+                    android:layout_below="@id/namatext"
+                    android:textSize="@dimen/TS_text" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/hint_emailisi"
+                    android:inputType="textEmailAddress"
+                    android:layout_below="@id/namatext"
+                    android:textSize="@dimen/TS_text"
+                    android:layout_toRightOf="@+id/emailtext" />
+
+                <TextView
+                    android:id="@+id/phonetext"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/emailtext"
+                    android:text="@string/phone"
+                    android:textSize="@dimen/TS_text" />
+
+                <EditText
+                    android:id="@+id/Phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/hint_phone"
+                    android:layout_below="@id/emailtext"
+                    android:layout_toRightOf="@id/emailtext"
+                    android:inputType="phone"
+                    android:textSize="@dimen/TS_text" />
 
 
-    <TextView
-        android:id="@+id/timetext"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/jktext"
-        android:layout_marginTop="20dp"
-        android:textSize="@dimen/TS_text"
-        android:text="@string/time"/>
+                <TextView
+                    android:id="@+id/jktext"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/phonetext"
+                    android:text="@string/jktext"
+                    android:textSize="@dimen/TS_text" />
 
-    <EditText
-        android:id="@+id/Time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/jkgrup"
-        android:layout_toRightOf="@+id/timetext"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/timetext"
-        android:hint="@string/hint_time"
-        android:inputType="textMultiLine"
-        android:textSize="@dimen/TS_text" />
+                <RadioGroup
+                    android:id="@+id/jkgrup"
+                    android:layout_below="@id/phonetext"
+                    android:layout_toRightOf="@+id/phonetext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-    <EditText
-        android:id="@+id/Date"
-        android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/Time"
-        android:layout_toRightOf="@id/timetext"
-            android:layout_marginTop="10dp"
-            android:hint="@string/hint_date"
-            android:inputType="datetime"
-            android:textSize="@dimen/TS_text"
-        android:layout_toEndOf="@id/timetext" />
+                    <RadioButton
+                        android:id="@+id/radioP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pria" />
 
-    <TextView
-        android:id="@+id/datetext"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Date"
-        android:layout_marginTop="20dp"
-        android:textSize="@dimen/TS_text"
-        android:text="@string/essai"/>
+                    <RadioButton
+                        android:id="@+id/radioW"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/wanita" />
+                </RadioGroup>
 
-    <EditText
-        android:id="@+id/essai"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:layout_below="@+id/Date"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/datetext"
-        android:hint="@string/hint_essai"
-        android:inputType="textMultiLine"
-        android:textSize="@dimen/TS_text"
-        android:layout_toEndOf="@+id/datetext" />
+                <TextView
+                    android:id="@+id/timetext"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/jktext"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/waktu"
+                    android:textSize="@dimen/TS_text" />
 
-    <TextView
-        android:id="@+id/toogletext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/seekBar"
-        android:layout_margin="10dp"
-        android:text="@string/toogletext"/>
+                <EditText
+                    android:id="@+id/Time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_time"
+                    android:layout_below="@id/jktext"
+                    android:layout_toRightOf="@id/jktext"
+                    android:inputType="textMultiLine"
+                    android:textSize="@dimen/TS_text" />
 
-    <ToggleButton
-        android:id="@+id/toggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="@string/togglebutton"
-        android:layout_below="@+id/seekBar"
-        android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/datetext"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/timetext"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/tanggal"
+                    android:textSize="@dimen/TS_text" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:textColor="@color/cardview_dark_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/switchtext"
-        android:padding="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/toggleButton"
-        android:layout_alignParentEnd="true"
-        tools:ignore="PrivateResource" />
+                <EditText
+                    android:id="@+id/Date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/timetext"
+                    android:layout_toRightOf="@id/timetext"
+                    android:hint="@string/hint_date"
+                    android:inputType="datetime"
+                    android:textSize="@dimen/TS_text" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toogletext"
-        android:layout_margin="10dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="1dp"
-        android:text="@string/ubah_mode"
-        android:textAlignment="center" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/checkBox"
-        android:layout_margin="15dp"
-        android:text="@string/simpan"/>
+                <TextView
+                    android:id="@+id/essaitext"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/datetext"
+                    android:text="@string/essai"
+                    android:textSize="@dimen/TS_text" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/cardview_dark_background"
-        android:text="@string/termtext"
-        android:layout_below="@+id/switch1"
-        tools:ignore="PrivateResource" />
+                <EditText
+                    android:id="@+id/essai"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:hint="@string/hint_essai"
+                    android:layout_toRightOf="@id/essaitext"
+                    android:layout_below="@id/datetext"
+                    android:inputType="textMultiLine"
+                    android:textSize="@dimen/TS_text" />
 
-    <TextView
-        android:id="@+id/seekbartext"
-        android:layout_below="@+id/essai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/nilai_app"/>
+                <TextView
+                    android:id="@+id/toogletext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_below="@id/essai"
+                    android:text="@string/toogletext" />
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/seekbartext"
-        android:max="100"
-        android:progress="75"
-        android:padding="10dp"/>
+                <ToggleButton
+                    android:id="@+id/toggleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/essai"
+                    android:layout_toRightOf="@id/toogletext"
+                    android:text="@string/togglebutton" />
 
+                <Switch
+                    android:id="@+id/switch1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_below="@id/toogletext"
+                    android:layout_toRightOf="@id/switchtext"
+                    android:text="@string/switchtext"
+                    android:textColor="@color/cardview_dark_background" />
+
+                <TextView
+                    android:id="@+id/switchtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/ubah_mode"
+                    android:layout_below="@id/toogletext"
+                    android:textAlignment="center" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/termtext"
+                    android:layout_below="@+id/switchtext"
+                    android:textColor="@color/cardview_dark_background"
+                    tools:ignore="PrivateResource" />
+
+                <TextView
+                    android:id="@+id/seekbartext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/checkBox"
+                    android:layout_margin="10dp"
+                    android:text="@string/nilai_app" />
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/seekbartext"
+                    android:max="100"
+                    android:padding="10dp"
+                    android:progress="75" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/seekBar"
+                    android:text="@string/simpan" />
+
+            </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

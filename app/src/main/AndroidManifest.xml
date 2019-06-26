@@ -17,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Input"
+            android:label="Inputan CRUD"></activity>
+        <activity android:name=".MulaiActivity"
+            android:label="HOME"></activity>
     </application>
 
 </manifest>
