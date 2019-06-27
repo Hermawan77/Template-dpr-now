@@ -24,4 +24,10 @@
     <string name="switchtext">Switch</string>
     <string name="tanggal">Tanggal</string>
     <string name="waktu">Waktu</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="one">PENGADUAN</string>
+    <string name="two">ASPIRASI</string>
+    <string name="three">INFORMASI</string>
 </resources>
