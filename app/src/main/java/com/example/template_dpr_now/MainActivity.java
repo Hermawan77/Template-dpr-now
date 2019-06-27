@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -28,9 +29,9 @@ import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    private static final String TAG = "MainActivity";
+    private SectionsPageAdapter mSectionsPageAdapter;
+    private ViewPager mViewPager;
 
     public static final String GOOGLE_ACCOUNT = "google_account";
     private static final String CHANNEL_ID = ".notificationDemo.channelId";
@@ -41,34 +42,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        Log.d(TAG, "onCreate: Starting.");
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
+        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
-            }
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        setupViewPager(mViewPager);
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.one));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.two));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.three));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
         off = (Button) findViewById(R.id.logout);
         crudbtn= findViewById(R.id.crudbtn);
@@ -145,52 +127,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "ONE");
-        adapter.addFragment(new TwoFragment(), "TWO");
-        adapter.addFragment(new ThreeFragment(), "THREE");
+        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new OneFragment(), "PENGADUAN");
+        adapter.addFragment(new TwoFragment(), "ASPIRASI");
+        adapter.addFragment(new ThreeFragment(), "INFORMASI");
+        viewPager.setAdapter(adapter);
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter{
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title){
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
-    }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
 }
