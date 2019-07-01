@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/judul_input"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/TS_judul" />
+
+            <TextView
+                android:id="@+id/namatext"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/textview"
+                android:text="@string/namatext"
+                android:textSize="@dimen/TS_text" />
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/namatext"
+                android:layout_below="@id/textview"
+                android:hint="@string/hint_namaisi"
+                android:textSize="@dimen/TS_text" />
+
+            <TextView
+                android:id="@+id/emailtext"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/email"
+                android:layout_below="@id/namatext"
+                android:textSize="@dimen/TS_text" />
+
+            <AutoCompleteTextView
+                android:id="@+id/Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/hint_emailisi"
+                android:inputType="textEmailAddress"
+                android:layout_below="@id/namatext"
+                android:textSize="@dimen/TS_text"
+                android:layout_toRightOf="@+id/emailtext" />
+
+            <TextView
+                android:id="@+id/phonetext"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/emailtext"
+                android:text="@string/phone"
+                android:textSize="@dimen/TS_text" />
+
+            <EditText
+                android:id="@+id/Phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/hint_phone"
+                android:layout_below="@id/emailtext"
+                android:layout_toRightOf="@id/emailtext"
+                android:inputType="phone"
+                android:textSize="@dimen/TS_text" />
+
+
+            <TextView
+                android:id="@+id/jktext"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/phonetext"
+                android:text="@string/jktext"
+                android:textSize="@dimen/TS_text" />
+
+            <RadioGroup
+                android:id="@+id/jkgrup"
+                android:layout_below="@id/phonetext"
+                android:layout_toRightOf="@+id/phonetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <RadioButton
+                    android:id="@+id/radioP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pria" />
+
+                <RadioButton
+                    android:id="@+id/radioW"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wanita" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/timetext"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jktext"
+                android:layout_marginTop="10dp"
+                android:text="@string/waktu"
+                android:textSize="@dimen/TS_text" />
+
+            <EditText
+                android:id="@+id/Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_time"
+                android:layout_below="@id/jktext"
+                android:layout_toRightOf="@id/jktext"
+                android:inputType="time"
+                android:textSize="@dimen/TS_text" />
+
+            <TextView
+                android:id="@+id/datetext"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/timetext"
+                android:layout_marginTop="20dp"
+                android:text="@string/tanggal"
+                android:textSize="@dimen/TS_text" />
+
+            <EditText
+                android:id="@+id/Date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/timetext"
+                android:layout_toRightOf="@id/timetext"
+                android:hint="@string/hint_date"
+                android:inputType="datetime"
+                android:textSize="@dimen/TS_text" />
+
+
+            <TextView
+                android:id="@+id/essaitext"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/datetext"
+                android:text="@string/essai"
+                android:textSize="@dimen/TS_text" />
+
+            <EditText
+                android:id="@+id/essai"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:hint="@string/hint_essai"
+                android:layout_toRightOf="@id/essaitext"
+                android:layout_below="@id/datetext"
+                android:inputType="textMultiLine"
+                android:textSize="@dimen/TS_text" />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/essai"
+                android:text="@string/simpan" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

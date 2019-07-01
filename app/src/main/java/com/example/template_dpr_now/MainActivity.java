@@ -11,23 +11,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.template_dpr_now.fragment.FAB;
 import com.example.template_dpr_now.fragment.HomeFragment;
 import com.example.template_dpr_now.fragment.KomisiFragment;
 import com.example.template_dpr_now.fragment.LainnyaFragment;
-import com.example.template_dpr_now.fragment.OneFragment;
 import com.example.template_dpr_now.fragment.StreamingFragment;
-import com.example.template_dpr_now.fragment.ThreeFragment;
-import com.example.template_dpr_now.fragment.TwoFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
@@ -133,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.nav_komisi:
                             selectedFragment = new KomisiFragment();
+                            break;
+                        case R.id.nav_add:
+                            selectedFragment = new FAB();
                             break;
                         case R.id.nav_streaming:
                             selectedFragment = new StreamingFragment();
