@@ -62,7 +62,7 @@ public class MulaiActivity extends AppCompatActivity {
         imageView.setBackgroundResource(image);
 
         v_flipper.addView(imageView);
-        v_flipper.setFlipInterval(1000);
+        v_flipper.setFlipInterval(2000);
         v_flipper.setAutoStart(true);
 
         v_flipper.setInAnimation(this, android.R.anim.slide_in_left);

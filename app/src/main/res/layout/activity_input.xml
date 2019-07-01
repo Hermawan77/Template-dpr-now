@@ -35,7 +35,7 @@
                     android:textSize="@dimen/TS_text" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTextView"
+                    android:id="@+id/namaview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -54,7 +54,7 @@
                     android:textSize="@dimen/TS_text" />
 
                 <AutoCompleteTextView
-                    android:id="@+id/Email"
+                    android:id="@+id/emailview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -74,7 +74,7 @@
                     android:textSize="@dimen/TS_text" />
 
                 <EditText
-                    android:id="@+id/Phone"
+                    android:id="@+id/phoneview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -238,6 +238,7 @@
                     android:progress="75" />
 
                 <Button
+                    android:id="@+id/simpan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
