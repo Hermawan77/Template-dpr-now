@@ -13,29 +13,26 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.template_dpr_now.fragment.HomeFragment;
+import com.example.template_dpr_now.fragment.KomisiFragment;
+import com.example.template_dpr_now.fragment.LainnyaFragment;
+import com.example.template_dpr_now.fragment.OneFragment;
+import com.example.template_dpr_now.fragment.StreamingFragment;
+import com.example.template_dpr_now.fragment.ThreeFragment;
+import com.example.template_dpr_now.fragment.TwoFragment;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String TAG = "MainActivity";
-    private SectionsPageAdapter mSectionsPageAdapter;
-    private ViewPager mViewPager;
 
     public static final String GOOGLE_ACCOUNT = "google_account";
     private static final String CHANNEL_ID = ".notificationDemo.channelId";
@@ -45,16 +42,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Log.d(TAG, "onCreate: Starting.");
-
-        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
-
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        setupViewPager(mViewPager);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
 
         off = (Button) findViewById(R.id.logout);
         crudbtn= findViewById(R.id.crudbtn);
@@ -134,13 +121,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new OneFragment(), "PENGADUAN");
-        adapter.addFragment(new TwoFragment(), "ASPIRASI");
-        adapter.addFragment(new ThreeFragment(), "INFORMASI");
-        viewPager.setAdapter(adapter);
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
