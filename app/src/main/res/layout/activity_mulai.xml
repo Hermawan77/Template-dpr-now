@@ -8,54 +8,68 @@
     android:background="@color/colorAccent"
     tools:context=".MulaiActivity">
 
-    <ViewFlipper
-    android:id="@+id/v_flipper"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-        android:layout_margin="10dp"
-    android:layout_centerHorizontal="true"
-    />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_centerVertical="true">
 
-        <Button
-            android:id="@+id/menu1"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:padding="25dp"
-            android:gravity="center"
-            android:text="Nama judul"
-            android:textColor="@color/colorAccent"
-            android:background="@drawable/rounded"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/menu2"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:padding="25dp"
-            android:gravity="center"
-            android:text="Nama judul"
-            android:layout_below="@+id/menu1"
-            android:textColor="@color/colorAccent"
-            android:background="@drawable/rounded"/>
+            <ViewFlipper
+                android:id="@+id/v_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:layout_centerHorizontal="true"
+                />
 
-        <Button
-            android:id="@+id/menu3"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:padding="25dp"
-            android:gravity="center"
-            android:text="Nama judul"
-            android:layout_below="@+id/menu2"
-            android:textColor="@color/colorAccent"
-            android:background="@drawable/rounded"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
-    </RelativeLayout>
+                <Button
+                    android:id="@+id/menu1"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_margin="10dp"
+                    android:padding="25dp"
+                    android:gravity="center"
+                    android:text="Nama judul"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/rounded"/>
+
+                <Button
+                    android:id="@+id/menu2"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_margin="10dp"
+                    android:padding="25dp"
+                    android:gravity="center"
+                    android:text="Nama judul"
+                    android:layout_below="@+id/menu1"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/rounded"/>
+
+                <Button
+                    android:id="@+id/menu3"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:layout_margin="10dp"
+                    android:padding="25dp"
+                    android:gravity="center"
+                    android:text="Nama judul"
+                    android:layout_below="@+id/menu2"
+                    android:textColor="@color/colorAccent"
+                    android:background="@drawable/rounded"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
