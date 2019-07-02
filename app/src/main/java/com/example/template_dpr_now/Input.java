@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Switch;
@@ -31,12 +32,13 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
     protected Cursor cursor;
     DataHelper dbHelper;
     EditText text3,text4,text5,text6;
-    Button Save;
     AutoCompleteTextView text1, text2;
     TextView txtTime,txtDate;
-    RadioGroup jkgroup;
+    Button Save;
+    RadioGroup myradiogrup;
+    RadioButton radiobutton;
+    //toogle
     Switch switch1;
-    //radio toogle
     CheckBox checkbox1;
     SeekBar seekbar1;
     private int  mHour, mMinute, mYear, mMonth, mDay;
@@ -45,59 +47,27 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        txtTime = (EditText) findViewById(R.id.Time);
-        txtTime.setOnClickListener(this);
-
-        txtDate = (EditText) findViewById(R.id.Date);
-        txtDate.setOnClickListener(this);
-
         dbHelper = new DataHelper(this);
+
         text1 = (AutoCompleteTextView) findViewById(R.id.namaview);
         text2 =(AutoCompleteTextView) findViewById(R.id.emailview);
         text3 = (EditText) findViewById(R.id.phoneview);
         text4 = (EditText) findViewById(R.id.Time);
         text5 = (EditText) findViewById(R.id.Date);
         text6 = (EditText) findViewById(R.id.essai);
+
+        txtTime = (EditText) findViewById(R.id.Time);
+        txtTime.setOnClickListener(this);
+        txtDate = (EditText) findViewById(R.id.Date);
+        txtDate.setOnClickListener(this);
+
         Save = (Button) findViewById(R.id.simpan);
 
+        myradiogrup = findViewById(R.id.jkgrup);
+//
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         buatinput();
-    }
-
-    @Override
-    public void onClick (View v){
-
-        final Calendar c = Calendar.getInstance();
-        mHour = c.get(Calendar.HOUR_OF_DAY);
-        mMinute = c.get(Calendar.MINUTE);
-        mYear = c.get(Calendar.YEAR);
-        mMonth = c.get (Calendar.MONTH);
-        mDay = c.get(Calendar.DAY_OF_MONTH);
-        //Log.d("myTag", "This is my message");
-        // Launch Time Picker Dialog
-
-        final TimePickerDialog timePickerDialog = new TimePickerDialog(this,
-                new TimePickerDialog.OnTimeSetListener() {
-
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay,
-                                          int minute) {
-                        txtTime.setText(hourOfDay + ":" + minute);
-                    }
-                }, mHour, mMinute, false);
-        timePickerDialog.show();
-
-        final DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                new DatePickerDialog.OnDateSetListener() {
-
-                    @Override
-                    public void onDateSet(DatePicker view, int dayOfMonth, int month, int year) {
-                        txtDate.setText(dayOfMonth +"-"+ month +"-"+ year);
-                    }
-                }, mYear,mMonth,mDay);
-        datePickerDialog.show();
     }
 
     public void buatinput (){
@@ -157,8 +127,40 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
                         text6.getText().toString()+ "')");
                 Toast.makeText(getApplicationContext(),"Sukses", Toast.LENGTH_LONG).show();
                 startActivity (new Intent(Input.this, MainActivity.class));
-                finish();
             }
         });
+    }
+
+    @Override
+    public void onClick (View v){
+
+        final Calendar c = Calendar.getInstance();
+        mHour = c.get(Calendar.HOUR_OF_DAY);
+        mMinute = c.get(Calendar.MINUTE);
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get (Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+        final TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                new TimePickerDialog.OnTimeSetListener() {
+
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay,
+                                          int minute) {
+                        txtTime.setText(hourOfDay + ":" + minute);
+                    }
+                }, mHour, mMinute, false);
+        timePickerDialog.show();
+
+        final DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int dayOfMonth, int month, int year) {
+                        txtDate.setText(dayOfMonth +"-"+ month +"-"+ year);
+                    }
+                }, mYear,mMonth,mDay);
+        datePickerDialog.show();
     }
 }
