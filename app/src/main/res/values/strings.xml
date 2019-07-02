@@ -30,4 +30,21 @@
     <string name="one">PENGADUAN</string>
     <string name="two">ASPIRASI</string>
     <string name="three">INFORMASI</string>
+    <string name="title_placeholder">Title</string>
+    <string name="news_placeholder">News</string>
+    <string name="card_info_placeholder">Dummy News</string>
+
+    <string-array name="card_titles">
+        <item>Alfa</item>
+        <item>Bravo</item>
+        <item>Charlie</item>
+        <item>Delta</item>
+    </string-array>
+
+    <string-array name="card_info">
+        <item>Echo</item>
+        <item>Foxtrot</item>
+        <item>Golf</item>
+        <item>Hotel</item>
+    </string-array>
 </resources>

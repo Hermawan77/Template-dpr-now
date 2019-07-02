@@ -44,7 +44,7 @@ public class HomeFragment extends Fragment {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getChildFragmentManager());
-        adapter.addFragment(new OneFragment(), "PENGADUAN");
+        adapter.addFragment(new FragmentPengaduan(), "PENGADUAN");
         adapter.addFragment(new TwoFragment(), "ASPIRASI");
         adapter.addFragment(new ThreeFragment(), "INFORMASI");
         viewPager.setAdapter(adapter);
