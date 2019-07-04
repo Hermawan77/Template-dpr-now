@@ -13,8 +13,8 @@
     <string name="time">Time</string>
     <string name="hint_time">isikan waktu anda</string>
     <string name="hint_date">isikan tanggal anda</string>
-    <string name="essai">Essai</string>
-    <string name="hint_essai">isikan essai anda</string>
+    <string name="essai">Isi Aduan</string>
+    <string name="hint_essai">isikan aduan Anda</string>
     <string name="toogletext">aktifkan layanan dalam bentuk toast</string>
     <string name="togglebutton">ToggleButton</string>
     <string name="ubah_mode">ubah mode tampilan</string>
