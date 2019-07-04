@@ -85,32 +85,13 @@
 
 
 
-            <TextView
-                android:id="@+id/timetext"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/phonetext"
-                android:layout_marginTop="10dp"
-                android:text="@string/waktu"
-                android:textSize="@dimen/TS_text" />
 
-            <EditText
-                android:id="@+id/Time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_time"
-                android:layout_below="@id/phonetext"
-                android:layout_toRightOf="@id/phonetext"
-                android:inputType="time"
-                android:textSize="@dimen/TS_text" />
-
-            
             <TextView
                 android:id="@+id/aduantext"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_below="@+id/timetext"
+                android:layout_below="@+id/phonetext"
                 android:text="@string/essai"
                 android:textSize="@dimen/TS_text" />
 
@@ -120,7 +101,7 @@
                 android:layout_height="75dp"
                 android:hint="@string/hint_essai"
                 android:layout_toRightOf="@id/aduantext"
-                android:layout_below="@id/timetext"
+                android:layout_below="@id/phonetext"
                 android:inputType="textMultiLine"
                 android:textSize="@dimen/TS_text" />
 
