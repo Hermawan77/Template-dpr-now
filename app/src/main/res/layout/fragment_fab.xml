@@ -118,7 +118,7 @@
                 android:id="@+id/aduan"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:hint="@string/hint_aduan"
+                android:hint="@string/hint_essai"
                 android:layout_toRightOf="@id/aduantext"
                 android:layout_below="@id/timetext"
                 android:inputType="textMultiLine"
