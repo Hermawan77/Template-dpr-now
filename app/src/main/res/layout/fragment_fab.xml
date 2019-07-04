@@ -84,42 +84,12 @@
                 android:textSize="@dimen/TS_text" />
 
 
-            <TextView
-                android:id="@+id/jktext"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@id/phonetext"
-                android:text="@string/jktext"
-                android:textSize="@dimen/TS_text" />
-
-            <RadioGroup
-                android:id="@+id/jkgrup"
-                android:layout_below="@id/phonetext"
-                android:layout_toRightOf="@+id/phonetext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <RadioButton
-                    android:id="@+id/radioP"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pria" />
-
-                <RadioButton
-                    android:id="@+id/radioW"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/wanita" />
-            </RadioGroup>
 
             <TextView
                 android:id="@+id/timetext"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/jktext"
+                android:layout_below="@+id/phonetext"
                 android:layout_marginTop="10dp"
                 android:text="@string/waktu"
                 android:textSize="@dimen/TS_text" />
@@ -129,8 +99,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_time"
-                android:layout_below="@id/jktext"
-                android:layout_toRightOf="@id/jktext"
+                android:layout_below="@id/phonetext"
+                android:layout_toRightOf="@id/phonetext"
                 android:inputType="time"
                 android:textSize="@dimen/TS_text" />
 
