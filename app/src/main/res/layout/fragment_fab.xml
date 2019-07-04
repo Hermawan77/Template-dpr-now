@@ -104,42 +104,23 @@
                 android:inputType="time"
                 android:textSize="@dimen/TS_text" />
 
+            
             <TextView
-                android:id="@+id/datetext"
+                android:id="@+id/aduantext"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/timetext"
                 android:layout_marginTop="20dp"
-                android:text="@string/tanggal"
-                android:textSize="@dimen/TS_text" />
-
-            <EditText
-                android:id="@+id/Date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_below="@+id/timetext"
-                android:layout_toRightOf="@id/timetext"
-                android:hint="@string/hint_date"
-                android:inputType="datetime"
-                android:textSize="@dimen/TS_text" />
-
-
-            <TextView
-                android:id="@+id/essaitext"
-                android:layout_width="75dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_below="@+id/datetext"
                 android:text="@string/essai"
                 android:textSize="@dimen/TS_text" />
 
             <EditText
-                android:id="@+id/essai"
+                android:id="@+id/aduan"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:hint="@string/hint_essai"
-                android:layout_toRightOf="@id/essaitext"
-                android:layout_below="@id/datetext"
+                android:hint="@string/hint_aduan"
+                android:layout_toRightOf="@id/aduantext"
+                android:layout_below="@id/timetext"
                 android:inputType="textMultiLine"
                 android:textSize="@dimen/TS_text" />
 
@@ -149,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/essai"
+                android:layout_below="@+id/aduan"
                 android:text="@string/simpan" />
 
         </RelativeLayout>
