@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.template_dpr_now.fragment.LainnyaFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -20,7 +21,7 @@ import com.google.android.gms.tasks.Task;
 
 public class Login extends AppCompatActivity {
 
-    private static final String TAG = "AndroidClarified";
+    private static final String TAG = "Template_DPR_Now";
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
 
@@ -64,16 +65,19 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.GOOGLE_ACCOUNT, googleSignInAccount);
 
+        intent.putExtra(LainnyaFragment.GOOGLE_ACCOUNT, googleSignInAccount);
+
         startActivity(intent);
         finish();
     }
+
 
     @Override
     protected void onStart() {
         super.onStart();
         GoogleSignInAccount alreadyloggedAccount = GoogleSignIn.getLastSignedInAccount(this);
         if (alreadyloggedAccount != null){
-            Toast.makeText(this, "Already LoggedIn",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Selamat Datang Kembali",Toast.LENGTH_SHORT).show();
             onLoggedIn(alreadyloggedAccount);
         }
         else {
