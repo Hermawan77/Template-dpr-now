@@ -35,12 +35,6 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
     AutoCompleteTextView text1, text2;
     TextView txtTime,txtDate;
     Button Save;
-    RadioGroup myradiogrup;
-    RadioButton radiobutton;
-    //toogle
-    Switch switch1;
-    CheckBox checkbox1;
-    SeekBar seekbar1;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
     @Override
@@ -62,10 +56,6 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
         txtDate.setOnClickListener(this);
 
         Save = (Button) findViewById(R.id.simpan);
-
-        myradiogrup = findViewById(R.id.jkgrup);
-//
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         buatinput();
     }
