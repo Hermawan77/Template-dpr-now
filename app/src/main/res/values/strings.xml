@@ -30,6 +30,8 @@
     <string name="one">PENGADUAN</string>
     <string name="two">ASPIRASI</string>
     <string name="three">INFORMASI</string>
+
+
     <string name="title_placeholder">Title</string>
     <string name="news_placeholder">News</string>
     <string name="card_info_placeholder">Dummy News</string>
