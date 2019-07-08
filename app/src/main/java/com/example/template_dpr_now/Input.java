@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -35,6 +36,7 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
     AutoCompleteTextView text1, text2;
     TextView txtTime,txtDate;
     Button Save;
+    Spinner spinner;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
     @Override
@@ -55,6 +57,7 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
         txtDate = (EditText) findViewById(R.id.Date);
         txtDate.setOnClickListener(this);
 
+        spinner = (Spinner) findViewById(R.id.spinner);
         Save = (Button) findViewById(R.id.simpan);
 
         buatinput();
@@ -70,6 +73,8 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
                 String key_time = text4.getText().toString().trim();
                 String key_date = text5.getText().toString().trim();
                 String key_essai = text6.getText().toString().trim();
+                String key_spinner = spinner.getSelectedItem().toString();
+
 
                 if (key_name.isEmpty()){
                     text1.setError("pengisian nama diperlukan");
@@ -114,7 +119,8 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
                         text3.getText().toString()+"','"+
                         text4.getText().toString()+"','"+
                         text5.getText().toString()+"','"+
-                        text6.getText().toString()+ "')");
+                        text5.getText().toString()+"','"+
+                        spinner.getSelectedItem().toString()+ "')");
                 Toast.makeText(getApplicationContext(),"Sukses", Toast.LENGTH_LONG).show();
                 startActivity (new Intent(Input.this, MainActivity.class));
             }

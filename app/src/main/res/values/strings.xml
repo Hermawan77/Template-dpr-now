@@ -49,4 +49,12 @@
         <item>Golf</item>
         <item>Hotel</item>
     </string-array>
+
+    <array name="pilihan">
+        <item>satu</item>
+        <item>dua</item>
+        <item>tiga</item>
+        <item>empat</item>
+        <item>lima</item>
+    </array>
 </resources>
