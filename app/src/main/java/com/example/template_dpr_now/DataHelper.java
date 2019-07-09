@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class DataHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "dpr.db";
+    private static final String DATABASE_NAME = "db";
     private static final int DATABASE_VERSION = 4;
     public static final String TABEL_INPUT ="input";
 

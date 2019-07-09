@@ -30,6 +30,7 @@ import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 public class MainActivity extends AppCompatActivity {
 
     public static final String GOOGLE_ACCOUNT = "google_account";
+    public static final String DATABASE_NAME = "db";
     private static final String CHANNEL_ID = ".notificationDemo.channelId";
     Button crudbtn, homebtn, off, send_notif;
 
