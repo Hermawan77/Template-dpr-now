@@ -9,21 +9,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.template_dpr_now.Login;
 import com.example.template_dpr_now.MainActivity;
+import com.example.template_dpr_now.Pengaturan;
 import com.example.template_dpr_now.R;
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.GoogleApi;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.squareup.picasso.Picasso;
@@ -39,6 +35,9 @@ public class LainnyaFragment extends Fragment {
     private TextView profileName;
     private TextView profileEmail;
     private ImageView profileImage;
+
+    private TextView pengaturan;
+    private TextView info;
     private TextView signOut;
 
 
@@ -49,12 +48,32 @@ public class LainnyaFragment extends Fragment {
         profileName = view.findViewById(R.id.profile_text);
         profileEmail = view.findViewById(R.id.profile_email);
         profileImage = view.findViewById(R.id.profile_image);
+
+        pengaturan = view.findViewById(R.id.pengaturan);
+        info = view.findViewById(R.id.info);
         signOut = view.findViewById(R.id.signOut);
         setDataOnView();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
+
+        pengaturan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Pengaturan.class);
+                startActivity(intent);
+            }
+        });
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override

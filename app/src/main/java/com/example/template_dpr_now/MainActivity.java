@@ -37,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Theme.createTheme(this);
+
         setContentView(R.layout.activity_main);
 
-        off = (Button) findViewById(R.id.logout);
+        off = findViewById(R.id.logout);
         crudbtn= findViewById(R.id.crudbtn);
         homebtn = findViewById(R.id.homebtn);
         send_notif = findViewById(R.id.send_notif);

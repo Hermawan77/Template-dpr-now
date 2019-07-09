@@ -3,18 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.template_dpr_now">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/DefaultTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".Pengaturan"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -24,8 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Input"/>
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Input" />
+        <activity android:name=".Login" />
         <activity
             android:name=".Daftar"
             android:label="Daftar Akun" />

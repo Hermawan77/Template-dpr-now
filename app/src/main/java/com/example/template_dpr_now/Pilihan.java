@@ -56,7 +56,7 @@ public class Pilihan extends AppCompatActivity {
         cursorEmployees.close();
 
         //creating the adapter object
-        adapter = new PilihanAdapter(this, R.layout.list_layout_pilihan, pilihanList);
+       // adapter = new PilihanAdapter(this, R.layout.list_layout_pilihan, pilihanList);
 
         //adding the adapter to listview
         listViewPilihans.setAdapter(adapter);
