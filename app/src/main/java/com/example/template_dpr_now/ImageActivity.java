@@ -76,7 +76,7 @@ public class ImageActivity extends AppCompatActivity {
         lihat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                openImagesActivity();
             }
         });
     }
@@ -144,4 +144,8 @@ public class ImageActivity extends AppCompatActivity {
         }
     }
 
+    private void openImagesActivity(){
+        Intent intent = new Intent(this, ImagesActivity.class);
+        startActivity(intent);
+    }
 }
