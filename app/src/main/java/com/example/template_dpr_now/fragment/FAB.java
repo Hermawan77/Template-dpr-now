@@ -46,7 +46,7 @@ public class FAB extends Fragment {
          btsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<PostPutDelPengaduan> postKontakCall = mApiInterface.postKontak(edit_nama.getText().toString(), edit_email.getText().toString(), edit_nomor.getText().toString(),edit_aduan.getText().toString());
+                Call<PostPutDelPengaduan> postKontakCall = mApiInterface.postPengaduan(edit_nama.getText().toString(), edit_email.getText().toString(), edit_nomor.getText().toString(),edit_aduan.getText().toString());
                 postKontakCall.enqueue(new Callback<PostPutDelPengaduan>() {
                     @Override
                     public void onResponse(Call<PostPutDelPengaduan> call, Response<PostPutDelPengaduan> response) {
