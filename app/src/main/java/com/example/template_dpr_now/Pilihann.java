@@ -35,7 +35,7 @@ public class Pilihann {
         return time;
     }
 
-    public static String getEssai() {
+    public String getEssai() {
         return essai;
     }
 

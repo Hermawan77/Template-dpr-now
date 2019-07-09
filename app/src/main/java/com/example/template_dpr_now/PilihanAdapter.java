@@ -2,6 +2,7 @@ package com.example.template_dpr_now;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
@@ -33,6 +34,10 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
         this.db = mDatabase;
     }
 
+    public PilihanAdapter(Pilihan pilihan, int list_layout_pilihan, List<Pilihann> pilihanList) {
+        super(pilihan, list_layout_pilihan, pilihanList);
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -40,7 +45,7 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
         View view = inflater.inflate(listLayoutRes, null);
 
         //getting employee of the specified position
-        Pilihann pilihann = pilihannList.get(position);
+        final Pilihann pilihann = pilihannList.get(position);
 
 
         //getting views
@@ -65,6 +70,39 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
         Button buttonDelete = view.findViewById(R.id.buttonDelete);
         Button buttonEdit = view.findViewById(R.id.buttonEdit);
 
+        //adding a clicklistener to button
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updatePilihann(pilihann);
+            }
+        });
+
+        //the delete operation
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
+                builder.setTitle("Are you sure?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String sql = "DELETE FROM employees WHERE id = ?";
+                        db.execSQL(sql, new Integer[]{pilihann.getId()});
+                        reloadEmployeesFromDatabase();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
         return view;
     }
 
@@ -86,7 +124,7 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
         editTextNama.setText(pilihann.getName());
         editTextEmail.setText(pilihann.getEmail());
         editTextPhone.setText(String.valueOf(pilihann.getPhone()));
-        editTextEssai.setText(Pilihann.getEssai());
+        editTextEssai.setText(pilihann.getEssai());
         editTextDate.setText(pilihann.getDate());
         editTextTime.setText(pilihann.getName());
 

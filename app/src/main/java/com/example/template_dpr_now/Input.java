@@ -119,7 +119,7 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
                         text3.getText().toString()+"','"+
                         text4.getText().toString()+"','"+
                         text5.getText().toString()+"','"+
-                        text5.getText().toString()+"','"+
+                        text6.getText().toString()+"','"+
                         spinner.getSelectedItem().toString()+ "')");
                 Toast.makeText(getApplicationContext(),"Sukses", Toast.LENGTH_LONG).show();
                 startActivity (new Intent(Input.this, MainActivity.class));
