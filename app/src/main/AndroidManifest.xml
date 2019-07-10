@@ -25,17 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Input" />
-        <activity android:name=".Login" />
-        <activity
-            android:name=".Daftar"
-            android:label="Daftar Akun" />
-        <activity
-            android:name=".Email"
-            android:label="Login Email" />
-        <activity
-            android:name=".MulaiActivity"
-            android:label="HOME" />
+        <activity android:name=".ImagesActivity"/>
+        <activity android:name=".ImageActivity"/>
     </application>
 
 </manifest>

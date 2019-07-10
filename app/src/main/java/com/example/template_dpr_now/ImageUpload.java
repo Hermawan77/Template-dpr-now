@@ -1,7 +1,9 @@
 package com.example.template_dpr_now;
 
+import com.google.firebase.database.Exclude;
+
 public class ImageUpload {
-    private String mName, mImageUrl;
+    private String mName, mImageUrl, mKey;
 
     public ImageUpload(){
 
@@ -30,5 +32,15 @@ public class ImageUpload {
 
     public void setImageUrl(String imageurl){
        mImageUrl = imageurl ;
+    }
+
+    @Exclude
+    public String getKey(){
+        return mKey;
+    }
+
+    @Exclude
+    public void setKey(String key){
+        mKey = key;
     }
 }

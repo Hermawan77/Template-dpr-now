@@ -9,21 +9,26 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImagesActivity extends AppCompatActivity {
+public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
     private DatabaseReference mDatabaseRef;
     private List<ImageUpload> mUploads;
     private ProgressBar mProgressCircle;
+    private FirebaseStorage mStorage;
+    private ValueEventListener mDBListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +37,34 @@ public class ImagesActivity extends AppCompatActivity {
 
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(ImagesActivity.this));
         mProgressCircle = findViewById(R.id.progress_circle);
 
         mUploads = new ArrayList<>();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("images");
+        mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(ImagesActivity.this);
+        mProgressCircle.setVisibility(View.INVISIBLE);
 
-        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        mStorage = FirebaseStorage.getInstance();
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+
+        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                mUploads.clear();
+
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
                     ImageUpload upload = postSnapshot.getValue(ImageUpload.class);
+                    upload.setKey(postSnapshot.getKey());
                     mUploads.add(upload);
                 }
+                    mAdapter.notifyDataSetChanged();
+                    mProgressCircle.setVisibility(View.INVISIBLE);
 
-                mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
-                mRecyclerView.setAdapter(mAdapter);
-                mProgressCircle.setVisibility(View.INVISIBLE);
             }
 
             @Override
@@ -58,5 +73,36 @@ public class ImagesActivity extends AppCompatActivity {
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this, "Normal click at position " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onWhatEverClick(int position) {
+        Toast.makeText(this, "Normal click at position " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        ImageUpload selectedItem = mUploads.get(position);
+        final String selectedKey = selectedItem.getKey();
+
+        StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
+        imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                mDatabaseRef.child(selectedKey).removeValue();
+                Toast.makeText(ImagesActivity.this, "Item Deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDatabaseRef.removeEventListener(mDBListener);
     }
 }

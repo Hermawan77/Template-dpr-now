@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -17,10 +18,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.core.Tag;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -52,8 +57,8 @@ public class ImageActivity extends AppCompatActivity {
         foto = (ImageView) findViewById(R.id.imageview);
         proses = (ProgressBar) findViewById(R.id.progressbar);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("images");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("images");
+        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
         pilih.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,45 +112,44 @@ public class ImageActivity extends AppCompatActivity {
     }
 
     private void uploadFile(){
-        if(mImageUri!=null){
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()+"." +getFileExtension(mImageUri));
-
-            mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+        if (mImageUri != null)
+        {
+            mStorageRef.putFile(mImageUri).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>()
+            {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            proses.setProgress(0);
-                        }
-                    }, 5000);
-
-                    Toast.makeText(ImageActivity.this, "Upload Success", Toast.LENGTH_SHORT).show();
-                    ImageUpload upload = new ImageUpload(judul.getText().toString().trim(),
-                            taskSnapshot.getStorage().getDownloadUrl().toString());
-                    String uploadId = mDatabaseRef.push().getKey();
-                    mDatabaseRef.child(uploadId).setValue(upload);
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception
+                {
+                    if (!task.isSuccessful())
+                    {
+                        throw task.getException();
+                    }
+                    return mStorageRef.getDownloadUrl();
                 }
-            }).addOnFailureListener(new OnFailureListener() {
+            }).addOnCompleteListener(new OnCompleteListener<Uri>()
+            {
                 @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(ImageActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                    double progress = (100.0 * taskSnapshot.getBytesTransferred()/ taskSnapshot.getTotalByteCount());
-                    proses.setProgress((int) progress);
+                public void onComplete(@NonNull Task<Uri> task)
+                {
+                    if (task.isSuccessful())
+                    {
+                        Uri downloadUri = task.getResult();
+
+                        ImageUpload upload = new ImageUpload(judul.getText().toString().trim(),
+                                downloadUri.toString());
+
+                        mDatabaseRef.push().setValue(upload);
+                        Toast.makeText(ImageActivity.this, "Upload Success", Toast.LENGTH_SHORT).show();
+                    } else
+                    {
+                        Toast.makeText(ImageActivity.this, "Upload gagal " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
-        } else{
-            Toast.makeText(this, "no file selected", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void openImagesActivity(){
-        Intent intent = new Intent(this, ImagesActivity.class);
+        Intent intent = new Intent(ImageActivity.this, ImagesActivity.class);
         startActivity(intent);
     }
 }
