@@ -14,8 +14,6 @@
         android:theme="@style/DefaultTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Pengaturan"></activity>
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -25,8 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ImagesActivity"/>
+        <activity android:name=".Login"/>
+        <activity android:name=".Pengaturan"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Input"/>
+        <activity android:name=".MulaiActivity"/>
+        <activity android:name=".input2"/>
+        <activity android:name=".Pilihan"/>
+        <activity android:name=".Daftar"/>
+        <activity android:name=".View_PDF_Files"/>
+        <activity android:name=".UploadActivity"/>
         <activity android:name=".ImageActivity"/>
+        <activity android:name=".ImagesActivity"/>
     </application>
 
 </manifest>
