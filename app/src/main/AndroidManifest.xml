@@ -35,6 +35,7 @@
         <activity android:name=".UploadActivity"/>
         <activity android:name=".ImageActivity"/>
         <activity android:name=".ImagesActivity"/>
+        <activity android:name=".Slide"/>
     </application>
 
 </manifest>
