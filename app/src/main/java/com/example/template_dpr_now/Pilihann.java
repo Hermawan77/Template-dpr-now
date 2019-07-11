@@ -5,14 +5,15 @@ public class Pilihann {
     String name, email, date, time, essai, pilihan;
     double phone;
 
-    public Pilihann(int id, String name, String email, String date, String time, String essai, String pilihan, double phone) {
+    public Pilihann(int id, String name, String email, double phone, String date, String time, String essai, String pilihan) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.phone = phone;
         this.date = date;
         this.time = time;
         this.essai = essai;
-        this.phone = phone;
+        this.pilihan = pilihan;
     }
 
     public int getId() {
@@ -25,6 +26,10 @@ public class Pilihann {
 
     public String getEmail() {
         return email;
+    }
+
+    public double getPhone() {
+        return phone;
     }
 
     public String getDate() {
@@ -41,9 +46,5 @@ public class Pilihann {
 
     public String getPilihan() {
         return pilihan;
-    }
-
-    public double getPhone() {
-        return phone;
     }
 }

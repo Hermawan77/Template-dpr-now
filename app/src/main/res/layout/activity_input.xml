@@ -167,6 +167,17 @@
                 android:layout_below="@+id/spinner"
                 android:text="@string/simpan" />
 
+            <TextView
+                android:id="@+id/Viewpilihan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lihat Daftar"
+                android:layout_below="@id/simpan"
+                android:layout_centerHorizontal="true"
+                android:onClick="onClick"
+                android:textStyle="bold"
+                android:textSize="20dp"/>
+
         </RelativeLayout>
 
     </ScrollView>
