@@ -19,6 +19,10 @@ import com.example.template_dpr_now.Model.PostPutDelPengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,17 +50,28 @@ public class FAB extends Fragment {
          btsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Call<PostPutDelPengaduan> postKontakCall = mApiInterface.postPengaduan(edit_nama.getText().toString(), edit_email.getText().toString(), edit_nomor.getText().toString(),edit_aduan.getText().toString());
-                postKontakCall.enqueue(new Callback<PostPutDelPengaduan>() {
+                Map<String,String> hashMap=new HashMap<>();
+                hashMap.put("nama",edit_nama.getText().toString());
+                hashMap.put("email", edit_email.getText().toString());
+                hashMap.put("no_telepon",edit_nomor.getText().toString());
+                hashMap.put("isi_aduan",edit_aduan.getText().toString());
+
+
+                Gson gson = new Gson();
+                String output = gson.toJson(hashMap);
+               //Call<PostPutDelPengaduan> postPengaduanCall = mApiInterface.postPengaduan(edit_nama.getText().toString(),edit_email.getText().toString(),edit_nomor.getText().toString(),edit_aduan.getText().toString());
+                Call<PostPutDelPengaduan> postPengaduanCall = mApiInterface.postPengaduan(hashMap);
+               // Call<PostPutDelPengaduan> postPengaduanCall = mApiInterface.postPengaduan(output);
+                postPengaduanCall.enqueue(new Callback<PostPutDelPengaduan>() {
                     @Override
                     public void onResponse(Call<PostPutDelPengaduan> call, Response<PostPutDelPengaduan> response) {
 //                        MainActivity.ma.refresh();
 //                        finish();
 
-                        Log.d(TAG,"is sukses : "+response.isSuccessful());
-                        Log.d(TAG,"pesan : "+response.message());
-                        Log.d(TAG,"Bodi error : "+response.errorBody());
-                        Log.d(TAG,"kasar : "+response.raw());
+                        Log.d(TAG,"Sukses ? : "+response.isSuccessful());
+                        Log.d(TAG,"Body Error : "+response.errorBody());
+                        Log.d(TAG,"Pesan : "+response.raw());
+
                     }
 
                     @Override
