@@ -24,13 +24,10 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
 public interface API_Interface {
-    static final String JSON_CONTENT_TYPE = "application/json";
     @GET("kontak_android")
     Call<GetPengaduan> getPengaduan();
     @Headers("Content-Type: application/json")
     @POST("/pengaduan/")
-
-   // Call<PostPutDelPengaduan> postPengaduan(@Body Pengaduan p);
 
     Call<PostPutDelPengaduan> postPengaduan(@Body  Map <String,String> option);
 //    @FormUrlEncoded

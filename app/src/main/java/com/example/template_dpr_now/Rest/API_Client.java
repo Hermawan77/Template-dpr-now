@@ -14,9 +14,6 @@ public class API_Client {
 
     private static Retrofit retrofit = null;
     public static Retrofit getClient() {
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
         if (retrofit == null) {
             OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();

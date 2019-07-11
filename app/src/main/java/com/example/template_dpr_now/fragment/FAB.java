@@ -56,17 +56,10 @@ public class FAB extends Fragment {
                 hashMap.put("no_telepon",edit_nomor.getText().toString());
                 hashMap.put("isi_aduan",edit_aduan.getText().toString());
 
-
-                Gson gson = new Gson();
-                String output = gson.toJson(hashMap);
-               //Call<PostPutDelPengaduan> postPengaduanCall = mApiInterface.postPengaduan(edit_nama.getText().toString(),edit_email.getText().toString(),edit_nomor.getText().toString(),edit_aduan.getText().toString());
                 Call<PostPutDelPengaduan> postPengaduanCall = mApiInterface.postPengaduan(hashMap);
-               // Call<PostPutDelPengaduan> postPengaduanCall = mApiInterface.postPengaduan(output);
                 postPengaduanCall.enqueue(new Callback<PostPutDelPengaduan>() {
                     @Override
                     public void onResponse(Call<PostPutDelPengaduan> call, Response<PostPutDelPengaduan> response) {
-//                        MainActivity.ma.refresh();
-//                        finish();
 
                         Log.d(TAG,"Sukses ? : "+response.isSuccessful());
                         Log.d(TAG,"Body Error : "+response.errorBody());
@@ -82,15 +75,6 @@ public class FAB extends Fragment {
                 });
             }
         });
-
-//        btBack = view.findViewById(R.id.btBackGo);
-//        btBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                MainActivity.ma.refresh();
-//                finish();
-//            }
-//        });
 
         return  view;
 
