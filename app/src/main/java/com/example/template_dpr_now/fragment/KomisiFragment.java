@@ -1,19 +1,74 @@
 package com.example.template_dpr_now.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.template_dpr_now.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class KomisiFragment extends Fragment {
-    @Nullable
+
+    private ViewPager mViewPager;
+    private SectionsPageAdapter mSectionPageAdapter;
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_komisi, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_komisi, container, false);
+
+        mSectionPageAdapter = new SectionsPageAdapter(getChildFragmentManager());
+
+        mViewPager = view.findViewById(R.id.container_komisi);
+        setupViewPager (mViewPager);
+
+        TabLayout tabLayout = view.findViewById(R.id.tabs_komisi);
+        tabLayout.setupWithViewPager(mViewPager);
+
+        return view;
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        SectionsPageAdapter adapter = new SectionsPageAdapter(getChildFragmentManager());
+        adapter.addFragment(new FragmentBM(), "Badan Musyawarah");
+        viewPager.setAdapter(adapter);
+    }
+
+    public class SectionsPageAdapter extends FragmentPagerAdapter {
+
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        public SectionsPageAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
     }
 }

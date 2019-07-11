@@ -1,5 +1,6 @@
 package com.example.template_dpr_now.fragment;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,50 +8,59 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.template_dpr_now.Card;
 import com.example.template_dpr_now.CardAdapter;
+import com.example.template_dpr_now.PilihanAdapter;
+import com.example.template_dpr_now.Pilihann;
 import com.example.template_dpr_now.R;
+import com.example.template_dpr_now.Rest.DatabaseManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentPengaduan extends Fragment {
 
-    private RecyclerView mRecyclerView;
-    private ArrayList<Card> mCardData;
-    private CardAdapter mAdapter;
+    List<Pilihann> pilihanList;
+    ListView listViewPilihans;
+    DatabaseManager mDatabase;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pengaduan, container, false);
 
-        mRecyclerView = view.findViewById(R.id.recycler_pengaduan);
+        mDatabase = new DatabaseManager(getActivity());
+        listViewPilihans = view.findViewById(R.id.listviewpilihan);
+        pilihanList = new ArrayList<>();
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        mCardData = new ArrayList<>();
-
-        mAdapter = new CardAdapter(getActivity(), mCardData);
-        mRecyclerView.setAdapter(mAdapter);
-
-        initializeData();
+        loadPilihansFromDatabase();
 
 
         return view;
     }
 
-    private void initializeData() {
-        String[] cardList = getResources().getStringArray(R.array.card_titles);
-        String[] cardInfo = getResources().getStringArray(R.array.card_info);
-
-        mCardData.clear();
-
-        for (int i=0; i<cardList.length; i++){
-            mCardData.add(new Card(cardList[i],cardInfo[i]));
+    private void loadPilihansFromDatabase() {
+        Cursor cursor = mDatabase.getAllPilihan();
+        if (cursor.moveToFirst()) {
+            do {
+                pilihanList.add(new Pilihann(
+                        cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getDouble(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7)
+                ));
+            } while (cursor.moveToNext());
         }
 
-        mAdapter.notifyDataSetChanged();
+        PilihanAdapter adapter = new PilihanAdapter(getActivity(), R.layout.list_layout_pilihan, pilihanList, mDatabase);
 
+        listViewPilihans.setAdapter(adapter);
     }
+
 
 }

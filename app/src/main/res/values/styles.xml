@@ -31,4 +31,17 @@
     </style>
 
 
+    <style name="Green_goblin" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#a8e063</item>
+        <item name="colorPrimaryDark">#56ab2f</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:textColorPrimary">@color/textColor</item>
+        <item name="android:textColorSecondary">@color/textColor</item>
+
+        <item name="card_background">@color/cardBackground</item>
+    </style>
+
 </resources>

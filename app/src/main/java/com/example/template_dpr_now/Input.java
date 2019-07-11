@@ -124,7 +124,8 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.Viewpilihan:
 
-                startActivity(new Intent(this, Pilihan.class));
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
 
                 break;
 

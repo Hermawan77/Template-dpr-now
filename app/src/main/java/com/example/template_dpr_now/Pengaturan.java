@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class Pengaturan extends AppCompatActivity {
 
-    Button t1, t2;
+    Button t1, t2, t3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class Pengaturan extends AppCompatActivity {
 
         t1 = findViewById(R.id.Theme1);
         t2 = findViewById(R.id.Theme2);
+        t3 = findViewById(R.id.Theme3);
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +36,15 @@ public class Pengaturan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Theme.setTheme(getApplication(), 1);
+                recreate();
+                Toast.makeText(Pengaturan.this, "Tema berhasil diubah", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        t3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Theme.setTheme(getApplicationContext(), 2);
                 recreate();
                 Toast.makeText(Pengaturan.this, "Tema berhasil diubah", Toast.LENGTH_SHORT).show();
             }

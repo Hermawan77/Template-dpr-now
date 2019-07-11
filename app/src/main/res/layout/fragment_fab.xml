@@ -112,6 +112,15 @@
                 android:layout_below="@+id/aduan"
                 android:text="@string/simpan" />
 
+            <Button
+                android:id="@+id/btnsql"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/btnsimpan"
+                android:text="SQL" />
+
         </RelativeLayout>
 
     </ScrollView>

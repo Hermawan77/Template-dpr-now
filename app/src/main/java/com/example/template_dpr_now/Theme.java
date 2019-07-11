@@ -3,7 +3,6 @@ package com.example.template_dpr_now;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.view.View;
 
 public class Theme {
     private static SharedPreferences pref;
@@ -21,6 +20,8 @@ public class Theme {
             case 1:
                 context.setTheme(R.style.DarkTheme);
                 break;
+            case 2:
+                context.setTheme(R.style.Green_goblin);
         }
     }
 
