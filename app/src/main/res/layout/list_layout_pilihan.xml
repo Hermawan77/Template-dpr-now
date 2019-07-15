@@ -49,25 +49,27 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                         <Button
                             android:id="@+id/buttonEdit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="75dp"
+                            android:layout_height="35dp"
+                            android:textSize="10dp"
                             android:text="Edit" />
 
                         <Button
                             android:id="@+id/buttonDelete"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="75dp"
+                            android:layout_height="35dp"
+                            android:textSize="10dp"
                             android:backgroundTint="@color/colorPrimary"
                             android:text="Delete" />
 
