@@ -17,7 +17,7 @@
         <item name="card_background">@color/cardBackground</item>
     </style>
 
-    <style name="DarkTheme" parent="Theme.AppCompat">
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/cardBackgroundDark</item>
         <item name="colorPrimaryDark">@color/cardBackgroundDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -42,6 +42,15 @@
         <item name="android:textColorSecondary">@color/textColor</item>
 
         <item name="card_background">@color/cardBackground</item>
+    </style>
+
+
+    <style name="Arial" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily">@font/arial</item>
+    </style>
+
+    <style name="Times" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:fontFamily">@font/times</item>
     </style>
 
 </resources>

@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class Pengaturan extends AppCompatActivity {
 
+    Spinner spinner_font;
     Button t1, t2, t3;
 
     @Override
@@ -16,12 +19,16 @@ public class Pengaturan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Theme.createTheme(this);
+        //-=,Font_Change.createFont(this);
 
         setContentView(R.layout.activity_pengaturan);
 
         t1 = findViewById(R.id.Theme1);
         t2 = findViewById(R.id.Theme2);
         t3 = findViewById(R.id.Theme3);
+
+        spinner_font = findViewById(R.id.spinner_font);
+
 
         t1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +56,42 @@ public class Pengaturan extends AppCompatActivity {
                 Toast.makeText(Pengaturan.this, "Tema berhasil diubah", Toast.LENGTH_SHORT).show();
             }
         });
+
+        spinner_font.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        break;
+                    case 1:
+                        Theme.setTheme(getApplicationContext(), 10);
+                        //Font_Change.setFont(getApplicationContext(), 0);
+                        recreate();
+                        Toast.makeText(Pengaturan.this, "Font berhasil diubah", Toast.LENGTH_SHORT).show();
+                        spinner_font.setSelection(0);
+                        break;
+                    case 2:
+                        Theme.setTheme(getApplicationContext(), 11);
+                        //Font_Change.setFont(getApplicationContext(), 0);
+                        recreate();
+                        Toast.makeText(Pengaturan.this, "Font berhasil diubah", Toast.LENGTH_SHORT).show();
+                        spinner_font.setSelection(0);
+                        break;
+
+                        default:
+                            Toast.makeText(Pengaturan.this, "Font gagal diubah", Toast.LENGTH_SHORT).show();
+                            spinner_font.setSelection(0);
+                            break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
     }
 
     @Override
