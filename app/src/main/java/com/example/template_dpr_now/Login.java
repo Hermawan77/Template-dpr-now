@@ -22,8 +22,21 @@ import com.google.android.gms.tasks.Task;
 public class Login extends AppCompatActivity {
 
     private static final String TAG = "Template_DPR_Now";
+    private long backPressedTime;
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
+
+    @Override
+    public void onBackPressed() {
+        if(backPressedTime + 2000 > System.currentTimeMillis()){
+            super.onBackPressed();
+            return;
+        } else{
+            Toast.makeText(getBaseContext(), "Tekan kembali untuk keluar", Toast.LENGTH_SHORT).show();
+        }
+        backPressedTime = System.currentTimeMillis();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +75,14 @@ public class Login extends AppCompatActivity {
     }
 
     private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
+        finish();
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.GOOGLE_ACCOUNT, googleSignInAccount);
 
         intent.putExtra(LainnyaFragment.GOOGLE_ACCOUNT, googleSignInAccount);
 
         startActivity(intent);
-        finish();
+
     }
 
 

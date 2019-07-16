@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.template_dpr_now.Login;
 import com.example.template_dpr_now.MainActivity;
@@ -22,9 +23,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import static android.support.constraint.Constraints.TAG;
+import static android.widget.Toast.*;
 
 public class LainnyaFragment extends Fragment {
 
@@ -78,14 +81,20 @@ public class LainnyaFragment extends Fragment {
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(), Login.class);
+                getActivity().finish();
+                startActivity(intent);
                 googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Intent intent = new Intent(getActivity(), Login.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+
                     }
                 });
+
             }
         });
 

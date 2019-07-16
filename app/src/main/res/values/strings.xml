@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Template_dpr_now</string>
+    <string-array name="my_search">
+        <item>Test </item>
+        <item>Babeh </item>
+        <item>Anak </item>
+        <item>Betawi </item>
+        <item>Asli </item>
+    </string-array>
     <string name="judul_input">Isikan Aduan Anda</string>
     <string name="namatext">Nama</string>
     <string name="hint_namaisi">isikan nama lengkap</string>
