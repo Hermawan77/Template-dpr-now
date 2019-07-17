@@ -25,24 +25,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class View_PDF_Files extends AppCompatActivity {
+
+    // Mendeklarasikan Variable
     ListView ListFile;
     DatabaseReference databaseReference;
     List<UploadPDF> uploadPDFS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        // Menampilkan activity_viewpdf.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewpdf);
 
+        // Mendeklarasikan Variable
         ListFile = (ListView) findViewById(R.id.myListView);
         uploadPDFS = new ArrayList<>();
 
         viewAllFiles();
+
+        // Memberi Handler agar berfungsi saat di click
         ListFile.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Mengambil urutan file di Storage
                 UploadPDF uploadPDF = uploadPDFS.get(position);
 
+                // Berpindah dengan membuka file
                 Intent intent = new Intent();
                 intent.setData(Uri.parse(uploadPDF.getUrl()));
                 startActivity(intent);
@@ -52,7 +60,11 @@ public class View_PDF_Files extends AppCompatActivity {
     }
 
     private void viewAllFiles(){
+
+        // Memberi nilai pada Firebase Database dan menyimpannya pada folder "uploads"
         databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
+
+        // Membuka seluruh file berformat pdf yang ada pada Firebase Storeage dalam bentuk ListView
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -61,10 +73,12 @@ public class View_PDF_Files extends AppCompatActivity {
                     uploadPDFS.add(uploadPDF);
                 }
 
+                // Mengurutkan sesuai waktu upload
                 String[] uploads = new String[uploadPDFS.size()];
                 for(int i=0;i<uploads.length;i++){
                     uploads[i] = uploadPDFS.get(i).getName();
                 }
+
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,uploads){
 
                     @Override

@@ -31,27 +31,27 @@ import static android.widget.Toast.*;
 
 public class LainnyaFragment extends Fragment {
 
+    // Deklarasi Variable
     public static final String GOOGLE_ACCOUNT = "google_account";
-
     private GoogleSignInClient googleSignInClient;
-
     private TextView profileName;
     private TextView profileEmail;
     private ImageView profileImage;
-
     private TextView pengaturan;
     private TextView info;
     private TextView signOut;
 
 
+    // Memanggil layout fragment_lainnya.xml
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_lainnya, container, false);
+
+        // Memberikan nilai
         profileName = view.findViewById(R.id.profile_text);
         profileEmail = view.findViewById(R.id.profile_email);
         profileImage = view.findViewById(R.id.profile_image);
-
         pengaturan = view.findViewById(R.id.pengaturan);
         info = view.findViewById(R.id.info);
         signOut = view.findViewById(R.id.signOut);
@@ -60,31 +60,38 @@ public class LainnyaFragment extends Fragment {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
-
+        // Memberikan Handler agar bisa di click
         pengaturan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Pindah dari class ini ke Pengaturan.java
                 Intent intent = new Intent(getActivity(), Pengaturan.class);
                 startActivity(intent);
             }
         });
 
+        // Memberikan Handler agar bisa di click
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Pindah dari class ini ke MainActivity.java
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 getActivity().finish();
             }
         });
 
+        // Memberikan Handler agar bisa di click
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Logout dari akun Firebase Authentication dan pindah ke Login.java
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getActivity(), Login.class);
                 getActivity().finish();
                 startActivity(intent);
+
+                // Logout dari akun google SignIn dan pindah ke Login.java
                 googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -101,6 +108,7 @@ public class LainnyaFragment extends Fragment {
         return view;
     }
 
+    // Sinkronisasi akun google agar profile di akun DPR Now! terisi otomatis sesuai dengan akun google
     private void setDataOnView(){
 
         GoogleSignInAccount googleSignInAccount = getActivity().getIntent().getParcelableExtra(GOOGLE_ACCOUNT);

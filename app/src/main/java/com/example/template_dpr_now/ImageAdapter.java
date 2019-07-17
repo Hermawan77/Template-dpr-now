@@ -18,21 +18,26 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
+
+    // Mendeklarasikan Variable
     private Context mContext;
     private List<ImageUpload> mUploads;
     private OnItemClickListener mListener;
 
+    // Memberi nilai
     public ImageAdapter(Context context, List<ImageUpload> uploads){
         mContext = context;
         mUploads = uploads;
     }
 
+    // Menampilkan image_item.xml
     @Override
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.image_item, parent, false);
         return new ImageViewHolder(v);
     }
 
+    // Method untuk mnampilkan image sesuai urutan
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
         ImageUpload uploadCurrent = mUploads.get(position);
@@ -49,6 +54,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return mUploads.size();
     }
 
+    // Sebagai item clicker
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
     View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         public TextView textView;
@@ -74,6 +80,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             }
         }
 
+        // Menampilkan pilihan ketika item di tahan beberapa detik
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.setHeaderTitle("Select Action");
@@ -83,6 +90,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             delete.setOnMenuItemClickListener(this);
         }
 
+        // Clicker item
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             if(mListener!=null){

@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import com.example.template_dpr_now.R;
 
 public class StreamingFragment extends Fragment {
+
+    // Memanggil layout fragment_streaming.xml
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

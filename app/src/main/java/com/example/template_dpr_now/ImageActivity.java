@@ -34,6 +34,7 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 public class ImageActivity extends AppCompatActivity {
+    // Mendeklarasikan Variable
     private static final int PICK_IMAGE_REQUEST=1;
     private Button pilih, upload;
     private TextView lihat;
@@ -47,9 +48,11 @@ public class ImageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Memanggil activity_image.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
 
+        // Memberikan nilai
         pilih = (Button) findViewById(R.id.btn_image);
         upload = (Button) findViewById(R.id.uploadimage);
         lihat = (TextView) findViewById(R.id.viewimage);
@@ -57,9 +60,11 @@ public class ImageActivity extends AppCompatActivity {
         foto = (ImageView) findViewById(R.id.imageview);
         proses = (ProgressBar) findViewById(R.id.progressbar);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        // Mendeklarasikan path/tempat dimana data akan disimpan
+        mStorageRef = FirebaseStorage.getInstance().getReference("images");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("images");
 
+        // Memberikan Handler agar ada fungsi saat di click
         pilih.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,9 +72,11 @@ public class ImageActivity extends AppCompatActivity {
             }
         });
 
+        // Memberikan Handler agar ada fungsi saat di click
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Menampilkan Toast bahwa data sedang di upload
                 if(mUploadTask!=null && mUploadTask.isInProgress()){
                     Toast.makeText(ImageActivity.this, "Upload In Progress", Toast.LENGTH_SHORT).show();
                 }
@@ -78,6 +85,7 @@ public class ImageActivity extends AppCompatActivity {
             }
         });
 
+        // Memberikan Handler agar ada fungsi saat di click
         lihat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +94,7 @@ public class ImageActivity extends AppCompatActivity {
         });
     }
 
+    // Method yang berfungsi menampilkan file berformat image dalam device pengguna
     private void openFileChooser(){
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -93,6 +102,7 @@ public class ImageActivity extends AppCompatActivity {
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
+    // Method untuk load foto
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -111,9 +121,12 @@ public class ImageActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
+    // Method untuk mengupload foto
     private void uploadFile(){
+        // Jika foto telah dipilih
         if (mImageUri != null)
         {
+            // Maka upload foto di mStorageRef yang telah diberi nilai untuk disimpan di folder "images"
             mStorageRef.putFile(mImageUri).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>()
             {
                 @Override
@@ -130,16 +143,20 @@ public class ImageActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Uri> task)
                 {
+                    // Jika berhasil maka simpan foto di Firebase Storage
                     if (task.isSuccessful())
                     {
                         Uri downloadUri = task.getResult();
-
+                        // Mengambil text judul dan mengambil Url dan menyimpannya di Firebase Database
                         ImageUpload upload = new ImageUpload(judul.getText().toString().trim(),
                                 downloadUri.toString());
 
                         mDatabaseRef.push().setValue(upload);
+                        // Menampilkan Toast
                         Toast.makeText(ImageActivity.this, "Upload Success", Toast.LENGTH_SHORT).show();
-                    } else
+                    }
+                    // Jika gagal maka akan memunculkan toast
+                    else
                     {
                         Toast.makeText(ImageActivity.this, "Upload gagal " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -148,6 +165,7 @@ public class ImageActivity extends AppCompatActivity {
         }
     }
 
+    // Pindah ke ImagesActivity.java
     private void openImagesActivity(){
         Intent intent = new Intent(ImageActivity.this, ImagesActivity.class);
         startActivity(intent);

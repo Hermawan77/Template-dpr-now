@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
+
+    // Mendeklarasikan Variable
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
     private DatabaseReference mDatabaseRef;
@@ -32,9 +34,12 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Menampilkan activity_images.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images);
 
+        // Memberikan nilai
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(ImagesActivity.this));
@@ -47,11 +52,13 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mAdapter.setOnItemClickListener(ImagesActivity.this);
         mProgressCircle.setVisibility(View.INVISIBLE);
 
+        // Memberi nilai untuk Firebase Storage dan Database
         mStorage = FirebaseStorage.getInstance();
-
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("images");
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+
+            // Upload foto
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -67,6 +74,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
             }
 
+            // Gagal upload
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(ImagesActivity.this, databaseError.getMessage(),Toast.LENGTH_SHORT).show();
@@ -75,16 +83,19 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         });
     }
 
+    // Memunculkan toast saat ditekan beberapa detik
     @Override
     public void onItemClick(int position) {
         Toast.makeText(this, "Normal click at position " + position, Toast.LENGTH_SHORT).show();
     }
 
+    // Memunculkan toast saat ditekan beberapa detik
     @Override
     public void onWhatEverClick(int position) {
         Toast.makeText(this, "Normal click at position " + position, Toast.LENGTH_SHORT).show();
     }
 
+    // Menghapus item/foto
     @Override
     public void onDeleteClick(int position) {
         ImageUpload selectedItem = mUploads.get(position);
@@ -100,6 +111,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         });
     }
 
+    // Menghapusnya dari Firebase Databse
     @Override
     protected void onDestroy() {
         super.onDestroy();

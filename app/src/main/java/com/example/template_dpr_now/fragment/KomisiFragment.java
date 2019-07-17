@@ -17,15 +17,17 @@ import java.util.List;
 
 public class KomisiFragment extends Fragment {
 
+    // Mendeklarasikan Variable
     private ViewPager mViewPager;
     private SectionsPageAdapter mSectionPageAdapter;
 
+    // Menampilkan fragment_komisi.xml
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        // Memberi nilai
         View view = inflater.inflate(R.layout.fragment_komisi, container, false);
-
         mSectionPageAdapter = new SectionsPageAdapter(getChildFragmentManager());
-
         mViewPager = view.findViewById(R.id.container_komisi);
         setupViewPager (mViewPager);
 
@@ -35,12 +37,14 @@ public class KomisiFragment extends Fragment {
         return view;
     }
 
+    // Menampilkan tombol atau tulisan untuk pindah ke fragment lain
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getChildFragmentManager());
         adapter.addFragment(new FragmentBM(), "Badan Musyawarah");
         viewPager.setAdapter(adapter);
     }
 
+    // Adapter
     public class SectionsPageAdapter extends FragmentPagerAdapter {
 
         private final List<Fragment> mFragmentList = new ArrayList<>();

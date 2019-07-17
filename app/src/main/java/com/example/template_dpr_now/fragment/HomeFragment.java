@@ -17,6 +17,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+    // Mendeklarasikan Variable
     private ViewPager mViewPager;
     private SectionsPageAdapter mSectionsPageAdapter;
 
@@ -26,15 +27,15 @@ public class HomeFragment extends Fragment {
         setRetainInstance(true);
     }
 
+    // Memanggil layout fragment_home
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Memberikan nilai
         mSectionsPageAdapter = new SectionsPageAdapter(getChildFragmentManager());
-
         mViewPager = (ViewPager) view.findViewById(R.id.container);
         setupViewPager(mViewPager);
-
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
@@ -42,6 +43,7 @@ public class HomeFragment extends Fragment {
 
     }
 
+    // Menampilkan tombol atau tulisan untuk pindah ke fragment lain berupa Tab View
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getChildFragmentManager());
         adapter.addFragment(new FragmentPengaduan(), "PENGADUAN");
@@ -50,6 +52,7 @@ public class HomeFragment extends Fragment {
         viewPager.setAdapter(adapter);
     }
 
+    // Adapter 3 fragment
     public class SectionsPageAdapter extends FragmentPagerAdapter {
 
         private final List<Fragment> mFragmentList = new ArrayList<>();

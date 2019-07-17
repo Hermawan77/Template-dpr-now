@@ -10,13 +10,17 @@ import android.widget.ViewFlipper;
 
 public class MulaiActivity extends AppCompatActivity {
 
+    // Mendeklarasikan Variable
     Button menu1, menu2, menu3;
     ViewFlipper v_flipper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Menampilkan activity_mulai.xml
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mulai);
 
+        // Memberi nilai
         menu1 = findViewById(R.id.menu1);
         menu2 = findViewById(R.id.menu2);
         menu3 = findViewById(R.id.menu3);

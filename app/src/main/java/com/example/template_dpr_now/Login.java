@@ -21,11 +21,14 @@ import com.google.android.gms.tasks.Task;
 
 public class Login extends AppCompatActivity {
 
+    // Mendeklarasikan Variable
     private static final String TAG = "Template_DPR_Now";
     private long backPressedTime;
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
 
+    // Back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
+    // dan akan memunculkan toast
     @Override
     public void onBackPressed() {
         if(backPressedTime + 2000 > System.currentTimeMillis()){
@@ -38,15 +41,19 @@ public class Login extends AppCompatActivity {
 
     }
 
+    // Menampilkan layott activity_login
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Memberi nilai
         googleSignInButton = findViewById(R.id.sign_in_button);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        // Memberi Handler agar ada fungsi saat di click
         googleSignInButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -74,6 +81,7 @@ public class Login extends AppCompatActivity {
             }
     }
 
+    // Ketika login menggunakan akun google berhasil maka akan berpindah ke MainActivity.java
     private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
         finish();
         Intent intent = new Intent(this, MainActivity.class);
@@ -84,6 +92,7 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
 
     @Override
@@ -99,6 +108,7 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    // Pindah ke class Email.java
     public void masukEmail(View view) {
         Intent i = new Intent(Login.this, Email.class);
         startActivity(i);

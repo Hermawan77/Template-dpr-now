@@ -21,6 +21,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class UploadActivity extends AppCompatActivity {
+
+    // Mendeklarasikan Variable
     EditText uploadname;
     Button uploadfile;
     StorageReference storageReference;
@@ -28,15 +30,20 @@ public class UploadActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Menampilkan activity_upload
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
+        // Memberi nilai
         uploadname = (EditText) findViewById(R.id.txt_pdfName);
         uploadfile = (Button) findViewById(R.id.btn_upload);
 
+        // Memberi nilai Firebase Storage dan Database lalu memberi nilai tempat untuk menyimpan data
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
 
+        // Memberi Handler agar berfungsi ketika tombol di tekan
         uploadfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +52,7 @@ public class UploadActivity extends AppCompatActivity {
         });
     }
 
+    // Method yang berfungsi menampilkan file berformat pdf dalam device pengguna
     public void selectPDFFile(){
         Intent intent = new Intent();
         intent.setType("application/pdf");
@@ -52,6 +60,7 @@ public class UploadActivity extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Select PDF File"),1);
     }
 
+    // Method untuk load file pdf
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -61,16 +70,21 @@ public class UploadActivity extends AppCompatActivity {
         }
     }
 
+    // Mengupload file pdf
     private void uploadPDFFile(Uri data){
+        // Mendeklarasikan Variable
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading . . .");
         progressDialog.show();
 
+        // Mendeklarasikan tempat upload pdf file dan memberikan nama file sesuai waktu saat ini
         StorageReference reference =  storageReference.child("uploads/"+System.currentTimeMillis()+".pdf");
         reference.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                // Ketika berhasil maka akan mengambil nama file dan url untuk membuka file
                 Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
                 while(!uri.isComplete());
                 Uri url = uri.getResult();
@@ -79,10 +93,12 @@ public class UploadActivity extends AppCompatActivity {
                 databaseReference.child(databaseReference.push().getKey()).setValue(UploadPDF);
                 Toast.makeText(UploadActivity.this, "File Upload", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
+
             }
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                // Menampilkan progress Dialog
                 double progress = (100.0*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
                 progressDialog.setMessage("Upload : "+(int)progress+"%");
             }
@@ -91,6 +107,8 @@ public class UploadActivity extends AppCompatActivity {
 
 
     public void btn_lihat(View view) {
+
+        // Berpindah ke View_PDF_Files.java
         startActivity(new Intent(getApplicationContext(), View_PDF_Files.class));
     }
 }
