@@ -17,21 +17,21 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class PilihanAdapter extends ArrayAdapter<Pilihann> {
+public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
 
     Context mCtx;
     int layoutRes;
-    List<Pilihann> pilihannList;
+    List<Aspirasii> aspirasiiList;
 
     //the databasemanager object
     DatabaseManager mDatabase;
 
-    public PilihanAdapter(Context mCtx, int listLayoutRes, List<Pilihann> pilihannList, DatabaseManager mDatabase) {
-        super(mCtx, listLayoutRes, pilihannList);
+    public AspirasiAdapter(Context mCtx, int listLayoutRes, List<Aspirasii> aspirasiiList, DatabaseManager mDatabase) {
+        super(mCtx, listLayoutRes, aspirasiiList);
 
         this.mCtx = mCtx;
         this.layoutRes = listLayoutRes;
-        this.pilihannList = pilihannList;
+        this.aspirasiiList = aspirasiiList;
         this.mDatabase = mDatabase;
     }
 
@@ -41,7 +41,7 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(layoutRes, null);
 
-        final Pilihann pilihann = pilihannList.get(position);
+        final Aspirasii aspirasii = aspirasiiList.get(position);
 
         //getting views
         TextView textViewName = view.findViewById(R.id.textViewName);
@@ -53,32 +53,32 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
         TextView textViewTime = view.findViewById(R.id.textViewTime);
 
         //adding data to views
-        textViewName.setText(pilihann.getName());
-        textViewEmail.setText(pilihann.getEmail());
-        textViewPhone.setText(String.valueOf(pilihann.getPhone()));
-        textViewPilihan.setText(pilihann.getPilihan());
-        textViewEssai.setText(pilihann.getEssai());
-        textViewDate.setText(pilihann.getDate());
-        textViewTime.setText(pilihann.getTime());
+        textViewName.setText(aspirasii.getName());
+        textViewEmail.setText(aspirasii.getEmail());
+        textViewPhone.setText(aspirasii.getPhone());
+        textViewPilihan.setText(aspirasii.getPilihan());
+        textViewEssai.setText(aspirasii.getEssai());
+        textViewDate.setText(aspirasii.getDate());
+        textViewTime.setText(aspirasii.getTime());
 
         view.findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deletePilihan(pilihann);
+                deletePilihan(aspirasii);
             }
         });
 
         view.findViewById(R.id.buttonEdit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updatePilihann(pilihann);
+                updatePilihann(aspirasii);
             }
         });
 
         return view;
     }
 
-    private void updatePilihann(final Pilihann pilihann){
+    private void updatePilihann(final Aspirasii aspirasii){
         final AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.dialog_update_pilihan, null);
@@ -95,12 +95,12 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
         final EditText editTextDate = view.findViewById(R.id.Date);
         final EditText editTextTime = view.findViewById(R.id.Time);
 
-        editTextName.setText(pilihann.getName());
-        editTextEmail.setText(pilihann.getEmail());
-        editTextPhone.setText(String.valueOf(pilihann.getPhone()));
-        editTextEssai.setText(pilihann.getEssai());
-        editTextDate.setText(pilihann.getDate());
-        editTextTime.setText(pilihann.getName());
+        editTextName.setText(aspirasii.getName());
+        editTextEmail.setText(aspirasii.getEmail());
+        editTextPhone.setText(aspirasii.getPhone());
+        editTextEssai.setText(aspirasii.getEssai());
+        editTextDate.setText(aspirasii.getDate());
+        editTextTime.setText(aspirasii.getName());
 
         view.findViewById(R.id.buttonUpdate).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,15 +150,15 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
                 }
 
                 //calling the update method from database manager instance
-                if (mDatabase.updatepilihan(pilihann.getId(), name, email, phone, date, time, essai, pilihan)) {
-                    Toast.makeText(mCtx, "Pilihan Updated", Toast.LENGTH_SHORT).show();
+                if (mDatabase.updatepilihan(aspirasii.getId(), name, email, phone, date, time, essai, pilihan)) {
+                    Toast.makeText(mCtx, "Aspirasi Updated", Toast.LENGTH_SHORT).show();
                     loadEmployeesFromDatabaseAgain();
                 }
                 alertDialog.dismiss();
             }
         });
     }
-    private void deletePilihan(final Pilihann pilihann){
+    private void deletePilihan(final Aspirasii aspirasii){
         AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
         builder.setTitle("Are you sure?");
 
@@ -167,7 +167,7 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 //calling the delete method from the database manager instance
-                if (mDatabase.deleteEmployee(pilihann.getId()))
+                if (mDatabase.deleteEmployee(aspirasii.getId()))
                     loadEmployeesFromDatabaseAgain();
             }
         });
@@ -186,10 +186,10 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
         //calling the read method from database instance
         Cursor cursor = mDatabase.getAllPilihan();
 
-        pilihannList.clear();
+        aspirasiiList.clear();
         if (cursor.moveToFirst()) {
             do {
-                pilihannList.add(new Pilihann(
+                aspirasiiList.add(new Aspirasii(
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),

@@ -9,9 +9,9 @@ import android.widget.SearchView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pilihan extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class Aspirasi extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    List<Pilihann> pilihanList;
+    List<Aspirasii> pilihanList;
     ListView listViewPilihans;
 
     //The databasemanager object
@@ -20,11 +20,11 @@ public class Pilihan extends AppCompatActivity implements SearchView.OnQueryText
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pilihan);
+        setContentView(R.layout.activity_aspirasi);
 
         mDatabase = new DatabaseManager(this);
 
-        listViewPilihans = (ListView) findViewById(R.id.listviewpilihan);
+        listViewPilihans = (ListView) findViewById(R.id.listviewaspirasi);
         pilihanList = new ArrayList<>();
 
         //this method will display the employees in the list
@@ -39,7 +39,7 @@ public class Pilihan extends AppCompatActivity implements SearchView.OnQueryText
             //looping through all the records
             do {
                 //pushing each record in the employee list
-                pilihanList.add(new Pilihann(
+                pilihanList.add(new Aspirasii(
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
@@ -53,7 +53,7 @@ public class Pilihan extends AppCompatActivity implements SearchView.OnQueryText
         }
 
         //creating the adapter object
-        PilihanAdapter adapter = new PilihanAdapter(this, R.layout.list_layout_pilihan, pilihanList, mDatabase);
+        AspirasiAdapter adapter = new AspirasiAdapter(this, R.layout.list_layout_aspirasi, pilihanList, mDatabase);
 
         //adding the adapter to listview
         listViewPilihans.setAdapter(adapter);

@@ -34,7 +34,7 @@ public class MulaiActivity extends AppCompatActivity {
 //            public void onClick(View v) {
 //                Intent intent = new Intent(MulaiActivity.this, MulaiActivity.class);
 //                MainActivity.this.startActivity(intent);
-//                Input.this.finish();
+//                InputAspirasi.this.finish();
 //            }
 //        });
 //
@@ -43,7 +43,7 @@ public class MulaiActivity extends AppCompatActivity {
 //            public void onClick(View v) {
 //                Intent intent = new Intent(MulaiActivity.this, MulaiActivity.class);
 //                MainActivity.this.startActivity(intent);
-//                Input.this.finish();
+//                InputAspirasi.this.finish();
 //            }
 //        });
 //
@@ -52,7 +52,7 @@ public class MulaiActivity extends AppCompatActivity {
 //            public void onClick(View v) {
 //                Intent intent = new Intent(MulaiActivity.this, MulaiActivity.class);
 //                MainActivity.this.startActivity(intent);
-//                Input.this.finish();
+//                InputAspirasi.this.finish();
 //            }
 //        });
     }

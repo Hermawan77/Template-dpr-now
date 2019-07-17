@@ -1,10 +1,10 @@
 package com.example.template_dpr_now;
 
-public class Pilihann {
+public class Aspirasii {
     int id;
     String name, email, date, time, essai, pilihan, phone;
 
-    public Pilihann(int id, String name, String email, String phone, String date, String time, String essai, String pilihan) {
+    public Aspirasii(int id, String name, String email, String phone, String date, String time, String essai, String pilihan) {
         this.id = id;
         this.name = name;
         this.email = email;

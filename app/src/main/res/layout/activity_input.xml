@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:padding="20dp"
-    tools:context=".Input">
+    tools:context=".InputAspirasi">
 
     <ScrollView
         android:id="@+id/scrollView1"

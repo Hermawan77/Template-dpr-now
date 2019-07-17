@@ -3,8 +3,8 @@ package com.example.template_dpr_now;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class Input extends AppCompatActivity implements View.OnClickListener {
+public class InputAspirasi extends AppCompatActivity implements View.OnClickListener {
 
     EditText text3,text4,text5,text6;
     AutoCompleteTextView text1, text2;
@@ -124,7 +124,7 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.Viewpilihan:
 
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, Aspirasi.class));
                 finish();
 
                 break;

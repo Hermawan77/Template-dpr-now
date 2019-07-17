@@ -83,14 +83,14 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 1;
     }
 //
-//    public List<Pilihann> findAll(){
-//        List<Pilihann> pilihans = null;
+//    public List<Aspirasii> findAll(){
+//        List<Aspirasii> pilihans = null;
 //        try{ SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 //            Cursor cursor = sqLiteDatabase.rawQuery("select * from " + pilihans, null);
 //            if (cursor.moveToFirst()){
 //                pilihans = new ArrayList<>();
 //                do {
-//                    Pilihan pilihans = new Pilihann();
+//                    Aspirasi pilihans = new Aspirasii();
 //                            pilihans.setid(cursor.getInt(0));
 //                            cursor.getString(1);
 //                            cursor.getString(2);
@@ -109,13 +109,13 @@ public class DatabaseManager extends SQLiteOpenHelper {
 //        return pilihans;
 //    }
 //
-//    public List <Pilihan> search (String  keyword) {
-//        List<Pilihan> pilihans = null;
+//    public List <Aspirasi> search (String  keyword) {
+//        List<Aspirasi> pilihans = null;
 //        try{ Cursor cursor = mDatabase.getAllPilihan();
 //            if (cursor.moveToFirst()){
 //                pilihans = new ArrayList<>();
 //                do {
-//                    pilihanList.add(new Pilihann(
+//                    pilihanList.add(new Aspirasii(
 //                            cursor.getInt(0),
 //                            cursor.getString(1),
 //                            cursor.getString(2),

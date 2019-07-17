@@ -12,16 +12,12 @@ import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.template_dpr_now.Input;
-import com.example.template_dpr_now.MainActivity;
+import com.example.template_dpr_now.InputAspirasi;
 import com.example.template_dpr_now.Model.PostPutDelPengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
-import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,7 +50,7 @@ public class FAB extends Fragment {
         btsql.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Input.class);
+                Intent intent = new Intent(getActivity(), InputAspirasi.class);
                 startActivity(intent);
             }
         });

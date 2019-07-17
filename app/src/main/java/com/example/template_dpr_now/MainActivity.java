@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         crudbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Input.class);
+                Intent intent = new Intent(MainActivity.this, InputAspirasi.class);
                 MainActivity.this.startActivity(intent);
                 MainActivity.this.finish();
             }

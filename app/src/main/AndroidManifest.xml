@@ -24,15 +24,14 @@
         <activity android:name=".Login"/>
         <activity android:name=".Pengaturan"/>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Input"/>
-        <activity android:name=".input2"/>
+        <activity android:name=".InputAspirasi"/>
         <activity android:name=".View_PDF_Files"/>
         <activity android:name=".UploadActivity"/>
         <activity android:name=".ImageActivity"/>
         <activity android:name=".ImagesActivity"/>
         <activity android:name=".Slide"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".Pilihan"></activity>
+        <activity android:name=".Aspirasi"></activity>
         <activity
             android:name=".Daftar"
             android:label="Daftar Akun" />

@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pilihan">
-
+    tools:context=".Aspirasi">
     <ListView
-        android:id="@+id/listviewpilihan"
+        android:id="@+id/listviewaspirasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
