@@ -4,11 +4,12 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pilihan extends AppCompatActivity {
+public class Pilihan extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     List<Pilihann> pilihanList;
     ListView listViewPilihans;
@@ -42,7 +43,7 @@ public class Pilihan extends AppCompatActivity {
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
-                        cursor.getDouble(3),
+                        cursor.getString(3),
                         cursor.getString(4),
                         cursor.getString(5),
                         cursor.getString(6),
@@ -58,4 +59,13 @@ public class Pilihan extends AppCompatActivity {
         listViewPilihans.setAdapter(adapter);
     }
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
 }

@@ -150,7 +150,7 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
                 }
 
                 //calling the update method from database manager instance
-                if (mDatabase.updatepilihan(pilihann.getId(), name, email, Double.valueOf(phone), date, time, essai, pilihan)) {
+                if (mDatabase.updatepilihan(pilihann.getId(), name, email, phone, date, time, essai, pilihan)) {
                     Toast.makeText(mCtx, "Pilihan Updated", Toast.LENGTH_SHORT).show();
                     loadEmployeesFromDatabaseAgain();
                 }
@@ -193,7 +193,7 @@ public class PilihanAdapter extends ArrayAdapter<Pilihann> {
                         cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
-                        cursor.getDouble(3),
+                        cursor.getString(3),
                         cursor.getString(4),
                         cursor.getString(5),
                         cursor.getString(6),

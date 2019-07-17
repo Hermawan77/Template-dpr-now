@@ -71,7 +71,6 @@
         <item>arial</item>
         <item>times</item>
     </string-array>
-
-
+    <string name="keyword">Keyword</string>
 
 </resources>

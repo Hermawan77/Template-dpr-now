@@ -99,7 +99,7 @@ public class Input extends AppCompatActivity implements View.OnClickListener {
             return ;
         }
 
-        if (mDatabase.addpilihan(name, email, Double.parseDouble(phone), date, time, essai, pilihan))
+        if (mDatabase.addpilihan(name, email, phone, date, time, essai, pilihan))
         Toast.makeText(this, "Employee Added", Toast.LENGTH_SHORT).show();
         else
         Toast.makeText(this, "Could not add employee", Toast.LENGTH_SHORT).show();

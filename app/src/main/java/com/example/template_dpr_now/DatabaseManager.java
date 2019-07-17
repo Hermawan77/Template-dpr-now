@@ -29,7 +29,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
                         "   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \n"+
                         "   name varchar(100) NOT NULL, \n"+
                         "   email varchar(100) NOT NULL, \n"+
-                        "   phone double NOT NULL, \n"+
+                        "   phone varchar (15) NOT NULL, \n"+
                         "   time time NOT NULL, \n"+
                         "   date date NOT NULL, \n"+
                         "   essai varchar(200) NOT NULL, \n"+
@@ -46,7 +46,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean addpilihan(String name, String email, double phone, String date, String time, String essai, String pilihan){
+    public boolean addpilihan(String name, String email, String phone, String date, String time, String essai, String pilihan){
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME, name);
         contentValues.put(COLUMN_EMAIL, email);
@@ -65,7 +65,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public boolean updatepilihan(int id, String name, String email, Double phone, String date, String time, String essai, String pilihan){
+    public boolean updatepilihan(int id, String name, String email, String phone, String date, String time, String essai, String pilihan){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME, name);
@@ -82,4 +82,55 @@ public class DatabaseManager extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         return db.delete(TABLE_NAME, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 1;
     }
+//
+//    public List<Pilihann> findAll(){
+//        List<Pilihann> pilihans = null;
+//        try{ SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+//            Cursor cursor = sqLiteDatabase.rawQuery("select * from " + pilihans, null);
+//            if (cursor.moveToFirst()){
+//                pilihans = new ArrayList<>();
+//                do {
+//                    Pilihan pilihans = new Pilihann();
+//                            pilihans.setid(cursor.getInt(0));
+//                            cursor.getString(1);
+//                            cursor.getString(2);
+//                            cursor.getString(3);
+//                            cursor.getString(4);
+//                            cursor.getString(5);
+//                            cursor.getString(6);
+//                            cursor.getString(7);
+//
+//                    ));
+//                } while (cursor.moveToNext());
+//            }
+//        } catch (Exception e) {
+//            pilihans = null;
+//        }
+//        return pilihans;
+//    }
+//
+//    public List <Pilihan> search (String  keyword) {
+//        List<Pilihan> pilihans = null;
+//        try{ Cursor cursor = mDatabase.getAllPilihan();
+//            if (cursor.moveToFirst()){
+//                pilihans = new ArrayList<>();
+//                do {
+//                    pilihanList.add(new Pilihann(
+//                            cursor.getInt(0),
+//                            cursor.getString(1),
+//                            cursor.getString(2),
+//                            cursor.getString(3),
+//                            cursor.getString(4),
+//                            cursor.getString(5),
+//                            cursor.getString(6),
+//                            cursor.getString(7)
+//                    ));
+//                } while (cursor.moveToNext());
+//            }
+//        } catch (Exception e) {
+//            pilihans = null;
+//        }
+//        return pilihans;
+//    }
+
 }

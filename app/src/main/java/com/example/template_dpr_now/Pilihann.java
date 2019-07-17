@@ -2,10 +2,9 @@ package com.example.template_dpr_now;
 
 public class Pilihann {
     int id;
-    String name, email, date, time, essai, pilihan;
-    double phone;
+    String name, email, date, time, essai, pilihan, phone;
 
-    public Pilihann(int id, String name, String email, double phone, String date, String time, String essai, String pilihan) {
+    public Pilihann(int id, String name, String email, String phone, String date, String time, String essai, String pilihan) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -20,16 +19,32 @@ public class Pilihann {
         return id;
     }
 
+    public void setId(int id){
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public double getPhone() {
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public String getPhone() {
         return phone;
+    }
+
+    public void setPhone (String phone){
+        this.phone = phone;
     }
 
     public String getDate() {
