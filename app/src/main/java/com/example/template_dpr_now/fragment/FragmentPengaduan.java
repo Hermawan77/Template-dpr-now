@@ -3,19 +3,15 @@ package com.example.template_dpr_now.fragment;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.template_dpr_now.Card;
-import com.example.template_dpr_now.CardAdapter;
 import com.example.template_dpr_now.PilihanAdapter;
 import com.example.template_dpr_now.Pilihann;
 import com.example.template_dpr_now.R;
-import com.example.template_dpr_now.Rest.DatabaseManager;
+import com.example.template_dpr_now.DatabaseManager;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.template_dpr_now.Rest;
+package com.example.template_dpr_now;
 
 import android.content.ContentValues;
 import android.content.Context;

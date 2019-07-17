@@ -15,8 +15,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.template_dpr_now.Rest.DatabaseManager;
-
 import java.util.List;
 
 public class PilihanAdapter extends ArrayAdapter<Pilihann> {

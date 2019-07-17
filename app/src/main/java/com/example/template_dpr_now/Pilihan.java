@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
-import com.example.template_dpr_now.Rest.DatabaseManager;
-
 import java.util.ArrayList;
 import java.util.List;
 
