@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AutoCompleteActivity">
+
+    <AutoCompleteTextView
+        android:id="@+id/autocomplete"
+        android:hint="Select Text"
+        android:completionThreshold="1"
+        android:completionHint="Select Text"
+        android:layout_width="match_parent"
+        android:dropDownAnchor="@id/textviewcomplete"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textviewcomplete"
+        android:text="Text"
+        android:textSize="20sp"
+        android:paddingBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

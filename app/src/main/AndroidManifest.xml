@@ -29,6 +29,7 @@
         <activity android:name=".UploadActivity"/>
         <activity android:name=".ImageActivity"/>
         <activity android:name=".ImagesActivity"/>
+        <activity android:name=".AutoCompleteActivity"/>
         <activity android:name=".Slide"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".Aspirasi"></activity>

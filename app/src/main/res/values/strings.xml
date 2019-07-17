@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Template_dpr_now</string>
+    <string-array name="Text">
+        <item>Apple </item>
+        <item>Banana </item>
+        <item>Cupcake </item>
+        <item>Donute </item>
+    </string-array>
     <string-array name="my_search">
         <item>Test </item>
         <item>Babeh </item>
