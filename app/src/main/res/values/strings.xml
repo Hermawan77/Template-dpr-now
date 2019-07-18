@@ -6,6 +6,14 @@
         <item>Cupcake </item>
         <item>Donute </item>
     </string-array>
+    <string-array name="Test">
+        <item>Arif </item>
+        <item>Aan </item>
+        <item>Bambang </item>
+        <item>Budi </item>
+        <item>Babeh </item>
+        <item>Cece </item>
+    </string-array>
     <string-array name="my_search">
         <item>Test </item>
         <item>Babeh </item>

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -19,6 +20,8 @@ import java.util.Calendar;
 
 public class InputAspirasi extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String[] temp = new String[]{
+            "Arif", "Aan", "Bambang", "Budi", "Babeh", "Cece"};
     EditText text3,text4,text5,text6;
     AutoCompleteTextView text1, text2;
     TextView txtTime,txtDate, Lihat;
@@ -32,7 +35,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
 
-        text1 = (AutoCompleteTextView) findViewById(R.id.namaview);
+        text1 = (AutoCompleteTextView) findViewById(R.id.actv);
         text2 =(AutoCompleteTextView) findViewById(R.id.emailview);
         text3 = (EditText) findViewById(R.id.phoneview);
         text4 = (EditText) findViewById(R.id.Date);
@@ -44,9 +47,16 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         txtDate = (EditText) findViewById(R.id.Date);
         txtDate.setOnClickListener(this);
 
+        String[] test = getResources().getStringArray(R.array.Test);
+
         spinner = (Spinner) findViewById(R.id.spinner);
         Save = (Button) findViewById(R.id.simpan);
         Lihat = (TextView) findViewById(R.id.Viewpilihan);
+
+        AutoCompleteTextView editText = findViewById(R.id.actv);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.custom_list_item, R.id.text_view_list_item, temp);
+        editText.setAdapter(adapter);
 
         Save.setOnClickListener(this);
         Lihat.setOnClickListener(this);
