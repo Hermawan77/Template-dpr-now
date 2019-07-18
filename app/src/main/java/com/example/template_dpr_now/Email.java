@@ -29,15 +29,10 @@ public class Email extends AppCompatActivity implements View.OnClickListener {
     // Menampilkan layout activity_email.xml
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Memberikan nilai
-        firebaseAuth = FirebaseAuth.getInstance();
-        mAuth = FirebaseAuth.getInstance();
-        email = (EditText) findViewById(R.id.E_mail);
-        pass = (EditText) findViewById(R.id.passwordemail);
-        login = (Button) findViewById(R.id.loginemail);
-        daftarakun = (TextView) findViewById(R.id.daftardisini);
 
         // Mengecek apakah posisi sudah login atau belum jika sudah maka akan pindah ke MainActivity.java
+        firebaseAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()!=null){
             FirebaseUser user =  firebaseAuth.getCurrentUser();
             Intent i = new Intent(Email.this, MainActivity.class);
@@ -46,6 +41,13 @@ public class Email extends AppCompatActivity implements View.OnClickListener {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email);
+
+        // Memberikan nilai
+
+        email = (EditText) findViewById(R.id.E_mail);
+        pass = (EditText) findViewById(R.id.passwordemail);
+        login = (Button) findViewById(R.id.loginemail);
+        daftarakun = (TextView) findViewById(R.id.daftardisini);
 
         // Membuat Handler agar ada fungsi saat di click
         login.setOnClickListener(new View.OnClickListener() {
