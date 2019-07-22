@@ -32,6 +32,7 @@ public class Slide extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Jika sudah pernah dilewati, maka memanggil fungsi launchHomeScreen() untuk ke activity login
         slideManager = new SlideManager(this);
         if (!slideManager.isFirstTime()){
             launchHomeScreen();
@@ -75,7 +76,7 @@ public class Slide extends AppCompatActivity {
             public void onClick(View v) {
                 int current = getItem(+1);
                 if (current < layouts.length) {
-                    // move to next screen
+                    // pindah ke screen lanjut
                     viewPager.setCurrentItem(current);
                 } else {
                     launchHomeScreen();
@@ -109,6 +110,7 @@ public class Slide extends AppCompatActivity {
         return viewPager.getCurrentItem() + i;
     }
 
+    //menuju activity login
     private void launchHomeScreen() {
         slideManager.setFirstTime(false);
         startActivity(new Intent(Slide.this, Login.class));
@@ -142,6 +144,7 @@ public class Slide extends AppCompatActivity {
         }
     };
 
+    //Jika device Lollipop ke atas, status bar jadi transparan
     private void changeStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

@@ -18,8 +18,8 @@ public class Pengaturan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Pengaplikasian tema saat activity di-create
         Theme.createTheme(this);
-        //-=,Font_Change.createFont(this);
 
         setContentView(R.layout.activity_pengaturan);
 
@@ -34,6 +34,7 @@ public class Pengaturan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Theme.setTheme(getApplication(), 0);
+                //refresh activity
                 recreate();
                 Toast.makeText(Pengaturan.this, "Tema berhasil diubah", Toast.LENGTH_SHORT).show();
             }
@@ -65,14 +66,12 @@ public class Pengaturan extends AppCompatActivity {
                         break;
                     case 1:
                         Theme.setTheme(getApplicationContext(), 10);
-                        //Font_Change.setFont(getApplicationContext(), 0);
                         recreate();
                         Toast.makeText(Pengaturan.this, "Font berhasil diubah", Toast.LENGTH_SHORT).show();
                         spinner_font.setSelection(0);
                         break;
                     case 2:
                         Theme.setTheme(getApplicationContext(), 11);
-                        //Font_Change.setFont(getApplicationContext(), 0);
                         recreate();
                         Toast.makeText(Pengaturan.this, "Font berhasil diubah", Toast.LENGTH_SHORT).show();
                         spinner_font.setSelection(0);

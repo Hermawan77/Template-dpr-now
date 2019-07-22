@@ -1,8 +1,14 @@
 package com.example.template_dpr_now;
 
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,7 +24,11 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
+import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
+
 public class InputAspirasi extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String CHANNEL_ID = ".notificationDemo.channelId";
 
     private static final String[] temp = new String[]{
             "Arif", "Aan", "Bambang", "Budi", "Babeh", "Cece"};
@@ -109,8 +119,39 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
             return ;
         }
 
-        if (mDatabase.addpilihan(name, email, phone, date, time, essai, pilihan))
-        Toast.makeText(this, "Employee Added", Toast.LENGTH_SHORT).show();
+        if (mDatabase.addpilihan(name, email, phone, date, time, essai, pilihan)){
+            //Toast.makeText(this, "Employee Added", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(InputAspirasi.this, MainActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(InputAspirasi.this, 0, intent, 0);
+
+            Notification.Builder builder = new Notification.Builder(InputAspirasi.this);
+
+            Notification notification = builder.setContentTitle("Notifikasi Baru")
+                    .setContentText("Pegawai selesai ditambahkan")
+                    .setTicker("Pesan baru")
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentIntent(pendingIntent).build();
+
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                builder.setChannelId(CHANNEL_ID);
+            }
+
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel channel = new NotificationChannel(
+                        CHANNEL_ID,
+                        "NotificationDemo",
+                        IMPORTANCE_DEFAULT
+                );
+                notificationManager.createNotificationChannel(channel);
+            }
+
+            notificationManager.notify(0, notification);
+            startActivity(intent);
+        }
+
         else
         Toast.makeText(this, "Could not add employee", Toast.LENGTH_SHORT).show();
 

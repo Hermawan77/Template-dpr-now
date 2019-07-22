@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ import java.util.List;
 
 public class VideoRecyclerAdapter extends RecyclerView.Adapter<VideoRecyclerAdapter.RecyclerGalleryView> {
     String TAG = VideoRecyclerAdapter.class.getSimpleName();
-    private List<VideoModel> Items = new ArrayList<>();
+    private List<VideoModel> Items;
     private Context mContext;
 
     OnItemClickListener mItemClickListener;
@@ -84,7 +83,7 @@ public class VideoRecyclerAdapter extends RecyclerView.Adapter<VideoRecyclerAdap
     }
 
     public interface OnItemClickListener {
-        public void onItemClick(View view, int position);
+        void onItemClick(View view, int position);
     }
 
     public void setOnItemClicklListener(final OnItemClickListener mItemClickListener) {

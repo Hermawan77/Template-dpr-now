@@ -12,6 +12,7 @@ public class Theme {
         pref = PreferenceManager.getDefaultSharedPreferences(context);
         int theme = pref.getInt("theme_app", 0);
 
+        //Case ketika dipilih di class Pengaturan
         switch (theme){
             case 0:
                 context.setTheme(R.style.DefaultTheme);

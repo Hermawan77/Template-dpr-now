@@ -35,7 +35,10 @@ import retrofit2.Response;
 public class StreamingFragment extends Fragment {
 
     String TAG = "YouTube";
+    //Id Channel YouTube
     String YouTubeAPIChannelId = "UCejL25NjyNxlMR0JqlFX4Dg";
+
+    //Key API YouTube
     String YouTubeAPIKey =  "AIzaSyBxjQAD8hgRa3C4RvhUQQTow0OrpejmrxY";
     String YouTubeAPIUrl = "https://www.googleapis.com/youtube/v3/search?" +
             "part=snippet&" +
@@ -72,8 +75,7 @@ public class StreamingFragment extends Fragment {
             txtTotalVideo = view.findViewById(R.id.txt_total_video);
 
             adapter = new VideoRecyclerAdapter(context);
-            youtubePlayerFragment = (YouTubePlayerSupportFragment) this.getChildFragmentManager()
-                    .findFragmentById(R.id.frame_fragment);
+            youtubePlayerFragment = (YouTubePlayerSupportFragment) this.getChildFragmentManager().findFragmentById(R.id.frame_fragment);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
             mRecyclerView.setLayoutManager(linearLayoutManager);
@@ -144,14 +146,17 @@ public class StreamingFragment extends Fragment {
         });
     }
 
+    //Menampilkan progressbar
     private void showProgressBar() {
         progressBar.setVisibility(View.VISIBLE);
     }
 
+    //Menampilkan progressbar
     private void hideProgressBar() {
         progressBar.setVisibility(View.GONE);
     }
 
+    //Menghitung jumlah video pada channel YouTube
     private void loadDataAction(YouTubeModel item) {
         isLoading = false;
 
@@ -232,7 +237,7 @@ public class StreamingFragment extends Fragment {
             if (youTubeInitializationResult.isUserRecoverableError()) {
                 youTubeInitializationResult.getErrorDialog((Activity) context, RECOVERY_REQUEST).show();
             } else {
-                Toast.makeText(context, "Error Intializing Youtube Player", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Memuat Video Gagal", Toast.LENGTH_LONG).show();
             }
         }
     };

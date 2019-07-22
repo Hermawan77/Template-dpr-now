@@ -95,6 +95,7 @@ public class Login extends AppCompatActivity {
 
 
 
+    //cek apakah sudah pernah login dan belum logout, jika sudah, ketika aplikasi dibuka maka akan langsung ke mainActivity
     @Override
     protected void onStart() {
         super.onStart();
