@@ -1,50 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="#fff"
-    android:gravity="center"
+    style="@style/Theme.AppCompat.Light.NoActionBar"
+    android:background="@drawable/loginbg"
+    android:gravity="bottom"
     tools:context=".Login">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/you_tube_logo"/>
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:text="Masuk dengan E-mail"
+            android:textSize="12dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/button_border"
             android:onClick="masukEmail"/>
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Masuk dengan Google" />
+            android:layout_marginTop="10dp">
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <Button
+                android:background="@drawable/button_border"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:id="@+id/google"
+                android:textSize="12dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:onClick="onClickGoogleButton"
+                android:textAllCaps="false"
+                android:text="MASUK DENGAN GOOGLE" />
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/buttonapi"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Masuk dengan API"
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/button_border"
+            android:onClick="masukEmail"/>
+
 
         <TextView
             android:id="@+id/daftar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Belum daftar, daftar disini!" />
-    </LinearLayout>
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:text="Belum daftar, daftar disini!"
+            android:layout_marginBottom="50dp"/>
 
-    <TextView
-        android:id="@+id/copyright"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:text="1.0 Copyright 2019"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

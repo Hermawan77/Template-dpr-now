@@ -64,21 +64,21 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         view.findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deletePilihan(aspirasii);
+                deleteAspirasi(aspirasii);
             }
         });
 
         view.findViewById(R.id.buttonEdit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updatePilihann(aspirasii);
+                updateAspirasi(aspirasii);
             }
         });
 
         return view;
     }
 
-    private void updatePilihann(final Aspirasii aspirasii){
+    private void updateAspirasi(final Aspirasii aspirasii){
         final AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.dialog_update_pilihan, null);
@@ -150,7 +150,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
                 }
 
                 //calling the update method from database manager instance
-                if (mDatabase.updatepilihan(aspirasii.getId(), name, email, phone, date, time, essai, pilihan)) {
+                if (mDatabase.updateAspirasi(aspirasii.getId(), name, email, phone, date, time, essai, pilihan)) {
                     Toast.makeText(mCtx, "Aspirasi Updated", Toast.LENGTH_SHORT).show();
                     loadEmployeesFromDatabaseAgain();
                 }
@@ -158,7 +158,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
             }
         });
     }
-    private void deletePilihan(final Aspirasii aspirasii){
+    private void deleteAspirasi(final Aspirasii aspirasii){
         AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
         builder.setTitle("Are you sure?");
 
@@ -167,7 +167,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 //calling the delete method from the database manager instance
-                if (mDatabase.deleteEmployee(aspirasii.getId()))
+                if (mDatabase.deleteAspirasi(aspirasii.getId()))
                     loadEmployeesFromDatabaseAgain();
             }
         });

@@ -5,8 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Aspirasi">
+
+    <SearchView
+        android:id="@+id/searchbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Cari data anggota"
+        android:background="@color/colorPrimary"/>
+
     <ListView
         android:id="@+id/listviewaspirasi"
+        android:layout_below="@id/searchbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

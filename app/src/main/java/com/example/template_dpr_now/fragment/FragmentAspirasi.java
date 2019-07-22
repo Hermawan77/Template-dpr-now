@@ -36,7 +36,6 @@ public class FragmentAspirasi extends Fragment {
         pilihanList = new ArrayList<>();
         btnaspirasi = view.findViewById(R.id.btncariaspirasi);
         loadPilihansFromDatabase();
-
         btnaspirasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

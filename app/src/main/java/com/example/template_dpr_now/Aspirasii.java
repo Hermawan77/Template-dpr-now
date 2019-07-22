@@ -1,6 +1,8 @@
 package com.example.template_dpr_now;
 
-public class Aspirasii {
+import java.io.Serializable;
+
+public class Aspirasii implements Serializable {
     int id;
     String name, email, date, time, essai, pilihan, phone;
 
@@ -18,7 +20,6 @@ public class Aspirasii {
     public int getId() {
         return id;
     }
-
     public void setId(int id){
         this.id = id;
     }
@@ -26,7 +27,6 @@ public class Aspirasii {
     public String getName() {
         return name;
     }
-
     public void setName(String name){
         this.name = name;
     }
@@ -34,32 +34,40 @@ public class Aspirasii {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email){
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone (String phone){
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
     public String getDate() {
         return date;
     }
+    public void setDate (String date){
+        this.date = date;
+    }
 
     public String getTime() {
         return time;
+    }
+    public void setTime (String  time){
+        this.time = time;
     }
 
     public String getEssai() {
         return essai;
     }
+    public void setEssai (String essai){
+        this.essai = essai;
+    }
 
     public String getPilihan() {
         return pilihan;
+    }
+    public void setPilihan (String pilihan){
+        this.pilihan = pilihan;
     }
 }

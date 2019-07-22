@@ -12,13 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <ImageView
             android:id="@+id/dprlogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DPR"
-            android:textSize="50dp"
-            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:textColor="@android:color/white"/>
@@ -26,9 +24,9 @@
             android:id="@+id/nowlogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Now"
-            android:textSize="30dp"
+            android:text="Aplikasi informasi internal DPR"
             android:textStyle="italic"
+            android:textSize="20dp"
             android:layout_below="@+id/dprlogo"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"

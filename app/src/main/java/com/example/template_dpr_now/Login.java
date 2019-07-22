@@ -1,13 +1,13 @@
 package com.example.template_dpr_now;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.template_dpr_now.fragment.LainnyaFragment;
@@ -26,6 +26,7 @@ public class Login extends AppCompatActivity {
     private long backPressedTime;
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
+    Button google;
 
     // Back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
     // dan akan memunculkan toast
@@ -49,9 +50,11 @@ public class Login extends AppCompatActivity {
 
         // Memberi nilai
         googleSignInButton = findViewById(R.id.sign_in_button);
+        google = (Button) findViewById(R.id.google);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
+
 
         // Memberi Handler agar ada fungsi saat di click
         googleSignInButton.setOnClickListener(new View.OnClickListener(){
@@ -64,6 +67,11 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    public void onClickGoogleButton (View view){
+        if (view == google ){
+            googleSignInButton.performClick();
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

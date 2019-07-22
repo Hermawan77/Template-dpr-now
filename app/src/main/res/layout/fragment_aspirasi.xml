@@ -10,6 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cari Aspirasi lainnya"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"/>
 
     <ListView
