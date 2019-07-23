@@ -50,7 +50,6 @@ public class Login extends AppCompatActivity {
 
         // Memberi nilai
         googleSignInButton = findViewById(R.id.sign_in_button);
-        google = (Button) findViewById(R.id.google);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -65,12 +64,6 @@ public class Login extends AppCompatActivity {
                 startActivityForResult(signInIntent, 101);
             }
         });
-    }
-
-    public void onClickGoogleButton (View view){
-        if (view == google ){
-            googleSignInButton.performClick();
-        }
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
