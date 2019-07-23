@@ -40,7 +40,11 @@ public class KomisiFragment extends Fragment {
     // Menampilkan tombol atau tulisan untuk pindah ke fragment lain
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getChildFragmentManager());
-        adapter.addFragment(new FragmentBM(), "Badan Musyawarah");
+        adapter.addFragment(new F_BM(), "Badan Musyawarah");
+        adapter.addFragment(new F_K1(), "Komisi I");
+        adapter.addFragment(new F_K2(), "Komisi II");
+        adapter.addFragment(new F_K3(), "Komisi III");
+        adapter.addFragment(new F_K4(), "Komisi IV");
         viewPager.setAdapter(adapter);
     }
 

@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 
 import com.example.template_dpr_now.R;
 
-public class FragmentBM extends Fragment {
+public class F_K4 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_bm, container, false);
+        return inflater.inflate(R.layout.f_k4, container, false);
 
     }
 }
