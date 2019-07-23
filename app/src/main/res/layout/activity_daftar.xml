@@ -1,47 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
     android:background="@android:color/white"
     android:gravity="center"
     tools:context=".Daftar">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="50dp">
+
+        <ImageView
+            android:id="@+id/logodaftaremail"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:src="@drawable/you_tube_logo"/>
 
         <EditText
             android:id="@+id/E_maildaftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-Mail"
-            android:ems="10"
-            android:inputType="textEmailAddress" />
+            android:layout_marginTop="75dp"
+            android:layout_below="@id/logodaftaremail"
+            android:hint="  E-Mail"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/ic_email"/>
 
         <EditText
             android:id="@+id/passworddaftar"
-            android:layout_below="@+id/E_maildaftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:ems="10"
-            android:inputType="textPassword" />
+            android:layout_below="@+id/E_maildaftar"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:hint="  Password"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_lock"/>
 
         <TextView
             android:id="@+id/punyaakun"
-            android:text="Sudah punya akun? Klik "
+            android:text="Sudah punya akun? "
             android:layout_below="@id/passworddaftar"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/sudahpunya"
-            android:text="disini"
+            android:text="klik disini"
+            android:layout_marginTop="10dp"
             android:textColor="@color/colorPrimary"
             android:layout_below="@id/passworddaftar"
             android:layout_toRightOf="@id/punyaakun"
@@ -51,10 +66,13 @@
         <Button
             android:id="@+id/daftarakun"
             android:layout_below="@+id/punyaakun"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DAFTAR"/>
+            android:text="DAFTAR"
+            android:layout_marginTop="50dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/colorbutton"/>
 
     </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

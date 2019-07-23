@@ -14,6 +14,8 @@
     <color name="textColor"> #000000 </color>
     <color name="textColorDark">#000000</color>
 
+    <color name="abu">#6a6a6b</color>
+
     <array name="array_dot_active">
         <item>#ffffff</item>
         <item>#ffffff</item>

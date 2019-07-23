@@ -35,28 +35,39 @@
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:text="Masuk dengan E-mail"
             android:textSize="12dp"
+            android:textColor="@color/abu"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:paddingLeft="12dp"
             android:background="@drawable/button_border"
+            android:drawableLeft="@drawable/gmail"
             android:onClick="masukEmail"/>
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp"
+            android:textSize="12dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_border"/>
 
         <Button
             android:id="@+id/buttonapi"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:text="Masuk dengan API"
             android:layout_marginTop="10dp"
             android:textSize="12dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:textColor="@color/abu"
+            android:paddingLeft="12dp"
+            android:drawableLeft="@drawable/api"
             android:background="@drawable/button_border"
             android:onClick="masukEmail"/>
 
@@ -66,8 +77,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_marginTop="10dp"
-            android:textColor="@android:color/black"
-            android:text="Belum daftar, daftar disini!"
+            android:textColor="@color/colorPrimary"
+            android:text="Belum daftar, daftar disini"
             android:layout_marginBottom="50dp"/>
 
     </LinearLayout>

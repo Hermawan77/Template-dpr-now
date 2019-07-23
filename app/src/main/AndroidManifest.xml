@@ -34,8 +34,7 @@
             android:name=".Daftar"
             android:label="Daftar Akun" />
         <activity
-            android:name=".Email"
-            android:label="Login Email" />
+            android:name=".Email"/>
         <activity
             android:name=".MulaiActivity"
             android:label="HOME" />
