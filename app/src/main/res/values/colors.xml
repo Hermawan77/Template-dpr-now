@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#DC1F26</color>
     <color name="colorPrimaryDark">#4D0000</color>
-    <color name="colorAccent">#db7500</color>
+    <color name="colorAccent">#DC1F01</color>
     <color name="colorControlNormal">#ffffff</color>
 
     <color name="windowBackground">#fafafa</color>
@@ -13,16 +13,6 @@
 
     <color name="textColor"> #000000 </color>
     <color name="textColorDark">#000000</color>
-
-    <!--<color name="dot_light_screen1">#f98da5</color>-->
-    <!--<color name="dot_light_screen2">#8cf9eb</color>-->
-    <!--<color name="dot_light_screen3">#93c6fd</color>-->
-    <!--<color name="dot_light_screen4">#e4b5fc</color>-->
-
-    <!--<color name="dot_dark_screen1">#d1395c</color>-->
-    <!--<color name="dot_dark_screen2">#14a895</color>-->
-    <!--<color name="dot_dark_screen3">#2278d4</color>-->
-    <!--<color name="dot_dark_screen4">#a854d4</color>-->
 
     <array name="array_dot_active">
         <item>#ffffff</item>

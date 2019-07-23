@@ -9,15 +9,13 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:supportsRtl="true"
-        android:theme="@style/DefaultTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".SplashActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,9 +28,8 @@
         <activity android:name=".ImageActivity"/>
         <activity android:name=".ImagesActivity"/>
         <activity android:name=".AutoCompleteActivity"/>
-        <activity android:name=".Slide"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".Aspirasi"></activity>
+        <activity android:name=".Slide"/>
+        <activity android:name=".Aspirasi"/>
         <activity
             android:name=".Daftar"
             android:label="Daftar Akun" />
