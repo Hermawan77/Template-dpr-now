@@ -7,6 +7,7 @@ import com.example.template_dpr_now.Model.GetPengaduan;
 import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.Model.PostPutDelAkun;
 import com.example.template_dpr_now.Model.PostPutDelPengaduan;
+import com.example.template_dpr_now.YouTubeModel;
 
 import java.security.Key;
 import java.util.List;
@@ -24,6 +25,7 @@ import retrofit2.http.HTTP;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Url;
 
 public interface API_Interface {
     @GET("/pengaduan/")
@@ -44,6 +46,10 @@ public interface API_Interface {
     @Headers("Content-Type: application/json")
     @POST("/login/")
     Call<PostPutDelAkun> postAkunn(@Body Map <String,String> option);
+
+    //get Youtube model punya babeh faiz
+    @GET
+    Call<YouTubeModel> getVideos(@Url String url);
 //    @FormUrlEncoded
 //    @PUT("kontak")
 //    Call<PostPutDelPengaduan> putKontak(@Field("id") String id,

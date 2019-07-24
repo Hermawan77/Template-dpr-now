@@ -39,7 +39,7 @@ public class Login_API extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_API);
+        setContentView(R.layout.activity_login_api);
         //getSupportActionBar().hide();
 
         edit_nama = findViewById(R.id.ednama);
