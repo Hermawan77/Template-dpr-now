@@ -5,6 +5,7 @@ package com.example.template_dpr_now.Rest;
 
 import com.example.template_dpr_now.Model.GetPengaduan;
 import com.example.template_dpr_now.Model.Pengaduan;
+import com.example.template_dpr_now.Model.PostPutDelAkun;
 import com.example.template_dpr_now.Model.PostPutDelPengaduan;
 
 import java.security.Key;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -24,12 +26,24 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
 public interface API_Interface {
-    @GET("kontak_android")
+    @GET("/pengaduan/")
     Call<GetPengaduan> getPengaduan();
+
+    //mengirim raw data, tanpa di FormUrlEncoded
     @Headers("Content-Type: application/json")
     @POST("/pengaduan/")
-
     Call<PostPutDelPengaduan> postPengaduan(@Body  Map <String,String> option);
+
+
+    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
+    @POST("/login/")
+    Call<ResponseBody> postAkun(@Body  @Field("nama") String nama,
+                                @Field("password") String password);
+
+    @Headers("Content-Type: application/json")
+    @POST("/login/")
+    Call<PostPutDelAkun> postAkunn(@Body Map <String,String> option);
 //    @FormUrlEncoded
 //    @PUT("kontak")
 //    Call<PostPutDelPengaduan> putKontak(@Field("id") String id,

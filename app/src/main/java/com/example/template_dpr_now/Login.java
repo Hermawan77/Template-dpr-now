@@ -115,6 +115,9 @@ public class Login extends AppCompatActivity {
         Intent i = new Intent(Login.this, Email.class);
         startActivity(i);
     }
-
+    public void masukAPI(View view) {
+        Intent i = new Intent(Login.this, Login_API.class);
+        startActivity(i);
+    }
 
 }

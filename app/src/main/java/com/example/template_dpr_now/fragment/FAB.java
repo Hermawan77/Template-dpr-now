@@ -43,7 +43,7 @@ public class FAB extends Fragment {
         edit_email = view.findViewById(R.id.Email);
         edit_aduan = view.findViewById(R.id.aduan);
         btsimpan = view.findViewById(R.id.btnsimpan);
-        mApiInterface = API_Client.getClient().create(API_Interface.class);
+        mApiInterface = API_Client.getClient().create(API_Interface.class); // meng-init yang ada di package REST
 
         btsql = view.findViewById(R.id.btnsql);
 

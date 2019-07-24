@@ -10,7 +10,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class API_Client {
-    public static final String BASE_URL = "http://10.13.17.147:8080/pengaduan/";
+    public static final String BASE_URL = "http://10.13.17.127:8080/"; //ini goblok
 
     private static Retrofit retrofit = null;
     public static Retrofit getClient() {
@@ -27,4 +27,5 @@ public class API_Client {
         }
         return retrofit;
     }
+
 }

@@ -81,21 +81,16 @@ dependencies {
 
     // retrofit, gson
     implementation 'com.google.code.gson:gson:2.8.5'
+
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
     implementation 'com.squareup.retrofit2:converter-jackson:2.6.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava:2.6.0'
-    implementation ('com.squareup.retrofit2:converter-simplexml:2.6.0'){
-        exclude group: 'xpp3', module: 'xpp3'
-        exclude group: 'stax', module: 'stax-api'
-        exclude group: 'stax', module: 'stax'
-    }
-
-    //okhttp
+    //recyclerview
+    //implementation 'com.android.support:recyclerview-v7:24.2.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 
-    //sqlitehelper
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.6.0'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
 
     //youtube
