@@ -1,51 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:gravity="center"
+    tools:context=".Email">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="50dp">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView"
-        android:layout_marginTop="30dp"
-        android:text="TextView" />
+        <ImageView
+            android:id="@+id/logologinapi"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:src="@drawable/api"/>
 
-    <Button
-        android:id="@+id/mencobabtnlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView2"
-        android:layout_marginTop="30dp"
-        android:text="Masuk" />
+        <EditText
+            android:id="@+id/edemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/logologinapi"
+            android:hint="  E-Mail"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/ic_email"/>
 
-    <EditText
-        android:id="@+id/ednama"
-        android:layout_width="153dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="81dp"
-        android:layout_marginLeft="81dp"
-        android:layout_toEndOf="@id/textView"
-        android:layout_toRightOf="@id/textView"
-        android:text="nama" />
+        <EditText
+            android:id="@+id/edpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edemail"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:hint="  Password"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_lock"/>
 
-    <EditText
-        android:id="@+id/edpass"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_marginStart="80dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginBottom="-25dp"
-        android:layout_toEndOf="@id/textView2"
-        android:layout_toRightOf="@id/textView2"
-        android:text="pass" />
+        <Button
+            android:id="@+id/btnlogin"
+            android:layout_below="@+id/edpass"
+            android:text="Login"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:background="@drawable/colorbutton"/>
 
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true">
+
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

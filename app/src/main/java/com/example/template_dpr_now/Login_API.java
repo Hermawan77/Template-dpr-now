@@ -42,9 +42,9 @@ public class Login_API extends AppCompatActivity {
         setContentView(R.layout.activity_login_api);
         //getSupportActionBar().hide();
 
-        edit_nama = findViewById(R.id.ednama);
+        edit_nama = findViewById(R.id.edemail);
         edit_password = findViewById(R.id.edpass);
-        btsimpan = findViewById(R.id.mencobabtnlogin);
+        btsimpan = findViewById(R.id.btnlogin);
 //        ButterKnife.bind(this);
         mContext = this;
         // meng-init yang ada di package apihelper
