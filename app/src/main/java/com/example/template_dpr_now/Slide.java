@@ -4,17 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,12 +25,14 @@ public class Slide extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private Button btnSkip, btnNext;
+    private ImageButton btnNext;
     private SlideManager slideManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //Jika sudah pernah dilewati, maka memanggil fungsi launchHomeScreen() untuk ke activity login
         slideManager = new SlideManager(this);
@@ -47,7 +49,6 @@ public class Slide extends AppCompatActivity {
 
         viewPager = findViewById(R.id.viewPager);
         dotsLayout = findViewById(R.id.layoutDots);
-        btnSkip = findViewById(R.id.skip);
         btnNext = findViewById(R.id.next);
 
         layouts = new int[]{
@@ -63,13 +64,6 @@ public class Slide extends AppCompatActivity {
         myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
-
-        btnSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchHomeScreen();
-            }
-        });
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,11 +119,10 @@ public class Slide extends AppCompatActivity {
             addBottomDots(position);
 
             if (position == layouts.length - 1) {
-                btnNext.setText("OK");
-                btnSkip.setVisibility(View.GONE);
+                btnNext.setVisibility(View.VISIBLE);
+
             } else {
-                btnNext.setText("Next");
-                btnSkip.setVisibility(View.VISIBLE);
+                btnNext.setVisibility(View.VISIBLE);
             }
         }
 

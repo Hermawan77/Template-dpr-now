@@ -10,9 +10,9 @@
 
         <ImageView
             android:id="@+id/dprlogo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:src="@drawable/you_tube_logo"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:textColor="@android:color/white"/>
@@ -22,7 +22,6 @@
             android:layout_height="wrap_content"
             android:text="Aplikasi informasi internal DPR"
             android:textStyle="italic"
-            android:textSize="20dp"
             android:layout_below="@+id/dprlogo"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"

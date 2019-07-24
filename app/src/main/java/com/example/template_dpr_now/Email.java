@@ -1,9 +1,9 @@
 package com.example.template_dpr_now;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +29,6 @@ public class Email extends AppCompatActivity implements View.OnClickListener {
     // Menampilkan layout activity_email.xml
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         // Mengecek apakah posisi sudah login atau belum jika sudah maka akan pindah ke MainActivity.java
         firebaseAuth = FirebaseAuth.getInstance();
         mAuth = FirebaseAuth.getInstance();

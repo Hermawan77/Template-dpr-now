@@ -11,10 +11,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
-            android:src="@drawable/info" />
+            android:src="@drawable/megaphone" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
             android:textAlignment="center"
             android:layout_gravity="center"
             android:textSize="18sp"
-            android:textColor="#ffffff"/>
+            android:textColor="@android:color/white"/>
 
 
     </LinearLayout>
