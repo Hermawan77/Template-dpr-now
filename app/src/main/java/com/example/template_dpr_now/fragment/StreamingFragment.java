@@ -19,11 +19,11 @@ import android.widget.Toast;
 
 import com.example.template_dpr_now.PaginationScrollListener;
 import com.example.template_dpr_now.R;
+import com.example.template_dpr_now.Rest.API_Interface;
 import com.example.template_dpr_now.VideoRecyclerAdapter;
 import com.example.template_dpr_now.YouTubeModel;
 
 import com.example.template_dpr_now.api.ApiClient;
-import com.example.template_dpr_now.api.ApiInterface;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -125,7 +125,8 @@ public class StreamingFragment extends Fragment {
     }
 
     private void loadVideos(String url) {
-        ApiInterface apiService = ApiClient.createService(ApiInterface.class);
+        // apiService menggunakan class API_Interface di package Rest
+        API_Interface apiService = ApiClient.createService(API_Interface.class);
         if (apiService == null) return;
 
         showProgressBar();

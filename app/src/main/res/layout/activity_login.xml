@@ -69,7 +69,8 @@
             android:paddingLeft="12dp"
             android:drawableLeft="@drawable/api"
             android:background="@drawable/button_border"
-            android:onClick="masukEmail"/>
+            android:onClick="masukAPI"/>
+
 
         <TextView
             android:id="@+id/daftar"

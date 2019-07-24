@@ -1,22 +1,58 @@
 package com.example.template_dpr_now;
 
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.template_dpr_now.Adapter.PengaduanAdapter;
+import com.example.template_dpr_now.Model.GetPengaduan;
+import com.example.template_dpr_now.Model.Pengaduan;
+import com.example.template_dpr_now.Rest.API_Client;
+import com.example.template_dpr_now.Rest.API_Interface;
 import com.example.template_dpr_now.fragment.FAB;
 import com.example.template_dpr_now.fragment.HomeFragment;
 import com.example.template_dpr_now.fragment.KomisiFragment;
 import com.example.template_dpr_now.fragment.LainnyaFragment;
 import com.example.template_dpr_now.fragment.StreamingFragment;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String GOOGLE_ACCOUNT = "google_account";
-    //public static final String DATABASE_NAME = "db";
+    public static final String DATABASE_NAME = "db";
+    private static final String CHANNEL_ID = ".notificationDemo.channelId";
+    Button crudbtn, homebtn, off, send_notif;
+    API_Interface mApiInterface;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    public static MainActivity ma;
+    LinearLayoutManager llm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
-    }
+   }
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -60,5 +97,27 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+    public void refresh() {
+
+
+
+        Call<GetPengaduan> PengaduanCall = mApiInterface.getPengaduan();
+        PengaduanCall.enqueue(new Callback<GetPengaduan>() {
+            @Override
+            public void onResponse(Call<GetPengaduan> call, Response<GetPengaduan>
+                    response) {
+                List<Pengaduan> PengaduanList = response.body().getListDataPengaduan();
+                Log.d("Retrofit Get", "Jumlah data Pengaduan: " +
+                        String.valueOf(PengaduanList.size()));
+                mAdapter = new PengaduanAdapter(PengaduanList);
+                mRecyclerView.setAdapter(mAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<GetPengaduan> call, Throwable t) {
+                Log.e("Retrofit Get", t.toString());
+            }
+        });
+    }
 
 }
