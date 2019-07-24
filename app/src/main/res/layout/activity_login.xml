@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="20dp"
     style="@style/Theme.AppCompat.Light.NoActionBar"
-    android:background="@drawable/loginbg"
+    android:background="@drawable/loginbgkecil"
     android:gravity="center"
     tools:context=".Login">
 
