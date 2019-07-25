@@ -8,41 +8,41 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/you_tube_logo"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".SplashActivity">
+        <activity android:name=".Berita"></activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login"/>
-        <activity android:name=".Pengaturan"/>
+        <activity android:name=".Login" />
+        <activity android:name=".Pengaturan" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".InputAspirasi"/>
-        <activity android:name=".View_PDF_Files"/>
-        <activity android:name=".UploadActivity"/>
-        <activity android:name=".ImageActivity"/>
-        <activity android:name=".ImagesActivity"/>
-        <activity android:name=".AutoCompleteActivity"/>
-        <activity android:name=".Mencoba_rc_get_pengaduan"/>
-        <activity android:name=".Login_API"/>
-        <activity android:name=".Slide"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".Aspirasi"></activity>
-
+        <activity android:name=".InputAspirasi" />
+        <activity android:name=".View_PDF_Files" />
+        <activity android:name=".UploadActivity" />
+        <activity android:name=".ImageActivity" />
+        <activity android:name=".ImagesActivity" />
+        <activity android:name=".AutoCompleteActivity" />
+        <activity android:name=".Mencoba_rc_get_pengaduan" />
+        <activity android:name=".Login_API" />
+        <activity
+            android:name=".Slide"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Aspirasi" />
         <activity
             android:name=".Daftar"
             android:label="Daftar Akun" />
-        <activity
-            android:name=".Email"/>
+        <activity android:name=".Email" />
         <activity
             android:name=".MulaiActivity"
             android:label="HOME" />
