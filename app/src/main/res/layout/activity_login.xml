@@ -7,8 +7,9 @@
     android:orientation="vertical"
     android:padding="20dp"
     style="@style/Theme.AppCompat.Light.NoActionBar"
-    android:background="@drawable/loginbgkecil"
+    android:background="@drawable/background"
     android:gravity="center"
+    android:fontFamily="@font/arial"
     tools:context=".Login">
 
     <LinearLayout
@@ -44,7 +45,8 @@
             android:paddingLeft="12dp"
             android:background="@drawable/button_border"
             android:drawableLeft="@drawable/gmail"
-            android:onClick="masukEmail"/>
+            android:onClick="masukEmail"
+            android:textStyle="bold"/>
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
@@ -69,7 +71,8 @@
             android:paddingLeft="12dp"
             android:drawableLeft="@drawable/api"
             android:background="@drawable/button_border"
-            android:onClick="masukAPI"/>
+            android:onClick="masukAPI"
+            android:textStyle="bold"/>
 
 
         <TextView

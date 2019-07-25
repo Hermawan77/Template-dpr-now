@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +22,13 @@ public class HomeFragment extends Fragment {
     // Mendeklarasikan Variable
     private ViewPager mViewPager;
     private SectionsPageAdapter mSectionsPageAdapter;
+    Toolbar toolbarhome;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
     }
 
     // Memanggil layout fragment_home
@@ -38,7 +42,10 @@ public class HomeFragment extends Fragment {
         setupViewPager(mViewPager);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
+        toolbarhome = view.findViewById(R.id.toolbarmenu);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbarhome);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("");
+        toolbarhome.setLogo(R.drawable.ic_email);
         return view;
 
     }
