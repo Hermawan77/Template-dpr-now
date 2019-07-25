@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/k1_nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Lengkap"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/k1_nip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="NIP"/>
+
+        <TextView
+            android:id="@+id/k1_jabatan"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Jabatan"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
