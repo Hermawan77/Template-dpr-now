@@ -27,6 +27,7 @@
             android:text="Naskah Akademik" />
 
         <Button
+            android:id="@+id/berita"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Berita" />

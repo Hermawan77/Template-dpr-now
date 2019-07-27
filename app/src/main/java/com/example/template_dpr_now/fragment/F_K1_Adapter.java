@@ -32,15 +32,17 @@ public class F_K1_Adapter extends RecyclerView.Adapter<F_K1_Adapter.F_K1_ViewHol
     public void onBindViewHolder(F_K1_ViewHolder holder, int position) {
         F_K1_Item currentItem = mF_K1_List.get(position);
 
+        String imageUrl = currentItem.getImageUrl();
         String nama = currentItem.getNama();
         String nip = currentItem.getNip();
         String jabatan = currentItem.getJabatan();
 
+        Picasso.get().load(imageUrl).fit().centerInside().into(holder.mImageView);
         holder.mTextViewNama.setText(nama);
         holder.mTextViewNip.setText(nip);
         holder.mTextViewJabatan.setText(jabatan);
         //Picasso.with(mContext).load(imageUrl).fit().centerInside().into(holder.mImageView);
-        //Picasso.get().load(imageUrl).fit().centerInside().into(holder.mImageView);
+
     }
 
     @Override
@@ -49,12 +51,14 @@ public class F_K1_Adapter extends RecyclerView.Adapter<F_K1_Adapter.F_K1_ViewHol
     }
 
     public class F_K1_ViewHolder extends RecyclerView.ViewHolder {
+        public ImageView mImageView;
         public TextView mTextViewNama;
         public TextView mTextViewNip;
         public TextView mTextViewJabatan;
 
         public F_K1_ViewHolder(View itemView) {
             super(itemView);
+            mImageView = itemView.findViewById(R.id.k1_image);
             mTextViewNama = itemView.findViewById(R.id.k1_nama);
             mTextViewNip = itemView.findViewById(R.id.k1_nip);
             mTextViewJabatan = itemView.findViewById(R.id.k1_jabatan);

@@ -17,7 +17,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.XmlToJson;
-import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +30,6 @@ public class F_K1 extends Fragment {
     private ArrayList<F_K1_Item> mF_K1_Item;
     private RequestQueue mRequestQueue;
 
-    String bahasa = "";
 
 
     private String BASE_URL = "http://dpr.go.id/rest/?method=getAkd&menu=Sekretariat-Komisi-I&tipe=xml";
@@ -61,17 +59,17 @@ public class F_K1 extends Fragment {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.println("Respon = "+ response);
+                        //System.out.println("Respon = "+ response);
 
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
                         response = response.substring(10);
                         response = response.substring(0, response.length()-11);
 
-                        System.out.println("Hasil = "+response);
+                        //System.out.println("Hasil = "+response);
 
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).skipTag("/title").skipTag("/type").build();
 
-                        System.out.println("json = " + xmlToJson);
+                        //System.out.println("json = " + xmlToJson);
 
                         JSONObject jsonObject = xmlToJson.toJson();
 
@@ -81,12 +79,15 @@ public class F_K1 extends Fragment {
                             for (int i= 0; i<jsonArray.length();i++){
                                 JSONObject content = jsonArray.getJSONObject(i);
 
+                                String foto = "http://dpr.go.id" + content.getString("foto");
+
+                                System.out.println("link = " + foto);
 
                                 String nama = content.getString("nama");
                                 String nip = content.getString("nip");
                                 String jabatan = content.getString("jabatan");
 
-                                mF_K1_Item.add(new F_K1_Item(nama, nip, jabatan));
+                                mF_K1_Item.add(new F_K1_Item(foto, nama, nip, jabatan));
                             }
 
                             mF_K1_Adapter = new F_K1_Adapter(getActivity(), mF_K1_Item);
