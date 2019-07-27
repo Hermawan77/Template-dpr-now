@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getChildFragmentManager());
         adapter.addFragment(new FragmentPengaduan(), "PENGADUAN");
         adapter.addFragment(new FragmentAspirasi(), "ASPIRASI");
-        adapter.addFragment(new ThreeFragment(), "INFORMASI");
+        adapter.addFragment(new FragmentInformasi(), "INFORMASI");
         viewPager.setAdapter(adapter);
     }
 
