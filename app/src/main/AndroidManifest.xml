@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Berita_Detail"></activity>
+        <activity android:name=".SemuaAnggota"></activity>
+        <activity android:name=".Agenda" />
+        <activity android:name=".Berita_Detail" />
         <activity android:name=".Berita" />
         <activity android:name=".SplashActivity">
             <intent-filter>

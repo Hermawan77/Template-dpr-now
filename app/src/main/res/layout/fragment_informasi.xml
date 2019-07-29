@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/semuaAnggota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Daftar Anggota"/>
@@ -33,7 +34,7 @@
             android:text="Berita" />
 
         <Button
-            android:id="@+id/button14"
+            android:id="@+id/agenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Agenda" />
