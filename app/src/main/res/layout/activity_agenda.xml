@@ -7,11 +7,52 @@
     android:orientation="vertical"
     tools:context=".Agenda">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:id="@+id/toolbaragenda">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daftar Agenda"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/f_arial"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <ImageButton
+        android:id="@+id/back1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/back1" />
+
+
+    </RelativeLayout>
+
     <Button
         android:id="@+id/kalender"
         android:text="Kalender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:drawableLeft="@drawable/calendar"
+        android:drawableRight="@drawable/drop"
+        android:padding="10dp"/>
 
     <TextView
         android:id="@+id/sekarang"
@@ -22,11 +63,14 @@
     <TextView
         android:id="@+id/status"
         android:text="Status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"/>
 
     <android.support.v7.widget.RecyclerView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/recycler_view_agenda"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

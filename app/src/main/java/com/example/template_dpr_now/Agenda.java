@@ -3,8 +3,8 @@ package com.example.template_dpr_now;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -112,7 +112,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
                     bulan = "0" +  bulan;
                 }
 
-                status.setText("Agenda Bulan " + bulan + "Tahun " + tahun);
+        status.setText("Agenda Bulan " + bulan + "Tahun " + tahun);
 
                 String BASE_URL = "http://www.dpr.go.id/rest/?method=getAgendaPerBulan&tahun=" + tahun + "&bulan=" + bulan + "&tipe=xml";
                 parseLink(BASE_URL);
