@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Berita_Detail">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/kategori_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kategori"
+        android:padding="10dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/fotoberita_detail"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/judulberita_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Judul berita"
+        android:padding="10dp"
+        android:background="@drawable/roundbutton"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/isiberita_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
+
+    <TextView
+        android:id="@+id/tanggalberita_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tanggal berita"/>
+
+
+</LinearLayout>

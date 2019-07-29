@@ -1,5 +1,6 @@
 package com.example.template_dpr_now;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,7 +20,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Berita extends AppCompatActivity {
+public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemClickListener{
+    public static final String EXTRA_TANGGAL = "tanggal";
+    public static final String EXTRA_KATEGORI = "kategori";
+    public static final String EXTRA_URL = "imageUrl";
+    public static final String EXTRA_JUDUL = "judul";
+    public static final String EXTRA_ISI = "isi";
+
 
     private RecyclerView mRecyclerview;
     private Berita_Adapter mBerita_Adapter;
@@ -89,6 +96,7 @@ public class Berita extends AppCompatActivity {
 
                             mBerita_Adapter = new Berita_Adapter(Berita.this, mBerita_Item);
                             mRecyclerview.setAdapter(mBerita_Adapter);
+                            mBerita_Adapter.setOnItemClickListener(Berita.this);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -107,5 +115,17 @@ public class Berita extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+        Intent intentDetail = new Intent(this, Berita_Detail.class);
+        Berita_Item clickedItem = mBerita_Item.get(position);
 
+        intentDetail.putExtra(EXTRA_TANGGAL, clickedItem.getTanggal());
+        intentDetail.putExtra(EXTRA_KATEGORI, clickedItem.getKategori());
+        intentDetail.putExtra(EXTRA_URL, clickedItem.getImageUrl());
+        intentDetail.putExtra(EXTRA_JUDUL, clickedItem.getJudul());
+        intentDetail.putExtra(EXTRA_ISI, clickedItem.getIsi());
+
+        startActivity(intentDetail);
+    }
 }
