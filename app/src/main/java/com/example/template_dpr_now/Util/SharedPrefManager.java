@@ -54,4 +54,8 @@ public class SharedPrefManager {
     public Boolean getSPSudahLogin(){
         return sp.getBoolean(SP_SUDAH_LOGIN, false);
     }
+
+    public Boolean logOut(){
+        return sp.getBoolean(SP_SUDAH_LOGIN, false);
+    }
 }

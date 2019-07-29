@@ -23,6 +23,9 @@ public class PostPutDelAkun {
     @SerializedName("message")
     String message;
 
+    @SerializedName("error")
+    private boolean error;
+
     public String getNama() {
         return nama;
     }
@@ -37,6 +40,14 @@ public class PostPutDelAkun {
 
     public void setEmail(String email) {
         this.password = email;
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(boolean error) {
+        this.error = error;
     }
 
 
@@ -87,9 +98,8 @@ public class PostPutDelAkun {
     public String toString(){
         return
                 "SemuaItem{" +
-                        "nama = '" + nama + '\'' +
-                        ",id = '" + id_akun+ '\'' +
-                        ",password = '" + password + '\'' +
+                        "error = '" + error + '\'' +
+                        ",message = '" + message+ '\'' +
                         "}";
     }
 }
