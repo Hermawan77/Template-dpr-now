@@ -94,8 +94,7 @@ public class Login_API extends AppCompatActivity {
                             sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, email);
                             // Shared Pref ini berfungsi untuk menjadi trigger session login
                             sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
-//                            Intent i = new Intent(Login_API.this, MainActivity.class);
-//                            startActivity(i);
+//
                             startActivity(new Intent(mContext, MainActivity.class)
                                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                             finish();

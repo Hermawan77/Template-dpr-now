@@ -1,6 +1,8 @@
 package com.example.template_dpr_now.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,6 +19,7 @@ import com.example.template_dpr_now.Login;
 import com.example.template_dpr_now.MainActivity;
 import com.example.template_dpr_now.Pengaturan;
 import com.example.template_dpr_now.R;
+import com.example.template_dpr_now.Util.SharedPrefManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,6 +31,7 @@ import com.squareup.picasso.Picasso;
 
 import static android.support.constraint.Constraints.TAG;
 import static android.widget.Toast.*;
+import static com.example.template_dpr_now.Util.SharedPrefManager.SP_SUDAH_LOGIN;
 
 public class LainnyaFragment extends Fragment {
 
@@ -40,9 +44,8 @@ public class LainnyaFragment extends Fragment {
     private TextView pengaturan;
     private TextView info;
     private TextView signOut;
+    SharedPrefManager sharedPrefManager;
 
-
-    // Memanggil layout fragment_lainnya.xml
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ public class LainnyaFragment extends Fragment {
         signOut = view.findViewById(R.id.signOut);
         setDataOnView();
 
+        sharedPrefManager = new SharedPrefManager(getContext());
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
@@ -87,6 +91,8 @@ public class LainnyaFragment extends Fragment {
             public void onClick(View view) {
                 // Logout dari akun Firebase Authentication dan pindah ke Login.java
                 FirebaseAuth.getInstance().signOut();
+//             //Logout dari akun API dan pindah ke Login.java
+                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
                 Intent intent = new Intent(getActivity(), Login.class);
                 getActivity().finish();
                 startActivity(intent);
