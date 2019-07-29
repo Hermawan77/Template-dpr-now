@@ -3,47 +3,71 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:padding="2dp"
+    android:background="@android:color/white"
     tools:context=".Berita_Detail">
 
-
-    <TextView
-        android:id="@+id/kategori_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="kategori"
-        android:padding="10dp"
-        android:textColor="@android:color/white"
-        android:background="@drawable/rounded"/>
-
-    <ImageView
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/fotoberita_detail"
-        android:layout_margin="5dp"/>
-
-    <TextView
-        android:id="@+id/judulberita_detail"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Judul berita"
-        android:padding="10dp"
-        android:background="@drawable/roundbutton"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/isiberita_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_borderless">
 
-    <TextView
-        android:id="@+id/tanggalberita_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tanggal berita"/>
+            <TextView
+                android:id="@+id/kategori_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="kategori"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/colorbutton"/>
 
+            <ImageView
+                android:layout_below="@id/kategori_detail"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/fotoberita_detail" />
+
+            <TextView
+                android:id="@+id/judulberita_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tanggalberita_detail"
+                android:text="Judul berita"
+                android:padding="10dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+            <TextView
+                android:id="@+id/isiberita_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/judulberita_detail"
+                android:padding="10dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
+
+            <TextView
+                android:id="@+id/tanggalberita_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fotoberita_detail"
+                android:layout_margin="10dp"
+                android:layout_alignParentRight="true"
+                android:text="tanggal berita"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </LinearLayout>

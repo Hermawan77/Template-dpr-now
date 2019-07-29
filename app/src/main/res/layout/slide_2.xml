@@ -9,8 +9,15 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/space"
         android:src="@drawable/videocolor" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/space"
+        android:layout_centerInParent="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,7 +27,8 @@
         android:textAlignment="center"
         android:layout_gravity="center"
         android:textSize="18sp"
-        android:layout_below="@+id/videocolor"
-        android:fontFamily="@font/f_times"/>
+        android:layout_below="@+id/space"
+        android:fontFamily="@font/f_times"
+        android:textColor="@android:color/black"/>
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.template_dpr_now;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,9 +26,10 @@ public class Slide extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private ImageButton btnNext;
+    private Button btnNext;
     private SlideManager slideManager;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,7 +122,7 @@ public class Slide extends AppCompatActivity {
 
             if (position == layouts.length - 1) {
                 btnNext.setVisibility(View.VISIBLE);
-
+                btnNext.setText("Next to sign in");
             } else {
                 btnNext.setVisibility(View.VISIBLE);
             }

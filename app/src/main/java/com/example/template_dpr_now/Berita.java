@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 
 import com.android.volley.Request;
@@ -32,7 +33,7 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
     private Berita_Adapter mBerita_Adapter;
     private ArrayList<Berita_Item> mBerita_Item;
     private RequestQueue mRequestQueue;
-
+    Toolbar toolbarberita;
 
 
     private String BASE_URL = "http://dpr.go.id/rest/?method=get5BeritaFoto&tipe=xml";
@@ -49,6 +50,8 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
         mBerita_Item = new ArrayList<>();
 
         mRequestQueue = Volley.newRequestQueue(this);
+
+        toolbarberita = findViewById(R.id.toolbarberita);
 
         parseLink();
     }

@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     tools:context=".Berita">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbarberita">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Berita Terkini"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/f_arial"/>
+
+    </android.support.v7.widget.Toolbar>
+
     <android.support.v7.widget.RecyclerView
-        android:layout_marginTop="50dp"
         android:id="@+id/recycler_view_berita"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbarberita"/>
 
 </RelativeLayout>

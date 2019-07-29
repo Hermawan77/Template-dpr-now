@@ -1,50 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp"
+    android:layout_height="500dp"
+    android:padding="2dp"
     android:background="@android:color/white"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_borderless"
-        android:padding="20dp">
+        android:layout_margin="5dp"
+        android:background="@drawable/button_borderless">
 
         <TextView
             android:id="@+id/kategori"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:text="kategori"
             android:padding="10dp"
+            android:layout_margin="10dp"
             android:textColor="@android:color/white"
-            android:background="@drawable/rounded"/>
+            android:background="@drawable/colorbutton"/>
 
         <ImageView
             android:layout_below="@id/kategori"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/fotoberita"
-            android:layout_margin="5dp"/>
+            android:layout_height="250dp"
+            android:id="@+id/fotoberita" />
 
         <TextView
             android:id="@+id/judulberita"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fotoberita"
+            android:layout_below="@+id/tanggalberita"
             android:text="Judul berita"
             android:padding="10dp"
-            android:background="@drawable/roundbutton"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:id="@+id/isiberita"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_below="@id/judulberita"
+            android:padding="10dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
 
         <TextView
@@ -52,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/fotoberita"
+            android:layout_margin="10dp"
             android:layout_alignParentRight="true"
             android:text="tanggal berita"/>
 
