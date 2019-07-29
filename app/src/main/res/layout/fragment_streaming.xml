@@ -4,8 +4,28 @@
     android:layout_height="match_parent"
     android:background="#fff">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbarstreaming">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YOUTUBE DPR-RI"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/f_arial"/>
+
+    </android.support.v7.widget.Toolbar>
+
     <RelativeLayout
         android:id="@+id/rly_video_mail"
+        android:layout_below="@+id/toolbarstreaming"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

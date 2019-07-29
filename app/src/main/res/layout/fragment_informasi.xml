@@ -1,58 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/white">
 
-
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/semuaAnggota"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Daftar Anggota"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Legislasi" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Naskah Akademik" />
-
-        <Button
-            android:id="@+id/berita"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Berita" />
-
-        <Button
-            android:id="@+id/agenda"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Agenda" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hasil" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/copyright"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
-        android:text="1.0 Copyright 2019"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-</android.support.constraint.ConstraintLayout>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/semuaAnggota"
+                    android:layout_width="200dp"
+                    android:layout_height="175dp"
+                    android:text="Daftar Anggota"
+                    android:drawableTop="@drawable/anggota"
+                    android:background="@android:color/transparent"/>
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="175dp"
+                    android:text="Legislasi"
+                    android:drawableTop="@drawable/legislasi"
+                    android:background="@android:color/transparent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="175dp"
+                    android:text="Naskah Akademik"
+                    android:drawableTop="@drawable/naskah"
+                    android:background="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/berita"
+                    android:layout_width="200dp"
+                    android:layout_height="175dp"
+                    android:text="Berita"
+                    android:drawableTop="@drawable/news"
+                    android:background="@android:color/transparent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/agenda"
+                    android:layout_width="200dp"
+                    android:layout_height="175dp"
+                    android:text="Agenda"
+                    android:drawableTop="@drawable/agenda"
+                    android:background="@android:color/transparent"/>
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="175dp"
+                    android:text="Hasil"
+                    android:drawableTop="@drawable/hasil"
+                    android:background="@android:color/transparent"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
