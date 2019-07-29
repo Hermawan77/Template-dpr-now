@@ -47,7 +47,7 @@ public class FragmentInformasi extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SemuaAnggota.class);
-                startActivity(intent);
+                startActivity(intent    );
             }
         });
 

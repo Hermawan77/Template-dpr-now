@@ -1,13 +1,139 @@
 package com.example.template_dpr_now;
 
+import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.TextView;
 
-public class Agenda extends AppCompatActivity {
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+
+public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+    private RecyclerView mRecyclerview;
+    private AgendaAdapter mAgenda_Adapter;
+    private ArrayList<AgendaItem> mAgenda_Item;
+    private RequestQueue mRequestQueue;
+    private TextView status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
+        status = findViewById(R.id.status);
+
+        findViewById(R.id.kalender).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePickerDialog();
+            }
+        });
+
+        mRecyclerview = findViewById(R.id.recycler_view_agenda);
+        mRecyclerview.setHasFixedSize(true);
+        mRecyclerview.setLayoutManager(new LinearLayoutManager(this));
+
+        mAgenda_Item = new ArrayList<>();
+
+        mRequestQueue = Volley.newRequestQueue(this);
+
     }
+
+    private void showDatePickerDialog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.show();
+
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        String tahun = Integer.toString(year);
+
+        int a = 1 + month;
+
+        String bulan = Integer.toString(a);
+
+        if (bulan.length()==1){
+            bulan = "0" +  bulan;
+        }
+
+        status.setText("Agenda Bulan " + bulan + "Tahun " + tahun);
+
+        String BASE_URL = "http://www.dpr.go.id/rest/?method=getAgendaPerBulan&tahun=" + tahun + "&bulan=" + bulan + "&tipe=xml";
+        parseLink(BASE_URL);
+        //recreate();
+    }
+
+    private void parseLink(final String BASE_URL) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        mAgenda_Item.clear();
+
+                        System.out.println("link = " + BASE_URL);
+                        //System.out.println("Respon = "+ response);
+
+                        response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
+                        response = response.substring(10);
+                        response = response.substring(0, response.length()-11);
+
+                        //System.out.println("Hasil = "+response);
+
+                        XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
+
+                        //System.out.println("json = " + xmlToJson);
+
+                        JSONObject jsonObject = xmlToJson.toJson();
+
+                        try {
+                            JSONArray jsonArray = jsonObject.getJSONArray("agenda");
+
+                            for (int i= 0; i<jsonArray.length();i++){
+                                JSONObject agenda = jsonArray.getJSONObject(i);
+
+                                String tanggal = agenda.getString("tanggal");
+                                String jam = agenda.getString("jam");
+                                String judul = agenda.getString("title");
+                                String deskripsi = agenda.getString("deskripsi");
+
+                                mAgenda_Item.add(new AgendaItem(tanggal, jam, judul, deskripsi));
+                            }
+
+                            mAgenda_Adapter = new AgendaAdapter(Agenda.this, mAgenda_Item);
+                            mRecyclerview.setAdapter(mAgenda_Adapter);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("Gagal");
+            }
+        });
+
+// Add the request to the RequestQueue.
+        mRequestQueue.add(stringRequest);
+    }
+
 }
