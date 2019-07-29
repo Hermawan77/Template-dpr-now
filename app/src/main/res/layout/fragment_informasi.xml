@@ -29,15 +29,15 @@
                 <Button
                     android:id="@+id/semuaAnggota"
                     android:layout_width="200dp"
-                    android:layout_height="175dp"
+                    android:layout_height="150dp"
                     android:text="Daftar Anggota"
                     android:drawableTop="@drawable/anggota"
                     android:background="@android:color/transparent"/>
 
                 <Button
                     android:layout_width="200dp"
-                    android:layout_height="175dp"
-                    android:text="Legislasi"
+                    android:layout_height="150dp"
+                    android:text="Pelayanan Masyarakat"
                     android:drawableTop="@drawable/legislasi"
                     android:background="@android:color/transparent"/>
 
@@ -51,15 +51,15 @@
 
                 <Button
                     android:layout_width="200dp"
-                    android:layout_height="175dp"
-                    android:text="Naskah Akademik"
+                    android:layout_height="150dp"
+                    android:text="Daftar Majalah"
                     android:drawableTop="@drawable/naskah"
                     android:background="@android:color/transparent"/>
 
                 <Button
                     android:id="@+id/berita"
                     android:layout_width="200dp"
-                    android:layout_height="175dp"
+                    android:layout_height="150dp"
                     android:text="Berita"
                     android:drawableTop="@drawable/news"
                     android:background="@android:color/transparent"/>
@@ -75,14 +75,14 @@
                 <Button
                     android:id="@+id/agenda"
                     android:layout_width="200dp"
-                    android:layout_height="175dp"
+                    android:layout_height="150dp"
                     android:text="Agenda"
                     android:drawableTop="@drawable/agenda"
                     android:background="@android:color/transparent"/>
 
                 <Button
                     android:layout_width="200dp"
-                    android:layout_height="175dp"
+                    android:layout_height="150dp"
                     android:text="Hasil"
                     android:drawableTop="@drawable/hasil"
                     android:background="@android:color/transparent"/>

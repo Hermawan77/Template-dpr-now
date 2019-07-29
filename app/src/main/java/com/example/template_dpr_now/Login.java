@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
     private SignInButton googleSignInButton;
     Button google;
 
-    // Back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
+    // back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
     // dan akan memunculkan toast
     @Override
     public void onBackPressed() {

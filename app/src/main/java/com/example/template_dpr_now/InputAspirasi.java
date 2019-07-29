@@ -23,6 +23,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -45,6 +46,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
     Spinner spinner;
     DatabaseManager mDatabase;
     Uri pdfUri, imageUri;
+    ImageButton back;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
 
@@ -81,6 +83,15 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.custom_list_item, R.id.text_view_list_item, temp);
         editText.setAdapter(adapter);
+
+        back = findViewById(R.id.back1);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(InputAspirasi.this, MainActivity.class));
+                finish();
+            }
+        });
 
         Save.setOnClickListener(this);
         Lihat.setOnClickListener(this);

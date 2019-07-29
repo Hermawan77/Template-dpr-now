@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.example.template_dpr_now.R;
 
@@ -23,7 +24,7 @@ public class HomeFragment extends Fragment {
     private ViewPager mViewPager;
     private SectionsPageAdapter mSectionsPageAdapter;
     Toolbar toolbarhome;
-
+    ImageButton back;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +39,15 @@ public class HomeFragment extends Fragment {
 
         // Memberikan nilai
         mSectionsPageAdapter = new SectionsPageAdapter(getChildFragmentManager());
-        mViewPager = (ViewPager) view.findViewById(R.id.container);
+        mViewPager = view.findViewById(R.id.container);
         setupViewPager(mViewPager);
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+        TabLayout tabLayout = view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         toolbarhome = view.findViewById(R.id.toolbarmenu);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbarhome);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("");
-        toolbarhome.setLogo(R.drawable.ic_email);
-        return view;
 
+        return view;
     }
 
     // Menampilkan tombol atau tulisan untuk pindah ke fragment lain berupa Tab View
