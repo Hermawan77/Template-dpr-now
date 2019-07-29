@@ -10,16 +10,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.example.template_dpr_now.Model.PostPutDelAkun;
+
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
 import com.example.template_dpr_now.Util.SharedPrefManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +31,7 @@ import static android.support.constraint.Constraints.TAG;
 
 public class Login_API extends AppCompatActivity {
 
-    EditText edit_nama,edit_password;
+    EditText edit_email,edit_password;
     Button btsimpan;
     Context mContext;
     API_Interface api;
@@ -40,12 +42,11 @@ public class Login_API extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_api);
-        //getSupportActionBar().hide();
 
-        edit_nama = findViewById(R.id.edemail);
+        edit_email = findViewById(R.id.edemail);
         edit_password = findViewById(R.id.edpass);
         btsimpan = findViewById(R.id.btnlogin);
-//        ButterKnife.bind(this);
+
         mContext = this;
         // meng-init yang ada di package apihelper
         api = API_Client.getClient().create(API_Interface.class);// meng-init yang ada di package REST
@@ -70,28 +71,31 @@ public class Login_API extends AppCompatActivity {
 
     private void requestLogin() {
         Map<String,String> hashMap=new HashMap<>();
-        hashMap.put("nama",edit_nama.getText().toString());
+        hashMap.put("email",edit_email.getText().toString());
         hashMap.put("password", edit_password.getText().toString());
 
-        Call<PostPutDelAkun> postAkunCall = api.postAkunn(hashMap);
-        postAkunCall.enqueue(new Callback<PostPutDelAkun>() {
+        Call<ResponseBody> postAkunCall = api.postAkunn(hashMap);
+        postAkunCall.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<PostPutDelAkun> call, Response<PostPutDelAkun> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()){
                     Log.d(TAG,"Sukses ? : "+response.isSuccessful());
                     Log.d(TAG,"Body Error : "+response.errorBody());
                     Log.d(TAG,"Pesan : "+response.raw());
 
                     try {
-                        JSONObject jsonRESULTS = new JSONObject(response.body().toString());
+                        JSONObject jsonRESULTS = new JSONObject(response.body().string());
+                        Log.d(TAG,"JSON RESULTS : "+jsonRESULTS);
                         if (jsonRESULTS.getString("error").equals("false")){
-                            // Jika login berhasil maka data nama yang ada di response API
+                            // Jika login berhasil maka data email yang ada di response API
                             // akan diparsing ke activity selanjutnya.
                             Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
-                            String nama = jsonRESULTS.getJSONObject("user").getString("nama");
-                            sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
+                            String email = jsonRESULTS.getString("email");
+                            sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, email);
                             // Shared Pref ini berfungsi untuk menjadi trigger session login
                             sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+//                            Intent i = new Intent(Login_API.this, MainActivity.class);
+//                            startActivity(i);
                             startActivity(new Intent(mContext, MainActivity.class)
                                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                             finish();
@@ -99,8 +103,11 @@ public class Login_API extends AppCompatActivity {
                             // Jika login gagal
                             String error_message = jsonRESULTS.getString("error_msg");
                             Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "Email atau Password Salah", Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
                 } else {
@@ -109,7 +116,7 @@ public class Login_API extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<PostPutDelAkun> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.e("debug", "onFailure: ERROR > " + t.toString());
 
             }

@@ -1,8 +1,5 @@
 package com.example.template_dpr_now.Rest;
 
-//import com.example.template_dpr_now.Model.GetPengaduan;
-//import com.example.root.kontak.Model.PostPutDelPengaduan;
-
 import com.example.template_dpr_now.Model.GetPengaduan;
 import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.Model.PostPutDelAkun;
@@ -34,7 +31,7 @@ public interface API_Interface {
     //mengirim raw data, tanpa di FormUrlEncoded
     @Headers("Content-Type: application/json")
     @POST("/pengaduan/")
-    Call<PostPutDelPengaduan> postPengaduan(@Body  Map <String,String> option);
+    Call<PostPutDelPengaduan> postPengaduan(@Body  Map <String,String> mapPengaduan);
 
 
     @FormUrlEncoded
@@ -45,7 +42,7 @@ public interface API_Interface {
 
     @Headers("Content-Type: application/json")
     @POST("/login/")
-    Call<PostPutDelAkun> postAkunn(@Body Map <String,String> option);
+    Call<ResponseBody> postAkunn(@Body Map <String,String> mapAkun);
 
     //get Youtube model punya babeh faiz
     @GET
