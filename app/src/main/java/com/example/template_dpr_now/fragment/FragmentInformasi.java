@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.example.template_dpr_now.Agenda;
 import com.example.template_dpr_now.Berita;
 import com.example.template_dpr_now.R;
+import com.example.template_dpr_now.SemuaAnggota;
 
 public class FragmentInformasi extends Fragment {
 
@@ -38,6 +39,14 @@ public class FragmentInformasi extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Agenda.class);
+                startActivity(intent);
+            }
+        });
+
+        keSemuaAnggota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SemuaAnggota.class);
                 startActivity(intent);
             }
         });
