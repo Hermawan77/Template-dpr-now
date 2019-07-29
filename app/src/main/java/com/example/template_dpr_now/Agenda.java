@@ -1,6 +1,8 @@
 package com.example.template_dpr_now;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -29,12 +32,14 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
     private ArrayList<AgendaItem> mAgenda_Item;
     private RequestQueue mRequestQueue;
     private TextView status;
+    private TextView sekarang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda);
         status = findViewById(R.id.status);
+        sekarang = findViewById(R.id.sekarang);
 
         findViewById(R.id.kalender).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,21 +69,61 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        String tahun = Integer.toString(year);
+        Calendar c = Calendar.getInstance();
 
-        int a = 1 + month;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy / MM / dd");
+        String current = simpleDateFormat.format(c.getTime());
 
-        String bulan = Integer.toString(a);
+        display(current);
 
-        if (bulan.length()==1){
-            bulan = "0" +  bulan;
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("Tahun dan Bulan Salah");
+        alert
+                .setMessage("Masukkan Tahun dan Bulan dengan Benar")
+                .setIcon(R.drawable.you_tube_logo)
+                .setCancelable(false)
+                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = alert.create();
+
+        if (year > Integer.parseInt(current.substring(0,4))){
+            alertDialog.show();
         }
 
-        status.setText("Agenda Bulan " + bulan + "Tahun " + tahun);
+        else {
 
-        String BASE_URL = "http://www.dpr.go.id/rest/?method=getAgendaPerBulan&tahun=" + tahun + "&bulan=" + bulan + "&tipe=xml";
-        parseLink(BASE_URL);
-        //recreate();
+            if (month + 1 > Integer.parseInt(current.substring(7,9))){
+                alertDialog.show();
+            }
+
+            else {
+                String tahun = Integer.toString(year);
+
+                int a = 1 + month;
+
+                String bulan = Integer.toString(a);
+
+                if (bulan.length()==1){
+                    bulan = "0" +  bulan;
+                }
+
+                status.setText("Agenda Bulan " + bulan + "Tahun " + tahun);
+
+                String BASE_URL = "http://www.dpr.go.id/rest/?method=getAgendaPerBulan&tahun=" + tahun + "&bulan=" + bulan + "&tipe=xml";
+                parseLink(BASE_URL);
+            }
+
+        }
+
+    }
+
+    private void display(String current) {
+        sekarang.setText(current);
     }
 
     private void parseLink(final String BASE_URL) {
