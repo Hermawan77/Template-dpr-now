@@ -30,6 +30,7 @@ public class Email extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Mengecek apakah posisi sudah login atau belum jika sudah maka akan pindah ke MainActivity.java
+
         firebaseAuth = FirebaseAuth.getInstance();
         mAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser()!=null){

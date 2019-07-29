@@ -19,12 +19,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
     // Mendeklarasikan Variable
     private static final String TAG = "Template_DPR_Now";
     private long backPressedTime;
+    FirebaseAuth mAuth;
+    private FirebaseAuth firebaseAuth;
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
     Button google;
@@ -46,6 +50,18 @@ public class Login extends AppCompatActivity {
     // Menampilkan layott activity_login
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Mengecek Login melalui Firebase
+        firebaseAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser()!=null){
+            FirebaseUser user =  firebaseAuth.getCurrentUser();
+            Intent i = new Intent(Login.this, MainActivity.class);
+            startActivity(i);
+            Toast.makeText(Login.this, "Selamat Datang Kembali", Toast.LENGTH_SHORT).show();
+        }
+
+
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
