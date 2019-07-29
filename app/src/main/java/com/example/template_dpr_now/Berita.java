@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -51,7 +52,7 @@ public class Berita extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.println("Respon = "+ response);
+                        //System.out.println("Respon = "+ response);
 
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
                         response = response.substring(10);
@@ -76,8 +77,10 @@ public class Berita extends AppCompatActivity {
                                 String judul = content.getString("title");
                                 String isi = content.getString("isi");
 
-                                isi = isi.replaceAll("\\<p(.+?)p\\>", "").trim();
-                                isi = isi.replaceAll("\\<h4(.+?)h4\\>", "").trim();
+                                isi = Html.fromHtml(isi).toString().trim();
+
+                                //isi = isi.replaceAll("\\<p(.+?)p\\>", "");
+                                //isi = isi.replaceAll("\\<h4(.+?)h4\\>", "").trim();
 
                                 System.out.println("isinya = " + isi);
 
@@ -103,4 +106,6 @@ public class Berita extends AppCompatActivity {
         mRequestQueue.add(stringRequest);
     }
 
-    }
+
+
+}

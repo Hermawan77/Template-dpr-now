@@ -15,6 +15,15 @@ import java.util.ArrayList;
 class Berita_Adapter extends RecyclerView.Adapter<Berita_Adapter.BeritaViewHolder> {
     private Context mContext;
     private ArrayList<Berita_Item> mBeritaItem;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
 
     public Berita_Adapter (Context context, ArrayList<Berita_Item> berita_item){
         mContext = context;
@@ -63,6 +72,18 @@ class Berita_Adapter extends RecyclerView.Adapter<Berita_Adapter.BeritaViewHolde
             mImageView = itemView.findViewById(R.id.fotoberita);
             mTextViewJudul = itemView.findViewById(R.id.judulberita);
             mTextViewIsi = itemView.findViewById(R.id.isiberita);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
