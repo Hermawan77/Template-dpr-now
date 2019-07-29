@@ -1,12 +1,12 @@
 package com.example.template_dpr_now.fragment;
 
-public class F_K1_Item {
+public class KomisiItem {
     private String mImageUrl;
     private String mNama;
     private String mNip;
     private String mJabatan;
 
-    public F_K1_Item(String imageUrl, String nama, String nip, String jabatan) {
+    public KomisiItem(String imageUrl, String nama, String nip, String jabatan) {
         mImageUrl = imageUrl;
         mNama = nama;
         mNip = nip;

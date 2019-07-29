@@ -13,11 +13,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class F_K1_Adapter extends RecyclerView.Adapter<F_K1_Adapter.F_K1_ViewHolder> {
+public class KomisiAdapter extends RecyclerView.Adapter<KomisiAdapter.F_K1_ViewHolder> {
     private Context mContext;
-    private ArrayList<F_K1_Item> mF_K1_List;
+    private ArrayList<KomisiItem> mF_K1_List;
 
-    public F_K1_Adapter(Context context, ArrayList<F_K1_Item> F_K1_List) {
+    public KomisiAdapter(Context context, ArrayList<KomisiItem> F_K1_List) {
         mContext = context;
         mF_K1_List = F_K1_List;
     }
@@ -30,7 +30,7 @@ public class F_K1_Adapter extends RecyclerView.Adapter<F_K1_Adapter.F_K1_ViewHol
 
     @Override
     public void onBindViewHolder(F_K1_ViewHolder holder, int position) {
-        F_K1_Item currentItem = mF_K1_List.get(position);
+        KomisiItem currentItem = mF_K1_List.get(position);
 
         String imageUrl = currentItem.getImageUrl();
         String nama = currentItem.getNama();

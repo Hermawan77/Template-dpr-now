@@ -25,8 +25,8 @@ import java.util.ArrayList;
 
 public class F_K2 extends Fragment {
     private RecyclerView mRecyclerview;
-    private F_K1_Adapter mF_K2_Adapter;
-    private ArrayList<F_K1_Item> mF_K2_Item;
+    private KomisiAdapter mF_K2_Adapter;
+    private ArrayList<KomisiItem> mF_K2_Item;
     private RequestQueue mRequestQueue;
 
     private String BASE_URL = "http://dpr.go.id/rest/?method=getAkd&menu=Sekretariat-Komisi-II&tipe=xml";
@@ -84,10 +84,10 @@ public class F_K2 extends Fragment {
                                 String nip = content.getString("nip");
                                 String jabatan = content.getString("jabatan");
 
-                                mF_K2_Item.add(new F_K1_Item(foto, nama, nip, jabatan));
+                                mF_K2_Item.add(new KomisiItem(foto, nama, nip, jabatan));
                             }
 
-                            mF_K2_Adapter = new F_K1_Adapter(getActivity(), mF_K2_Item);
+                            mF_K2_Adapter = new KomisiAdapter(getActivity(), mF_K2_Item);
                             mRecyclerview.setAdapter(mF_K2_Adapter);
 
                         } catch (JSONException e) {

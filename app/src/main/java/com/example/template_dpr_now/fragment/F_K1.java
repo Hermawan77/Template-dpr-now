@@ -1,6 +1,5 @@
 package com.example.template_dpr_now.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,8 +25,8 @@ import java.util.ArrayList;
 
 public class F_K1 extends Fragment {
     private RecyclerView mRecyclerview;
-    private F_K1_Adapter mF_K1_Adapter;
-    private ArrayList<F_K1_Item> mF_K1_Item;
+    private KomisiAdapter mKomisi_Adapter;
+    private ArrayList<KomisiItem> mKomisi_Item;
     private RequestQueue mRequestQueue;
 
 
@@ -42,7 +41,7 @@ public class F_K1 extends Fragment {
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mF_K1_Item = new ArrayList<>();
+        mKomisi_Item = new ArrayList<>();
 
         mRequestQueue = Volley.newRequestQueue(getContext());
 
@@ -87,11 +86,11 @@ public class F_K1 extends Fragment {
                                 String nip = content.getString("nip");
                                 String jabatan = content.getString("jabatan");
 
-                                mF_K1_Item.add(new F_K1_Item(foto, nama, nip, jabatan));
+                                mKomisi_Item.add(new KomisiItem(foto, nama, nip, jabatan));
                             }
 
-                            mF_K1_Adapter = new F_K1_Adapter(getActivity(), mF_K1_Item);
-                            mRecyclerview.setAdapter(mF_K1_Adapter);
+                            mKomisi_Adapter = new KomisiAdapter(getActivity(), mKomisi_Item);
+                            mRecyclerview.setAdapter(mKomisi_Adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
