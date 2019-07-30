@@ -29,7 +29,10 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
@@ -134,6 +137,17 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         String phone = text3.getText().toString().trim();
         String time = text4.getText().toString().trim();
         String date = text5.getText().toString().trim();
+
+        SimpleDateFormat dt = new SimpleDateFormat("dd-MM-YYYY");
+        try {
+            Date baru = dt.parse(date);
+            SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
+            //System.out.println("Baru = " + dt1.format(date));
+            date = dt1.format(baru);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         String essai = text6.getText().toString().trim();
         String pilihan = spinner.getSelectedItem().toString().trim();
 
@@ -281,7 +295,19 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
 
                             @Override
                             public void onDateSet(DatePicker view, int dayOfMonth, int month, int year) {
-                                txtDate.setText(dayOfMonth +"-"+ month +"-"+ year);
+                                String tanggal = dayOfMonth + "-" + month + "-" + year;
+
+                                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+                                try {
+                                    Date date = dt.parse(tanggal);
+                                    SimpleDateFormat dt1 = new SimpleDateFormat("dd-MM-YYYY");
+                                    //System.out.println("Baru = " + dt1.format(date));
+                                    tanggal = dt1.format(date);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+                                txtDate.setText(tanggal);
                             }
                         }, mYear,mMonth,mDay);
                 datePickerDialog.show();
