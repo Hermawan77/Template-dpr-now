@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SemuaAnggota"></activity>
+        <activity android:name=".AgendaDetail"></activity>
+        <activity android:name=".SemuaAnggota" />
         <activity android:name=".Agenda" />
         <activity android:name=".Berita_Detail" />
         <activity android:name=".Berita" />
@@ -38,7 +39,7 @@
         <activity android:name=".AutoCompleteActivity" />
 
         <activity android:name=".Login_API" />
-        <activity android:name=".Slide"/>
+        <activity android:name=".Slide" />
         <activity android:name=".Aspirasi" />
         <activity
             android:name=".Daftar"

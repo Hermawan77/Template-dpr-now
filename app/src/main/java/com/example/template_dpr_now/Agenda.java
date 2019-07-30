@@ -22,11 +22,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+    public static final String EXTRA_TANGGAL = "tanggal";
+    public static final String EXTRA_JAM = "jam";
+    public static final String EXTRA_JUDUL = "judul";
+    public static final String EXTRA_DESKRIPSI = "deskripsi";
+
     private RecyclerView mRecyclerview;
     private AgendaAdapter mAgenda_Adapter;
     private ArrayList<AgendaItem> mAgenda_Item;
@@ -71,7 +78,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         Calendar c = Calendar.getInstance();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy / MM / dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy - MM - dd");
         String current = simpleDateFormat.format(c.getTime());
 
         display(current);
@@ -133,7 +140,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
                     public void onResponse(String response) {
                         mAgenda_Item.clear();
 
-                        System.out.println("link = " + BASE_URL);
+                        //System.out.println("link = " + BASE_URL);
                         //System.out.println("Respon = "+ response);
 
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
@@ -155,6 +162,19 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
                                 JSONObject agenda = jsonArray.getJSONObject(i);
 
                                 String tanggal = agenda.getString("tanggal");
+
+                                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+                                try {
+                                    Date date = dt.parse(tanggal);
+                                    SimpleDateFormat dt1 = new SimpleDateFormat("dd-MM-YYYY");
+                                    System.out.println("Baru = " + dt1.format(date));
+                                    tanggal = dt1.format(date);
+                                    tanggal = tanggal.substring(0,2);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+
                                 String jam = agenda.getString("jam");
                                 String judul = agenda.getString("title");
                                 String deskripsi = agenda.getString("deskripsi");

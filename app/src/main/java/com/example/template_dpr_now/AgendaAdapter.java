@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+ package com.example.template_dpr_now;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +12,15 @@ import java.util.ArrayList;
 public class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.Agenda_ViewHolder> {
     private Context mContext;
     private ArrayList<AgendaItem> mAgenda_List;
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
 
     public AgendaAdapter(Context context, ArrayList<AgendaItem> Agenda_List){
         mContext = context;
@@ -56,6 +65,18 @@ public class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.Agenda_Vie
             mTextViewJam = itemView.findViewById(R.id.jam_agenda);
             mTextViewJudul = itemView.findViewById(R.id.judul_agenda);
             mTextViewDeskripsi = itemView.findViewById(R.id.deskripsi_agenda);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mListener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }
