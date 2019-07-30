@@ -120,6 +120,37 @@
                 android:inputType="textMultiLine"
                 android:textSize="@dimen/TS_text" />
 
+            <TextView
+                android:id="@+id/textimage"
+                android:text="no file selected"
+                android:layout_below="@+id/aduan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/pickpdf"
+                android:text="PDF"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="280dp"
+                android:layout_alignBottom="@id/btnsimpan"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="280dp" />
+
+            <TextView
+                android:id="@+id/textpdf"
+                android:layout_marginStart="270dp"
+                android:layout_marginLeft="270dp"
+                android:layout_alignBottom="@id/textimage"
+                android:text="no file selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/pickimage"
+                android:text="image"
+                android:layout_alignBottom="@id/btnsimpan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/btnsimpan"
