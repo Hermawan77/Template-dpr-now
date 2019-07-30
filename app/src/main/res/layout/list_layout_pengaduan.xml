@@ -2,44 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:background="@drawable/button_borderless"
-    android:orientation="vertical">
+    android:background="@drawable/button_border"
+    android:orientation="vertical"
+    android:layout_margin="5dp">
 
-    <TextView
-        android:id="@+id/tvNama"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="10dp"
-        android:text="Nama Lengkap"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+        android:padding="10dp"
+        android:background="@drawable/button_borderless"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/datetime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Date"/>
+        <TextView
+            android:id="@+id/tvNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Lengkap"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
-    <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email user"/>
+        <TextView
+            android:id="@+id/datetime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date"/>
 
-
-    <TextView
-        android:id="@+id/tvNomor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="+6280000" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvAduan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_margin="15dp"
         android:text="Isi aduan anda" />
 
 </LinearLayout>
