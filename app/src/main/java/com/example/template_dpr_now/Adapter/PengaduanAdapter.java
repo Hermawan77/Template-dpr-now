@@ -11,8 +11,10 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.example.template_dpr_now.MainActivity;
+import com.example.template_dpr_now.Model.GetPengaduan;
 import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.R;
+import com.example.template_dpr_now.fragment.KomisiItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +22,13 @@ import java.util.List;
 public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyViewHolder> implements ListAdapter {
     List<Pengaduan> mPengaduanList;
     ArrayList<Pengaduan> mdataModelArrayList;
+    private Context mContext;
+    private ArrayList<KomisiItem> mF_K1_List;
 
-    public PengaduanAdapter(List <Pengaduan> PengaduanList) {
+    public PengaduanAdapter(List<Pengaduan> PengaduanList) {
         mPengaduanList = PengaduanList;
+//        mContext = context;
+//        mF_K1_List = F_K1_List;
     }
 
 

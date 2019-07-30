@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Pengaduan {
     @SerializedName("id")
     private String id_pengaduan;
@@ -20,6 +22,13 @@ public class Pengaduan {
     @Expose
     private String isi_aduan;
 
+    //dari Model GetPengaduan
+    @SerializedName("status")
+    String status;
+    @SerializedName("result")
+    List<Pengaduan> listDataPengaduan;
+    @SerializedName("message")
+    String message;
     public String getId_pengaduan() {
         return id_pengaduan;
     }
@@ -60,6 +69,26 @@ public class Pengaduan {
         this.isi_aduan = isi_aduan;
     }
 
+    //dari Model Get Pengaduan
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getMessage() {
+        return message;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    public List<Pengaduan> getListDataPengaduan() {
+        return listDataPengaduan;
+    }
+    public void setListDataPengaduan(List<Pengaduan> listDataPengaduan) {
+        this.listDataPengaduan = listDataPengaduan;
+    }
+
     public Pengaduan(){}
 
     public Pengaduan(String id, String nama, String email, String nomor, String isi) {
@@ -70,5 +99,7 @@ public class Pengaduan {
         this.no_telepon = nomor;
         this.isi_aduan = isi;
     }
+
+
 
 }

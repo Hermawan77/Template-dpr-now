@@ -11,12 +11,16 @@ import android.view.ViewGroup;
 
 import com.example.template_dpr_now.Adapter.PengaduanAdapter;
 import com.example.template_dpr_now.MainActivity;
-import com.example.template_dpr_now.Model.GetPengaduan;
+import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
+import com.google.common.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,7 +32,9 @@ public class FragmentPengaduan extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private PengaduanAdapter mPengaduan_Adapter;
     public static FragmentPengaduan ma;
+    private ArrayList<KomisiItem> mPengaduan_Item;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,22 +43,33 @@ public class FragmentPengaduan extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mApiInterface = API_Client.getClient().create(API_Interface.class);
+        mRecyclerView.setHasFixedSize(true);
+        mPengaduan_Item = new ArrayList<>();
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         //ma.getActivity();
         ma = this;
-        Call<GetPengaduan> PengaduanCall = mApiInterface.getPengaduan();
-        PengaduanCall.enqueue(new Callback<GetPengaduan>() {
+//
+//        Type collectionType = new TypeToken<Collection<Pengaduan>>(){}.getType();
+//        Collection<Pengaduan> enums = gson.fromJson(yourJson, collectionType);
+        Call<List<Pengaduan>> mCall;
+        mCall = mApiInterface.ambilPengaduan();
+       // Call<Pengaduan> pengaduanCall = mApiInterface.ambilPengaduan();
+       mCall.enqueue(new Callback<List<Pengaduan>>() {
             @Override
-            public void onResponse(Call<GetPengaduan> call, Response<GetPengaduan>
+            public void onResponse(Call<List<Pengaduan>> call, Response<List<Pengaduan>>
                     response) {
-                List<Pengaduan> PengaduanList = response.body().getListDataPengaduan();
-                Log.d("Retrofit Get", "Jumlah data Pengaduan: " +
-                        String.valueOf(PengaduanList.size()));
-                mAdapter = new PengaduanAdapter(PengaduanList);
+                List<Pengaduan> pengaduanList = response.body();
+                Log.d("Retrofit Get", response.toString());
+//                Log.d("Retrofit Get", "Jumlah data Pengaduan: " +
+//                        String.valueOf(pengaduanList.size()));
+                mAdapter = new PengaduanAdapter(pengaduanList);
+               // mPengaduan_Adapter = new PengaduanAdapter(getActivity(), mPengaduan_Item);
                 mRecyclerView.setAdapter(mAdapter);
+
             }
 
             @Override
-            public void onFailure(Call<GetPengaduan> call, Throwable t) {
+            public void onFailure(Call<List<Pengaduan>> call, Throwable t) {
                 Log.e("Retrofit Get", t.toString());
             }
         });
@@ -61,24 +78,26 @@ public class FragmentPengaduan extends Fragment {
         //refresh();
         return view;
     }
-    public void refresh() {
-        Call<GetPengaduan> PengaduanCall = mApiInterface.getPengaduan();
-        PengaduanCall.enqueue(new Callback<GetPengaduan>() {
-            @Override
-            public void onResponse(Call<GetPengaduan> call, Response<GetPengaduan>
-                    response) {
-                List<Pengaduan> PengaduanList = response.body().getListDataPengaduan();
-                Log.d("Retrofit Get", "Jumlah data Pengaduan: " +
-                        String.valueOf(PengaduanList.size()));
-                mAdapter = new PengaduanAdapter(PengaduanList);
-                mRecyclerView.setAdapter(mAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<GetPengaduan> call, Throwable t) {
-                Log.e("Retrofit Get", t.toString());
-            }
-        });
-    }
+//    public void refresh() {
+//        Call<Pengaduan> PengaduanCall = mApiInterface.Pengaduan();
+//        PengaduanCall.enqueue(new Callback<Pengaduan>() {
+//            @Override
+//            public void onResponse(Call<Pengaduan> call, Response<Pengaduan>
+//                    response) {
+//                List<Pengaduan> PengaduanList = response.body().getListDataPengaduan();
+//                Log.d("Retrofit Get", "Jumlah data Pengaduan: " +
+//                        String.valueOf(PengaduanList.size()));
+//
+//                mPengaduan_Adapter = new PengaduanAdapter(getActivity(), mPengaduan_Item);
+//                //mAdapter = new PengaduanAdapter(PengaduanList);
+//                mRecyclerView.setAdapter(mAdapter);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Pengaduan> call, Throwable t) {
+//                Log.e("Retrofit Get", t.toString());
+//            }
+//        });
+//    }
 
 }

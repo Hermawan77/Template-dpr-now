@@ -97,27 +97,5 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-    public void refresh() {
-
-
-
-        Call<GetPengaduan> PengaduanCall = mApiInterface.getPengaduan();
-        PengaduanCall.enqueue(new Callback<GetPengaduan>() {
-            @Override
-            public void onResponse(Call<GetPengaduan> call, Response<GetPengaduan>
-                    response) {
-                List<Pengaduan> PengaduanList = response.body().getListDataPengaduan();
-                Log.d("Retrofit Get", "Jumlah data Pengaduan: " +
-                        String.valueOf(PengaduanList.size()));
-                mAdapter = new PengaduanAdapter(PengaduanList);
-                mRecyclerView.setAdapter(mAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<GetPengaduan> call, Throwable t) {
-                Log.e("Retrofit Get", t.toString());
-            }
-        });
-    }
 
 }
