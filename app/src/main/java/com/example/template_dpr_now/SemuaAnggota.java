@@ -75,10 +75,12 @@ public class SemuaAnggota extends AppCompatActivity {
                                 String fraksi = content.getString("fraksi");
                                 String dapil = content.getString("dapil");
                                 String foto = "http://dpr.go.id" + content.getString("foto");
+                                String daftarakd = content.getString("daftar_akd");
 
-                                System.out.println("link = " + foto);
+                                    System.out.println("link = " + foto);
 
-                                mSemuaAnggota_Item.add(new SemuaAnggotaItem(namaanggota, fraksi, dapil, foto));
+                                    mSemuaAnggota_Item.add(new SemuaAnggotaItem(namaanggota, fraksi, dapil, foto));
+
                             }
 
 

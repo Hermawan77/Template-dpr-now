@@ -29,13 +29,13 @@
             android:id="@+id/anggota_fraksi"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="NIP"/>
+            android:text="Fraksi"/>
 
         <TextView
             android:id="@+id/anggota_dapil"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Jabatan"/>
+            android:text="Dapil" />
 
         <TextView
             android:id="@+id/anggota_daftarakd"
