@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/anggota_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/anggota_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp" />
+
+        <TextView
+            android:id="@+id/anggota_nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Lengkap"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/anggota_fraksi"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="NIP"/>
+
+        <TextView
+            android:id="@+id/anggota_dapil"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Jabatan"/>
+
+        <TextView
+            android:id="@+id/anggota_daftarakd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Daftar Akd"/>
+
+    </LinearLayout>
+
+</LinearLayout>
