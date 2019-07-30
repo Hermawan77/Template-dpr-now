@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DAFTAR INPUTAN ASPIRASI"
+            android:text="Daftar Inputan Aspirasi"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
@@ -24,6 +24,15 @@
             android:fontFamily="@font/f_arial"/>
 
     </android.support.v7.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/back4"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_margin="15dp"
+        android:src="@drawable/back1" />
 
     <SearchView
         android:id="@+id/searchbar"

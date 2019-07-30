@@ -32,6 +32,7 @@
                     android:layout_height="150dp"
                     android:text="Daftar Anggota"
                     android:drawableTop="@drawable/anggota"
+                    android:fontFamily="@font/f_arial"
                     android:background="@android:color/transparent"/>
 
                 <Button
@@ -39,6 +40,7 @@
                     android:layout_height="150dp"
                     android:text="Pelayanan Masyarakat"
                     android:drawableTop="@drawable/legislasi"
+                    android:fontFamily="@font/f_arial"
                     android:background="@android:color/transparent"/>
 
             </LinearLayout>
@@ -54,6 +56,7 @@
                     android:layout_height="150dp"
                     android:text="Daftar Majalah"
                     android:drawableTop="@drawable/naskah"
+                    android:fontFamily="@font/f_arial"
                     android:background="@android:color/transparent"/>
 
                 <Button
@@ -62,6 +65,7 @@
                     android:layout_height="150dp"
                     android:text="Berita"
                     android:drawableTop="@drawable/news"
+                    android:fontFamily="@font/f_arial"
                     android:background="@android:color/transparent"/>
 
             </LinearLayout>
@@ -78,6 +82,7 @@
                     android:layout_height="150dp"
                     android:text="Agenda"
                     android:drawableTop="@drawable/agenda"
+                    android:fontFamily="@font/f_arial"
                     android:background="@android:color/transparent"/>
 
                 <Button
@@ -85,6 +90,7 @@
                     android:layout_height="150dp"
                     android:text="Hasil"
                     android:drawableTop="@drawable/hasil"
+                    android:fontFamily="@font/f_arial"
                     android:background="@android:color/transparent"/>
 
             </LinearLayout>

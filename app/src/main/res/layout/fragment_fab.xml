@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="INPUT API"
+            android:text="Input API"
             android:textSize="20dp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
@@ -22,6 +22,14 @@
             android:fontFamily="@font/f_arial"/>
 
     </android.support.v7.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/back7"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_margin="15dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/back1" />
 
     <ScrollView
         android:id="@+id/scrollView1"

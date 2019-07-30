@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="500dp"
+    android:layout_height="wrap_content"
     android:padding="2dp"
     android:background="@android:color/white"
     android:orientation="vertical">
@@ -40,12 +40,10 @@
 
         <TextView
             android:id="@+id/isiberita"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_below="@id/judulberita"
-            android:padding="10dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
-
+            android:padding="10dp"/>
         <TextView
             android:id="@+id/tanggalberita"
             android:layout_width="wrap_content"
@@ -54,6 +52,16 @@
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
             android:text="tanggal berita"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/showmore"
+            android:text="Show More"
+            android:layout_below="@id/judulberita"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_margin="10dp"
+            android:textAlignment="center"/>
 
     </RelativeLayout>
 

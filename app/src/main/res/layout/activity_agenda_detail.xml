@@ -5,9 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="2dp"
     android:background="@android:color/white"
     tools:context=".AgendaDetail">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbaragenda">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail Agenda"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/f_arial"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/back3"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_margin="15dp"
+        android:src="@drawable/back1" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -20,52 +47,44 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_borderless">
+            android:layout_margin="10dp">
 
             <TextView
-                android:id="@+id/kategori_detail"
-                android:layout_width="match_parent"
+                android:id="@+id/agenda_jam"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="kategori"
-                android:padding="10dp"
                 android:layout_margin="10dp"
-                android:textColor="@android:color/white"
-                android:background="@drawable/colorbutton"/>
-
-            <ImageView
-                android:layout_below="@id/kategori_detail"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:id="@+id/fotoberita_detail" />
+                android:layout_alignParentRight="true"
+                android:text="jam berita"/>
+            <TextView
+                android:id="@+id/agenda_tanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="tanggal berita"/>
 
             <TextView
                 android:id="@+id/agenda_isi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tanggalberita_detail"
-                android:text="Judul berita"
-                android:padding="10dp"
+                android:layout_below="@+id/agenda_tanggal"
+                android:text="judul agenda"
+                android:textColor="@color/colorPrimaryDark"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/agenda_deskripsi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-30dp"
                 android:layout_below="@id/agenda_isi"
                 android:padding="10dp"
+                android:background="@drawable/button_borderless"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
-
-            <TextView
-                android:id="@+id/agenda_tanggal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/fotoberita_detail"
-                android:layout_margin="10dp"
-                android:layout_alignParentRight="true"
-                android:text="tanggal berita"/>
 
         </RelativeLayout>
 

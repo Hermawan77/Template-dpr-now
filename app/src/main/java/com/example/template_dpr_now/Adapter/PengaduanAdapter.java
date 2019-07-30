@@ -11,7 +11,6 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.example.template_dpr_now.MainActivity;
-import com.example.template_dpr_now.Model.GetPengaduan;
 import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.fragment.KomisiItem;
@@ -45,11 +44,11 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
     public void onBindViewHolder (MyViewHolder holder,final int position){
 
         //memasukkan data ke holder
-        holder.mTextViewAduan.setText("adoan : "+mPengaduanList.get(position).getIsi_aduan());
+        holder.mTextViewAduan.setText(mPengaduanList.get(position).getIsi_aduan());
 
-        holder.mTextViewNama.setText("nama : "+mPengaduanList.get(position).getNama());
+        holder.mTextViewNama.setText(mPengaduanList.get(position).getNama());
 
-        holder.mTextViewTanggal.setText("tanggal : "+mPengaduanList.get(position).getTanggal());
+        holder.mTextViewTanggal.setText(mPengaduanList.get(position).getTanggal());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
