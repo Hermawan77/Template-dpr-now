@@ -194,7 +194,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/selectimage"
+                android:layout_below="@+id/spinner"
                 android:text="upload" />
 
             <TextView
@@ -218,87 +218,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/textpdf"
-                android:textSize="15sp"
-                android:text="Upload PDF"
-                android:paddingBottom="16dp"
-                android:layout_below="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <EditText
-                android:id="@+id/edittextpdf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/spinnertext"
-                android:layout_toRightOf="@id/textpdf"
-                android:layout_marginTop="15dp"
-                android:hint="isikan nama pdf anda"
-                android:inputType="datetime"
-                android:textSize="@dimen/TS_text" />
-
-            <Button
-                android:id="@+id/selectpdf"
-                android:layout_below="@+id/edittextpdf"
-                android:text="select"
-                android:layout_marginLeft="80dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textgambar"
-                android:textSize="15sp"
-                android:layout_below="@+id/selectpdf"
-                android:text="Upload foto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <EditText
-                android:id="@+id/edittextgambar"
-                android:hint="isikan nama foto anda"
-                android:layout_toRightOf="@+id/textgambar"
-                android:layout_marginTop="35dp"
-                android:layout_below="@id/edittextpdf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/selectimage"
-                android:text="select"
-                android:layout_marginLeft="80dp"
-                android:layout_below="@+id/edittextgambar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:id="@+id/notification1"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/edittextpdf"
-                android:layout_toRightOf="@+id/selectpdf"
-                android:text="no file selected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/notification2"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/edittextgambar"
-                android:layout_toRightOf="@+id/selectimage"
-                android:text="no file selected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
             <CheckBox
                 android:id="@+id/checkbox"
-                android:layout_toRightOf="@+id/notification2"
-                android:layout_below="@+id/selectimage"
+                android:layout_below="@+id/spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <RadioButton
                 android:id="@+id/radiobutton"
-                android:layout_below="@+id/selectimage"
+                android:layout_below="@+id/spinner"
                 android:layout_toRightOf="@+id/checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

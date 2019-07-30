@@ -42,13 +42,12 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
     private static final int PICK_IMAGE_REQUEST=1;
     private static final String[] temp = new String[]{
             "Arif", "Aan", "Bambang", "Budi", "Babeh", "Cece"};
-    EditText text3,text4,text5,text6, textpdf, textimage;
+    EditText text3,text4,text5,text6;
     AutoCompleteTextView text1, text2;
-    TextView txtTime,txtDate, Lihat, selectedpdf, selectedimage;
-    Button Save, pdf, image;
+    TextView txtTime,txtDate, Lihat;
+    Button Save;
     Spinner spinner;
     DatabaseManager mDatabase;
-    Uri pdfUri, imageUri;
     ImageButton back;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
@@ -64,8 +63,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         text4 = (EditText) findViewById(R.id.Date);
         text5 = (EditText) findViewById(R.id.Time);
         text6 = (EditText) findViewById(R.id.essai);
-        textpdf = (EditText) findViewById(R.id.edittextpdf);
-        textimage = (EditText) findViewById(R.id.edittextgambar);
 
         txtTime = (EditText) findViewById(R.id.Time);
         txtTime.setOnClickListener(this);
@@ -74,13 +71,9 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
 
         String[] test = getResources().getStringArray(R.array.Test);
 
-        pdf = (Button) findViewById(R.id.selectpdf);
-        image = (Button) findViewById(R.id.selectimage);
         spinner = (Spinner) findViewById(R.id.spinner);
         Save = (Button) findViewById(R.id.simpan);
         Lihat = (TextView) findViewById(R.id.Viewpilihan);
-        selectedpdf = (TextView) findViewById(R.id.notification1);
-        selectedimage = (TextView) findViewById(R.id.notification2);
 
         AutoCompleteTextView editText = findViewById(R.id.actv);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -98,34 +91,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
 
         Save.setOnClickListener(this);
         Lihat.setOnClickListener(this);
-
-        pdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(InputAspirasi.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
-                    selectPdf();
-
-                }
-                else{
-                    ActivityCompat.requestPermissions(InputAspirasi.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
-                }
-
-            }
-        });
-
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(InputAspirasi.this, Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
-                    selectImage();
-
-                }
-                else{
-                    ActivityCompat.requestPermissions(InputAspirasi.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
-                }
-
-            }
-        });
 
 
         mDatabase = new DatabaseManager(this);
@@ -223,46 +188,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         else
         Toast.makeText(this, "Could not add employee", Toast.LENGTH_SHORT).show();
 
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode==9&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
-            selectPdf();
-        }
-        else if(requestCode==1&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
-            selectImage();
-        }
-    }
-
-    private void selectPdf(){
-        Intent intent = new Intent();
-        intent.setType("application/pdf");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 86);
-    }
-
-    private void selectImage(){
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode==86 && resultCode==RESULT_OK && data!=null){
-            pdfUri=data.getData();
-            selectedpdf.setText("A file is selected : "+ data.getData().getLastPathSegment());
-        }
-        else if(requestCode==1 && resultCode==RESULT_OK && data!=null){
-            imageUri=data.getData();
-            selectedimage.setText("A file is selected : "+ data.getData().getLastPathSegment());
-        }
-        else{
-            Toast.makeText(InputAspirasi.this, "Please select a file", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override
