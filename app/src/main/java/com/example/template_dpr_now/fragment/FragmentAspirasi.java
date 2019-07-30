@@ -14,6 +14,7 @@ import com.example.template_dpr_now.Aspirasi;
 import com.example.template_dpr_now.AspirasiAdapter;
 import com.example.template_dpr_now.Aspirasii;
 import com.example.template_dpr_now.DatabaseManager;
+import com.example.template_dpr_now.InputAspirasi;
 import com.example.template_dpr_now.R;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class FragmentAspirasi extends Fragment {
     List<Aspirasii> pilihanList;
     ListView listViewPilihans;
     DatabaseManager mDatabase;
-    Button btnaspirasi;
+    Button btnaspirasi, btnbuataspirasi;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +42,14 @@ public class FragmentAspirasi extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Aspirasi.class);
                  startActivity(intent);
+            }
+        });
+        btnbuataspirasi = view.findViewById(R.id.btnbuataspirasi);
+        btnbuataspirasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), InputAspirasi.class);
+                startActivity(intent);
             }
         });
         return view;

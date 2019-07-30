@@ -3,22 +3,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <Button
         android:id="@+id/btncariaspirasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cari Aspirasi lainnya"
-        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/colorbutton"
         android:textColor="@android:color/white"
         android:textStyle="bold"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btnbuataspirasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buat Aspirasi"
+        android:textStyle="bold"
+        android:layout_below="@id/btncariaspirasi"
+        android:background="@drawable/button_borderless"
+        android:layout_margin="5dp"
         android:layout_centerHorizontal="true"/>
 
     <ListView
         android:id="@+id/listviewaspirasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btncariaspirasi"/>
+        android:layout_below="@+id/btnbuataspirasi"/>
 
 </RelativeLayout>

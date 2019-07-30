@@ -1,6 +1,5 @@
 package com.example.template_dpr_now.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +12,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.template_dpr_now.InputAspirasi;
 import com.example.template_dpr_now.Model.PostPutDelPengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
@@ -31,7 +29,7 @@ import static android.support.constraint.Constraints.TAG;
 public class FAB extends Fragment {
     AutoCompleteTextView edit_nama, edit_email;
     EditText edit_nomor, edit_aduan;
-    Button btsimpan, btsql;
+    Button btsimpan;
     API_Interface mApiInterface;
 
     @Nullable
@@ -44,16 +42,6 @@ public class FAB extends Fragment {
         edit_aduan = view.findViewById(R.id.aduan);
         btsimpan = view.findViewById(R.id.btnsimpan);
         mApiInterface = API_Client.getClient().create(API_Interface.class); // meng-init yang ada di package REST
-
-        btsql = view.findViewById(R.id.btnsql);
-
-        btsql.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), InputAspirasi.class);
-                startActivity(intent);
-            }
-        });
 
          btsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
