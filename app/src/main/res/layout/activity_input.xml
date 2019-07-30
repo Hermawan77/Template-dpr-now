@@ -289,6 +289,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_toRightOf="@+id/notification2"
+                android:layout_below="@+id/selectimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:id="@+id/radiobutton"
+                android:layout_below="@+id/selectimage"
+                android:layout_toRightOf="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
         </RelativeLayout>
 
     </ScrollView>

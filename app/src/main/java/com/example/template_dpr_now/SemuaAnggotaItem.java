@@ -1,10 +1,13 @@
 package com.example.template_dpr_now;
 
+import java.lang.reflect.Array;
+
 public class SemuaAnggotaItem {
     private String mNama;
     private String mFraksi;
     private String mDapil;
     private String mImageUrl;
+    private String[] mDaftarAkd;
 
     public SemuaAnggotaItem(String namaanggota, String fraksi, String dapil, String imageurl){
         mNama = namaanggota;
@@ -12,6 +15,7 @@ public class SemuaAnggotaItem {
         mDapil = dapil;
         mImageUrl = imageurl;
     }
+
 
 
     public String getNamaAnggota() {
@@ -29,4 +33,5 @@ public class SemuaAnggotaItem {
     public String getImageUrl() {
         return mImageUrl;
     }
+
 }
