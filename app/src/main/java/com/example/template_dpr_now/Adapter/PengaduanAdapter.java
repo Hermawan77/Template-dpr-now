@@ -44,18 +44,21 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
     @Override
     public void onBindViewHolder (MyViewHolder holder,final int position){
 
-        holder.mTextViewAduan.setText("Aduan = " + mPengaduanList.get(position).getIsi_aduan());
-        holder.mTextViewEmail.setText("Email = " + mPengaduanList.get(position).getEmail());
-        holder.mTextViewNama.setText("Nama = " + mPengaduanList.get(position).getNama());
-        holder.mTextViewNomor.setText("Nomor = " + mPengaduanList.get(position).getNo_telepon());
+        //memasukkan data ke holder
+        holder.mTextViewAduan.setText("adoan : "+mPengaduanList.get(position).getIsi_aduan());
+
+        holder.mTextViewNama.setText("nama : "+mPengaduanList.get(position).getNama());
+
+        holder.mTextViewTanggal.setText("tanggal : "+mPengaduanList.get(position).getTanggal());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(view.getContext(), MainActivity.class);
-                mIntent.putExtra("Id", mPengaduanList.get(position).getNo_telepon());
+
                 mIntent.putExtra("Nama", mPengaduanList.get(position).getNama());
-                mIntent.putExtra("Email", mPengaduanList.get(position).getEmail());
+
                 mIntent.putExtra("Aduan", mPengaduanList.get(position).getIsi_aduan());
+                mIntent.putExtra("Tanggal", mPengaduanList.get(position).getTanggal());
 
                 view.getContext().startActivity(mIntent);
             }
@@ -113,14 +116,14 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewEmail, mTextViewNama, mTextViewNomor,mTextViewAduan;
+        public TextView mTextViewEmail, mTextViewNama, mTextViewNomor,mTextViewAduan,mTextViewTanggal;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
-            mTextViewNomor = (TextView) itemView.findViewById(R.id.tvNomor);
-            mTextViewEmail = (TextView) itemView.findViewById(R.id.tvEmail);
+
             mTextViewAduan = (TextView) itemView.findViewById(R.id.tvAduan);
+            mTextViewTanggal = (TextView) itemView.findViewById(R.id.datetime);
         }
     }
 }

@@ -21,6 +21,9 @@ public class Pengaduan {
     @SerializedName("isi_aduan")
     @Expose
     private String isi_aduan;
+    @SerializedName("createdAt")
+    @Expose
+    private String tanggal;
 
     //dari Model GetPengaduan
     @SerializedName("status")
@@ -65,10 +68,16 @@ public class Pengaduan {
         return isi_aduan;
     }
 
-    public void setIsi_aduan(String isi_aduan) {
-        this.isi_aduan = isi_aduan;
+    public void setIsi_aduan(String tgl) {
+        this.isi_aduan = tgl;
+    }
+    public String getTanggal() {
+        return tanggal;
     }
 
+    public void setTanggal(String tgl) {
+        this.tanggal = tgl;
+    }
     //dari Model Get Pengaduan
     public String getStatus() {
         return status;
