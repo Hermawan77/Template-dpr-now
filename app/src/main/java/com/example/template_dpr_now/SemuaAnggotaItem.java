@@ -7,13 +7,14 @@ public class SemuaAnggotaItem {
     private String mFraksi;
     private String mDapil;
     private String mImageUrl;
-    private String[] mDaftarAkd;
+    private String mDaftarAkd;
 
-    public SemuaAnggotaItem(String namaanggota, String fraksi, String dapil, String imageurl){
+    public SemuaAnggotaItem(String namaanggota, String fraksi, String dapil, String imageurl, String daftarAkd){
         mNama = namaanggota;
         mFraksi = fraksi;
         mDapil = dapil;
         mImageUrl = imageurl;
+        mDaftarAkd = daftarAkd;
     }
 
 
@@ -32,6 +33,10 @@ public class SemuaAnggotaItem {
 
     public String getImageUrl() {
         return mImageUrl;
+    }
+
+    public String getDaftarAkd(){
+        return mDaftarAkd;
     }
 
 }

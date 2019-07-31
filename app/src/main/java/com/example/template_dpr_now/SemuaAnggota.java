@@ -11,8 +11,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.template_dpr_now.fragment.KomisiAdapter;
-import com.example.template_dpr_now.fragment.KomisiItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,10 +52,10 @@ public class SemuaAnggota extends AppCompatActivity {
                         //System.out.println("Respon = "+ response);
 
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
-                        response = response.substring(10);
-                        response = response.substring(9, response.length()-81);
+                        //response = response.substring(10);
+                        response = response.substring(19, response.length()-81);
 
-                        System.out.println("Hasil = "+response);
+                        //System.out.println("Hasil = "+response);
 
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
 
@@ -75,11 +73,22 @@ public class SemuaAnggota extends AppCompatActivity {
                                 String fraksi = content.getString("fraksi");
                                 String dapil = content.getString("dapil");
                                 String foto = "http://dpr.go.id" + content.getString("foto");
-                                String daftarakd = content.getString("daftar_akd");
+                                //String daftarakd = content.getString("daftar_akd");
 
-                                    System.out.println("link = " + foto);
+                                String daftarakd = "";
+                                
+                                JSONObject daftar_akd = content.getJSONObject("daftar_akd");
+                                //System.out.println("list = " + daftar_akd);
 
-                                    mSemuaAnggota_Item.add(new SemuaAnggotaItem(namaanggota, fraksi, dapil, foto));
+                                String isi[] = new String[5];
+                                for (int j=0; j<daftar_akd.length();j++){
+                                    isi[j] = daftar_akd.getString("akd").replace("content","").replaceAll("[^a-zA-Z\\s\\,]","");
+                                    //System.out.println("isi = " + isi[j]);
+                                    isi[j] = isi[j].replace(",","\n");
+                                    daftarakd = daftarakd + isi[j];
+                                }
+
+                                mSemuaAnggota_Item.add(new SemuaAnggotaItem(namaanggota, fraksi, dapil, foto, daftarakd));
 
                             }
 

@@ -36,11 +36,13 @@ public class SemuaAnggotaAdapter extends RecyclerView.Adapter<SemuaAnggotaAdapte
         String nama = currentItem.getNamaAnggota();
         String fraksi = currentItem.getFraksi();
         String dapil = currentItem.getDapil();
+        String daftarAkd = currentItem.getDaftarAkd();
 
         Picasso.get().load(imageUrl).fit().centerInside().into(holder.mViewImage);
         holder.mNamaAnggota.setText(nama);
         holder.mFraksi.setText(fraksi);
         holder.mDapil.setText(dapil);
+        holder.mDaftarAkd.setText(daftarAkd);
     }
 
     @Override
@@ -53,6 +55,7 @@ public class SemuaAnggotaAdapter extends RecyclerView.Adapter<SemuaAnggotaAdapte
         public TextView mNamaAnggota;
         public TextView mFraksi;
         public TextView mDapil;
+        public TextView mDaftarAkd;
 
         public SemuaAnggota_ViewHolder(View itemView) {
             super(itemView);
@@ -60,6 +63,7 @@ public class SemuaAnggotaAdapter extends RecyclerView.Adapter<SemuaAnggotaAdapte
             mNamaAnggota = itemView.findViewById(R.id.anggota_nama);
             mFraksi = itemView.findViewById(R.id.anggota_fraksi);
             mDapil = itemView.findViewById(R.id.anggota_dapil);
+            mDaftarAkd = itemView.findViewById(R.id.anggota_daftarakd);
         }
     }
 }
