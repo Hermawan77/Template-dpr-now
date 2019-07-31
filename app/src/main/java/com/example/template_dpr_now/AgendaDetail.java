@@ -26,10 +26,10 @@ public class AgendaDetail extends AppCompatActivity {
         String judul = intent.getStringExtra(EXTRA_JUDUL);
         String deskripsi = intent.getStringExtra(EXTRA_DESKRIPSI);
 
-        TextView textViewTanggal = findViewById(R.id.tanggalberita_detail);
-        TextView textViewJam = findViewById(R.id.kategori_detail);
-        TextView textViewJudul = findViewById(R.id.judulberita_detail);
-        TextView textViewDeskripsi = findViewById(R.id.isiberita_detail);
+        TextView textViewTanggal = findViewById(R.id.agenda_tanggal);
+        TextView textViewJam = findViewById(R.id.agenda_jam);
+        TextView textViewJudul = findViewById(R.id.agenda_isi);
+        TextView textViewDeskripsi = findViewById(R.id.agenda_deskripsi);
 
         textViewTanggal.setText(tanggal);
         textViewJam.setText(jam);

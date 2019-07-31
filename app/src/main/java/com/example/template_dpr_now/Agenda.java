@@ -3,6 +3,7 @@ package com.example.template_dpr_now;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AgendaAdapter.OnItemClickListener {
     public static final String EXTRA_TANGGAL = "tanggal";
     public static final String EXTRA_JAM = "jam";
     public static final String EXTRA_JUDUL = "judul";
@@ -144,8 +145,8 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
                         //System.out.println("Respon = "+ response);
 
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
-                        response = response.substring(10);
-                        response = response.substring(0, response.length()-11);
+                        //response = response.substring(10);
+                        response = response.substring(10, response.length()-11);
 
                         //System.out.println("Hasil = "+response);
 
@@ -184,6 +185,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
 
                             mAgenda_Adapter = new AgendaAdapter(Agenda.this, mAgenda_Item);
                             mRecyclerview.setAdapter(mAgenda_Adapter);
+                            mAgenda_Adapter.setOnItemClickListener(Agenda.this);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -199,6 +201,20 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
 
 // Add the request to the RequestQueue.
         mRequestQueue.add(stringRequest);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intentDetail = new Intent(this, AgendaDetail
+                .class);
+        AgendaItem clickedItem = mAgenda_Item.get(position);
+
+        intentDetail.putExtra(EXTRA_TANGGAL, clickedItem.getTanggal());
+        intentDetail.putExtra(EXTRA_JAM, clickedItem.getJam());
+        intentDetail.putExtra(EXTRA_JUDUL, clickedItem.getJudul());
+        intentDetail.putExtra(EXTRA_DESKRIPSI, clickedItem.getDeskripsi());
+
+        startActivity(intentDetail);
     }
 
 }
