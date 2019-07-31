@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.example.template_dpr_now.Agenda;
 import com.example.template_dpr_now.Berita;
 import com.example.template_dpr_now.KunjunganYanmasActivity;
+import com.example.template_dpr_now.MajalahActivity;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.SemuaAnggota;
 
@@ -20,6 +21,7 @@ public class FragmentInformasi extends Fragment {
     private Button keBerita;
     private Button keAgenda;
     private Button keKunjungan;
+    private Button keMajalah;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class FragmentInformasi extends Fragment {
         keAgenda = view.findViewById(R.id.agenda);
         keSemuaAnggota = view.findViewById(R.id.semuaAnggota);
         keKunjungan = view.findViewById(R.id.kunjungan);
+        keMajalah = view.findViewById(R.id.daftarmajalah);
+
 
         keBerita.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +63,14 @@ public class FragmentInformasi extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SemuaAnggota.class);
                 startActivity(intent);
+            }
+        });
+
+        keMajalah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), MajalahActivity.class);
+                startActivity(i);
             }
         });
 

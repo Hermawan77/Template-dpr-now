@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/majalah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_margin="5dp"
+            android:id="@+id/majalah_image"
+            android:layout_width="350dp"
+            android:layout_height="200dp" />
+
+        <TextView
+            android:id="@+id/majalah_edisi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edisi"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/majalah_tahun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tahun"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/majalah_file"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="File"/>
+
+    </LinearLayout>
+
+</LinearLayout>

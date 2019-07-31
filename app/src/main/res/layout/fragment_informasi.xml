@@ -53,6 +53,7 @@
                 android:gravity="center">
 
                 <Button
+                    android:id="@+id/daftarmajalah"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:text="Daftar Majalah"
