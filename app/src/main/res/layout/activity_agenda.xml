@@ -25,19 +25,9 @@
                 android:textSize="20dp"
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/f_arial"/>
+                android:textColor="@android:color/white" />
 
         </android.support.v7.widget.Toolbar>
-
-        <ImageButton
-        android:id="@+id/back2"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:background="@color/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/back1" />
 
 
     </RelativeLayout>

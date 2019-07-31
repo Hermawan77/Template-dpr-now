@@ -13,6 +13,7 @@
         <item name="android:textColorPrimary">@color/textColor</item>
         <item name="android:textColorSecondary">@color/textColor</item>
         <item name="card_background">@color/cardBackground</item>
+        <item name="android:fontFamily">@font/f_arial</item>
     </style>
 
     <style name="baraktif" parent="Theme.AppCompat.Light.DarkActionBar">

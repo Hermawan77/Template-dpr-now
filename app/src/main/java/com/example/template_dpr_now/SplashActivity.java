@@ -8,8 +8,7 @@ import android.view.WindowManager;
 
 public class SplashActivity extends AppCompatActivity {
     // Mendeklarasikan Variable
-    private final int SPLASH_DISPLAY_LENGTH = 2000;
-
+    private final int SPLASH_DISPLAY_LENGTH = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
