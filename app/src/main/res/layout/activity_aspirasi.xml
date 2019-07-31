@@ -25,26 +25,9 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <ImageButton
-        android:id="@+id/back4"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:background="@color/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_margin="15dp"
-        android:src="@drawable/back1" />
-
-    <SearchView
-        android:id="@+id/searchbar"
-        android:layout_below="@+id/toolbaraspirasi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:queryHint="Cari data anggota"
-        android:background="@color/colorPrimary"/>
-
     <ListView
         android:id="@+id/listviewaspirasi"
-        android:layout_below="@id/searchbar"
+        android:layout_below="@id/toolbaraspirasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

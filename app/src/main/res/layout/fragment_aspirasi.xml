@@ -7,24 +7,13 @@
     android:padding="5dp">
 
     <Button
-        android:id="@+id/btncariaspirasi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cari Aspirasi lainnya"
-        android:background="@drawable/colorbutton"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:layout_margin="5dp"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
         android:id="@+id/btnbuataspirasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buat Aspirasi"
         android:textStyle="bold"
-        android:layout_below="@id/btncariaspirasi"
-        android:background="@drawable/button_borderless"
+        android:background="@drawable/colorbutton"
+        android:textColor="@android:color/white"
         android:layout_margin="5dp"
         android:layout_centerHorizontal="true"/>
 

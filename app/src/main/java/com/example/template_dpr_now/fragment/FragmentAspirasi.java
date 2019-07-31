@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.template_dpr_now.Aspirasi;
 import com.example.template_dpr_now.AspirasiAdapter;
 import com.example.template_dpr_now.Aspirasii;
 import com.example.template_dpr_now.DatabaseManager;
@@ -26,7 +25,7 @@ public class FragmentAspirasi extends Fragment {
     List<Aspirasii> pilihanList;
     ListView listViewPilihans;
     DatabaseManager mDatabase;
-    Button btnaspirasi, btnbuataspirasi;
+    Button btnbuataspirasi;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,15 +34,7 @@ public class FragmentAspirasi extends Fragment {
         mDatabase = new DatabaseManager(getActivity());
         listViewPilihans = view.findViewById(R.id.listviewaspirasi);
         pilihanList = new ArrayList<>();
-        btnaspirasi = view.findViewById(R.id.btncariaspirasi);
         loadPilihansFromDatabase();
-        btnaspirasi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Aspirasi.class);
-                 startActivity(intent);
-            }
-        });
         btnbuataspirasi = view.findViewById(R.id.btnbuataspirasi);
         btnbuataspirasi.setOnClickListener(new View.OnClickListener() {
             @Override
