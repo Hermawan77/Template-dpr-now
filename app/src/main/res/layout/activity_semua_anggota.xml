@@ -25,11 +25,11 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <SearchView
+    <android.support.v7.widget.SearchView
         android:id="@+id/searchanggota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarsemuaanggota"></SearchView>
+        android:layout_below="@+id/toolbarsemuaanggota" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/searchanggota"

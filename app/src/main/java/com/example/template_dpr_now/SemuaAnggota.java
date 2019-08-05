@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,17 +40,20 @@ public class SemuaAnggota extends AppCompatActivity {
 
         mRequestQueue = Volley.newRequestQueue(this);
 
+        SearchView searchView = findViewById(R.id.searchanggota);
+        search(searchView);
         parseLink();
     }
 
     private void parseLink() {
-        //RequestQueue queue = Volley.newRequestQueue(getContext());
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         //System.out.println("Respon = "+ response);
+
+                        mSemuaAnggota_Item.clear();
 
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
                         //response = response.substring(10);
@@ -76,7 +80,7 @@ public class SemuaAnggota extends AppCompatActivity {
                                 //String daftarakd = content.getString("daftar_akd");
 
                                 String daftarakd = "";
-                                
+
                                 JSONObject daftar_akd = content.getJSONObject("daftar_akd");
                                 //System.out.println("list = " + daftar_akd);
 
@@ -87,8 +91,9 @@ public class SemuaAnggota extends AppCompatActivity {
                                     isi[j] = isi[j].replace(",","\n");
                                     daftarakd = daftarakd + isi[j];
                                 }
-
                                 mSemuaAnggota_Item.add(new SemuaAnggotaItem(namaanggota, fraksi, dapil, foto, daftarakd));
+
+                                //mSemuaAnggota_Adapter.notifyDataSetChanged();
 
                             }
 
@@ -108,8 +113,37 @@ public class SemuaAnggota extends AppCompatActivity {
             }
         });
 
-// Add the request to the RequestQueue.
         mRequestQueue.add(stringRequest);
     }
 
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_anggota, menu);
+
+        MenuItem search = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(search);
+        search(searchView);
+        return true;
+    }*/
+
+    private void search(SearchView searchView) {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                mSemuaAnggota_Adapter.getFilter().filter(s);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                mSemuaAnggota_Adapter.getFilter().filter(s);
+                return true;
+            }
+        });
+    }
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }*/
 }

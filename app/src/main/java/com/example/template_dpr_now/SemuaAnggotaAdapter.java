@@ -8,18 +8,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.template_dpr_now.fragment.KomisiAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class SemuaAnggotaAdapter extends RecyclerView.Adapter<SemuaAnggotaAdapter.SemuaAnggota_ViewHolder> {
+public class SemuaAnggotaAdapter extends RecyclerView.Adapter<SemuaAnggotaAdapter.SemuaAnggota_ViewHolder> implements Filterable{
     private Context mContext;
     private ArrayList<SemuaAnggotaItem> Anggota_List;
+    private ArrayList<SemuaAnggotaItem> Anggota_List_Filtered;
 
-    public SemuaAnggotaAdapter(Context context, ArrayList<SemuaAnggotaItem> SemuaAnggota_List){
+    public SemuaAnggotaAdapter(Context context, ArrayList<SemuaAnggotaItem> SemuaAnggota_List) {
         mContext = context;
         Anggota_List = SemuaAnggota_List;
+        Anggota_List_Filtered = SemuaAnggota_List;
     }
 
     @Override
@@ -29,8 +33,8 @@ public class SemuaAnggotaAdapter extends RecyclerView.Adapter<SemuaAnggotaAdapte
     }
 
     @Override
-    public void onBindViewHolder(SemuaAnggotaAdapter.SemuaAnggota_ViewHolder holder, int i) {
-        SemuaAnggotaItem currentItem = Anggota_List.get(i);
+    public void onBindViewHolder(SemuaAnggotaAdapter.SemuaAnggota_ViewHolder holder, int position) {
+        SemuaAnggotaItem currentItem = Anggota_List.get(position);
 
         String imageUrl = currentItem.getImageUrl();
         String nama = currentItem.getNamaAnggota();
@@ -47,7 +51,7 @@ public class SemuaAnggotaAdapter extends RecyclerView.Adapter<SemuaAnggotaAdapte
 
     @Override
     public int getItemCount() {
-        return Anggota_List.size();
+        return Anggota_List_Filtered.size();
     }
 
     public class SemuaAnggota_ViewHolder extends RecyclerView.ViewHolder {
@@ -65,5 +69,42 @@ public class SemuaAnggotaAdapter extends RecyclerView.Adapter<SemuaAnggotaAdapte
             mDapil = itemView.findViewById(R.id.anggota_dapil);
             mDaftarAkd = itemView.findViewById(R.id.anggota_daftarakd);
         }
+    }
+
+
+    @Override
+    public Filter getFilter(){
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+
+                if (charString.isEmpty()){
+                    Anggota_List_Filtered = Anggota_List;
+                }
+
+                else {
+                    ArrayList<SemuaAnggotaItem> filteredList = new ArrayList<>();
+
+                    for (SemuaAnggotaItem item : Anggota_List){
+                        if (item.getNamaAnggota().toLowerCase().contains(charString)){
+                            System.out.println("Isinya = " + charString + " : " + item.getNamaAnggota());
+                            filteredList.add(item);
+                        }
+                    }
+
+                    Anggota_List_Filtered = filteredList;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = Anggota_List_Filtered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                Anggota_List = (ArrayList<SemuaAnggotaItem>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }
