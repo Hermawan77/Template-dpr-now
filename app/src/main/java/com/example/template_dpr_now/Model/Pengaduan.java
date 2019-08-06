@@ -4,7 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Pengaduan {
     @SerializedName("id")
@@ -68,8 +73,8 @@ public class Pengaduan {
         return isi_aduan;
     }
 
-    public void setIsi_aduan(String tgl) {
-        this.isi_aduan = tgl;
+    public void setIsi_aduan(String aduan) {
+        this.isi_aduan = aduan;
     }
     public String getTanggal() {
         return tanggal;
@@ -78,6 +83,17 @@ public class Pengaduan {
     public void setTanggal(String tgl) {
         this.tanggal = tgl;
     }
+//    public String ambilTanggal() throws ParseException {
+//        DateFormat outputFormat = new SimpleDateFormat("MM/yyyy");
+//        DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+//
+//        //String inputText = "2012-11-17T00:00:00.000-05:00";
+//        Date date = inputFormat.parse(tanggal);
+//        String outputText = outputFormat.format(date);
+//        return  outputText;
+//
+//
+//    }
     //dari Model Get Pengaduan
     public String getStatus() {
         return status;

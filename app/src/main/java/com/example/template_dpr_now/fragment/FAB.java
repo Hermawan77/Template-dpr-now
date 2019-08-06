@@ -2,6 +2,8 @@ package com.example.template_dpr_now.fragment;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -22,10 +24,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.template_dpr_now.InputAspirasi;
+import com.example.template_dpr_now.MainActivity;
 import com.example.template_dpr_now.Model.PostPutDelPengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
+import com.example.template_dpr_now.Theme;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -81,6 +85,9 @@ public class FAB extends Fragment {
                         Log.d(TAG,"Body Error : "+response.errorBody());
                         Log.d(TAG,"Pesan : "+response.raw());
 
+
+
+
                     }
 
                     @Override
@@ -89,6 +96,21 @@ public class FAB extends Fragment {
                        Log.d(TAG+call.request().url(),t.getMessage());
                     }
                 });
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.Widget_AppCompat_Button_ButtonBar_AlertDialog);
+                builder.setTitle("Data yang diisi sudah benar ?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        startActivity(intent);
+                        ((Activity) getActivity()).overridePendingTransition(0, 0);
+
+                    }
+                });
+                builder.setNegativeButton("No", null);
+                builder.create().show();
             }
         });
 

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,13 @@ import com.example.template_dpr_now.MainActivity;
 import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.fragment.KomisiItem;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyViewHolder> implements ListAdapter {
@@ -45,6 +52,32 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
 
         //memasukkan data ke holder
         holder.mTextViewAduan.setText(mPengaduanList.get(position).getIsi_aduan());
+//        String tgl = mPengaduanList.get(position).getTanggal();
+//        DateFormat outputFormat = new SimpleDateFormat("MM/yyyy");
+//        DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+//        Log.d("tanggal : ",tgl);
+//        //String inputText = "2012-11-17T00:00:00.000-05:00";
+//        Date date = null;
+//        try {
+//            date = inputFormat.parse(mPengaduanList.get(position).getTanggal());
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        String outputText = outputFormat.format(date);
+//
+//        Pengaduan message = mPengaduanList.get(position);
+//
+//        Date createdAt = mPengaduanList.get(position).getTanggal();
+//        long now = new Date().getTime();
+//        String convertedDate = DateUtils.getRelativeTimeSpanString(
+//                createdAt.getTime(),
+//                now,
+//                DateUtils.SECOND_IN_MILLIS).toString();
+//
+//        holder.timeLabel.setText(convertedDate);
+//        //memasukkan data ke holder
+//        Log.d("tanggal : ",outputText);
+        holder.mTextViewAduan.setText("Aduan : "+mPengaduanList.get(position).getIsi_aduan());
 
         holder.mTextViewNama.setText(mPengaduanList.get(position).getNama());
 
