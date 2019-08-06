@@ -81,7 +81,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         Calendar c = Calendar.getInstance();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy - MM - dd");
         String current = simpleDateFormat.format(c.getTime());
 
         display(current);
