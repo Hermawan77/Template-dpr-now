@@ -20,6 +20,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class SemuaAnggota extends AppCompatActivity {
+    boolean count = false;
+
     private RecyclerView mRecyclerview;
     private SemuaAnggotaAdapter mSemuaAnggota_Adapter;
     private ArrayList<SemuaAnggotaItem> mSemuaAnggota_Item;
@@ -130,13 +132,23 @@ public class SemuaAnggota extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                mSemuaAnggota_Adapter.getFilter().filter(s);
+
+
+                if (!count){
+                    mSemuaAnggota_Adapter.getFilter().filter(s);
+                    count = true;
+                }
+                else {
+                    recreate();
+                    count = false;
+                }
+
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
-                mSemuaAnggota_Adapter.getFilter().filter(s);
+                //mSemuaAnggota_Adapter.getFilter().filter(s);
                 return true;
             }
         });
