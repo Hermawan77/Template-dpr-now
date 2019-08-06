@@ -45,7 +45,8 @@
             android:id="@+id/majalah_file"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="File" />
+            android:text="File"
+            android:autoLink="web"/>
 
     </LinearLayout>
 
