@@ -1,7 +1,6 @@
 package com.example.template_dpr_now;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,8 +37,8 @@ public class MajalahAdapter extends RecyclerView.Adapter<MajalahAdapter.MajalahA
         String file = currentItem.getFile();
 
         Picasso.get().load(imageUrl).fit().centerInside().into(holder.mImageView);
-        holder.mEdisi.setText(edisi);
-        holder.mTahun.setText(tahun);
+        holder.mEdisi.setText(" ("+edisi+")");
+        holder.mTahun.setText("Edisi : "+tahun);
         holder.mFile.setText(file);
     }
 

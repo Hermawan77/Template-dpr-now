@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#DC1F01</color>
     <color name="colorPrimaryDark">#b83925</color>
-    <color name="colorAccent">#ee6f57</color>
+    <color name="colorAccent">#DC1F01</color>
     <color name="colorControlNormal">#fafafa</color>
 
     <color name="windowBackground">#ffffff</color>
@@ -15,6 +15,7 @@
     <color name="textColorDark">#000000</color>
 
     <color name="abu">#6a6a6b</color>
+    <color name="gradient">#ee6f57</color>
 
     <array name="array_dot_active">
         <item>#ffffff</item>

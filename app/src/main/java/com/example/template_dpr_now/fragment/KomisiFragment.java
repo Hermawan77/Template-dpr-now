@@ -44,6 +44,7 @@ public class KomisiFragment extends Fragment {
         adapter.addFragment(new F_K2(), "Komisi II");
         adapter.addFragment(new F_K3(), "Komisi III");
         adapter.addFragment(new F_K4(), "Komisi IV");
+        adapter.addFragment(new F_K5(), "Komisi V");
         viewPager.setAdapter(adapter);
     }
 

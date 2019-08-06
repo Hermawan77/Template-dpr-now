@@ -21,7 +21,7 @@
         <item>Betawi </item>
         <item>Asli </item>
     </string-array>
-    <string name="judul_input">Isikan Aduan Anda</string>
+    <string name="judul_input">Isikan Aspirasi Anda</string>
     <string name="namatext">Nama</string>
     <string name="hint_namaisi">isikan nama lengkap</string>
     <string name="email">Email</string>

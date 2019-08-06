@@ -43,16 +43,18 @@
         android:layout_below="@+id/toolbarinputaspirasi">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/judul_input"
+                android:layout_margin="25dp"
                 android:layout_centerHorizontal="true"
-                android:textSize="@dimen/TS_judul" />
+                android:textSize="@dimen/TS_judul"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <TextView
                 android:id="@+id/namatext"
@@ -186,27 +188,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/spinnertext"
-                android:entries="@array/pilihan"/>
+                android:entries="@array/pilihan"
+                android:layout_margin="10dp"/>
 
             <Button
                 android:id="@+id/simpan"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/spinner"
+                android:layout_below="@id/radiobutton"
+                android:background="@drawable/button_borderless"
                 android:text="upload" />
 
             <TextView
                 android:id="@+id/Viewpilihan"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lihat Daftar"
                 android:layout_below="@id/simpan"
-                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/colorbutton"
                 android:onClick="onClick"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:padding="10dp"
+                android:text="LIHAT DAFTAR"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textviewcomplete"
@@ -218,18 +223,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <CheckBox
+            <LinearLayout
                 android:id="@+id/checkbox"
-                android:layout_below="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinner">
 
-            <RadioButton
+                <CheckBox
+                    android:id="@+id/checkbox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AA"/>
+                <CheckBox
+                    android:id="@+id/checkbox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BB"/>
+                <CheckBox
+                    android:id="@+id/checkbox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CC"/>
+                <CheckBox
+                    android:id="@+id/checkbox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DD"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/radiobutton"
-                android:layout_below="@+id/spinner"
-                android:layout_toRightOf="@+id/checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/checkbox">
+
+                <RadioButton
+                    android:id="@+id/radiobutton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PRIA"/>
+                <RadioButton
+                    android:id="@+id/radiobutton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WANITA"/>
+
+            </LinearLayout>
 
         </RelativeLayout>
 

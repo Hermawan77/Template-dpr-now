@@ -49,6 +49,8 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
         status = findViewById(R.id.status);
         sekarang = findViewById(R.id.sekarang);
 
+        this.setTheme(R.style.DefaultTheme);
+
         findViewById(R.id.kalender).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +81,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         Calendar c = Calendar.getInstance();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy - MM - dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String current = simpleDateFormat.format(c.getTime());
 
         display(current);
