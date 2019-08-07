@@ -17,21 +17,32 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.template_dpr_now.InputAspirasi;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.template_dpr_now.MainActivity;
 import com.example.template_dpr_now.Model.PostPutDelPengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
-import com.example.template_dpr_now.Theme;
+import com.example.template_dpr_now.XmlToJson;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -43,6 +54,9 @@ import static android.support.constraint.Constraints.TAG;
 
 public class FAB extends Fragment {
     private static final int PICK_IMAGE_REQUEST=1;
+    private RequestQueue mRequestQueue;
+    List<String> responseList = new ArrayList<String>();
+    private String BASE_URL = "http://www.dpr.go.id/rest/?method=getSemuaAnggota&tipe=xml";
 
     AutoCompleteTextView edit_nama, edit_email;
     EditText edit_nomor, edit_aduan;
@@ -84,9 +98,6 @@ public class FAB extends Fragment {
                         Log.d(TAG,"Sukses ? : "+response.isSuccessful());
                         Log.d(TAG,"Body Error : "+response.errorBody());
                         Log.d(TAG,"Pesan : "+response.raw());
-
-
-
 
                     }
 
@@ -141,6 +152,43 @@ public class FAB extends Fragment {
 
             }
         });
+
+        mRequestQueue = Volley.newRequestQueue(getContext());
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
+                new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
+                        response = response.substring(19, response.length()-81);
+                        XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
+                        JSONObject jsonObject = xmlToJson.toJson();
+
+                        try {
+                            JSONArray jsonArray = jsonObject.getJSONArray("item");
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject content = jsonArray.getJSONObject(i);
+                                String namaanggota = content.getString("nama");
+                                responseList.add(namaanggota);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("Gagal");
+            }
+        });
+
+        mRequestQueue.add(stringRequest);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                R.layout.custom_list_item, R.id.text_view_list_item, responseList);
+        edit_nama.setAdapter(adapter);
 
         return  view;
 
