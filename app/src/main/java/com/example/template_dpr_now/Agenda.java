@@ -169,7 +169,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
                                 SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
                                 try {
                                     Date date = dt.parse(tanggal);
-                                    SimpleDateFormat dt1 = new SimpleDateFormat("dd-MM-YYYY");
+                                    SimpleDateFormat dt1 = new SimpleDateFormat("dd-MM-yyyy");
                                     System.out.println("Baru = " + dt1.format(date));
                                     tanggal = dt1.format(date);
                                     tanggal = tanggal.substring(0,2);
