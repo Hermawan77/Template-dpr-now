@@ -141,9 +141,12 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
             if (nameString[i].isChecked())
             {
                 Toast.makeText(getApplicationContext(), nameString[i].getText().toString(), Toast.LENGTH_SHORT).show();
-
+                text = text + "," + nameString[i].getText().toString();
             }
         }
+
+        text = text.replace("null,","");
+        System.out.println("Text = " + text);
 
 
         if (name.isEmpty()){
