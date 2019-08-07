@@ -29,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
@@ -48,6 +49,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
     ImageButton back;
     CheckBox cb1, cb2, cb3, cb4;
     ArrayList Selection;
+    String text;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
     @Override
@@ -63,14 +65,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         text4 = (EditText) findViewById(R.id.Date);
         text5 = (EditText) findViewById(R.id.Time);
         text6 = (EditText) findViewById(R.id.essai);
-        cb1 = (CheckBox) findViewById(R.id.checkbox1);
-        cb1.setOnClickListener(this);
-        cb2 = (CheckBox) findViewById(R.id.checkbox2);
-        cb2.setOnClickListener(this);
-        cb3 = (CheckBox) findViewById(R.id.checkbox3);
-        cb3.setOnClickListener(this);
-        cb4 = (CheckBox) findViewById(R.id.checkbox4);
-        cb4.setOnClickListener(this);
 
         txtTime = (EditText) findViewById(R.id.Time);
         txtTime.setOnClickListener(this);
@@ -111,6 +105,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         String phone = text3.getText().toString().trim();
         String time = text4.getText().toString().trim();
         String date = text5.getText().toString().trim();
+        String listString = "";
 
         SimpleDateFormat dt = new SimpleDateFormat("dd-MM-YYYY");
         try {
@@ -125,29 +120,31 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         String essai = text6.getText().toString().trim();
         String pilihan = spinner.getSelectedItem().toString().trim();
 
-//        if (cb1.isChecked()){
-//            Selection.add("AA");
-//        } else {
-//            Selection.remove("AA");
-//        }
-//
-//        if (cb2.isChecked()){
-//            Selection.add("BB");
-//        } else {
-//            Selection.remove("BB");
-//        }
-//
-//        if (cb3.isChecked()){
-//            Selection.add("CC");
-//        } else {
-//            Selection.remove("CC");
-//        }
-//
-//        if (cb4.isChecked()){
-//            Selection.add("DD");
-//        } else {
-//            Selection.remove("DD");
-//        }
+        cb1 = (CheckBox) findViewById(R.id.checkbox1);
+        cb1.setOnClickListener(this);
+        cb2 = (CheckBox) findViewById(R.id.checkbox2);
+        cb2.setOnClickListener(this);
+        cb3 = (CheckBox) findViewById(R.id.checkbox3);
+        cb3.setOnClickListener(this);
+        cb4 = (CheckBox) findViewById(R.id.checkbox4);
+        cb4.setOnClickListener(this);
+
+        List<CheckBox> items = new ArrayList<CheckBox>();
+        for (CheckBox item : items ){
+            if (item.isChecked())
+                text = item.getText().toString();
+        }
+        CheckBox[] nameString = new CheckBox[]{cb1, cb2, cb3, cb4};
+
+        for (int i=0; i<=3; i++)
+        {
+            if (nameString[i].isChecked())
+            {
+                Toast.makeText(getApplicationContext(), nameString[i].getText().toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        }
+
 
         if (name.isEmpty()){
             text1.setError("pengisian nama diperlukan");
