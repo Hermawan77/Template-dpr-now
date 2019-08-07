@@ -195,7 +195,7 @@
                 android:id="@+id/simpan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/radiobutton"
+                android:layout_below="@id/rb"
                 android:background="@drawable/button_borderless"
                 android:text="upload" />
 
@@ -233,7 +233,7 @@
                     android:id="@+id/checkbox1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="AA"/>
+                    android:text="AA" />
                 <CheckBox
                     android:id="@+id/checkbox2"
                     android:layout_width="wrap_content"
@@ -252,24 +252,24 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/radiobutton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/checkbox">
-
-                <RadioButton
-                    android:id="@+id/radiobutton1"
+                <RadioGroup
+                    android:id="@+id/rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PRIA"/>
-                <RadioButton
-                    android:id="@+id/radiobutton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="WANITA"/>
+                    android:layout_below="@+id/checkbox">
 
-            </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/radiobutton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PRIA"/>
+                    <RadioButton
+                        android:id="@+id/radiobutton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WANITA"/>
+
+                </RadioGroup>
 
         </RelativeLayout>
 

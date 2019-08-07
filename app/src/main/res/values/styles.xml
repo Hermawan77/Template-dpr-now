@@ -16,7 +16,7 @@
         <item name="android:fontFamily">@font/f_arial</item>
     </style>
 
-    <style name="baraktif" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="baraktif" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryDark">@android:color/white</item>
         <item name="colorAccent">@android:color/white</item>
@@ -34,22 +34,22 @@
         <item name="colorControlNormal">@color/colorControlNormal</item>
 
         <item name="android:windowBackground">@color/windowBackgroundDark</item>
-        <item name="android:textColorPrimary">@color/textColorDark</item>
-        <item name="android:textColorSecondary">@color/textColorDark</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
 
         <item name="card_background">@color/cardBackgroundDark</item>
     </style>
 
 
     <style name="Green_goblin" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#a8e063</item>
-        <item name="colorPrimaryDark">#56ab2f</item>
+        <item name="colorPrimary">@color/yellowdark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlNormal">@color/colorControlNormal</item>
 
-        <item name="android:windowBackground">@color/windowBackground</item>
-        <item name="android:textColorPrimary">@color/textColor</item>
-        <item name="android:textColorSecondary">@color/textColor</item>
+        <item name="android:windowBackground">@color/yellow</item>
+        <item name="android:textColorPrimary">@color/gradient</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
 
         <item name="card_background">@color/cardBackground</item>
     </style>

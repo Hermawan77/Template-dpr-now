@@ -14,9 +14,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -24,6 +26,7 @@ import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -40,10 +43,12 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
     TextView txtTime,txtDate, Lihat;
     Button Save;
     Spinner spinner;
+    RadioGroup radioGroup;
     DatabaseManager mDatabase;
     ImageButton back;
+    CheckBox cb1, cb2, cb3, cb4;
+    ArrayList Selection;
     private int  mHour, mMinute, mYear, mMonth, mDay;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,14 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         text4 = (EditText) findViewById(R.id.Date);
         text5 = (EditText) findViewById(R.id.Time);
         text6 = (EditText) findViewById(R.id.essai);
+        cb1 = (CheckBox) findViewById(R.id.checkbox1);
+        cb1.setOnClickListener(this);
+        cb2 = (CheckBox) findViewById(R.id.checkbox2);
+        cb2.setOnClickListener(this);
+        cb3 = (CheckBox) findViewById(R.id.checkbox3);
+        cb3.setOnClickListener(this);
+        cb4 = (CheckBox) findViewById(R.id.checkbox4);
+        cb4.setOnClickListener(this);
 
         txtTime = (EditText) findViewById(R.id.Time);
         txtTime.setOnClickListener(this);
@@ -67,6 +80,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         String[] test = getResources().getStringArray(R.array.Test);
 
         spinner = (Spinner) findViewById(R.id.spinner);
+        radioGroup = (RadioGroup) findViewById(R.id.rb);
         Save = (Button) findViewById(R.id.simpan);
         Lihat = (TextView) findViewById(R.id.Viewpilihan);
 
@@ -110,6 +124,30 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
 
         String essai = text6.getText().toString().trim();
         String pilihan = spinner.getSelectedItem().toString().trim();
+
+//        if (cb1.isChecked()){
+//            Selection.add("AA");
+//        } else {
+//            Selection.remove("AA");
+//        }
+//
+//        if (cb2.isChecked()){
+//            Selection.add("BB");
+//        } else {
+//            Selection.remove("BB");
+//        }
+//
+//        if (cb3.isChecked()){
+//            Selection.add("CC");
+//        } else {
+//            Selection.remove("CC");
+//        }
+//
+//        if (cb4.isChecked()){
+//            Selection.add("DD");
+//        } else {
+//            Selection.remove("DD");
+//        }
 
         if (name.isEmpty()){
             text1.setError("pengisian nama diperlukan");

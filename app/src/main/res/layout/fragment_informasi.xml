@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@android:color/white">
+    android:background="@android:color/transparent">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -30,19 +30,21 @@
                     android:id="@+id/semuaAnggota"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:text="Daftar Anggota"
                     android:drawableTop="@drawable/anggota"
                     android:fontFamily="@font/f_arial"
-                    android:background="@android:color/transparent"/>
+                    android:background="@android:color/white"/>
 
                 <Button
                     android:id="@+id/kunjungan"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:text="Pelayanan Masyarakat"
                     android:drawableTop="@drawable/legislasi"
                     android:fontFamily="@font/f_arial"
-                    android:background="@android:color/transparent"/>
+                    android:background="@android:color/white"/>
 
             </LinearLayout>
 
@@ -56,19 +58,21 @@
                     android:id="@+id/daftarmajalah"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:text="Daftar Majalah"
                     android:drawableTop="@drawable/naskah"
                     android:fontFamily="@font/f_arial"
-                    android:background="@android:color/transparent"/>
+                    android:background="@android:color/white"/>
 
                 <Button
                     android:id="@+id/berita"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:text="Berita"
                     android:drawableTop="@drawable/news"
                     android:fontFamily="@font/f_arial"
-                    android:background="@android:color/transparent"/>
+                    android:background="@android:color/white"/>
 
             </LinearLayout>
 
@@ -82,18 +86,20 @@
                     android:id="@+id/agenda"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:text="Agenda"
                     android:drawableTop="@drawable/agenda"
                     android:fontFamily="@font/f_arial"
-                    android:background="@android:color/transparent"/>
+                    android:background="@android:color/white"/>
 
                 <Button
                     android:layout_width="200dp"
                     android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:text="Hasil"
                     android:drawableTop="@drawable/hasil"
                     android:fontFamily="@font/f_arial"
-                    android:background="@android:color/transparent"/>
+                    android:background="@android:color/white"/>
 
             </LinearLayout>
 
