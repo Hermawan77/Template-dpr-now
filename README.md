@@ -6,14 +6,14 @@ aplikasi ini berguna untuk media pembelajaran Mobile Application (Android)  di B
 ## Getting Started
 
 Project ini dibuat menggunakan, 
-* Android Studio 3.4.1, 
-* JDK 1.8,
-* Gradle 3.4.0,
+* Android Studio 3.4.1 
+* JDK 1.8
+* Gradle 3.4.0
 * Android SDK 28 (Pie)
 
 Library/tools pendukung
 * Retrofit -> client HTTP type-safe untuk Android dan Java, untuk CRUD ke web server
-* Volley -> HTTP library untuk client android (sama seperti Retrofit), untuk CrUD ke web server
+* Volley -> HTTP library untuk client android (sama seperti Retrofit), untuk CRUD ke web server
 * Picasso
 * Firebase
 * SQLite
@@ -23,13 +23,18 @@ Library/tools pendukung
 
 Beberapa tutorial untuk belajar dan membuat aplikasi android
 * Belajar Retrofit
-[Medium Prakash Pun](https://medium.com/@prakash_pun/retrofit-a-simple-android-tutorial-48437e4e5a23)
+[Medium Prakash Pun](https://medium.com/@prakash_pun/retrofit-a-simple-android-tutorial-48437e4e5a23),
 [Codepolitan](https://www.codepolitan.com/rest-api-client-sederhana-dengan-retrofit-pada-android-studio-58986d62c46ae)
 * Belajar Volley
-[Google Developer Android](https://developer.android.com/training/volley/simple)
+[Google Developer Android](https://developer.android.com/training/volley/simple),
 [Github](https://github.com/smart-fun/XmlToJson)
+[Youtube Coding in Flow](https://www.youtube.com/watch?v=y2xtLqP8dSQ)
 * Belajar SQLite
 [Youtube Simplified Coding](https://www.youtube.com/watch?v=E5Y9Ezamc9Y)
+* Membuat Login dengan Google Sign-in
+[Android Clarified](https://androidclarified.com/google-signin-android-example/)
+* Menghandle PDF
+[Youtube ARSL Tech](https://www.youtube.com/watch?v=axChfqYiZwc&t=787s)
 
 ## Official Links
 
@@ -49,7 +54,7 @@ We use [Github](https://github.com) for versioning. For the versions available, 
 
 * **Annisa Gita Asmara** [aannisagita](https://github.com/aannisagita)
 * **Bahrul Faizi** [ApaKabahrul](https://github.com/ApaKabahrul)
-* **Diki Hermawan** [Hermawan77](https://github.com/Hermawan77)
+* **Dicky Hermawan** [Hermawan77](https://github.com/Hermawan77)
 * **Yulianto Pambudi** [pevensey](https://github.com/pevensey)
 
 See also the list of [contributors](https://github.com/aannisagita/Template_dpr_now/graphs/contributors) who participated in this project.
