@@ -31,11 +31,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
-    Button google;
-
-    // back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
-    // dan akan memunculkan toast
-    @Override
+    Button google;@Override
     public void onBackPressed() {
         if(backPressedTime + 2000 > System.currentTimeMillis()){
             super.onBackPressed();
@@ -46,6 +42,10 @@ public class Login extends AppCompatActivity {
         backPressedTime = System.currentTimeMillis();
 
     }
+
+    // back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
+    // dan akan memunculkan toast
+
 
     // Menampilkan layott activity_login
     @Override

@@ -4,6 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,13 +23,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MajalahActivity extends AppCompatActivity {
+public class MajalahActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private RecyclerView mRecyclerview;
     private MajalahAdapter mMajalah_Adapter;
     private ArrayList<MajalahItem> mMajalah_Item;
     private RequestQueue mRequestQueue;
+    String text;
 
-    private String BASE_URL = "http://www.dpr.go.id/rest/?method=getAllMajalah&tahun=2015&tipe=xml";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +44,33 @@ public class MajalahActivity extends AppCompatActivity {
 
         mRequestQueue = Volley.newRequestQueue(this);
 
-        parseLink();
+        //parseLink();
+
+        Spinner spinner = findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.tahun, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
 
-    private void parseLink() {
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        String BASE_URL = "http://www.dpr.go.id/rest/?method=getAllMajalah&tahun=" + text + "&tipe=xml";
+        parseLink(BASE_URL);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+
+
+    private void parseLink(String BASE_URL) {
         //RequestQueue queue = Volley.newRequestQueue(getContext());
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
@@ -50,6 +78,7 @@ public class MajalahActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         //System.out.println("Respon = "+ response);
+                        mMajalah_Item.clear();
 
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
                         response = response.substring(10);

@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textspinner"
+        android:textSize="17sp"
+        android:text="Input Tahun"
+        android:layout_below="@+id/toolbarmajalah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_toRightOf="@+id/textspinner"
+        android:layout_below="@id/toolbarmajalah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </Spinner>
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +43,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_majalah"
-        android:layout_below="@id/toolbarmajalah"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/spinner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

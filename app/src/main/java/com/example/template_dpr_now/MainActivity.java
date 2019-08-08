@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     public static MainActivity ma;
     LinearLayoutManager llm;
+    private long backPressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
