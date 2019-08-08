@@ -1,4 +1,4 @@
-# Membuat Template DPR NOW
+#Template DPR NOW
 
 Membuat Template DPR NOW untuk Bidang Data dan Teknologi Informasi (BDTI) Sekretariat Jenderal DPR-RI
 aplikasi ini berguna untuk media pembelajaran Mobile Application (Android)  di BDTI.
@@ -15,8 +15,8 @@ Project ini dibuat menggunakan,
 Library/tools pendukung
 * Retrofit -> client HTTP type-safe untuk Android dan Java, untuk CRUD ke web server
 * Volley -> HTTP library untuk client android (sama seperti Retrofit), untuk CrUD ke web server
-* Google-services
 * Firebase
+* Google Services
 ### Prerequisites
 
 What things you need to install the software and how to install them
@@ -95,32 +95,25 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* 
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [Spring tools suit](https://spring.io/tools) -  a web framework used
+* [Gradle](https://gradle.org/) - Build tool
+* [Retrofit](https://square.github.io/retrofit/) -  A type-safe HTTP client for Android and Java
+* [Volley](https://github.com/google/volley) - HTTP library for Android
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) -  a development environment for building applications, applets, and components using the Java programming language.
-* [XAMPP](https://www.apachefriends.org/index.html) - an easy to install Apache distribution containing MariaDB, PHP and Perl. 
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [Github](https://github.com) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
-## Authors
+## Contributors
 
 * **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Annisa Gita Asmara** [aannisagita](https://github.com/aannisagita)
+* **Bahrul Faizi** [ApaKabahrul](https://github.com/ApaKabahrul)
+* **Diki Hermawan** [Hermawan77](https://github.com/Hermawan77)
+* **Yulianto Pambudi** [pevensey](https://github.com/pevensey)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
