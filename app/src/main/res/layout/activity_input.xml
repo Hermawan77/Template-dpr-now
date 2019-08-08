@@ -25,15 +25,6 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <ImageButton
-        android:id="@+id/back1"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:background="@color/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_margin="15dp"
-        android:src="@drawable/back1" />
-
     <ScrollView
         android:id="@+id/scrollView1"
         android:padding="20dp"
@@ -195,7 +186,7 @@
                 android:id="@+id/simpan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rb"
+                android:layout_below="@id/seekbar"
                 android:background="@drawable/button_borderless"
                 android:text="upload" />
 
@@ -259,17 +250,32 @@
                     android:layout_below="@+id/checkbox">
 
                     <RadioButton
-                        android:id="@+id/radiobutton1"
+                        android:id="@+id/pria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="PRIA"/>
                     <RadioButton
-                        android:id="@+id/radiobutton2"
+                        android:id="@+id/wanita"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="WANITA"/>
+                        android:text="WANITA" />
 
                 </RadioGroup>
+
+            <TextView
+                android:id="@+id/textseekbar"
+                android:layout_below="@id/rb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_centerHorizontal="true"/>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_below="@id/textseekbar"/>
 
         </RelativeLayout>
 

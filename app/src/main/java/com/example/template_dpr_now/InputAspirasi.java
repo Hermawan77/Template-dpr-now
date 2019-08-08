@@ -18,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -45,11 +46,11 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
     Button Save;
     Spinner spinner;
     RadioGroup radioGroup;
+    RadioButton pria, wanita;
     DatabaseManager mDatabase;
     ImageButton back;
     CheckBox cb1, cb2, cb3, cb4;
-    ArrayList Selection;
-    String text;
+    String checkbox, radiotext;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
     @Override
@@ -74,7 +75,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         String[] test = getResources().getStringArray(R.array.Test);
 
         spinner = (Spinner) findViewById(R.id.spinner);
-        radioGroup = (RadioGroup) findViewById(R.id.rb);
         Save = (Button) findViewById(R.id.simpan);
         Lihat = (TextView) findViewById(R.id.Viewpilihan);
 
@@ -82,15 +82,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.custom_list_item, R.id.text_view_list_item, temp);
         editText.setAdapter(adapter);
-
-        back = findViewById(R.id.back1);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(InputAspirasi.this, MainActivity.class));
-                finish();
-            }
-        });
 
         Save.setOnClickListener(this);
         Lihat.setOnClickListener(this);
@@ -105,7 +96,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         String phone = text3.getText().toString().trim();
         String time = text4.getText().toString().trim();
         String date = text5.getText().toString().trim();
-        String listString = "";
 
         SimpleDateFormat dt = new SimpleDateFormat("dd-MM-YYYY");
         try {
@@ -132,7 +122,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         List<CheckBox> items = new ArrayList<CheckBox>();
         for (CheckBox item : items ){
             if (item.isChecked())
-                text = item.getText().toString();
+                checkbox = item.getText().toString();
         }
         CheckBox[] nameString = new CheckBox[]{cb1, cb2, cb3, cb4};
 
@@ -140,14 +130,30 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         {
             if (nameString[i].isChecked())
             {
-                Toast.makeText(getApplicationContext(), nameString[i].getText().toString(), Toast.LENGTH_SHORT).show();
-                text = text + "," + nameString[i].getText().toString();
+                checkbox = checkbox + "," + nameString[i].getText().toString();
             }
         }
 
-        text = text.replace("null,","");
-        System.out.println("Text = " + text);
+        checkbox = checkbox.replace("null,","");
+        Toast.makeText(getApplicationContext(), checkbox, Toast.LENGTH_SHORT).show();
 
+
+        radioGroup = (RadioGroup) findViewById(R.id.rb);
+        pria = (RadioButton) findViewById(R.id.pria);
+        wanita = (RadioButton) findViewById(R.id.wanita);
+        String radiotext;
+
+        radioGroup.getCheckedRadioButtonId();
+
+        int radioID = radioGroup.getCheckedRadioButtonId();
+
+        if (radioID == pria.getId()){
+            radiotext = pria.getText().toString();
+            Toast.makeText(getApplicationContext(), radiotext, Toast.LENGTH_SHORT).show();
+        } else {
+            radiotext = wanita.getText().toString();
+            Toast.makeText(getApplicationContext(), radiotext, Toast.LENGTH_SHORT).show();
+        }
 
         if (name.isEmpty()){
             text1.setError("pengisian nama diperlukan");
@@ -186,7 +192,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         }
 
         if (mDatabase.addpilihan(name, email, phone, date, time, essai, pilihan)){
-            //Toast.makeText(this, "Employee Added", Toast.LENGTH_SHORT).show();
+
             Intent intent = new Intent(InputAspirasi.this, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(InputAspirasi.this, 0, intent, 0);
 

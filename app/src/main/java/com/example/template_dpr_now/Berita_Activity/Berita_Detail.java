@@ -17,6 +17,7 @@ import static com.example.template_dpr_now.Berita_Activity.Berita.EXTRA_URL;
 
 public class Berita_Detail extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

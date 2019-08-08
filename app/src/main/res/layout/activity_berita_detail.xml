@@ -26,14 +26,6 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <ImageButton
-        android:id="@+id/backberita"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_margin="15dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/back1" />
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_below="@id/toolbaragenda"
@@ -79,7 +71,6 @@
                 android:id="@+id/isiberita_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-30dp"
                 android:layout_below="@id/judulberita_detail"
                 android:padding="10dp"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
