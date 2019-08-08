@@ -21,7 +21,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemClickListener{
     public static final String EXTRA_TANGGAL = "tanggal";
@@ -81,6 +84,17 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
                                 JSONObject content = jsonArray.getJSONObject(i);
 
                                 String tanggal = content.getString("tanggal");
+
+                                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+                                try {
+                                    Date date = dt.parse(tanggal);
+                                    SimpleDateFormat dt1 = new SimpleDateFormat("dd-MM-yyyy");
+                                    System.out.println("Baru = " + dt1.format(date));
+                                    tanggal = dt1.format(date);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
                                 String kategori = content.getString("kategori");
                                 String foto =content.getString("gambar");
                                 foto = foto.substring(1, foto.length()-1);
@@ -89,8 +103,7 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
                                 String judul = content.getString("title");
                                 String isi = content.getString("isi");
 
-                                isi = Html.fromHtml(isi).toString().trim();
-
+                                isi = Html.fromHtml(isi).toString().replaceAll("\uFFFC","").trim();
                                 //isi = isi.replaceAll("\\<p(.+?)p\\>", "");
                                 //isi = isi.replaceAll("\\<h4(.+?)h4\\>", "").trim();
 
