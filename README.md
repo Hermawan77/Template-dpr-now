@@ -23,13 +23,13 @@ Library/tools pendukung
 
 Beberapa tutorial untuk belajar dan membuat aplikasi android
 * Belajar Retrofit
-[Medium Prakash Pun] (https://medium.com/@prakash_pun/retrofit-a-simple-android-tutorial-48437e4e5a23)
-[Codepolitan] (https://www.codepolitan.com/rest-api-client-sederhana-dengan-retrofit-pada-android-studio-58986d62c46ae)
+[Medium Prakash Pun](https://medium.com/@prakash_pun/retrofit-a-simple-android-tutorial-48437e4e5a23)
+[Codepolitan](https://www.codepolitan.com/rest-api-client-sederhana-dengan-retrofit-pada-android-studio-58986d62c46ae)
 * Belajar Volley
-[Google Developer Android] (https://developer.android.com/training/volley/simple)
-[Github] (https://github.com/smart-fun/XmlToJson)
+[Google Developer Android](https://developer.android.com/training/volley/simple)
+[Github](https://github.com/smart-fun/XmlToJson)
 * Belajar SQLite
-[Youtube Simplified Coding] (https://www.youtube.com/watch?v=E5Y9Ezamc9Y)
+[Youtube Simplified Coding](https://www.youtube.com/watch?v=E5Y9Ezamc9Y)
 
 ## Official Links
 
@@ -60,4 +60,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Thank-you note
 
-* [StackOverFlow] (https://stackoverflow.com) Yang telah membantu disaat Error muncul :D
+* [StackOverFlow](https://stackoverflow.com) Yang telah membantu disaat Error muncul :D
