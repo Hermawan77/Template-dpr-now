@@ -18,8 +18,10 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -42,7 +44,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
             "Arif", "Aan", "Bambang", "Budi", "Babeh", "Cece"};
     EditText text3,text4,text5,text6;
     AutoCompleteTextView text1, text2;
-    TextView txtTime,txtDate, Lihat;
+    TextView txtTime,txtDate, Lihat, txtProgress;
     Button Save;
     Spinner spinner;
     RadioGroup radioGroup;
@@ -51,6 +53,9 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
     ImageButton back;
     CheckBox cb1, cb2, cb3, cb4;
     String checkbox, radiotext;
+    String Seekbar_txt;
+    ProgressBar progressBar;
+    SeekBar seekBar;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
     @Override
@@ -66,6 +71,8 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         text4 = (EditText) findViewById(R.id.Date);
         text5 = (EditText) findViewById(R.id.Time);
         text6 = (EditText) findViewById(R.id.essai);
+        txtProgress = findViewById(R.id.textseekbar);
+        seekBar = findViewById(R.id.seekbar);
 
         txtTime = (EditText) findViewById(R.id.Time);
         txtTime.setOnClickListener(this);
@@ -85,6 +92,24 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
 
         Save.setOnClickListener(this);
         Lihat.setOnClickListener(this);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Seekbar_txt = String.valueOf(progress);
+                txtProgress.setText("" + Seekbar_txt + "%");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
         mDatabase = new DatabaseManager(this);
