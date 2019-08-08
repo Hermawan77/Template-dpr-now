@@ -1,3 +1,7 @@
+/*
+Class ini digunakan untuk memasukkan data ke database pengaduan, database pengaduan berjalan pada server lokal
+ */
+
 package com.example.template_dpr_now.fragment;
 
 import android.Manifest;
@@ -81,6 +85,7 @@ public class FAB extends Fragment {
 
         mApiInterface = API_Client.getClient().create(API_Interface.class); // meng-init yang ada di package REST
 
+        //post data ke database lokal (REST API) menggunakan Retrofit
          btsimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,18 +103,17 @@ public class FAB extends Fragment {
                         Log.d(TAG,"Sukses ? : "+response.isSuccessful());
                         Log.d(TAG,"Body Error : "+response.errorBody());
                         Log.d(TAG,"Pesan : "+response.raw());
-
                     }
-
                     @Override
                     public void onFailure(Call<PostPutDelPengaduan> call, Throwable t) {
-                        //Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+
                        Log.d(TAG+call.request().url(),t.getMessage());
                     }
                 });
 
+                //membuat popup konfirmasi menggunakan alert dialog, R.style dapat diubah
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.Widget_AppCompat_Button_ButtonBar_AlertDialog);
-                builder.setTitle("Data yang diisi sudah benar ?");
+                builder.setTitle("Data yang diisi sudah benar ? (ini namanya AlertDialog)");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -125,6 +129,7 @@ public class FAB extends Fragment {
             }
         });
 
+         //request permission mengambil file
         pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +144,7 @@ public class FAB extends Fragment {
             }
         });
 
+        //request permission mengambil gambar
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +159,7 @@ public class FAB extends Fragment {
             }
         });
 
+        //autocomplete, mengambil nama dari JSON kemudian diletakan pada Arraylist
         mRequestQueue = Volley.newRequestQueue(getContext());
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
@@ -194,6 +201,7 @@ public class FAB extends Fragment {
 
     }
 
+    //memilih PDF dan Image
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode==9&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
