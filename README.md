@@ -5,8 +5,6 @@ aplikasi ini berguna untuk media pembelajaran Mobile Application (Android)  di B
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 Project ini dibuat menggunakan, 
 * Android Studio 3.4.1, 
 * JDK 1.8,
@@ -21,8 +19,19 @@ Library/tools pendukung
 * SQLite
 * Google Services
 
+## Tutorial
 
-## Built With
+Beberapa tutorial untuk belajar dan membuat aplikasi android
+* Belajar Retrofit
+[Medium Prakash Pun] (https://medium.com/@prakash_pun/retrofit-a-simple-android-tutorial-48437e4e5a23)
+[Codepolitan] (https://www.codepolitan.com/rest-api-client-sederhana-dengan-retrofit-pada-android-studio-58986d62c46ae)
+* Belajar Volley
+[Google Developer Android] (https://developer.android.com/training/volley/simple)
+[Github] (https://github.com/smart-fun/XmlToJson)
+* Belajar SQLite
+[Youtube Simplified Coding] (https://www.youtube.com/watch?v=E5Y9Ezamc9Y)
+
+## Official Links
 
 * [Android Studio](https://developer.android.com/studio) -  the official integrated development environment for Google's Android operating system
 * [Gradle](https://gradle.org/) - Build tool
@@ -48,3 +57,7 @@ See also the list of [contributors](https://github.com/aannisagita/Template_dpr_
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Thank-you note
+
+* [StackOverFlow] (https://stackoverflow.com) Yang telah membantu disaat Error muncul :D
