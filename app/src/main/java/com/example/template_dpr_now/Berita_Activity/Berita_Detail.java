@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Berita_Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.template_dpr_now.R;
 import com.squareup.picasso.Picasso;
 
-import static com.example.template_dpr_now.Berita.EXTRA_ISI;
-import static com.example.template_dpr_now.Berita.EXTRA_JUDUL;
-import static com.example.template_dpr_now.Berita.EXTRA_KATEGORI;
-import static com.example.template_dpr_now.Berita.EXTRA_TANGGAL;
-import static com.example.template_dpr_now.Berita.EXTRA_URL;
+import static com.example.template_dpr_now.Berita_Activity.Berita.EXTRA_ISI;
+import static com.example.template_dpr_now.Berita_Activity.Berita.EXTRA_JUDUL;
+import static com.example.template_dpr_now.Berita_Activity.Berita.EXTRA_KATEGORI;
+import static com.example.template_dpr_now.Berita_Activity.Berita.EXTRA_TANGGAL;
+import static com.example.template_dpr_now.Berita_Activity.Berita.EXTRA_URL;
 
 public class Berita_Detail extends AppCompatActivity {
 

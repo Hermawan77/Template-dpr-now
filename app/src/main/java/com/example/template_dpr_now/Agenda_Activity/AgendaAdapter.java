@@ -1,4 +1,4 @@
- package com.example.template_dpr_now;
+ package com.example.template_dpr_now.Agenda_Activity;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.template_dpr_now.R;
 
 import java.util.ArrayList;
 

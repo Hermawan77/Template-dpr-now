@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Agenda_Activity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -18,6 +18,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.template_dpr_now.R;
+import com.example.template_dpr_now.XmlToJson;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -16,11 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AgendaDetail" />
+        <activity android:name=".Agenda_Activity.AgendaDetail" />
         <activity android:name=".SemuaAnggota" />
-        <activity android:name=".Agenda" />
-        <activity android:name=".Berita_Detail" />
-        <activity android:name=".Berita" />
+        <activity android:name=".Agenda_Activity.Agenda" />
+        <activity android:name=".Berita_Activity.Berita_Detail" />
+        <activity android:name=".Berita_Activity.Berita" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

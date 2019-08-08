@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Streaming_Activity;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.template_dpr_now.R;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;

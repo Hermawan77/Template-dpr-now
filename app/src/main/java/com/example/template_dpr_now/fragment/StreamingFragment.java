@@ -20,8 +20,8 @@ import android.widget.Toast;
 import com.example.template_dpr_now.PaginationScrollListener;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Interface;
-import com.example.template_dpr_now.VideoRecyclerAdapter;
-import com.example.template_dpr_now.YouTubeModel;
+import com.example.template_dpr_now.Streaming_Activity.VideoRecyclerAdapter;
+import com.example.template_dpr_now.Streaming_Activity.YouTubeModel;
 
 import com.example.template_dpr_now.api.ApiClient;
 import com.google.android.youtube.player.YouTubeInitializationResult;

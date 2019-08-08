@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.template_dpr_now.Agenda;
-import com.example.template_dpr_now.Berita;
+import com.example.template_dpr_now.Agenda_Activity.Agenda;
+import com.example.template_dpr_now.Berita_Activity.Berita;
 import com.example.template_dpr_now.KunjunganYanmasActivity;
 import com.example.template_dpr_now.MajalahActivity;
 import com.example.template_dpr_now.R;

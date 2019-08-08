@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Agenda_Activity;
 
 class AgendaItem {
     private String mTanggal;

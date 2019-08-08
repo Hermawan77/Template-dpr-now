@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Agenda_Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import static com.example.template_dpr_now.Agenda.EXTRA_DESKRIPSI;
-import static com.example.template_dpr_now.Agenda.EXTRA_JAM;
-import static com.example.template_dpr_now.Agenda.EXTRA_JUDUL;
-import static com.example.template_dpr_now.Agenda.EXTRA_TANGGAL;
+import com.example.template_dpr_now.R;
+
+import static com.example.template_dpr_now.Agenda_Activity.Agenda.EXTRA_DESKRIPSI;
+import static com.example.template_dpr_now.Agenda_Activity.Agenda.EXTRA_JAM;
+import static com.example.template_dpr_now.Agenda_Activity.Agenda.EXTRA_JUDUL;
+import static com.example.template_dpr_now.Agenda_Activity.Agenda.EXTRA_TANGGAL;
 
 public class AgendaDetail extends AppCompatActivity {
 

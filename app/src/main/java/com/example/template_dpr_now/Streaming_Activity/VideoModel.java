@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Streaming_Activity;
 
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;

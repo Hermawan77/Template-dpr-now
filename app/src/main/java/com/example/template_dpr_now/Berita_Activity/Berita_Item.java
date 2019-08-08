@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Berita_Activity;
 
 class Berita_Item {
     private String mTanggal;
