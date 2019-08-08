@@ -93,10 +93,11 @@
                     android:background="@android:color/white"/>
 
                 <Button
+                    android:id="@+id/hasil"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:text="Hasil"
+                    android:text="Undang-Undang"
                     android:drawableTop="@drawable/hasil"
                     android:fontFamily="@font/f_arial"
                     android:background="@android:color/white"/>

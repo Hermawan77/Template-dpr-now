@@ -5,7 +5,6 @@ public class MajalahItem {
     private String mEdisi;
     private String mTahun;
     private String mFile;
-    private String mSpinner;
 
     public MajalahItem(String image, String edisi, String tahun, String file){
         mImage = image;
@@ -30,7 +29,4 @@ public class MajalahItem {
         return mFile;
     }
 
-    public String getSpinner() {
-        return mSpinner;
-    }
 }

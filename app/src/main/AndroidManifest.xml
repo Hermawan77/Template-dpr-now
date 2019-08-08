@@ -42,6 +42,7 @@
         <activity android:name=".Login_API" />
         <activity android:name=".Slide" />
         <activity android:name=".Aspirasi" />
+        <activity android:name=".UndangUndangActivity"/>
         <activity
             android:name=".Daftar"
             android:label="Daftar Akun" />

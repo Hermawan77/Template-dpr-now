@@ -14,6 +14,7 @@ import com.example.template_dpr_now.KunjunganYanmasActivity;
 import com.example.template_dpr_now.MajalahActivity;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.SemuaAnggota;
+import com.example.template_dpr_now.UndangUndangActivity;
 
 public class FragmentInformasi extends Fragment {
 
@@ -22,6 +23,7 @@ public class FragmentInformasi extends Fragment {
     private Button keAgenda;
     private Button keKunjungan;
     private Button keMajalah;
+    private Button keUU;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class FragmentInformasi extends Fragment {
         keSemuaAnggota = view.findViewById(R.id.semuaAnggota);
         keKunjungan = view.findViewById(R.id.kunjungan);
         keMajalah = view.findViewById(R.id.daftarmajalah);
-
+        keUU = view.findViewById(R.id.hasil);
 
         keBerita.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +72,14 @@ public class FragmentInformasi extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), MajalahActivity.class);
+                startActivity(i);
+            }
+        });
+
+        keUU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), UndangUndangActivity.class);
                 startActivity(i);
             }
         });
