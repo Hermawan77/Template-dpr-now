@@ -88,6 +88,29 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         Save.setOnClickListener(this);
         Lihat.setOnClickListener(this);
 
+        txtProgress = findViewById(R.id.textseekbar);
+        seekBar = findViewById(R.id.seekbar);
+
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Seekbar_txt = String.valueOf(progress);
+                txtProgress.setText("" + Seekbar_txt + "%");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+
+        });
+
         mDatabase = new DatabaseManager(this);
     }
 
@@ -155,29 +178,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
             radiotext = wanita.getText().toString();
         }
 
-
-        txtProgress = findViewById(R.id.textseekbar);
-        seekBar = findViewById(R.id.seekbar);
         String seekbar;
-
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Seekbar_txt = String.valueOf(progress);
-                txtProgress.setText("" + Seekbar_txt + "%");
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-
-        });
         seekbar = txtProgress.getText().toString();
 
         if (name.isEmpty()){

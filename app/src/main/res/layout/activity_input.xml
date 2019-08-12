@@ -263,12 +263,20 @@
                 </RadioGroup>
 
             <TextView
+                android:id="@+id/textviewSeekbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rb"
+                android:text="besaran seekbar dalam persen    : "/>
+            <TextView
                 android:id="@+id/textseekbar"
                 android:layout_below="@id/rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/textviewSeekbar"
                 android:text="0"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:layout_toRightOf="@+id/textviewSeekbar" />
 
             <SeekBar
                 android:id="@+id/seekbar"

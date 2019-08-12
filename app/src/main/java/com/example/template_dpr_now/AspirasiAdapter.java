@@ -176,9 +176,9 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
     }
     private void deleteAspirasi(final Aspirasii aspirasii){
         AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
-        builder.setTitle("Are you sure?");
+        builder.setTitle("Yakin menghapus aspirasi?");
 
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -188,7 +188,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
             }
         });
 
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Batalkan", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
