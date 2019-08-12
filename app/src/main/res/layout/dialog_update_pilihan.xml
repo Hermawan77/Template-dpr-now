@@ -154,13 +154,64 @@
             android:layout_below="@+id/spinnertext"
             android:entries="@array/pilihan"/>
 
+        <TextView
+            android:id="@+id/checkboxtext"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner"
+            android:text="Nilai Checkbox"
+            android:textSize="@dimen/TS_text" />
+
+        <EditText
+            android:id="@+id/checkboxview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="nilai checkbox"
+            android:layout_toRightOf="@id/checkboxtext"
+            android:layout_below="@id/spinner"
+            android:textSize="@dimen/TS_text" />
+
+        <TextView
+            android:id="@+id/radiotext"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkboxtext"
+            android:text="Jenis Kelamin"
+            android:textSize="@dimen/TS_text" />
+
+        <EditText
+            android:id="@+id/radio1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="P / L"
+            android:layout_toRightOf="@id/radiotext"
+            android:layout_below="@id/checkboxtext"
+            android:textSize="@dimen/TS_text" />
+
+        <TextView
+            android:id="@+id/seekbartext"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radiotext"
+            android:text="Nilai Persent"
+            android:textSize="@dimen/TS_text" />
+
+        <EditText
+            android:id="@+id/seekbar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" berapa %"
+            android:layout_toRightOf="@id/seekbartext"
+            android:layout_below="@id/radiotext"
+            android:textSize="@dimen/TS_text" />
+
         <Button
             android:id="@+id/buttonUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/spinner"
+            android:layout_below="@+id/seekbartext"
             android:text="Update" />
 
     </RelativeLayout>

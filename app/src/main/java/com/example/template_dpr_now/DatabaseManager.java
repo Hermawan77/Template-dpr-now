@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseManager extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "dpr";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String TABLE_NAME = "aspirasi";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
@@ -19,6 +19,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
     private static final String COLUMN_TIME = "time";
     private static final String COLUMN_ESSAI = "essai";
     private static final String COLUMN_PILIHAN = "pilihan";
+    private static final String COLUMN_CHECKBOXVAL = "checkboxval";
+    private static final String COLUMN_RADIOTEXT = "radiotext";
+    private static final String COLUMN_SEEKBAR = "seekbar";
+
 
     public DatabaseManager(Context context){super(context, DATABASE_NAME, null, DATABASE_VERSION);}
 
@@ -33,7 +37,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
                         "   time time NOT NULL, \n"+
                         "   date date NOT NULL, \n"+
                         "   essai varchar(200) NOT NULL, \n"+
-                        "   pilihan varchar(100) NOT NULL \n"+
+                        "   pilihan varchar(100) NOT NULL, \n"+
+                        "   checkboxval varchar NOT NULL, \n"+
+                        "   radiotext varchar NOT NULL, \n"+
+                        "   seekbar varchar \n"+
                         ");";
 
         sqLiteDatabase.execSQL(sql);
@@ -46,7 +53,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean addpilihan(String name, String email, String phone, String date, String time, String essai, String pilihan){
+    public boolean addpilihan(String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar){
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME, name);
         contentValues.put(COLUMN_EMAIL, email);
@@ -55,6 +62,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
         contentValues.put(COLUMN_TIME, time);
         contentValues.put(COLUMN_ESSAI, essai);
         contentValues.put(COLUMN_PILIHAN, pilihan);
+        contentValues.put(COLUMN_CHECKBOXVAL, checkboxval);
+        contentValues.put(COLUMN_RADIOTEXT, radiotext);
+        contentValues.put(COLUMN_SEEKBAR, seekbar);
         SQLiteDatabase db = getWritableDatabase();
         return db.insert(TABLE_NAME, null, contentValues) != -1;
 
@@ -65,7 +75,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public boolean updateAspirasi(int id, String name, String email, String phone, String date, String time, String essai, String pilihan){
+    public boolean updateAspirasi(int id, String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME, name);
@@ -75,6 +85,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
         contentValues.put(COLUMN_TIME, time);
         contentValues.put(COLUMN_ESSAI, essai);
         contentValues.put(COLUMN_PILIHAN, pilihan);
+        contentValues.put(COLUMN_CHECKBOXVAL, checkboxval);
+        contentValues.put(COLUMN_RADIOTEXT, radiotext);
+        contentValues.put(COLUMN_SEEKBAR, seekbar);
         return db.update(TABLE_NAME, contentValues, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 1 ;
     }
 

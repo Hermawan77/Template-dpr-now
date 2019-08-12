@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class Aspirasii implements Serializable {
     int id;
-    String name, email, date, time, essai, pilihan, phone;
+    String name, email, date, time, essai, pilihan, phone, checkboxval, radiotext, seekbar;
 
-    public Aspirasii(int id, String name, String email, String phone, String date, String time, String essai, String pilihan) {
+    public Aspirasii(int id, String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -15,6 +15,9 @@ public class Aspirasii implements Serializable {
         this.time = time;
         this.essai = essai;
         this.pilihan = pilihan;
+        this.checkboxval = checkboxval;
+        this.radiotext = radiotext;
+        this.seekbar = seekbar;
     }
 
     public int getId() {
@@ -70,4 +73,19 @@ public class Aspirasii implements Serializable {
     public void setPilihan (String pilihan){
         this.pilihan = pilihan;
     }
+
+    public String getCheckboxval(){
+        return  checkboxval;
+    }
+    public void setCheckboxval(String checkboxval) {this.checkboxval = checkboxval; }
+
+    public  String getRadiotext(){
+        return  radiotext;
+    }
+    public void setRadiotext (String radiotext) {this.radiotext = radiotext; }
+
+    public String getSeekbar () {
+        return  seekbar;
+    }
+    public void setSeekbar (String seekbar) {this.seekbar = seekbar; }
 }

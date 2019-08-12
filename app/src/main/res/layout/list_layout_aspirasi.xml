@@ -35,7 +35,6 @@
                 <TextView
                     android:id="@+id/textViewPhone"
                     android:layout_width="200dp"
-                    android:layout_below="@id/textViewEmail"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:text="+6280000" />
@@ -44,16 +43,35 @@
                     android:id="@+id/textViewDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/buttonEdit"
                     android:text="Date" />
 
                 <TextView
                     android:id="@+id/textViewEssai"
                     android:layout_width="match_parent"
-                    android:layout_below="@id/textViewPhone"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Isi aspirasi anda" />
+
+                <TextView
+                    android:id="@+id/textViewCheckbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="checkbox" />
+
+                <TextView
+                    android:id="@+id/textViewRadio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="radio" />
+
+                <TextView
+                    android:id="@+id/textViewSeekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="seekbar" />
 
         </LinearLayout>
 

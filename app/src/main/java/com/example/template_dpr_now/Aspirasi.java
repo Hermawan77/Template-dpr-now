@@ -48,7 +48,10 @@ public class Aspirasi extends AppCompatActivity {
                         cursor.getString(4),
                         cursor.getString(5),
                         cursor.getString(6),
-                        cursor.getString(7)
+                        cursor.getString(7),
+                        cursor.getString(8),
+                        cursor.getString(9),
+                        cursor.getString(10)
                 ));
             } while (cursor.moveToNext());
         }

@@ -51,6 +51,10 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         TextView textViewEssai = view.findViewById(R.id.textViewEssai);
         TextView textViewDate = view.findViewById(R.id.textViewDate);
         TextView textViewTime = view.findViewById(R.id.textViewTime);
+        TextView textViewCheckbox = view.findViewById(R.id.textViewCheckbox);
+        TextView textViewRadio = view.findViewById(R.id.textViewRadio);
+        TextView textViewSeekbar = view.findViewById(R.id.textViewSeekbar);
+
 
         //adding data to views
         textViewName.setText(aspirasii.getName());
@@ -60,6 +64,9 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         textViewEssai.setText(aspirasii.getEssai());
         textViewDate.setText(aspirasii.getDate());
         textViewTime.setText(aspirasii.getTime());
+        textViewCheckbox.setText(aspirasii.getCheckboxval());
+        textViewRadio.setText(aspirasii.getRadiotext());
+        textViewSeekbar.setText(aspirasii.getSeekbar());
 
         view.findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +101,9 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         final EditText editTextEssai = view.findViewById(R.id.essai);
         final EditText editTextDate = view.findViewById(R.id.Date);
         final EditText editTextTime = view.findViewById(R.id.Time);
+        final EditText editTextCheckbox = view.findViewById(R.id.checkboxview);
+        final EditText editTextRadio = view.findViewById(R.id.radio1);
+        final EditText editTextSeekbar = view.findViewById(R.id.seekbar1);
 
         editTextName.setText(aspirasii.getName());
         editTextEmail.setText(aspirasii.getEmail());
@@ -101,6 +111,9 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         editTextEssai.setText(aspirasii.getEssai());
         editTextDate.setText(aspirasii.getDate());
         editTextTime.setText(aspirasii.getName());
+        editTextCheckbox.setText(aspirasii.getCheckboxval());
+        editTextRadio.setText(aspirasii.getRadiotext());
+        editTextSeekbar.setText(aspirasii.getSeekbar());
 
         view.findViewById(R.id.buttonUpdate).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +125,9 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
                 String essai = editTextEssai.getText().toString().trim();
                 String date = editTextDate.getText().toString().trim();
                 String time = editTextTime.getText().toString().trim();
+                String checkbox = editTextCheckbox.getText().toString().trim();
+                String radio = editTextRadio.getText().toString().trim();
+                String seekbar = editTextSeekbar.getText().toString().trim();
 
                 if (name.isEmpty()) {
                     editTextName.setError("mohon diisi");
@@ -150,7 +166,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
                 }
 
                 //calling the update method from database manager instance
-                if (mDatabase.updateAspirasi(aspirasii.getId(), name, email, phone, date, time, essai, pilihan)) {
+                if (mDatabase.updateAspirasi(aspirasii.getId(), name, email, phone, date, time, essai, pilihan, checkbox, radio, seekbar)) {
                     Toast.makeText(mCtx, "Aspirasi Updated", Toast.LENGTH_SHORT).show();
                     loadEmployeesFromDatabaseAgain();
                 }
@@ -197,7 +213,10 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
                         cursor.getString(4),
                         cursor.getString(5),
                         cursor.getString(6),
-                        cursor.getString(7)
+                        cursor.getString(7),
+                        cursor.getString(8),
+                        cursor.getString(9),
+                        cursor.getString(10)
                 ));
             } while (cursor.moveToNext());
         }

@@ -18,7 +18,6 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -52,9 +51,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
     DatabaseManager mDatabase;
     ImageButton back;
     CheckBox cb1, cb2, cb3, cb4;
-    String checkbox, radiotext;
-    String Seekbar_txt;
-    ProgressBar progressBar;
+    String checkboxtxt, Seekbar_txt;
     SeekBar seekBar;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
@@ -71,8 +68,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         text4 = (EditText) findViewById(R.id.Date);
         text5 = (EditText) findViewById(R.id.Time);
         text6 = (EditText) findViewById(R.id.essai);
-        txtProgress = findViewById(R.id.textseekbar);
-        seekBar = findViewById(R.id.seekbar);
 
         txtTime = (EditText) findViewById(R.id.Time);
         txtTime.setOnClickListener(this);
@@ -92,25 +87,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
 
         Save.setOnClickListener(this);
         Lihat.setOnClickListener(this);
-
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                Seekbar_txt = String.valueOf(progress);
-                txtProgress.setText("" + Seekbar_txt + "%");
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
 
         mDatabase = new DatabaseManager(this);
     }
@@ -144,10 +120,12 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         cb4 = (CheckBox) findViewById(R.id.checkbox4);
         cb4.setOnClickListener(this);
 
+        String Checkboxval;
+
         List<CheckBox> items = new ArrayList<CheckBox>();
         for (CheckBox item : items ){
             if (item.isChecked())
-                checkbox = item.getText().toString();
+                checkboxtxt = item.getText().toString();
         }
         CheckBox[] nameString = new CheckBox[]{cb1, cb2, cb3, cb4};
 
@@ -155,12 +133,11 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         {
             if (nameString[i].isChecked())
             {
-                checkbox = checkbox + "," + nameString[i].getText().toString();
+                checkboxtxt = checkboxtxt + "," + nameString[i].getText().toString();
             }
         }
-
-        checkbox = checkbox.replace("null,","");
-        Toast.makeText(getApplicationContext(), checkbox, Toast.LENGTH_SHORT).show();
+        checkboxtxt = checkboxtxt.replace("null,","");
+        Checkboxval = checkboxtxt;
 
 
         radioGroup = (RadioGroup) findViewById(R.id.rb);
@@ -174,11 +151,34 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
 
         if (radioID == pria.getId()){
             radiotext = pria.getText().toString();
-            Toast.makeText(getApplicationContext(), radiotext, Toast.LENGTH_SHORT).show();
         } else {
             radiotext = wanita.getText().toString();
-            Toast.makeText(getApplicationContext(), radiotext, Toast.LENGTH_SHORT).show();
         }
+
+
+        txtProgress = findViewById(R.id.textseekbar);
+        seekBar = findViewById(R.id.seekbar);
+        String seekbar;
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Seekbar_txt = String.valueOf(progress);
+                txtProgress.setText("" + Seekbar_txt + "%");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+
+        });
+        seekbar = txtProgress.getText().toString();
 
         if (name.isEmpty()){
             text1.setError("pengisian nama diperlukan");
@@ -216,7 +216,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
             return ;
         }
 
-        if (mDatabase.addpilihan(name, email, phone, date, time, essai, pilihan)){
+        if (mDatabase.addpilihan(name, email, phone, date, time, essai, pilihan, Checkboxval,  radiotext, seekbar )){
 
             Intent intent = new Intent(InputAspirasi.this, MainActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(InputAspirasi.this, 0, intent, 0);
@@ -250,7 +250,7 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
         }
 
         else
-        Toast.makeText(this, "Could not add employee", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Tidak dapat menambahkan data", Toast.LENGTH_SHORT).show();
 
     }
 
