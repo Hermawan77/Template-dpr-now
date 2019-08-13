@@ -24,13 +24,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class F_K9 extends Fragment {
+    // Deklarasi Variabel
     private RecyclerView mRecyclerview;
     private KomisiAdapter mF_K9_Adapter;
     private ArrayList<KomisiItem> mF_K9_Item;
     private RequestQueue mRequestQueue;
-
     private String BASE_URL = "http://dpr.go.id/rest/?method=getAkd&menu=Sekretariat-Komisi-IX&tipe=xml";
 
+
+    // Menampilkan fragment f_k9.xml
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.f_k9, container, false);
@@ -49,6 +51,8 @@ public class F_K9 extends Fragment {
 
     }
 
+
+    // Proses parsing XML
     private void parseLink() {
         //RequestQueue queue = Volley.newRequestQueue(getContext());
 
@@ -64,18 +68,21 @@ public class F_K9 extends Fragment {
 
                         //System.out.println("Hasil = "+response);
 
+                        // XML to JSON
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).skipTag("/title").skipTag("/type").build();
 
                         //System.out.println("json = " + xmlToJson);
 
                         JSONObject jsonObject = xmlToJson.toJson();
 
+                        // GET <content>
                         try {
                             JSONArray jsonArray = jsonObject.getJSONArray("content");
 
                             for (int i= 0; i<jsonArray.length();i++){
                                 JSONObject content = jsonArray.getJSONObject(i);
 
+                                // GET <foto>, <nama>, <nip>, <jabatan> dari <content>
                                 String foto = "http://dpr.go.id" + content.getString("foto");
 
                                 System.out.println("link = " + foto);
@@ -84,9 +91,11 @@ public class F_K9 extends Fragment {
                                 String nip = content.getString("nip");
                                 String jabatan = content.getString("jabatan");
 
+                                // Mengisi mKomisi_Item dengan hasil parsing berupa foto, nama, nip, jabatan
                                 mF_K9_Item.add(new KomisiItem(foto, nama, nip, jabatan));
                             }
 
+                            // Menampilkan hasil parsing ke fragment
                             mF_K9_Adapter = new KomisiAdapter(getActivity(), mF_K9_Item);
                             mRecyclerview.setAdapter(mF_K9_Adapter);
 

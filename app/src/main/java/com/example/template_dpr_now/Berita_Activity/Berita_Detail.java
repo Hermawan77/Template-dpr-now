@@ -23,6 +23,7 @@ public class Berita_Detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_berita_detail);
 
+        //Menerima dats dari activity Berita
         Intent intent = getIntent();
         String tanggal = intent.getStringExtra(EXTRA_TANGGAL);
         String kategori = intent.getStringExtra(EXTRA_KATEGORI);

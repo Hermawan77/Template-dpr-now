@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -63,26 +64,28 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
 
     private void parseLink() {
 
+        //Request menggunakan Volley
         StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //System.out.println("Respon = "+ response);
-
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
                         response = response.substring(10);
                         response = response.substring(0, response.length()-11);
 
+                        //Parsing xml ke json, skip tag "title" dan "type"
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).skipTag("/title").skipTag("/type").build();
 
                         JSONObject jsonObject = xmlToJson.toJson();
 
                         try {
+                            //get Array dengan nama "agenda"
                             JSONArray jsonArray = jsonObject.getJSONArray("berita");
 
                             for (int i= 0; i<jsonArray.length();i++){
                                 JSONObject content = jsonArray.getJSONObject(i);
 
+                                //get isi tanggal
                                 String tanggal = content.getString("tanggal");
 
                                 SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
@@ -95,25 +98,27 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
                                     e.printStackTrace();
                                 }
 
+                                //get isi "kategori"
                                 String kategori = content.getString("kategori");
-                                String foto =content.getString("gambar");
+                                //get isi "foto", dan menambahkan "http://dpr.go.id" agar bisa di-load oleh Picasso
+                                String foto = content.getString("gambar");
                                 foto = foto.substring(1, foto.length()-1);
                                 foto = "http://dpr.go.id" + foto;
 
+                                //get isi "judul"
                                 String judul = content.getString("title");
                                 String isi = content.getString("isi");
 
                                 isi = Html.fromHtml(isi).toString().replaceAll("\uFFFC","").trim();
-                                //isi = isi.replaceAll("\\<p(.+?)p\\>", "");
-                                //isi = isi.replaceAll("\\<h4(.+?)h4\\>", "").trim();
 
-                                System.out.println("isinya = " + isi);
-
+                                //data masuk
                                 mBerita_Item.add(new Berita_Item(tanggal, kategori, foto, judul, isi));
                             }
 
+                            //masuk ke adapter untuk ke recyclerview
                             mBerita_Adapter = new Berita_Adapter(Berita.this, mBerita_Item);
                             mRecyclerview.setAdapter(mBerita_Adapter);
+                            //set ketika salah satu agenda ditekan
                             mBerita_Adapter.setOnItemClickListener(Berita.this);
 
                         } catch (JSONException e) {
@@ -125,14 +130,14 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println("Gagal");
+                Toast.makeText(getApplicationContext(), "Gagal Mengambil Data, Masalah Koneksi?", Toast.LENGTH_SHORT).show();
             }
         });
 
-// Add the request to the RequestQueue.
         mRequestQueue.add(stringRequest);
     }
 
-
+    //Ketika salah satu berita ditekan, meneruskan data "tanggal", "kategori", "URL", "udul", dan "si" serta berpindah dari activity Berita ke activity Berita_Detail
     @Override
     public void onItemClick(int position) {
         Intent intentDetail = new Intent(this, Berita_Detail.class);

@@ -24,12 +24,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class UndangUndangActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+    // Deklarasi Variabel
     private RecyclerView mRecyclerview;
     private UndangUndangAdapter mUndangUndang_Adapter;
     private ArrayList<UndangUndangItem> mUndangUndang_Item;
     private RequestQueue mRequestQueue;
     String text;
 
+
+    // Menampilkan activity_undang_undang.xml
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,8 @@ public class UndangUndangActivity extends AppCompatActivity implements AdapterVi
         spinner.setOnItemSelectedListener(this);
     }
 
+
+    // GET URL sesuai dengan tahun yang terpilih dari Spinner
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         text = parent.getItemAtPosition(position).toString();
@@ -64,6 +69,8 @@ public class UndangUndangActivity extends AppCompatActivity implements AdapterVi
 
     }
 
+
+    // Proses parsing XML
     private void parseLink(String BASE_URL) {
         //RequestQueue queue = Volley.newRequestQueue(getContext());
 
@@ -80,26 +87,30 @@ public class UndangUndangActivity extends AppCompatActivity implements AdapterVi
 
                         System.out.println("Hasil = "+response);
 
+                        // XML to JSON
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
 
                         //System.out.println("json = " + xmlToJson);
 
                         JSONObject jsonObject = xmlToJson.toJson();
 
+                        // GET <uu>
                         try {
                             JSONArray jsonArray = jsonObject.getJSONArray("uu");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject content = jsonArray.getJSONObject(i);
 
+                                // GET <nomor>, <tentang>, <file> dari <uu>
                                 String nomor = content.getString("nomor");
                                 String tentang = content.getString("tentang");
                                 String file = "http://dpr.go.id" + content.getString("file");
 
-
+                                // Mengisi Item dengan hasil parsing berupa nomor, tentang, file
                                 mUndangUndang_Item.add(new UndangUndangItem(nomor, tentang, file));
                             }
 
+                            // Menampilkan hasil parsing ke activity
                             mUndangUndang_Adapter = new UndangUndangAdapter(UndangUndangActivity.this, mUndangUndang_Item);
                             mRecyclerview.setAdapter(mUndangUndang_Adapter);
 
