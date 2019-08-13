@@ -1,8 +1,13 @@
 # Template DPR NOW
 
-![alt text](https://github.com/aannisagita/Template_dpr_now/blob/master/gambar/login.PNG)
 Membuat Template DPR NOW untuk Bidang Data dan Teknologi Informasi (BDTI) Sekretariat Jenderal DPR-RI
 aplikasi ini berguna untuk media pembelajaran Mobile Application (Android)  di BDTI.
+
+## Screenshot aplikasi
+![alt text](https://github.com/aannisagita/Template_dpr_now/blob/master/gambar/splashscreen.PNG)
+![alt text](https://github.com/aannisagita/Template_dpr_now/blob/master/gambar/slide.PNG)
+![alt text](https://github.com/aannisagita/Template_dpr_now/blob/master/gambar/login.PNG)
+
 
 ## Getting Started
 
