@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +57,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         TextView textViewCheckbox = view.findViewById(R.id.textViewCheckbox);
         TextView textViewRadio = view.findViewById(R.id.textViewRadio);
         TextView textViewSeekbar = view.findViewById(R.id.textViewSeekbar);
+        ImageView imageview = view.findViewById(R.id.gambarviewlist);
 
 
         //adding data to views
@@ -67,6 +71,9 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         textViewCheckbox.setText(aspirasii.getCheckboxval());
         textViewRadio.setText(aspirasii.getRadiotext());
         textViewSeekbar.setText(aspirasii.getSeekbar());
+        byte[] recordImage = aspirasii.getImage();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(recordImage, 0, recordImage.length);
+        imageview.setImageBitmap(bitmap);
 
         view.findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +111,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         final EditText editTextCheckbox = view.findViewById(R.id.checkboxview);
         final EditText editTextRadio = view.findViewById(R.id.radio1);
         final EditText editTextSeekbar = view.findViewById(R.id.seekbar1);
+        final ImageView updateimage = view.findViewById(R.id.updategambar);
 
         editTextName.setText(aspirasii.getName());
         editTextEmail.setText(aspirasii.getEmail());
@@ -114,6 +122,9 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         editTextCheckbox.setText(aspirasii.getCheckboxval());
         editTextRadio.setText(aspirasii.getRadiotext());
         editTextSeekbar.setText(aspirasii.getSeekbar());
+        final byte[] recordImage = aspirasii.getImage();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(recordImage, 0, recordImage.length);
+        updateimage.setImageBitmap(bitmap);
 
         view.findViewById(R.id.buttonUpdate).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +139,10 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
                 String checkbox = editTextCheckbox.getText().toString().trim();
                 String radio = editTextRadio.getText().toString().trim();
                 String seekbar = editTextSeekbar.getText().toString().trim();
+                byte[] rImage = aspirasii.getImage();
+                Bitmap bitmap = BitmapFactory.decodeByteArray(rImage, 0, rImage.length);
+                updateimage.setImageBitmap(bitmap);
+
 
                 if (name.isEmpty()) {
                     editTextName.setError("mohon diisi");
@@ -166,7 +181,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
                 }
 
                 //calling the update method from database manager instance
-                if (mDatabase.updateAspirasi(aspirasii.getId(), name, email, phone, date, time, essai, pilihan, checkbox, radio, seekbar)) {
+                if (mDatabase.updateAspirasi(aspirasii.getId(), name, email, phone, date, time, essai, pilihan, checkbox, radio, seekbar, rImage)) {
                     Toast.makeText(mCtx, "Aspirasi Updated", Toast.LENGTH_SHORT).show();
                     loadEmployeesFromDatabaseAgain();
                 }
@@ -216,7 +231,8 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
                         cursor.getString(7),
                         cursor.getString(8),
                         cursor.getString(9),
-                        cursor.getString(10)
+                        cursor.getString(10),
+                        cursor.getBlob(11)
                 ));
             } while (cursor.moveToNext());
         }

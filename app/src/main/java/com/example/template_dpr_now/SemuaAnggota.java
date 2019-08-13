@@ -141,8 +141,6 @@ public class SemuaAnggota extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-
-
                 if (!count){
                     mSemuaAnggota_Adapter.getFilter().filter(s);
                     count = true;

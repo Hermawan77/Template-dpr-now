@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseManager extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "dpr";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String TABLE_NAME = "aspirasi";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
@@ -22,6 +22,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
     private static final String COLUMN_CHECKBOXVAL = "checkboxval";
     private static final String COLUMN_RADIOTEXT = "radiotext";
     private static final String COLUMN_SEEKBAR = "seekbar";
+    private static final String COLUMN_IMAGE = "image";
 
 
     public DatabaseManager(Context context){super(context, DATABASE_NAME, null, DATABASE_VERSION);}
@@ -40,7 +41,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
                         "   pilihan varchar(100) NOT NULL, \n"+
                         "   checkboxval varchar NOT NULL, \n"+
                         "   radiotext varchar NOT NULL, \n"+
-                        "   seekbar varchar \n"+
+                        "   seekbar varchar \n,"+
+                        "   image BLOB \n"+
                         ");";
 
         sqLiteDatabase.execSQL(sql);
@@ -53,7 +55,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean addpilihan(String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar){
+    public boolean addpilihan(String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar, byte[] image){
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME, name);
         contentValues.put(COLUMN_EMAIL, email);
@@ -65,6 +67,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         contentValues.put(COLUMN_CHECKBOXVAL, checkboxval);
         contentValues.put(COLUMN_RADIOTEXT, radiotext);
         contentValues.put(COLUMN_SEEKBAR, seekbar);
+        contentValues.put(COLUMN_IMAGE, image);
         SQLiteDatabase db = getWritableDatabase();
         return db.insert(TABLE_NAME, null, contentValues) != -1;
 
@@ -75,7 +78,7 @@ public class DatabaseManager extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public boolean updateAspirasi(int id, String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar){
+    public boolean updateAspirasi(int id, String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar, byte[] image){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME, name);
@@ -88,12 +91,13 @@ public class DatabaseManager extends SQLiteOpenHelper {
         contentValues.put(COLUMN_CHECKBOXVAL, checkboxval);
         contentValues.put(COLUMN_RADIOTEXT, radiotext);
         contentValues.put(COLUMN_SEEKBAR, seekbar);
-        return db.update(TABLE_NAME, contentValues, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 1 ;
+        contentValues.put(COLUMN_IMAGE, String.valueOf(image));
+        return db.update(TABLE_NAME, contentValues, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 0 ;
     }
 
     public boolean deleteAspirasi(int id) {
         SQLiteDatabase db = getWritableDatabase();
-        return db.delete(TABLE_NAME, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 1;
+        return db.delete(TABLE_NAME, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 0;
     }
 
 }

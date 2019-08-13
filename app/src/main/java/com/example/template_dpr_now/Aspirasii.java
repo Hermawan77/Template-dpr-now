@@ -4,9 +4,19 @@ import java.io.Serializable;
 
 public class Aspirasii implements Serializable {
     int id;
-    String name, email, date, time, essai, pilihan, phone, checkboxval, radiotext, seekbar;
+    String name;
+    String email;
+    String date;
+    String time;
+    String essai;
+    String pilihan;
+    String phone;
+    String checkboxval;
+    String radiotext;
+    String seekbar;
+    byte[] image;
 
-    public Aspirasii(int id, String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar) {
+    public Aspirasii(int id, String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar,byte[] image) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -18,6 +28,7 @@ public class Aspirasii implements Serializable {
         this.checkboxval = checkboxval;
         this.radiotext = radiotext;
         this.seekbar = seekbar;
+        this.image = image;
     }
 
     public int getId() {
@@ -88,4 +99,12 @@ public class Aspirasii implements Serializable {
         return  seekbar;
     }
     public void setSeekbar (String seekbar) {this.seekbar = seekbar; }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 }
