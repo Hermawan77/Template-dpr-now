@@ -22,6 +22,7 @@ public class AgendaDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda_detail);
 
+        //Menerima dats dari activity Agenda
         Intent intent = getIntent();
         String tanggal = intent.getStringExtra(EXTRA_TANGGAL);
         String jam = intent.getStringExtra(EXTRA_JAM);

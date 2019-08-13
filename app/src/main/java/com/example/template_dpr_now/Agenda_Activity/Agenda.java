@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -70,6 +71,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
 
     }
 
+    //Menampilkan kalender
     private void showDatePickerDialog() {
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, this,
                 Calendar.getInstance().get(Calendar.YEAR),
@@ -79,6 +81,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
 
     }
 
+    //Ketika tanggal di-set
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         Calendar c = Calendar.getInstance();
@@ -88,6 +91,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
 
         display(current);
 
+        //Menampilkan alert ketika kalender yang dipilih salah
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Tahun dan Bulan Salah");
         alert
@@ -138,36 +142,33 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
         sekarang.setText(current);
     }
 
+    //Request menggunakan Volley
     private void parseLink(final String BASE_URL) {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //clear data agar data berubah saat tanggal diganti
                         mAgenda_Item.clear();
 
-                        //System.out.println("link = " + BASE_URL);
-                        //System.out.println("Respon = "+ response);
-
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
-                        //response = response.substring(10);
                         response = response.substring(10, response.length()-11);
 
-                        //System.out.println("Hasil = "+response);
-
+                        //Parsing xml ke json
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
-
-                        //System.out.println("json = " + xmlToJson);
-
                         JSONObject jsonObject = xmlToJson.toJson();
 
                         try {
+                            //get Array dengan nama "agenda"
                             JSONArray jsonArray = jsonObject.getJSONArray("agenda");
 
                             for (int i= 0; i<jsonArray.length();i++){
                                 JSONObject agenda = jsonArray.getJSONObject(i);
 
+                                //get isi "tanggal"
                                 String tanggal = agenda.getString("tanggal");
 
+                                //konversi "tanggal" dari yyyy-MM-dd ke dd-MM-yyyy
                                 SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
                                 try {
                                     Date date = dt.parse(tanggal);
@@ -179,16 +180,21 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
                                     e.printStackTrace();
                                 }
 
-
+                                //get isi "jam"
                                 String jam = agenda.getString("jam");
+                                //get isi "judul"
                                 String judul = agenda.getString("title");
+                                //get isi "deskripsi"
                                 String deskripsi = agenda.getString("deskripsi");
 
+                                //data masuk
                                 mAgenda_Item.add(new AgendaItem(tanggal, jam, judul, deskripsi));
                             }
 
+                            //masuk ke adapter untuk ke recyclerview
                             mAgenda_Adapter = new AgendaAdapter(Agenda.this, mAgenda_Item);
                             mRecyclerview.setAdapter(mAgenda_Adapter);
+                            //set ketika salah satu agenda ditekan
                             mAgenda_Adapter.setOnItemClickListener(Agenda.this);
 
                         } catch (JSONException e) {
@@ -197,20 +203,21 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
 
                     }
                 }, new Response.ErrorListener() {
+            //Menampilkan error di logcat maupun toast ketika gagal mengambil data
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println("Gagal");
+                Toast.makeText(getApplicationContext(), "Gagal Mengambil Data, Masalah Koneksi?", Toast.LENGTH_SHORT).show();
             }
         });
 
-// Add the request to the RequestQueue.
         mRequestQueue.add(stringRequest);
     }
 
+    //Ketika salah satu agenda ditekan, meneruskan data "tanggal", "jam", "judul", dan "deskripsi" serta berpindah dari activity Agenda ke activity AgendaDetail
     @Override
     public void onItemClick(int position) {
-        Intent intentDetail = new Intent(this, AgendaDetail
-                .class);
+        Intent intentDetail = new Intent(this, AgendaDetail.class);
         AgendaItem clickedItem = mAgenda_Item.get(position);
 
         intentDetail.putExtra(EXTRA_TANGGAL, clickedItem.getTanggal());
