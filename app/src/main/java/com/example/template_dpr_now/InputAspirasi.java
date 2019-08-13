@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -49,7 +48,6 @@ public class InputAspirasi extends AppCompatActivity implements View.OnClickList
     RadioGroup radioGroup;
     RadioButton pria, wanita;
     DatabaseManager mDatabase;
-    ImageButton back;
     CheckBox cb1, cb2, cb3, cb4;
     String checkboxtxt, Seekbar_txt;
     SeekBar seekBar;

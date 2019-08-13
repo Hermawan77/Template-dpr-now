@@ -88,7 +88,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
     private void updateAspirasi(final Aspirasii aspirasii){
         final AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.dialog_update_pilihan, null);
+        View view = inflater.inflate(R.layout.aspirasi_update, null);
         builder.setView(view);
 
         final AlertDialog alertDialog = builder.create();

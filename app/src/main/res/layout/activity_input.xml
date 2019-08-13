@@ -215,10 +215,31 @@
                 android:layout_height="wrap_content" />
 
             <LinearLayout
+                android:id="@+id/layoutadd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_below="@id/spinner">
+
+                <Button
+                    android:id="@+id/addfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tambah file"/>
+                <Button
+                    android:id="@+id/addgambar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tambahkan gambar" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/spinner">
+                android:layout_below="@id/layoutadd">
 
                 <CheckBox
                     android:id="@+id/checkbox1"
