@@ -19,13 +19,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class KunjunganYanmasActivity extends AppCompatActivity {
+    // Deklarasi Variabel
     private RecyclerView mRecyclerview;
     private KunjunganYanmasAdapter mKunjunganYanmas_Adapter;
     private ArrayList<KunjunganYanmasItem> mKunjungaYanmas_Item;
     private RequestQueue mRequestQueue;
-
     private String BASE_URL = "http://www.dpr.go.id/rest/?method=getAllAlbumYanmas&hal=n&tipe=xml";
 
+
+    // Menampilkan activity_kunjungan_yanmas.xml
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,8 @@ public class KunjunganYanmasActivity extends AppCompatActivity {
         parseLink();
     }
 
+
+    // Proses parsing XML
     private void parseLink() {
         //RequestQueue queue = Volley.newRequestQueue(getContext());
 
@@ -57,18 +61,21 @@ public class KunjunganYanmasActivity extends AppCompatActivity {
 
                         System.out.println("Hasil = "+response);
 
+                        // XML to JSON
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
 
                         //System.out.println("json = " + xmlToJson);
 
                         JSONObject jsonObject = xmlToJson.toJson();
 
+                        // GET <album>
                         try {
                             JSONArray jsonArray = jsonObject.getJSONArray("album");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject content = jsonArray.getJSONObject(i);
 
+                                // GET <image>, <tanggal>, <judul> dari <album>
                                 String tanggal = content.getString("tanggal");
                                 String judul = content.getString("judul");
                                 String image = "http://dpr.go.id" + content.getString("file_name");
@@ -76,11 +83,12 @@ public class KunjunganYanmasActivity extends AppCompatActivity {
 
                                 System.out.println("link = " + image);
 
+                                // Mengisi Item dengan hasil parsing berupa image, tanggal, judul
                                 mKunjungaYanmas_Item.add(new KunjunganYanmasItem(image, tanggal, judul));
 
                             }
 
-
+                            // Menampilkan hasil parsing ke activity
                             mKunjunganYanmas_Adapter = new KunjunganYanmasAdapter(KunjunganYanmasActivity.this, mKunjungaYanmas_Item);
                             mRecyclerview.setAdapter(mKunjunganYanmas_Adapter);
 

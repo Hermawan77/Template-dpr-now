@@ -24,6 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MajalahActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    // Deklarasi Variabel
     private RecyclerView mRecyclerview;
     private MajalahAdapter mMajalah_Adapter;
     private ArrayList<MajalahItem> mMajalah_Item;
@@ -31,6 +32,7 @@ public class MajalahActivity extends AppCompatActivity implements AdapterView.On
     String text;
 
 
+    // Menampilkan fragment activity_majalah.xml
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +57,7 @@ public class MajalahActivity extends AppCompatActivity implements AdapterView.On
     }
 
 
+    // GET URL sesuai dengan tahun yang terpilih dari Spinner
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         text = parent.getItemAtPosition(position).toString();
@@ -69,7 +72,7 @@ public class MajalahActivity extends AppCompatActivity implements AdapterView.On
     }
 
 
-
+    // Proses parsing XML
     private void parseLink(String BASE_URL) {
         //RequestQueue queue = Volley.newRequestQueue(getContext());
 
@@ -86,18 +89,21 @@ public class MajalahActivity extends AppCompatActivity implements AdapterView.On
 
                         System.out.println("Hasil = "+response);
 
+                        // XML to JSON
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
 
                         //System.out.println("json = " + xmlToJson);
 
                         JSONObject jsonObject = xmlToJson.toJson();
 
+                        // GET <majalah>
                         try {
                             JSONArray jsonArray = jsonObject.getJSONArray("majalah");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject content = jsonArray.getJSONObject(i);
 
+                                // GET <edisi>, <tahun>, <file>, <gambar> dari <album>
                                 String edisi = content.getString("edisi");
                                 String tahun = content.getString("tahun");
                                 String file = "http://dpr.go.id" + content.getString("file");
@@ -106,11 +112,12 @@ public class MajalahActivity extends AppCompatActivity implements AdapterView.On
 
                                 System.out.println("link = " + image);
 
+                                // Mengisi mKomisi_Item dengan hasil parsing berupa image, tahun, edisi, file
                                 mMajalah_Item.add(new MajalahItem(image, tahun, edisi, file));
 
                             }
 
-
+                            // Menampilkan hasil parsing ke activity
                             mMajalah_Adapter = new MajalahAdapter(MajalahActivity.this, mMajalah_Item);
                             mRecyclerview.setAdapter(mMajalah_Adapter);
 

@@ -20,15 +20,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class SemuaAnggota extends AppCompatActivity {
+    // Deklarasi Variabel
     boolean count = false;
-
     private RecyclerView mRecyclerview;
     private SemuaAnggotaAdapter mSemuaAnggota_Adapter;
     private ArrayList<SemuaAnggotaItem> mSemuaAnggota_Item;
     private RequestQueue mRequestQueue;
-
     private String BASE_URL = "http://www.dpr.go.id/rest/?method=getSemuaAnggota&tipe=xml";
 
+
+    // Menampilkan activity_semua_anggota.xml
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,8 @@ public class SemuaAnggota extends AppCompatActivity {
         parseLink();
     }
 
+
+    // Proses parsing XML
     private void parseLink() {
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
@@ -63,24 +66,28 @@ public class SemuaAnggota extends AppCompatActivity {
 
                         //System.out.println("Hasil = "+response);
 
+                        // XML to JSON
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
 
                         //System.out.println("json = " + xmlToJson);
 
                         JSONObject jsonObject = xmlToJson.toJson();
 
+                        // GET <item>
                         try {
                             JSONArray jsonArray = jsonObject.getJSONArray("item");
 
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject content = jsonArray.getJSONObject(i);
 
+                                // GET <nama>, <fraksi>, <dapil>, <foto> dari <item>
                                 String namaanggota = content.getString("nama");
                                 String fraksi = content.getString("fraksi");
                                 String dapil = content.getString("dapil");
                                 String foto = "http://dpr.go.id" + content.getString("foto");
                                 //String daftarakd = content.getString("daftar_akd");
 
+                                // GET <daftar_akd>
                                 String daftarakd = "";
 
                                 JSONObject daftar_akd = content.getJSONObject("daftar_akd");
@@ -93,13 +100,15 @@ public class SemuaAnggota extends AppCompatActivity {
                                     isi[j] = isi[j].replace(",","\n");
                                     daftarakd = daftarakd + isi[j];
                                 }
+
+                                // Mengisi Item dengan hasil parsing berupa namaanggota, fraksi, dapil, foto, daftarakd
                                 mSemuaAnggota_Item.add(new SemuaAnggotaItem(namaanggota, fraksi, dapil, foto, daftarakd));
 
                                 //mSemuaAnggota_Adapter.notifyDataSetChanged();
 
                             }
 
-
+                            // Menampilkan hasil parsing ke activity
                             mSemuaAnggota_Adapter = new SemuaAnggotaAdapter(SemuaAnggota.this, mSemuaAnggota_Item);
                             mRecyclerview.setAdapter(mSemuaAnggota_Adapter);
 
