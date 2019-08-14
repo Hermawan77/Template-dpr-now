@@ -56,20 +56,13 @@ public class SemuaAnggota extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        //System.out.println("Respon = "+ response);
-
                         mSemuaAnggota_Item.clear();
 
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
-                        //response = response.substring(10);
                         response = response.substring(19, response.length()-81);
-
-                        //System.out.println("Hasil = "+response);
 
                         // XML to JSON
                         XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
-
-                        //System.out.println("json = " + xmlToJson);
 
                         JSONObject jsonObject = xmlToJson.toJson();
 
@@ -127,16 +120,6 @@ public class SemuaAnggota extends AppCompatActivity {
         mRequestQueue.add(stringRequest);
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_anggota, menu);
-
-        MenuItem search = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(search);
-        search(searchView);
-        return true;
-    }*/
-
     private void search(SearchView searchView) {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -146,11 +129,11 @@ public class SemuaAnggota extends AppCompatActivity {
                     count = true;
                 }
                 else {
-                    recreate();
+                    parseLink();
                     count = false;
                 }
 
-                return true;
+                return false;
             }
 
             @Override
@@ -161,8 +144,4 @@ public class SemuaAnggota extends AppCompatActivity {
         });
     }
 
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }*/
 }
