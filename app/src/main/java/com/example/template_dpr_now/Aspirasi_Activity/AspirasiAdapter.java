@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Aspirasi_Activity;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.template_dpr_now.R;
 
 import java.util.List;
 

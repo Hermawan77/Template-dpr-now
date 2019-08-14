@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.template_dpr_now.AspirasiAdapter;
-import com.example.template_dpr_now.AspirasiDatabaseManager;
-import com.example.template_dpr_now.AspirasiInput;
-import com.example.template_dpr_now.Aspirasii;
+import com.example.template_dpr_now.Aspirasi_Activity.AspirasiAdapter;
+import com.example.template_dpr_now.Aspirasi_Activity.AspirasiDatabaseManager;
+import com.example.template_dpr_now.Aspirasi_Activity.AspirasiInput;
+import com.example.template_dpr_now.Aspirasi_Activity.Aspirasii;
 import com.example.template_dpr_now.R;
 
 import java.util.ArrayList;

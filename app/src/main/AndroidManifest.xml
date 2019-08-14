@@ -32,7 +32,7 @@
         <activity android:name=".Login_Activity.Login" />
         <activity android:name=".Pengaturan_Activity.Pengaturan" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".AspirasiInput" />
+        <activity android:name=".Aspirasi_Activity.AspirasiInput" />
         <activity android:name=".Upload_Activity.UploadPDF_view_Files" />
         <activity android:name=".Upload_Activity.UploadActivity" />
         <activity android:name=".Images_Activity.ImageActivity" />
@@ -41,7 +41,7 @@
         <activity android:name=".Pelayananmasyarakat_Activity.PelayananmasyakatActivity" />
         <activity android:name=".Login_Activity.Login_API" />
         <activity android:name=".Slide_Activity.Slide" />
-        <activity android:name=".Aspirasi" />
+        <activity android:name=".Aspirasi_Activity.Aspirasi" />
         <activity android:name=".Undangundang_Activity.UndangUndangActivity"/>
         <activity
             android:name=".Login_Activity.Login_email_daftar"

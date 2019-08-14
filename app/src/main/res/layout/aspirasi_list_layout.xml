@@ -103,13 +103,6 @@
                             android:layout_marginTop="8dp"
                             android:text="Isi aspirasi anda" />
 
-                        <TextView
-                            android:id="@+id/fileadd"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="file name lampiran"
-                            android:textStyle="italic"
-                            android:textColor="@color/colorPrimaryDark"/>
 
                 </LinearLayout>
 

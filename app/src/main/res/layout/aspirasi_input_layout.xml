@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".AspirasiInput">
+    tools:context=".Aspirasi_Activity.AspirasiInput">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -214,32 +214,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/imageview"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="10dp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/spinner"/>
-
             <LinearLayout
                 android:id="@+id/layoutadd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_below="@id/imageview">
+                android:layout_below="@id/spinner">
 
-                <Button
-                    android:id="@+id/addfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="tambah file"/>
+                <ImageView
+                    android:id="@+id/imageview"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/you_tube_logo"/>
+
                 <Button
                     android:id="@+id/addgambar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tambahkan gambar" />
+                    android:text="tambahkan gambar"
+                    android:padding="10dp"
+                    android:background="@drawable/button_border"/>
 
             </LinearLayout>
 
@@ -253,22 +250,22 @@
                     android:id="@+id/checkbox1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="AA" />
+                    android:text="muda" />
                 <CheckBox
                     android:id="@+id/checkbox2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BB"/>
+                    android:text="pertama"/>
                 <CheckBox
                     android:id="@+id/checkbox3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CC"/>
+                    android:text="menengah"/>
                 <CheckBox
                     android:id="@+id/checkbox4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DD"/>
+                    android:text="utama"/>
 
             </LinearLayout>
 
@@ -296,7 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb"
-                android:text="besaran seekbar dalam persen    : "/>
+                android:text="seberapa besar kinerjanya  : "/>
             <TextView
                 android:id="@+id/textseekbar"
                 android:layout_below="@id/rb"

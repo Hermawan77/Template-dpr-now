@@ -1,9 +1,11 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Aspirasi_Activity;
 
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+
+import com.example.template_dpr_now.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Aspirasi_Activity;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
@@ -34,6 +34,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.template_dpr_now.MainActivity;
+import com.example.template_dpr_now.R;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -51,7 +54,7 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
     private static final String CHANNEL_ID = ".notificationDemo.channelId";
     private static final int PICK_IMAGE_REQUEST=1;
     private static final String[] temp = new String[]{
-            "Arif", "Aan", "Bambang", "Budi", "Babeh", "Cece"};
+            "Annisa", "Gita", "Asmara", "Bahrul", "Faiz", "Dicky", "Hermawan", "Yulianto", "Pambudi"};
     EditText text3,text4,text5,text6;
     AutoCompleteTextView text1, text2;
     TextView txtTime,txtDate, Lihat, txtProgress;

@@ -1,4 +1,4 @@
-package com.example.template_dpr_now;
+package com.example.template_dpr_now.Aspirasi_Activity;
 
 import android.content.ContentValues;
 import android.content.Context;
