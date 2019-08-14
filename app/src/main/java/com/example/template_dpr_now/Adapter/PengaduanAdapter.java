@@ -82,7 +82,7 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
         holder.mTextViewNama.setText(mPengaduanList.get(position).getNama());
 
         holder.mTextViewTanggal.setText(mPengaduanList.get(position).getTanggal());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mIntent = new Intent(view.getContext(), MainActivity.class);
@@ -94,7 +94,7 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
 
                 view.getContext().startActivity(mIntent);
             }
-        });
+        });*/
     }
 
     @Override
