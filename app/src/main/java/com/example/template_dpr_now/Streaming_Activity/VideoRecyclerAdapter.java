@@ -32,7 +32,7 @@ public class VideoRecyclerAdapter extends RecyclerView.Adapter<VideoRecyclerAdap
 
     @Override
     public RecyclerGalleryView onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.adapter_video, null);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_streaming_video_layout, null);
         return new RecyclerGalleryView(view);
     }
 

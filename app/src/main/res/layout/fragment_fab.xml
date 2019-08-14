@@ -141,48 +141,6 @@
                     android:inputType="textMultiLine"
                     android:textSize="@dimen/TS_text" />
 
-                <LinearLayout
-                    android:id="@+id/pdfimagelinear"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="end"
-                    android:layout_marginTop="25dp"
-                    android:layout_below="@id/aduan"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LAMPIRAN            " />
-
-                    <TextView
-                        android:id="@+id/textimage"
-                        android:text="no file selected"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp" />
-
-                    <Button
-                        android:id="@+id/pickpdf"
-                        android:text="PDF"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/textpdf"
-                        android:text="no file selected"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp" />
-
-                    <Button
-                        android:id="@+id/pickimage"
-                        android:text="image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-
                 <Button
                     android:id="@+id/btnsimpan"
                     android:layout_width="match_parent"
@@ -190,7 +148,7 @@
                     android:layout_margin="25dp"
                     android:background="@drawable/button_borderless"
                     android:text="@string/simpan"
-                    android:layout_below="@id/pdfimagelinear"/>
+                    android:layout_below="@id/aduan"/>
 
             </RelativeLayout>
 

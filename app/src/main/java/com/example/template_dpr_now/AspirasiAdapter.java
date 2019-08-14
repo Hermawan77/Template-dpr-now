@@ -27,9 +27,9 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
     List<Aspirasii> aspirasiiList;
 
     //the databasemanager object
-    DatabaseManager mDatabase;
+    AspirasiDatabaseManager mDatabase;
 
-    public AspirasiAdapter(Context mCtx, int listLayoutRes, List<Aspirasii> aspirasiiList, DatabaseManager mDatabase) {
+    public AspirasiAdapter(Context mCtx, int listLayoutRes, List<Aspirasii> aspirasiiList, AspirasiDatabaseManager mDatabase) {
         super(mCtx, listLayoutRes, aspirasiiList);
 
         this.mCtx = mCtx;
@@ -95,7 +95,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
     private void updateAspirasi(final Aspirasii aspirasii){
         final AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.aspirasi_update, null);
+        View view = inflater.inflate(R.layout.aspirasi_update_layout, null);
         builder.setView(view);
 
         final AlertDialog alertDialog = builder.create();

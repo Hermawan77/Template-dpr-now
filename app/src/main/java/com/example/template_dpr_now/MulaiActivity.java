@@ -1,9 +1,7 @@
 package com.example.template_dpr_now;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
@@ -16,9 +14,9 @@ public class MulaiActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Menampilkan activity_mulai.xml
+        // Menampilkan slide_images_layout.xmlt.xml
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mulai);
+        setContentView(R.layout.slide_images_layout);
 
         // Memberi nilai
         menu1 = findViewById(R.id.menu1);
@@ -38,7 +36,7 @@ public class MulaiActivity extends AppCompatActivity {
 //            public void onClick(View v) {
 //                Intent intent = new Intent(MulaiActivity.this, MulaiActivity.class);
 //                MainActivity.this.startActivity(intent);
-//                InputAspirasi.this.finish();
+//                AspirasiInput.this.finish();
 //            }
 //        });
 //
@@ -47,7 +45,7 @@ public class MulaiActivity extends AppCompatActivity {
 //            public void onClick(View v) {
 //                Intent intent = new Intent(MulaiActivity.this, MulaiActivity.class);
 //                MainActivity.this.startActivity(intent);
-//                InputAspirasi.this.finish();
+//                AspirasiInput.this.finish();
 //            }
 //        });
 //
@@ -56,7 +54,7 @@ public class MulaiActivity extends AppCompatActivity {
 //            public void onClick(View v) {
 //                Intent intent = new Intent(MulaiActivity.this, MulaiActivity.class);
 //                MainActivity.this.startActivity(intent);
-//                InputAspirasi.this.finish();
+//                AspirasiInput.this.finish();
 //            }
 //        });
     }

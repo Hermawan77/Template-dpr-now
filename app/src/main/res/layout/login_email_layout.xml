@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:gravity="center"
+    tools:context=".Login_Activity.Login_email">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@android:color/white"
+        android:padding="50dp">
+
+        <ImageView
+            android:id="@+id/logologinemail"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:src="@drawable/you_tube_logo"/>
+
+        <EditText
+            android:id="@+id/E_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/logologinemail"
+            android:hint="  E-Mail"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/ic_email"/>
+
+        <EditText
+            android:id="@+id/passwordemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/E_mail"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:hint="  Password"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/ic_lock"/>
+
+        <Button
+            android:id="@+id/loginemail"
+            android:layout_below="@+id/passwordemail"
+            android:text="Login"
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:background="@drawable/colorbutton"/>
+
+        <TextView
+            android:id="@+id/lupadisini"
+            android:text=" Lupa Password?"
+            android:textColor="@color/colorPrimary"
+            android:layout_below="@id/passwordemail"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/belumpunyaakun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Belum punya akun? " />
+
+            <TextView
+                android:id="@+id/daftardisini"
+                android:textColor="@color/colorPrimary"
+                android:text=" Daftar disini"
+                android:layout_toRightOf="@+id/belumpunyaakun"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

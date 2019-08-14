@@ -6,17 +6,19 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
+import com.example.template_dpr_now.Slide_Activity.Slide;
+
 public class SplashActivity extends AppCompatActivity {
     // Mendeklarasikan Variable
-    private final int SPLASH_DISPLAY_LENGTH = 2000;
+    private final int SPLASH_DISPLAY_LENGTH = 2500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Menampilkan activity_splash.xml
+        // Menampilkan splashscreen_layout.xmlt.xml
         super.onCreate(savedInstanceState);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.splashscreen_layout);
 
         // Membuat fungsi splash
         new Handler().postDelayed(new Runnable() {

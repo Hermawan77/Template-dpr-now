@@ -1,8 +1,6 @@
 package com.example.template_dpr_now.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,11 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.template_dpr_now.Login;
+import com.example.template_dpr_now.Login_Activity.Login;
 import com.example.template_dpr_now.MainActivity;
-import com.example.template_dpr_now.Pengaturan;
+import com.example.template_dpr_now.Pengaturan_Activity.Pengaturan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Util.SharedPrefManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -30,8 +27,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import static android.support.constraint.Constraints.TAG;
-import static android.widget.Toast.*;
-import static com.example.template_dpr_now.Util.SharedPrefManager.SP_SUDAH_LOGIN;
 
 public class LainnyaFragment extends Fragment {
 

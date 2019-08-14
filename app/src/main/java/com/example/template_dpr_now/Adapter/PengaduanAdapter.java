@@ -1,28 +1,19 @@
 package com.example.template_dpr_now.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.DataSetObserver;
 import android.support.v7.widget.RecyclerView;
-import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.template_dpr_now.MainActivity;
 import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.fragment.KomisiItem;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyViewHolder> implements ListAdapter {
@@ -41,7 +32,7 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
 
     @Override
     public MyViewHolder onCreateViewHolder (ViewGroup parent, int viewType){
-        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_layout_pengaduan, parent, false);
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.pengaduan_list_layout, parent, false);
         MyViewHolder mViewHolder = new MyViewHolder(mView);
         return mViewHolder;
 

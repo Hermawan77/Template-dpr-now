@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.template_dpr_now.AspirasiAdapter;
+import com.example.template_dpr_now.AspirasiDatabaseManager;
+import com.example.template_dpr_now.AspirasiInput;
 import com.example.template_dpr_now.Aspirasii;
-import com.example.template_dpr_now.DatabaseManager;
-import com.example.template_dpr_now.InputAspirasi;
 import com.example.template_dpr_now.R;
 
 import java.util.ArrayList;
@@ -24,14 +24,14 @@ public class FragmentAspirasi extends Fragment {
 
     List<Aspirasii> pilihanList;
     ListView listViewPilihans;
-    DatabaseManager mDatabase;
+    AspirasiDatabaseManager mDatabase;
     Button btnbuataspirasi;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_aspirasi, container, false);
 
-        mDatabase = new DatabaseManager(getActivity());
+        mDatabase = new AspirasiDatabaseManager(getActivity());
         listViewPilihans = view.findViewById(R.id.listviewaspirasi);
         pilihanList = new ArrayList<>();
         loadPilihansFromDatabase();
@@ -39,7 +39,7 @@ public class FragmentAspirasi extends Fragment {
         btnbuataspirasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), InputAspirasi.class);
+                Intent intent = new Intent(getActivity(), AspirasiInput.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +67,7 @@ public class FragmentAspirasi extends Fragment {
             } while (cursor.moveToNext());
         }
 
-        AspirasiAdapter adapter = new AspirasiAdapter(getActivity(), R.layout.list_layout_aspirasi, pilihanList, mDatabase);
+        AspirasiAdapter adapter = new AspirasiAdapter(getActivity(), R.layout.aspirasi_list_layout, pilihanList, mDatabase);
 
         listViewPilihans.setAdapter(adapter);
     }

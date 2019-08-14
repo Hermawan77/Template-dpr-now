@@ -14,8 +14,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.template_dpr_now.Library_XmlToJson;
 import com.example.template_dpr_now.R;
-import com.example.template_dpr_now.XmlToJson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,10 +33,10 @@ public class F_K2 extends Fragment {
     private String BASE_URL = "http://dpr.go.id/rest/?method=getAkd&menu=Sekretariat-Komisi-II&tipe=xml";
 
 
-    // Menampilkan fragment f_k2.xml
+    // Menampilkan fragment komisi2_fragment.xmlfragment.xml
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.f_k2, container, false);
+        View view = inflater.inflate(R.layout.komisi2_fragment, container, false);
 
         mRecyclerview = view.findViewById(R.id.recycler_view_k2);
         mRecyclerview.setHasFixedSize(true);
@@ -68,11 +68,11 @@ public class F_K2 extends Fragment {
                         //System.out.println("Hasil = "+response);
 
                         // XML to JSON
-                        XmlToJson xmlToJson = new XmlToJson.Builder(response).skipTag("/title").skipTag("/type").build();
+                        Library_XmlToJson libraryXmlToJson = new Library_XmlToJson.Builder(response).skipTag("/title").skipTag("/type").build();
 
-                        //System.out.println("json = " + xmlToJson);
+                        //System.out.println("json = " + libraryXmlToJson);
 
-                        JSONObject jsonObject = xmlToJson.toJson();
+                        JSONObject jsonObject = libraryXmlToJson.toJson();
 
                         // GET <content>
                         try {

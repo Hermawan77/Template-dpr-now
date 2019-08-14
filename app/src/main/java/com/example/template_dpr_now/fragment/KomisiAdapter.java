@@ -24,7 +24,7 @@ public class KomisiAdapter extends RecyclerView.Adapter<KomisiAdapter.F_K1_ViewH
 
     @Override
     public F_K1_ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.list_k1, parent, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.komisi_list, parent, false);
         return new F_K1_ViewHolder(v);
     }
 

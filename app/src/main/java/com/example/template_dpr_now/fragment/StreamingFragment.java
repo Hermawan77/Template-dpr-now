@@ -17,7 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.template_dpr_now.PaginationScrollListener;
+import com.example.template_dpr_now.Streaming_Activity.Streaming_PaginationScrollListener;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Interface;
 import com.example.template_dpr_now.Streaming_Activity.VideoRecyclerAdapter;
@@ -79,7 +79,7 @@ public class StreamingFragment extends Fragment {
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
             mRecyclerView.setLayoutManager(linearLayoutManager);
-            mRecyclerView.addOnScrollListener(new PaginationScrollListener(linearLayoutManager) {
+            mRecyclerView.addOnScrollListener(new Streaming_PaginationScrollListener(linearLayoutManager) {
                 @Override
                 protected void loadMoreItems() {
                     isLoading = true;

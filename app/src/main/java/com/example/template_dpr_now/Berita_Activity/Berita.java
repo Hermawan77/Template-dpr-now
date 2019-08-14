@@ -16,7 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.template_dpr_now.R;
-import com.example.template_dpr_now.XmlToJson;
+import com.example.template_dpr_now.Library_XmlToJson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,7 +47,7 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_berita);
+        setContentView(R.layout.berita_layout);
 
         mRecyclerview = findViewById(R.id.recycler_view_berita);
         mRecyclerview.setHasFixedSize(true);
@@ -74,9 +74,9 @@ public class Berita extends AppCompatActivity implements Berita_Adapter.OnItemCl
                         response = response.substring(0, response.length()-11);
 
                         //Parsing xml ke json, skip tag "title" dan "type"
-                        XmlToJson xmlToJson = new XmlToJson.Builder(response).skipTag("/title").skipTag("/type").build();
+                        Library_XmlToJson libraryXmlToJson = new Library_XmlToJson.Builder(response).skipTag("/title").skipTag("/type").build();
 
-                        JSONObject jsonObject = xmlToJson.toJson();
+                        JSONObject jsonObject = libraryXmlToJson.toJson();
 
                         try {
                             //get Array dengan nama "agenda"

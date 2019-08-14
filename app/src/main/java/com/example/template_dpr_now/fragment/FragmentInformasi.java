@@ -10,11 +10,11 @@ import android.widget.Button;
 
 import com.example.template_dpr_now.Agenda_Activity.Agenda;
 import com.example.template_dpr_now.Berita_Activity.Berita;
-import com.example.template_dpr_now.KunjunganYanmasActivity;
-import com.example.template_dpr_now.MajalahActivity;
+import com.example.template_dpr_now.Pelayananmasyarakat_Activity.PelayananmasyakatActivity;
+import com.example.template_dpr_now.Majalah_Activity.MajalahActivity;
 import com.example.template_dpr_now.R;
-import com.example.template_dpr_now.SemuaAnggota;
-import com.example.template_dpr_now.UndangUndangActivity;
+import com.example.template_dpr_now.Semuaanggota_Activity.SemuaAnggota;
+import com.example.template_dpr_now.Undangundang_Activity.UndangUndangActivity;
 
 public class FragmentInformasi extends Fragment {
 
@@ -47,7 +47,7 @@ public class FragmentInformasi extends Fragment {
         keKunjungan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), KunjunganYanmasActivity.class);
+                Intent i = new Intent(getActivity(), PelayananmasyakatActivity.class);
                 startActivity(i);
             }
         });

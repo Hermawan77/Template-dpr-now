@@ -19,8 +19,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.template_dpr_now.Library_XmlToJson;
 import com.example.template_dpr_now.R;
-import com.example.template_dpr_now.XmlToJson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +48,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agenda);
+        setContentView(R.layout.agenda_layout);
         status = findViewById(R.id.status);
         sekarang = findViewById(R.id.sekarang);
 
@@ -155,8 +155,8 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
                         response = response.substring(10, response.length()-11);
 
                         //Parsing xml ke json
-                        XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
-                        JSONObject jsonObject = xmlToJson.toJson();
+                        Library_XmlToJson libraryXmlToJson = new Library_XmlToJson.Builder(response).build();
+                        JSONObject jsonObject = libraryXmlToJson.toJson();
 
                         try {
                             //get Array dengan nama "agenda"

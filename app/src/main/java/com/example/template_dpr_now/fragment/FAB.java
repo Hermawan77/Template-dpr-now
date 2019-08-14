@@ -4,7 +4,6 @@ Class ini digunakan untuk memasukkan data ke database pengaduan, database pengad
 
 package com.example.template_dpr_now.fragment;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,9 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,12 +30,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.template_dpr_now.Library_XmlToJson;
 import com.example.template_dpr_now.MainActivity;
 import com.example.template_dpr_now.Model.PostPutDelPengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
-import com.example.template_dpr_now.XmlToJson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -78,10 +75,6 @@ public class FAB extends Fragment {
         edit_email = view.findViewById(R.id.Email);
         edit_aduan = view.findViewById(R.id.aduan);
         btsimpan = view.findViewById(R.id.btnsimpan);
-        pdf = view.findViewById(R.id.pickpdf);
-        image = view.findViewById(R.id.pickimage);
-        txtpdf = view.findViewById(R.id.textpdf);
-        txtimage = view.findViewById(R.id.textimage);
 
         mApiInterface = API_Client.getClient().create(API_Interface.class); // meng-init yang ada di package REST
 
@@ -129,36 +122,6 @@ public class FAB extends Fragment {
             }
         });
 
-         //request permission mengambil file
-        pdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
-                    selectPdf();
-
-                }
-                else{
-                    ActivityCompat.requestPermissions((Activity) getContext(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
-                }
-
-            }
-        });
-
-        //request permission mengambil gambar
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
-                    selectImage();
-
-                }
-                else{
-                    ActivityCompat.requestPermissions((Activity) getContext(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
-                }
-
-            }
-        });
-
         //autocomplete, mengambil nama dari JSON kemudian diletakan pada Arraylist
         mRequestQueue = Volley.newRequestQueue(getContext());
 
@@ -168,8 +131,8 @@ public class FAB extends Fragment {
                     public void onResponse(String response) {
                         response = response.replaceAll("\\<\\?xml(.+?)\\?\\>", "").trim();
                         response = response.substring(19, response.length()-81);
-                        XmlToJson xmlToJson = new XmlToJson.Builder(response).build();
-                        JSONObject jsonObject = xmlToJson.toJson();
+                        Library_XmlToJson libraryXmlToJson = new Library_XmlToJson.Builder(response).build();
+                        JSONObject jsonObject = libraryXmlToJson.toJson();
 
                         try {
                             JSONArray jsonArray = jsonObject.getJSONArray("item");
@@ -194,7 +157,7 @@ public class FAB extends Fragment {
         mRequestQueue.add(stringRequest);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                R.layout.custom_list_item, R.id.text_view_list_item, responseList);
+                R.layout.autocomplete_list_item, R.id.text_view_list_item, responseList);
         edit_nama.setAdapter(adapter);
 
         return  view;

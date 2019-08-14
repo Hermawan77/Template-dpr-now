@@ -14,14 +14,14 @@ public class Aspirasi extends AppCompatActivity {
     ListView listViewPilihans;
 
     //The databasemanager object
-    DatabaseManager mDatabase;
+    AspirasiDatabaseManager mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aspirasi);
+        setContentView(R.layout.aspirasi_layout);
 
-        mDatabase = new DatabaseManager(this);
+        mDatabase = new AspirasiDatabaseManager(this);
 
         listViewPilihans = (ListView) findViewById(R.id.listviewaspirasi);
         pilihanList = new ArrayList<>();
@@ -58,7 +58,7 @@ public class Aspirasi extends AppCompatActivity {
         }
 
         //creating the adapter object
-        AspirasiAdapter adapter = new AspirasiAdapter(this, R.layout.list_layout_aspirasi, pilihanList, mDatabase);
+        AspirasiAdapter adapter = new AspirasiAdapter(this, R.layout.aspirasi_list_layout, pilihanList, mDatabase);
 
         //adding the adapter to listview
         listViewPilihans.setAdapter(adapter);

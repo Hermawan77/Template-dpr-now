@@ -20,7 +20,7 @@ public class AgendaDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agenda_detail);
+        setContentView(R.layout.agenda_detail);
 
         //Menerima dats dari activity Agenda
         Intent intent = getIntent();
