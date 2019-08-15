@@ -103,7 +103,6 @@
                             android:layout_marginTop="8dp"
                             android:text="Isi aspirasi anda" />
 
-
                 </LinearLayout>
 
                 <LinearLayout

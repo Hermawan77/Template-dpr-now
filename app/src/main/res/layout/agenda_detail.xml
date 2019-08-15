@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,6 +7,7 @@
     android:background="@android:color/white"
     tools:context=".Agenda_Activity.AgendaDetail">
 
+    <!--bagian untuk membuat toolbar (bagian atas)-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,18 +15,19 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbaragenda">
 
+        <!--untuk menampilkan text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Detail Agenda"
-            android:textSize="20dp"
+            android:text="@string/detail_agenda"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:textColor="@android:color/white"
             android:fontFamily="@font/f_arial"/>
-
     </android.support.v7.widget.Toolbar>
 
+    <!--bagian tombol yang dapat ditambahkan gambar atau tombol bergambar-->
     <ImageButton
         android:id="@+id/backdetailagenda"
         android:layout_width="wrap_content"
@@ -36,6 +37,7 @@
         android:layout_margin="15dp"
         android:src="@drawable/back1" />
 
+    <!--bagian untuk membuat tampilan dapat di scroll-->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_below="@id/toolbaragenda"
@@ -50,13 +52,17 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp">
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/agenda_jam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_alignParentRight="true"
-                android:text="jam berita"/>
+                android:text="@string/jam_berita"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true" />
+
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/agenda_tanggal"
                 android:layout_width="wrap_content"
@@ -64,20 +70,23 @@
                 android:layout_margin="10dp"
                 android:layout_alignParentLeft="true"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="tanggal berita"/>
+                android:text="@string/tanggal_berita"
+                android:layout_alignParentStart="true" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/agenda_isi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/agenda_tanggal"
-                android:text="judul agenda"
+                android:text="@string/judul_agenda"
                 android:textColor="@color/colorPrimaryDark"
                 android:padding="5dp"
                 android:textAlignment="center"
                 android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/agenda_deskripsi"
                 android:layout_width="wrap_content"
@@ -85,7 +94,7 @@
                 android:layout_below="@id/agenda_isi"
                 android:padding="10dp"
                 android:background="@drawable/button_borderless"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
+                android:text="@string/isi_agenda"/>
 
         </RelativeLayout>
 
