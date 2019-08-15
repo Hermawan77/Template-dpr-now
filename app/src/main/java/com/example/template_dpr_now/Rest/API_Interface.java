@@ -1,8 +1,8 @@
 package com.example.template_dpr_now.Rest;
 
-import com.example.template_dpr_now.Model.GetPengaduan;
-import com.example.template_dpr_now.Model.Pengaduan;
-import com.example.template_dpr_now.Model.PostPutDelPengaduan;
+import com.example.template_dpr_now.Pengaduan_Activity.GetPengaduan;
+import com.example.template_dpr_now.Pengaduan_Activity.Pengaduan;
+import com.example.template_dpr_now.Pengaduan_Activity.PostPutDelPengaduan;
 import com.example.template_dpr_now.Streaming_Activity.YouTubeModel;
 
 import java.util.List;

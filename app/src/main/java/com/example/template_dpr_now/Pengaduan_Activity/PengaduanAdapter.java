@@ -1,4 +1,4 @@
-package com.example.template_dpr_now.Adapter;
+package com.example.template_dpr_now.Pengaduan_Activity;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.template_dpr_now.Model.Pengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.fragment.KomisiItem;
 

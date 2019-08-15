@@ -32,7 +32,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.template_dpr_now.Library_XmlToJson;
 import com.example.template_dpr_now.MainActivity;
-import com.example.template_dpr_now.Model.PostPutDelPengaduan;
+import com.example.template_dpr_now.Pengaduan_Activity.PostPutDelPengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;

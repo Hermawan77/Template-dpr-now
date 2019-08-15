@@ -9,18 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.template_dpr_now.Adapter.PengaduanAdapter;
-import com.example.template_dpr_now.MainActivity;
-import com.example.template_dpr_now.Model.Pengaduan;
-import com.example.template_dpr_now.Model.Pengaduan;
+import com.example.template_dpr_now.Pengaduan_Activity.PengaduanAdapter;
+import com.example.template_dpr_now.Pengaduan_Activity.Pengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
-import com.google.common.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import retrofit2.Call;
