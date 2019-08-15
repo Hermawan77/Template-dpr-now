@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:layout_marginTop="10dp"
-                android:text="Belum daftar," />
+                android:text="Belum daftar?, " />
 
             <TextView
                 android:id="@+id/daftar"

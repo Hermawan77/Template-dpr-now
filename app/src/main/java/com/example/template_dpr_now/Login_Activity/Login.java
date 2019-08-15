@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.template_dpr_now.MainActivity;
 import com.example.template_dpr_now.R;
+import com.example.template_dpr_now.Util.SharedPrefManager;
 import com.example.template_dpr_now.fragment.LainnyaFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -33,6 +34,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
+    SharedPrefManager sharedPrefManager;
     Button google;@Override
     public void onBackPressed() {
         if(backPressedTime + 2000 > System.currentTimeMillis()){
@@ -56,6 +58,15 @@ public class Login extends AppCompatActivity {
         // Mengecek Login melalui Firebase
         firebaseAuth = FirebaseAuth.getInstance();
         mAuth = FirebaseAuth.getInstance();
+        sharedPrefManager = new SharedPrefManager(this);
+
+        // Code berikut berfungsi untuk mengecek session, Jika session true ( sudah login )
+        // maka langsung memulai MainActivity.
+        if (sharedPrefManager.getSPSudahLogin()){
+            startActivity(new Intent(Login.this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
         if(firebaseAuth.getCurrentUser()!=null){
             FirebaseUser user =  firebaseAuth.getCurrentUser();
             Intent i = new Intent(Login.this, MainActivity.class);

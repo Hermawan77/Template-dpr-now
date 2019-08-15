@@ -62,15 +62,16 @@ public class Login_API extends AppCompatActivity {
 
         });
 
-        // Code berikut berfungsi untuk mengecek session, Jika session true ( sudah login )
-        // maka langsung memulai MainActivity.
-        if (sharedPrefManager.getSPSudahLogin()){
-            startActivity(new Intent(Login_API.this, MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
-        }
+//        // Code berikut berfungsi untuk mengecek session, Jika session true ( sudah login )
+//        // maka langsung memulai MainActivity.
+//        if (sharedPrefManager.getSPSudahLogin()){
+//            startActivity(new Intent(Login_API.this, MainActivity.class)
+//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//            finish();
+//        }
     }
 
+    //fungsi/method untuk Login
     private void requestLogin() {
         Map<String,String> hashMap=new HashMap<>();
         hashMap.put("email",edit_email.getText().toString());
