@@ -8,14 +8,15 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+    <!--bagian untuk membuat frame kontainer fragment-->
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_navigation">
-
     </FrameLayout>
 
+    <!--bagian untuk membuat bottom navigasi bar-->
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

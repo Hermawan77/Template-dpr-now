@@ -176,5 +176,13 @@
         <item>times</item>
     </string-array>
     <string name="keyword">Keyword</string>
+    <string name="detail_agenda">Detail Agenda</string>
+    <string name="judul_agenda">judul agenda</string>
+    <string name="isi_agenda">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper.</string>
+    <string name="tanggal_berita">tanggal berita</string>
+    <string name="jam_berita">jam berita</string>
+    <string name="kalender">Kalender</string>
+    <string name="daftar_agenda">Daftar Agenda</string>
+    <string name="status">Status</string>
 
 </resources>
