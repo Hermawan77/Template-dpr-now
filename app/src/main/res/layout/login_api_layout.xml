@@ -16,20 +16,22 @@
         android:background="@android:color/white"
         android:padding="50dp">
 
+        <!--menampilkan gambar-->
         <ImageView
             android:id="@+id/logologinapi"
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:src="@drawable/api"/>
 
+        <!--menampilkan text yang dapat diedit-->
         <EditText
             android:id="@+id/edemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:layout_below="@id/logologinapi"
-            android:hint="  E-Mail"
-            android:textSize="15dp"
+            android:hint="@string/e_mail"
+            android:textSize="15sp"
             android:padding="10dp"
             android:inputType="textEmailAddress"
             android:drawableLeft="@drawable/ic_email"/>
@@ -39,16 +41,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edemail"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:padding="10dp"
-            android:hint="  Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:drawableLeft="@drawable/ic_lock"/>
 
+        <!--membuat tombol-->
         <Button
             android:id="@+id/btnlogin"
             android:layout_below="@+id/edpass"
-            android:text="Login"
+            android:text="@string/login"
             android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

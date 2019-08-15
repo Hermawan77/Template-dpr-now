@@ -29,14 +29,14 @@
                 android:id="@+id/majalah_tahun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tahun"
+                android:text="@string/tahun"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/majalah_edisi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edisi"
+                android:text="@string/edisi"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
         </LinearLayout>
@@ -45,7 +45,7 @@
             android:id="@+id/majalah_file"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="File"
+            android:text="@string/file"
             android:autoLink="web"/>
 
     </LinearLayout>

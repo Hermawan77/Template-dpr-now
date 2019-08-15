@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--bagian untuk membuat scroll activity-->
 <ScrollView
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
@@ -146,7 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/essai"
-            android:text="Pilihan kebawah"/>
+            android:text="@string/pilihan_kebawah"/>
 
         <Spinner
             android:id="@+id/spinner"
@@ -159,7 +160,7 @@
             android:id="@+id/updatefile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="File lampiran"
+            android:text="@string/file_lampiran"
             android:layout_margin="15dp"
             android:layout_below="@id/spinner"
             android:textStyle="italic"
@@ -177,14 +178,14 @@
             android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/updategambar"
-            android:text="Nilai Checkbox"
+            android:text="@string/nilai_checkbox"
             android:textSize="@dimen/TS_text" />
 
         <EditText
             android:id="@+id/checkboxview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="nilai checkbox"
+            android:hint="@string/nilai_checkbox"
             android:layout_toRightOf="@id/checkboxtext"
             android:layout_below="@id/updategambar"
             android:textSize="@dimen/TS_text" />
@@ -194,14 +195,14 @@
             android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkboxtext"
-            android:text="Jenis Kelamin"
+            android:text="@string/jenis_kelamin"
             android:textSize="@dimen/TS_text" />
 
         <EditText
             android:id="@+id/radio1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="P / L"
+            android:hint="@string/p_l"
             android:layout_toRightOf="@id/radiotext"
             android:layout_below="@id/checkboxtext"
             android:textSize="@dimen/TS_text" />
@@ -211,14 +212,14 @@
             android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/radiotext"
-            android:text="Nilai Persent"
+            android:text="@string/nilai_persent"
             android:textSize="@dimen/TS_text" />
 
         <EditText
             android:id="@+id/seekbar1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint=" berapa %"
+            android:hint="@string/berapa"
             android:layout_toRightOf="@id/seekbartext"
             android:layout_below="@id/radiotext"
             android:textSize="@dimen/TS_text" />
@@ -230,7 +231,7 @@
             android:layout_margin="15dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/seekbartext"
-            android:text="Update" />
+            android:text="@string/update" />
 
     </RelativeLayout>
 

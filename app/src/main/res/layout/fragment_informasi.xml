@@ -6,17 +6,16 @@
     android:gravity="center"
     android:background="@android:color/transparent">
 
+    <!--untuk membuat tampilan dapat di scroll-->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_height="wrap_content">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
 
@@ -26,12 +25,13 @@
                 android:orientation="horizontal"
                 android:gravity="center">
 
+                <!--untuk membuat tombol-->
                 <Button
                     android:id="@+id/semuaAnggota"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:text="Daftar Anggota"
+                    android:text="@string/daftar_anggota"
                     android:drawableTop="@drawable/anggota"
                     android:fontFamily="@font/f_arial"
                     android:background="@android:color/white"/>
@@ -41,7 +41,7 @@
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:text="Pelayanan Masyarakat"
+                    android:text="@string/pelayanan_masyarakat"
                     android:drawableTop="@drawable/legislasi"
                     android:fontFamily="@font/f_arial"
                     android:background="@android:color/white"/>
@@ -54,12 +54,13 @@
                 android:orientation="horizontal"
                 android:gravity="center">
 
+                <!--untuk membuat tombol-->
                 <Button
                     android:id="@+id/daftarmajalah"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:text="Daftar Majalah"
+                    android:text="@string/daftar_majalah"
                     android:drawableTop="@drawable/naskah"
                     android:fontFamily="@font/f_arial"
                     android:background="@android:color/white"/>
@@ -82,12 +83,13 @@
                 android:orientation="horizontal"
                 android:gravity="center">
 
+                <!--untuk membuat tombol-->
                 <Button
                     android:id="@+id/agenda"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:text="Agenda"
+                    android:text="@string/agenda"
                     android:drawableTop="@drawable/agenda"
                     android:fontFamily="@font/f_arial"
                     android:background="@android:color/white"/>
@@ -97,7 +99,7 @@
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
-                    android:text="Undang-Undang"
+                    android:text="@string/undang_undang"
                     android:drawableTop="@drawable/hasil"
                     android:fontFamily="@font/f_arial"
                     android:background="@android:color/white"/>

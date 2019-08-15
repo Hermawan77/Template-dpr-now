@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
     tools:context=".Berita_Activity.Berita_Detail">
 
+    <!--bagian untuk membuat toolbar (bagian atas)-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,11 +14,12 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbaragenda">
 
+        <!--bagian untuk membuat text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Detail Berita"
-            android:textSize="20dp"
+            android:text="@string/detail_berita"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:textColor="@android:color/white"
@@ -26,6 +27,7 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <!--bagian untuk membuat scroll view-->
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_below="@id/toolbaragenda"
@@ -41,39 +43,41 @@
             android:layout_margin="5dp"
             android:background="@drawable/button_borderless">
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/kategori_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="kategori"
+                android:text="@string/kategori"
                 android:padding="10dp"
                 android:layout_margin="10dp"
                 android:textColor="@android:color/white"
                 android:background="@drawable/colorbutton"/>
 
+            <!--untuk menampilkan gmbar-->
             <ImageView
                 android:layout_below="@id/kategori_detail"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:id="@+id/fotoberita_detail" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/judulberita_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tanggalberita_detail"
-                android:text="Judul berita"
+                android:text="@string/judul_berita"
                 android:padding="10dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
-
             <TextView
                 android:id="@+id/isiberita_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/judulberita_detail"
                 android:padding="10dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper."/>
+                android:text="@string/text_detail_berita"/>
 
             <TextView
                 android:id="@+id/tanggalberita_detail"
@@ -82,7 +86,7 @@
                 android:layout_below="@id/fotoberita_detail"
                 android:layout_margin="10dp"
                 android:layout_alignParentRight="true"
-                android:text="tanggal berita"/>
+                android:text="@string/tanggal_berita"/>
 
         </RelativeLayout>
 

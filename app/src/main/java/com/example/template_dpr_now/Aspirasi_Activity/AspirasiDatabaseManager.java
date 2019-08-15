@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class AspirasiDatabaseManager extends SQLiteOpenHelper {
 
+    //deklarasi variable
     private static final String DATABASE_NAME = "dpr";
     private static final int DATABASE_VERSION = 4;
     private static final String TABLE_NAME = "aspirasi";
@@ -24,9 +25,11 @@ public class AspirasiDatabaseManager extends SQLiteOpenHelper {
     private static final String COLUMN_SEEKBAR = "seekbar";
     private static final String COLUMN_IMAGE = "image";
 
-
+    //inisialisasi
     public AspirasiDatabaseManager(Context context){super(context, DATABASE_NAME, null, DATABASE_VERSION);}
 
+    //pembuatan fungsi oncreate, untuk membuat database
+    //disini kita dapat mendeklarasikan jenis variable dan jumlah karakter variable tersebut
     @Override
     public void onCreate (SQLiteDatabase sqLiteDatabase){
         String sql =
@@ -49,12 +52,14 @@ public class AspirasiDatabaseManager extends SQLiteOpenHelper {
 
     }
 
+    //fungsi saat database diperbaharui, maka database sebelumnya akan d drop dan digantikan dengan yang baru
     public void onUpgrade (SQLiteDatabase sqLiteDatabase, int i, int i1){
         String sql = "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
         sqLiteDatabase.execSQL(sql);
         onCreate(sqLiteDatabase);
     }
 
+    //fungsi untuk memasukkan nilai dari inputan yang telah dimasukkan
     public boolean addpilihan(String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar, byte[] image){
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME, name);
@@ -70,14 +75,15 @@ public class AspirasiDatabaseManager extends SQLiteOpenHelper {
         contentValues.put(COLUMN_IMAGE, image);
         SQLiteDatabase db = getWritableDatabase();
         return db.insert(TABLE_NAME, null, contentValues) != -1;
-
     }
 
+    //fungsi untuk menampilkan seluruh data inputan yang telah masuk
     public Cursor getAllPilihan(){
         SQLiteDatabase db = getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
+    //fungsi untuk mengupdate data aspirasi yang sudah ada
     public boolean updateAspirasi(int id, String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar, byte[] image){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -95,6 +101,7 @@ public class AspirasiDatabaseManager extends SQLiteOpenHelper {
         return db.update(TABLE_NAME, contentValues, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 0 ;
     }
 
+    //fungsi untuk menghapus data yang diinginkan
     public boolean deleteAspirasi(int id) {
         SQLiteDatabase db = getWritableDatabase();
         return db.delete(TABLE_NAME, COLUMN_ID + "=?", new String[]{String.valueOf(id)}) == 0;

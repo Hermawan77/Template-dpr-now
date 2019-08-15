@@ -24,13 +24,15 @@ import java.util.List;
 
 public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
 
+    //mendeklarasikan variable
     Context mCtx;
     int layoutRes;
     List<Aspirasii> aspirasiiList;
 
-    //the databasemanager object
+    //mendeklarasikan objek dari database
     AspirasiDatabaseManager mDatabase;
 
+    //inisialisasi fugsi konstruktor bernilai
     public AspirasiAdapter(Context mCtx, int listLayoutRes, List<Aspirasii> aspirasiiList, AspirasiDatabaseManager mDatabase) {
         super(mCtx, listLayoutRes, aspirasiiList);
 
@@ -46,9 +48,10 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(layoutRes, null);
 
+        //inisialisasi list
         final Aspirasii aspirasii = aspirasiiList.get(position);
 
-        //getting views
+        //mendaptakan akses ke id tampilan
         TextView textViewName = view.findViewById(R.id.textViewName);
         TextView textViewEmail = view.findViewById(R.id.textViewEmail);
         TextView textViewPhone = view.findViewById(R.id.textViewPhone);
@@ -62,7 +65,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         ImageView imageview = view.findViewById(R.id.gambarviewlist);
 
 
-        //adding data to views
+        //menambahkan data ke masing-masing tampilan
         textViewName.setText(aspirasii.getName());
         textViewEmail.setText(aspirasii.getEmail());
         textViewPhone.setText(aspirasii.getPhone());
@@ -77,6 +80,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         Bitmap bitmap = BitmapFactory.decodeByteArray(recordImage, 0, recordImage.length);
         imageview.setImageBitmap(bitmap);
 
+        //fungsi saat tombol delet diklik
         view.findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +88,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
             }
         });
 
+        //aksi saat tombol edit(update) di klik
         view.findViewById(R.id.buttonEdit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,9 +105,11 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         View view = inflater.inflate(R.layout.aspirasi_update_layout, null);
         builder.setView(view);
 
+        //fungsi yang membuat tampilan dialog (karena bagian update di tampilkan dalam dialog)
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
+        //mendaptakan akses ke id tampilan
         final EditText editTextName = view.findViewById(R.id.namaview);
         final EditText editTextEmail = view.findViewById(R.id.emailview);
         final EditText editTextPhone = view.findViewById(R.id.phoneview);
@@ -115,6 +122,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         final EditText editTextSeekbar = view.findViewById(R.id.seekbar1);
         final ImageView updateimage = view.findViewById(R.id.updategambar);
 
+        //menambahkan data ke masing-masing tampilan
         editTextName.setText(aspirasii.getName());
         editTextEmail.setText(aspirasii.getEmail());
         editTextPhone.setText(aspirasii.getPhone());
@@ -128,6 +136,7 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         Bitmap bitmap = BitmapFactory.decodeByteArray(recordImage, 0, recordImage.length);
         updateimage.setImageBitmap(bitmap);
 
+        //untuk mendapatkan data yang ada pada tampilan dan menyimpannya dalam variable baru
         view.findViewById(R.id.buttonUpdate).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,47 +155,54 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
                 updateimage.setImageBitmap(bitmap);
 
 
+                //kondisi jika bagian kosong, diminta untuk mengisi
                 if (name.isEmpty()) {
                     editTextName.setError("mohon diisi");
                     editTextName.requestFocus();
                     return;
                 }
 
+                //kondisi jika bagian kosong, diminta untuk mengisi
                 if (email.isEmpty()) {
                     editTextEmail.setError("mohon diisi");
                     editTextEmail.requestFocus();
                     return;
                 }
 
+                //kondisi jika bagian kosong, diminta untuk mengisi
                 if (phone.isEmpty()) {
                     editTextPhone.setError("mohon diisi");
                     editTextPhone.requestFocus();
                     return;
                 }
 
+                //kondisi jika bagian kosong, diminta untuk mengisi
                 if (essai.isEmpty()) {
                     editTextEssai.setError("mohon diisi");
                     editTextEssai.requestFocus();
                     return;
                 }
 
+                //kondisi jika bagian kosong, diminta untuk mengisi
                 if (date.isEmpty()) {
                     editTextDate.setError("mohon diisi");
                     editTextDate.requestFocus();
                     return;
                 }
 
+                //kondisi jika bagian kosong, diminta untuk mengisi
                 if (time.isEmpty()) {
                     editTextTime.setError("mohon diisi");
                     editTextTime.requestFocus();
                     return;
                 }
 
-                //calling the update method from database manager instance
+                //memanggil metode update dari database manager
                 if (mDatabase.updateAspirasi(aspirasii.getId(), name, email, phone, date, time, essai, pilihan, checkbox, radio, seekbar, rImage)) {
                     Toast.makeText(mCtx, "Aspirasi Updated", Toast.LENGTH_SHORT).show();
                     loadEmployeesFromDatabaseAgain();
                 }
+                //saat selesai alaret dialog hilang (ditutup)
                 alertDialog.dismiss();
             }
         });
@@ -195,16 +211,18 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
         AlertDialog.Builder builder = new AlertDialog.Builder(mCtx);
         builder.setTitle("Yakin menghapus aspirasi?");
 
+        //fungsi untuk mengklik tulisan "iya"
         builder.setPositiveButton("Iya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                //calling the delete method from the database manager instance
+                //memanggil metode menghapus dari databasemanager
                 if (mDatabase.deleteAspirasi(aspirasii.getId()))
                     loadEmployeesFromDatabaseAgain();
             }
         });
 
+        //fungsi saat tulisan "batalkan diklik
         builder.setNegativeButton("Batalkan", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -212,11 +230,12 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
             }
         });
 
+        //untuk membuat dialognya yang menampilkan opsi penghapusan
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
     private void loadEmployeesFromDatabaseAgain() {
-        //calling the read method from database instance
+        //memanggil metode pembacaan data dari database manager
         Cursor cursor = mDatabase.getAllPilihan();
 
         aspirasiiList.clear();

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,20 +16,22 @@
         android:background="@android:color/white"
         android:padding="50dp">
 
+        <!--menampilkan gambr-->
         <ImageView
             android:id="@+id/logodaftaremail"
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:src="@drawable/you_tube_logo"/>
 
+        <!--untuk menampilkan text yang dapat diedit-->
         <EditText
             android:id="@+id/E_maildaftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="75dp"
             android:layout_below="@id/logodaftaremail"
-            android:hint="  E-Mail"
-            android:textSize="15dp"
+            android:hint="@string/e_mail"
+            android:textSize="15sp"
             android:padding="10dp"
             android:inputType="textEmailAddress"
             android:drawableLeft="@drawable/ic_email"/>
@@ -40,15 +41,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/E_maildaftar"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:padding="10dp"
-            android:hint="  Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:drawableLeft="@drawable/ic_lock"/>
 
+        <!--untuk mempilkan text-->
         <TextView
             android:id="@+id/punyaakun"
-            android:text="Sudah punya akun? "
+            android:text="@string/sudah_punya_akun"
             android:layout_below="@id/passworddaftar"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
@@ -56,7 +58,7 @@
 
         <TextView
             android:id="@+id/sudahpunya"
-            android:text="klik disini"
+            android:text="@string/klik_disini"
             android:layout_marginTop="10dp"
             android:textColor="@color/colorPrimary"
             android:layout_below="@id/passworddaftar"
@@ -69,7 +71,7 @@
             android:layout_below="@+id/punyaakun"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DAFTAR"
+            android:text="@string/daftar"
             android:layout_marginTop="50dp"
             android:textColor="@android:color/white"
             android:background="@drawable/colorbutton"/>

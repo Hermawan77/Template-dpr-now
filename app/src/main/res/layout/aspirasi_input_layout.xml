@@ -6,6 +6,7 @@
     android:background="@android:color/white"
     tools:context=".Aspirasi_Activity.AspirasiInput">
 
+    <!--bagian untuk membuat toolbar (bagian atas)-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,11 +14,12 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbarinputaspirasi">
 
+        <!--untuk menampilkan text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Input SQL Lite"
-            android:textSize="20dp"
+            android:text="@string/input_sql_lite"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:textColor="@android:color/white"
@@ -35,8 +37,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/textview"
                 android:layout_width="wrap_content"
@@ -47,6 +50,7 @@
                 android:textSize="@dimen/TS_judul"
                 android:textColor="@color/colorPrimaryDark"/>
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/namatext"
                 android:layout_width="75dp"
@@ -56,6 +60,7 @@
                 android:text="@string/namatext"
                 android:textSize="@dimen/TS_text" />
 
+            <!--untuk menampilkan text dengan autocomplete-->
             <AutoCompleteTextView
                 android:id="@+id/actv"
                 android:completionThreshold="1"
@@ -65,8 +70,10 @@
                 android:layout_toRightOf="@+id/namatext"
                 android:layout_below="@id/textview"
                 android:hint="@string/hint_namaisi"
-                android:textSize="@dimen/TS_text" />
+                android:textSize="@dimen/TS_text"
+                android:layout_toEndOf="@+id/namatext" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/emailtext"
                 android:layout_width="75dp"
@@ -76,6 +83,7 @@
                 android:layout_below="@id/namatext"
                 android:textSize="@dimen/TS_text" />
 
+            <!--untuk menampilkan text dengan autocomplete-->
             <AutoCompleteTextView
                 android:id="@+id/emailview"
                 android:layout_width="match_parent"
@@ -85,8 +93,10 @@
                 android:inputType="textEmailAddress"
                 android:layout_below="@id/namatext"
                 android:textSize="@dimen/TS_text"
-                android:layout_toRightOf="@+id/emailtext" />
+                android:layout_toRightOf="@+id/emailtext"
+                android:layout_toEndOf="@+id/emailtext" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/phonetext"
                 android:layout_width="75dp"
@@ -96,6 +106,7 @@
                 android:text="@string/phone"
                 android:textSize="@dimen/TS_text" />
 
+            <!--untuk menampilkan text yag dapat diedit-->
             <EditText
                 android:id="@+id/phoneview"
                 android:layout_width="match_parent"
@@ -105,8 +116,10 @@
                 android:layout_below="@id/emailtext"
                 android:layout_toRightOf="@id/emailtext"
                 android:inputType="phone"
-                android:textSize="@dimen/TS_text" />
+                android:textSize="@dimen/TS_text"
+                android:layout_toEndOf="@id/emailtext" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/timetext"
                 android:layout_width="75dp"
@@ -116,6 +129,7 @@
                 android:text="@string/waktu"
                 android:textSize="@dimen/TS_text" />
 
+            <!--untuk menampilkan text yang dapat diedit-->
             <EditText
                 android:id="@+id/Time"
                 android:layout_width="match_parent"
@@ -127,6 +141,7 @@
                 android:inputType="time"
                 android:textSize="@dimen/TS_text" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/datetext"
                 android:layout_width="75dp"
@@ -136,6 +151,7 @@
                 android:text="@string/tanggal"
                 android:textSize="@dimen/TS_text" />
 
+            <!--untuk menampilkan text yang dapat diedit-->
             <EditText
                 android:id="@+id/Date"
                 android:layout_width="match_parent"
@@ -147,7 +163,7 @@
                 android:inputType="datetime"
                 android:textSize="@dimen/TS_text" />
 
-
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/essaitext"
                 android:layout_width="75dp"
@@ -157,6 +173,7 @@
                 android:text="@string/essai"
                 android:textSize="@dimen/TS_text" />
 
+            <!--untuk menampilkan text-->
             <EditText
                 android:id="@+id/essai"
                 android:layout_width="match_parent"
@@ -167,13 +184,15 @@
                 android:inputType="textMultiLine"
                 android:textSize="@dimen/TS_text" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/spinnertext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/essai"
-                android:text="Pilihan kebawah"/>
+                android:text="@string/pilihan_kebawah"/>
 
+            <!--bagian untuk mebuat dropdown-->
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
@@ -182,14 +201,16 @@
                 android:entries="@array/pilihan"
                 android:layout_margin="10dp"/>
 
+            <!--bagian untuk membuat tombol-->
             <Button
                 android:id="@+id/simpan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/seekbar"
                 android:background="@drawable/button_borderless"
-                android:text="upload" />
+                android:text="@string/upload" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/Viewpilihan"
                 android:layout_width="match_parent"
@@ -199,11 +220,12 @@
                 android:background="@drawable/colorbutton"
                 android:onClick="onClick"
                 android:padding="10dp"
-                android:text="LIHAT DAFTAR"
+                android:text="@string/lihat_daftar"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/textviewcomplete"
                 android:textSize="20sp"
@@ -212,7 +234,8 @@
                 android:layout_toRightOf="@+id/namatext"
                 android:layout_below="@id/textview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/namatext" />
 
             <LinearLayout
                 android:id="@+id/layoutadd"
@@ -222,19 +245,20 @@
                 android:gravity="center"
                 android:layout_below="@id/spinner">
 
+                <!--bagian untuk menampilkan gambar-->
                 <ImageView
                     android:id="@+id/imageview"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
-                    android:layout_centerHorizontal="true"
                     android:src="@drawable/you_tube_logo"/>
 
+                <!--bagian untuk menmpilkan tombol-->
                 <Button
                     android:id="@+id/addgambar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="tambahkan gambar"
+                    android:text="@string/tambahkan_gambar"
                     android:padding="10dp"
                     android:background="@drawable/button_border"/>
 
@@ -246,6 +270,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/layoutadd">
 
+                <!--bagian untuk membuat check box-->
                 <CheckBox
                     android:id="@+id/checkbox1"
                     android:layout_width="wrap_content"
@@ -269,41 +294,45 @@
 
             </LinearLayout>
 
+                <!--bagian untuk membuat radio grup-->
                 <RadioGroup
                     android:id="@+id/rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/checkbox">
 
+                    <!--bagian untuk membuat radio button-->
                     <RadioButton
                         android:id="@+id/pria"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PRIA"/>
+                        android:text="@string/pria"/>
                     <RadioButton
                         android:id="@+id/wanita"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="WANITA" />
+                        android:text="@string/wanita" />
 
                 </RadioGroup>
 
+            <!--untuk menampilkan text-->
             <TextView
                 android:id="@+id/textviewSeekbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rb"
-                android:text="seberapa besar kinerjanya  : "/>
+                android:text="@string/seberapa_besar_kinerjanya"/>
             <TextView
                 android:id="@+id/textseekbar"
                 android:layout_below="@id/rb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/textviewSeekbar"
-                android:text="0"
+                android:text="@string/_0"
                 android:layout_centerHorizontal="true"
                 android:layout_toRightOf="@+id/textviewSeekbar" />
 
+            <!--bagian untuk membuat seekbar , yang bisa digeser-->
             <SeekBar
                 android:id="@+id/seekbar"
                 android:layout_width="match_parent"

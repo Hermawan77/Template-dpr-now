@@ -6,6 +6,13 @@
     android:orientation="vertical"
     android:padding="5dp">
 
+    <!--untuk membuat list view-->
+    <ListView
+        android:id="@+id/listviewaspirasi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--untuk membuat tombol-->
     <Button
         android:id="@+id/btnbuataspirasi"
         android:layout_width="match_parent"
@@ -14,13 +21,7 @@
         android:textStyle="bold"
         android:background="@drawable/colorbutton"
         android:textColor="@android:color/white"
-        android:layout_margin="5dp"
+        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
-
-    <ListView
-        android:id="@+id/listviewaspirasi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnbuataspirasi"/>
-
 </RelativeLayout>

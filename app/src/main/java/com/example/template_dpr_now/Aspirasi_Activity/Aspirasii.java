@@ -3,19 +3,12 @@ package com.example.template_dpr_now.Aspirasi_Activity;
 import java.io.Serializable;
 
 public class Aspirasii implements Serializable {
+    //deklarasi variable yang akan digunakan
     int id;
-    String name;
-    String email;
-    String date;
-    String time;
-    String essai;
-    String pilihan;
-    String phone;
-    String checkboxval;
-    String radiotext;
-    String seekbar;
+    String name, email, date, time, essai, pilihan, phone, checkboxval, radiotext, seekbar;
     byte[] image;
 
+    //inisialisasi kontruktor dengan nilai
     public Aspirasii(int id, String name, String email, String phone, String date, String time, String essai, String pilihan, String checkboxval, String radiotext, String seekbar,byte[] image) {
         this.id = id;
         this.name = name;
@@ -30,6 +23,8 @@ public class Aspirasii implements Serializable {
         this.seekbar = seekbar;
         this.image = image;
     }
+
+    //fungsi dibawah merupakan inisialisasi dari data yang akan masuk kedalam database, agar dapat di get dan di set
 
     public int getId() {
         return id;

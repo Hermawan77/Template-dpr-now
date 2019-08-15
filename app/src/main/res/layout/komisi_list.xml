@@ -7,6 +7,7 @@
     android:padding="10dp"
     android:orientation="horizontal">
 
+    <!--untuk menampilkan gambar-->
     <ImageView
         android:id="@+id/k1_image"
         android:layout_width="150dp"
@@ -18,24 +19,25 @@
         android:orientation="vertical"
         android:layout_gravity="center">
 
+        <!--menampilkan text-->
         <TextView
             android:id="@+id/k1_nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama Lengkap"
+            android:text="@string/nama_lengkap"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:id="@+id/k1_nip"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="NIP"/>
+            android:text="@string/nip"/>
 
         <TextView
             android:id="@+id/k1_jabatan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Jabatan"/>
+            android:text="@string/jabatan"/>
 
 
 

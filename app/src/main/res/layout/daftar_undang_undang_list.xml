@@ -13,24 +13,25 @@
         android:orientation="vertical"
         android:layout_gravity="center">
 
+        <!--untuk menampilkan text-->
         <TextView
             android:id="@+id/nomoruu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nomor"
+            android:text="@string/nomor"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:id="@+id/tentanguu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Tentang"/>
+            android:text="@string/tentang"/>
 
         <TextView
             android:id="@+id/docuu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="File"
+            android:text="@string/file"
             android:autoLink="web"/>
 
 

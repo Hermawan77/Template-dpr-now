@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dapatkan informasi berita terkini dalam internal Sekjen DPR-RI, dengan lebih mudah!"
+            android:text="@string/slide_1"
             android:layout_margin="40dp"
             android:textAlignment="center"
             android:layout_gravity="center"

@@ -7,18 +7,20 @@
     android:padding="16dp"
     tools:context=".AutoCompleteActivity">
 
+    <!--bagian untuk autocomplete-->
     <AutoCompleteTextView
         android:id="@+id/autocomplete"
-        android:hint="Select Text"
+        android:hint="@string/select_text"
         android:completionThreshold="1"
         android:completionHint="Select Text"
         android:layout_width="match_parent"
         android:dropDownAnchor="@id/textviewcomplete"
         android:layout_height="wrap_content" />
 
+    <!--bagian untuk menampilkan text-->
     <TextView
         android:id="@+id/textviewcomplete"
-        android:text="Text"
+        android:text="@string/text"
         android:textSize="20sp"
         android:paddingBottom="16dp"
         android:layout_width="match_parent"

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <!--bagian untuk membuat bagian atas toolbar-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,11 +12,12 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbarsemuaanggota">
 
+        <!--bagian untuk menampilkan text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daftar Semua Anggota Dewan"
-            android:textSize="20dp"
+            android:text="@string/daftar_semua_anggota_dewan"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:textColor="@android:color/white"
@@ -25,12 +25,14 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <!--bagian untuk membuat tombol search-->
     <android.support.v7.widget.SearchView
         android:id="@+id/searchanggota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbarsemuaanggota" />
 
+    <!--bagian untuk membuat recycler view-->
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/searchanggota"
         android:id="@+id/recycler_view_semuaanggota"
