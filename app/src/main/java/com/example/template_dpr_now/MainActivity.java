@@ -7,13 +7,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.template_dpr_now.Pengaturan_Activity.Pengaturan_Theme;
-import com.example.template_dpr_now.Rest.API_Interface;
 import com.example.template_dpr_now.fragment.FAB;
 import com.example.template_dpr_now.fragment.HomeFragment;
 import com.example.template_dpr_now.fragment.KomisiFragment;
@@ -21,18 +18,8 @@ import com.example.template_dpr_now.fragment.LainnyaFragment;
 import com.example.template_dpr_now.fragment.StreamingFragment;
 
 public class MainActivity extends AppCompatActivity {
-
     public static final String GOOGLE_ACCOUNT = "google_account";
-    public static final String DATABASE_NAME = "db";
-    private static final String CHANNEL_ID = ".notificationDemo.channelId";
-    Button crudbtn, homebtn, off, send_notif;
-    API_Interface mApiInterface;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    public static MainActivity ma;
-    LinearLayoutManager llm;
-    private long backPressedTime;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +51,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         twice = true;
+        Toast.makeText(this, "Tekan Kembali untuk exit", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 twice = false;
             }
-        }, 2000);
+        }, 3000);
 
     }
 
