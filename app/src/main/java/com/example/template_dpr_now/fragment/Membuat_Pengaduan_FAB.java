@@ -53,7 +53,7 @@ import retrofit2.Response;
 import static android.app.Activity.RESULT_OK;
 import static android.support.constraint.Constraints.TAG;
 
-public class FAB extends Fragment {
+public class Membuat_Pengaduan_FAB extends Fragment {
     private static final int PICK_IMAGE_REQUEST=1;
     private RequestQueue mRequestQueue;
     List<String> responseList = new ArrayList<String>();
