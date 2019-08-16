@@ -107,7 +107,7 @@ public class Agenda extends AppCompatActivity implements DatePickerDialog.OnDate
 
         AlertDialog alertDialog = alert.create();
 
-        if (year > Integer.parseInt(current.substring(0,4))){
+        if (year > Integer.parseInt(current.substring(0,4)) || year < 2009){
             alertDialog.show();
         }
 
