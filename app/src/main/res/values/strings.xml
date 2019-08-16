@@ -281,5 +281,6 @@
     <string name="time">time</string>
     <string name="tanggal_berita">tanggal_berita</string>
     <string name="pilihan_kebawah">pilihan_kebawah</string>
+    <string name="copyright">Copyright © PKL Teknik Informatika 2019</string>
 
 </resources>
