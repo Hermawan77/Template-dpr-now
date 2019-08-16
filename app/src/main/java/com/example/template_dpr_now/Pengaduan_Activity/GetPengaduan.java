@@ -1,4 +1,4 @@
-package com.example.template_dpr_now.Model;
+package com.example.template_dpr_now.Pengaduan_Activity;
 
 import com.google.gson.annotations.SerializedName;
 

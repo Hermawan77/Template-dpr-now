@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.template_dpr_now.Pengaturan_Activity.Pengaturan_Theme;
-import com.example.template_dpr_now.fragment.FAB;
+import com.example.template_dpr_now.fragment.Membuat_Pengaduan_FAB;
 import com.example.template_dpr_now.fragment.HomeFragment;
 import com.example.template_dpr_now.fragment.KomisiFragment;
 import com.example.template_dpr_now.fragment.LainnyaFragment;
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new KomisiFragment();
                             break;
                         case R.id.nav_add:
-                            selectedFragment = new FAB();
+                            selectedFragment = new Membuat_Pengaduan_FAB();
                             break;
                         case R.id.nav_streaming:
                             selectedFragment = new StreamingFragment();

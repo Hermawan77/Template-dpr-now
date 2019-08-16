@@ -4,10 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Created by fariz ramadhan.
- * website : www.farizdotid.com
- * github : https://github.com/farizdotid
- * linkedin : https://www.linkedin.com/in/farizramadhan/
+Untuk Mengecek apakah user sudah login atau belum di class Login API
  */
 
 

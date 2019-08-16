@@ -32,7 +32,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.template_dpr_now.Library_XmlToJson;
 import com.example.template_dpr_now.MainActivity;
-import com.example.template_dpr_now.Model.PostPutDelPengaduan;
+import com.example.template_dpr_now.Pengaduan_Activity.PostPutDelPengaduan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Rest.API_Client;
 import com.example.template_dpr_now.Rest.API_Interface;
@@ -53,7 +53,7 @@ import retrofit2.Response;
 import static android.app.Activity.RESULT_OK;
 import static android.support.constraint.Constraints.TAG;
 
-public class FAB extends Fragment {
+public class Membuat_Pengaduan_FAB extends Fragment {
     private static final int PICK_IMAGE_REQUEST=1;
     private RequestQueue mRequestQueue;
     List<String> responseList = new ArrayList<String>();

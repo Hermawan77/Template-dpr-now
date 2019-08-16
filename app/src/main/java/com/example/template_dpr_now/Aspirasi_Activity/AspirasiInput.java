@@ -272,7 +272,7 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
             Notification.Builder builder = new Notification.Builder(AspirasiInput.this);
 
             Notification notification = builder.setContentTitle("Notifikasi Baru")
-                    .setContentText("Pegawai selesai ditambahkan")
+                    .setContentText("Aspirasi selesai ditambahkan")
                     .setTicker("Pesan baru")
                     .setSmallIcon(R.mipmap.ic_launcher)
                     .setContentIntent(pendingIntent).build();

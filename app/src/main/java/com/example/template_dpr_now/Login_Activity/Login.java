@@ -36,6 +36,11 @@ public class Login extends AppCompatActivity {
     private SignInButton googleSignInButton;
     SharedPrefManager sharedPrefManager;
     Button google;@Override
+
+    /**
+     back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
+     dan akan memunculkan toast
+     **/
     public void onBackPressed() {
         if(backPressedTime + 2000 > System.currentTimeMillis()){
             super.onBackPressed();
@@ -47,26 +52,17 @@ public class Login extends AppCompatActivity {
 
     }
 
-    // back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
-    // dan akan memunculkan toast
+
 
 
     // Menampilkan layott login_layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        // Mengecek Login melalui Firebase
+        /**
+        Mengecek Login melalui Firebase
+         **/
         firebaseAuth = FirebaseAuth.getInstance();
         mAuth = FirebaseAuth.getInstance();
-        sharedPrefManager = new SharedPrefManager(this);
-
-        // Code berikut berfungsi untuk mengecek session, Jika session true ( sudah login )
-        // maka langsung memulai MainActivity.
-        if (sharedPrefManager.getSPSudahLogin()){
-            startActivity(new Intent(Login.this, MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
-        }
         if(firebaseAuth.getCurrentUser()!=null){
             FirebaseUser user =  firebaseAuth.getCurrentUser();
             Intent i = new Intent(Login.this, MainActivity.class);
@@ -74,6 +70,18 @@ public class Login extends AppCompatActivity {
             Toast.makeText(Login.this, "Selamat Datang Kembali", Toast.LENGTH_SHORT).show();
         }
 
+        /**
+          Code berikut berfungsi untuk mengecek session dari Login via API, Jika session true ( sudah login )
+          maka langsung memulai MainActivity.
+          **/
+        sharedPrefManager = new SharedPrefManager(this);
+
+
+        if (sharedPrefManager.getSPSudahLogin()){
+            startActivity(new Intent(Login.this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
 
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -146,6 +154,9 @@ public class Login extends AppCompatActivity {
         Intent i = new Intent(Login.this, Login_email.class);
         startActivity(i);
     }
+    /**
+     * Pindah ke Login via API
+     **/
     public void masukAPI(View view) {
         Intent i = new Intent(Login.this, Login_API.class);
         startActivity(i);

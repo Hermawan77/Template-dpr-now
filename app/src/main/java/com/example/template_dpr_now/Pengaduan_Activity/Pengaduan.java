@@ -1,15 +1,9 @@
-package com.example.template_dpr_now.Model;
+package com.example.template_dpr_now.Pengaduan_Activity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class Pengaduan {
     @SerializedName("id")
