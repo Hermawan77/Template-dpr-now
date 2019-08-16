@@ -105,8 +105,8 @@ public class Membuat_Pengaduan_FAB extends Fragment {
                 });
 
                 //membuat popup konfirmasi menggunakan alert dialog, R.style dapat diubah
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.Widget_AppCompat_Button_ButtonBar_AlertDialog);
-                builder.setTitle("Data yang diisi sudah benar ? (ini namanya AlertDialog)");
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Data yang diisi sudah benar ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
