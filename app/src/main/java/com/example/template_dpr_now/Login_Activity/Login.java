@@ -3,6 +3,7 @@ package com.example.template_dpr_now.Login_Activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -35,23 +36,35 @@ public class Login extends AppCompatActivity {
     private GoogleSignInClient googleSignInClient;
     private SignInButton googleSignInButton;
     SharedPrefManager sharedPrefManager;
-    Button google;@Override
+    Button google;
 
     /**
      back press berfungsi ketika ingin keluar aplikasi, pengguna harus menekan tombol back sebanyak 2 kali
      dan akan memunculkan toast
      **/
+            boolean twice;
+
+    @Override
     public void onBackPressed() {
-        if(backPressedTime + 2000 > System.currentTimeMillis()){
-            super.onBackPressed();
-            return;
-        } else{
-            Toast.makeText(getBaseContext(), "Tekan kembali untuk keluar", Toast.LENGTH_SHORT).show();
+        if(twice == true){
+            Intent i = new Intent(Intent.ACTION_MAIN);
+            i.addCategory(Intent.CATEGORY_HOME);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(i);
+            finish();
+            System.exit(0);
         }
-        backPressedTime = System.currentTimeMillis();
+
+        twice = true;
+        Toast.makeText(this, "Tekan Kembali untuk exit", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                twice = false;
+            }
+        }, 3000);
 
     }
-
 
 
 
