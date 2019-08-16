@@ -40,7 +40,7 @@
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Nama judul"
+                    android:text="@string/nama_judul"
                     android:background="@drawable/button_border" />
 
                 <Button
@@ -50,7 +50,7 @@
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Nama judul"
+                    android:text="@string/nama_judul"
                     android:background="@drawable/button_border"
                     android:layout_below="@+id/menu1"/>
 
@@ -61,7 +61,7 @@
                     android:layout_margin="10dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Nama judul"
+                    android:text="@string/nama_judul"
                     android:background="@drawable/button_border"
                     android:layout_below="@id/menu2"/>
 

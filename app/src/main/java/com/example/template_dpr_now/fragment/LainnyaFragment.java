@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.template_dpr_now.Information;
 import com.example.template_dpr_now.Login_Activity.Login;
-import com.example.template_dpr_now.MainActivity;
 import com.example.template_dpr_now.Pengaturan_Activity.Pengaturan;
 import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.Util.SharedPrefManager;
@@ -74,7 +74,7 @@ public class LainnyaFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Pindah dari class ini ke MainActivity.java
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), Information.class);
                 startActivity(intent);
                 getActivity().finish();
             }

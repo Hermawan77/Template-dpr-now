@@ -31,7 +31,7 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="50dp"
         android:padding="10dp"
-        android:text="Next Slide"
+        android:text="@string/next_slide"
         android:background="@drawable/button_border"/>
 
 </RelativeLayout>

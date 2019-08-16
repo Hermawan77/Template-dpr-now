@@ -12,10 +12,11 @@ import java.util.List;
 
 public class Aspirasi extends AppCompatActivity {
 
+    //deklarasi variable
     List<Aspirasii> pilihanList;
     ListView listViewPilihans;
 
-    //The databasemanager object
+    //mendeklarasikan objek dari database
     AspirasiDatabaseManager mDatabase;
 
     @Override
@@ -23,25 +24,27 @@ public class Aspirasi extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aspirasi_layout);
 
+        //bagian inisialisasi database
         mDatabase = new AspirasiDatabaseManager(this);
 
+        //inisialisai list
         listViewPilihans = (ListView) findViewById(R.id.listviewaspirasi);
         pilihanList = new ArrayList<>();
 
-        //this method will display the employees in the list
+        //metode ini kan menampilkan data yang ada dalam database
         loadFromDatabase();
 
     }
 
     private void loadFromDatabase() {
 
-        //we used rawQuery(sql, selectionargs) for fetching all the employees
+        //kita gunakan rawQuery(sql, selectionargs) untuk mengambil semua data inputan yang masuk
         Cursor cursor = mDatabase.getAllPilihan();
-        //if the cursor has some data
+        //kondisi disini menjelaskan if (ketika) kursor mendapatkan data
         if (cursor.moveToFirst()) {
-            //looping through all the records
+            //akan melakukan looping (mengulangi pencarian semua data yang ada)
             do {
-                //pushing each record in the employee list
+                //akan memuat setiap catatan data kedalam list
                 pilihanList.add(new Aspirasii(
                         cursor.getInt(0),
                         cursor.getString(1),
@@ -59,10 +62,10 @@ public class Aspirasi extends AppCompatActivity {
             } while (cursor.moveToNext());
         }
 
-        //creating the adapter object
+        //membuat objek adapter
         AspirasiAdapter adapter = new AspirasiAdapter(this, R.layout.aspirasi_list_layout, pilihanList, mDatabase);
 
-        //adding the adapter to listview
+        //menambahkan adapter kedalam listview
         listViewPilihans.setAdapter(adapter);
     }
 }

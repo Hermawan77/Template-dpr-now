@@ -6,6 +6,7 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
+    <!--untuk membuat cardview-->
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +21,7 @@
             android:gravity="center"
             android:background="@drawable/button_borderless">
 
+            <!--bagian untuk menampilkan gambar-->
             <ImageView
                 android:layout_margin="10dp"
                 android:id="@+id/anggota_image"
@@ -31,30 +33,31 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!--untuk menampilkan text-->
                 <TextView
                     android:id="@+id/anggota_nama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama Lengkap"
+                    android:text="@string/nama_lengkap"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
                 <TextView
                     android:id="@+id/anggota_fraksi"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Fraksi"/>
+                    android:text="@string/fraksi"/>
 
                 <TextView
                     android:id="@+id/anggota_dapil"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Dapil" />
+                    android:text="@string/dapil" />
 
                 <TextView
                     android:id="@+id/anggota_daftarakd"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Daftar Akd"/>
+                    android:text="@string/daftar_akd"/>
 
             </LinearLayout>
 

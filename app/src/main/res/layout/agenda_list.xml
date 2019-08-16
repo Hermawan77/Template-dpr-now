@@ -17,7 +17,7 @@
             android:id="@+id/tanggal_agenda"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="00"
+            android:text="@string/_00"
             android:textSize="@dimen/TS_judul"
             android:textAlignment="center"
             android:textColor="@android:color/white"
@@ -25,6 +25,7 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:background="@drawable/colorbutton"/>
 
+        <!--untuk menampilkan text-->
         <TextView
             android:id="@+id/jam_agenda"
             android:layout_width="wrap_content"
@@ -32,7 +33,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:textColor="@color/colorPrimaryDark"
-            android:text="Jam"/>
+            android:text="@string/jam"/>
 
     </LinearLayout>
 
@@ -46,14 +47,14 @@
             android:id="@+id/judul_agenda"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Judul"
-            android:textSize="18dp"/>
+            android:text="@string/judul"
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/deskripsi_agenda"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Deskripsi"/>
+            android:text="@string/deskripsi"/>
 
 
 

@@ -6,6 +6,7 @@
     android:orientation="vertical"
     tools:context=".Berita_Activity.Berita">
 
+    <!--bagian untuk membuat bagian atas toolbar-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,11 +14,12 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbarberita">
 
+        <!--untuk menampilkan text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Berita Terkini"
-            android:textSize="20dp"
+            android:text="@string/berita_terkini"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:textColor="@android:color/white"
@@ -25,6 +27,7 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <!--bagian untuk membuat recyclerview-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_berita"
         android:layout_width="match_parent"

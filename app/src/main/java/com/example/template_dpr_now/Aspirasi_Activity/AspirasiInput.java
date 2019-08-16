@@ -51,6 +51,7 @@ import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 
 public class AspirasiInput extends AppCompatActivity implements View.OnClickListener {
 
+    //deklarasi variable
     private static final String CHANNEL_ID = ".notificationDemo.channelId";
     private static final int PICK_IMAGE_REQUEST=1;
     private static final String[] temp = new String[]{
@@ -67,7 +68,6 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
     String checkboxtxt, Seekbar_txt;
     SeekBar seekBar;
     ImageView imageView;
-    Bitmap thumbnail;
     final int REQUEST_CODE_GALLERY = 999;
     private int  mHour, mMinute, mYear, mMonth, mDay;
 
@@ -75,9 +75,9 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.aspirasi_input_layout);
-
         this.setTheme(R.style.DefaultTheme);
 
+        //inisialisasi edit text
         text1 = (AutoCompleteTextView) findViewById(R.id.actv);
         text2 =(AutoCompleteTextView) findViewById(R.id.emailview);
         text3 = (EditText) findViewById(R.id.phoneview);
@@ -85,71 +85,81 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
         text5 = (EditText) findViewById(R.id.Time);
         text6 = (EditText) findViewById(R.id.essai);
 
+        //inisialisasi time
         txtTime = (EditText) findViewById(R.id.Time);
         txtTime.setOnClickListener(this);
+
+        //inisialisasi date
         txtDate = (EditText) findViewById(R.id.Date);
         txtDate.setOnClickListener(this);
+
+        //inisialisasi spinner
+        spinner = (Spinner) findViewById(R.id.spinner);
+
+
+        //inisialisasi view image dan fungsi pick image untuk mengambil dan menyimpan serta menampilkan gambar terpilih
         imageView = (ImageView) findViewById(R.id.imageview);
         btngambar = (Button) findViewById(R.id.addgambar);
         btngambar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ActivityCompat.requestPermissions(
+                        //fungsi permission untuk mengambil gambar dari device
                         AspirasiInput.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE_GALLERY
                 );
             }
         });
+//        String[] test = getResources().getStringArray(R.array.Test);
 
-        String[] test = getResources().getStringArray(R.array.Test);
-
-        spinner = (Spinner) findViewById(R.id.spinner);
-        Save = (Button) findViewById(R.id.simpan);
-        Lihat = (TextView) findViewById(R.id.Viewpilihan);
-
+        //inisialisi dan fungsi untuk autocomplete statis
         AutoCompleteTextView editText = findViewById(R.id.actv);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.autocomplete_list_item, R.id.text_view_list_item, temp);
         editText.setAdapter(adapter);
 
-        Save.setOnClickListener(this);
-        Lihat.setOnClickListener(this);
-
+        //inisialisasi dan fungsi saat seekbar digerakaan untuk mendapatkan nilainya
         txtProgress = findViewById(R.id.textseekbar);
         seekBar = findViewById(R.id.seekbar);
-
-
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Seekbar_txt = String.valueOf(progress);
                 txtProgress.setText("" + Seekbar_txt + "%");
             }
-
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
-
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
-
         });
 
+        ////inisialisasi tombol simpan
+        Save = (Button) findViewById(R.id.simpan);
+        Save.setOnClickListener(this);
+
+        //inisialisasi tombol lihat daftar
+        Lihat = (TextView) findViewById(R.id.Viewpilihan);
+        Lihat.setOnClickListener(this);
+
+        //inisialisasi databasemanager
         mDatabase = new AspirasiDatabaseManager(this);
     }
 
     private void addpilihan(){
+        //pengabilan nilai dan memasukkan nilainya kedalam variable baru
         String name = text1.getText().toString().trim();
         String email = text2.getText().toString().trim();
         String phone = text3.getText().toString().trim();
         String time = text4.getText().toString().trim();
         String date = text5.getText().toString().trim();
+        String essai = text6.getText().toString().trim();
+        String pilihan = spinner.getSelectedItem().toString().trim();
         byte[] image = imageViewToByte(imageView);
 
+        //fungsi untuk menampilkan date and time ke layar (dialog pop up)
         SimpleDateFormat dt = new SimpleDateFormat("dd-MM-YYYY");
         try {
             Date baru = dt.parse(date);
@@ -160,9 +170,7 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
             e.printStackTrace();
         }
 
-        String essai = text6.getText().toString().trim();
-        String pilihan = spinner.getSelectedItem().toString().trim();
-
+        //inisialisasi nilai checkbox
         cb1 = (CheckBox) findViewById(R.id.checkbox1);
         cb1.setOnClickListener(this);
         cb2 = (CheckBox) findViewById(R.id.checkbox2);
@@ -172,8 +180,10 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
         cb4 = (CheckBox) findViewById(R.id.checkbox4);
         cb4.setOnClickListener(this);
 
+        //deklarasi string baru untuk simpan nilai string checkbox
         String Checkboxval;
 
+        //fungsi untuk memasukkan nilai checkbox tercentang kedalam sebuah array
         List<CheckBox> items = new ArrayList<CheckBox>();
         for (CheckBox item : items ){
             if (item.isChecked())
@@ -192,60 +202,68 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
         Checkboxval = checkboxtxt;
 
 
+        //inisialisai radio button
         radioGroup = (RadioGroup) findViewById(R.id.rb);
         pria = (RadioButton) findViewById(R.id.pria);
         wanita = (RadioButton) findViewById(R.id.wanita);
         String radiotext;
 
+        //fungsi untuk mendapatkan nilai dari radi button terpilih
         radioGroup.getCheckedRadioButtonId();
-
         int radioID = radioGroup.getCheckedRadioButtonId();
-
         if (radioID == pria.getId()){
             radiotext = pria.getText().toString();
         } else {
             radiotext = wanita.getText().toString();
         }
 
+        //inisialisasi dan pengambilan nilai seekbar
         String seekbar;
         seekbar = txtProgress.getText().toString();
 
+        //fungsi pengecekan apakah nilai edittext telah terisi atau belum, dan meminta pengisian jika kosong
         if (name.isEmpty()){
             text1.setError("pengisian nama diperlukan");
             text1.requestFocus();
             return ;
         }
 
+        //fungsi pengecekan apakah nilai edittext telah terisi atau belum, dan meminta pengisian jika kosong
         if (email.isEmpty()){
             text2.setError("pengisian alamat email diperlukan");
             text2.requestFocus();
             return ;
         }
 
+        //fungsi pengecekan apakah nilai edittext telah terisi atau belum, dan meminta pengisian jika kosong
         if (phone.isEmpty()) {
             text3.setError("pengisian nomor handphone diperlukan");
             text3.requestFocus();
             return ;
         }
 
+        //fungsi pengecekan apakah nilai edittext telah terisi atau belum, dan meminta pengisian jika kosong
         if (time.isEmpty()){
             text4.setError("pengisian waktu diperlukan");
             text4.requestFocus();
             return ;
         }
 
+        //fungsi pengecekan apakah nilai edittext telah terisi atau belum, dan meminta pengisian jika kosong
         if (date.isEmpty()) {
             text5.setError("pengisian tanggal diperlukan");
             text5.requestFocus();
             return ;
         }
 
+        //fungsi pengecekan apakah nilai edittext telah terisi atau belum, dan meminta pengisian jika kosong
         if(essai.isEmpty()) {
             text6.setError("pengisian keterangan essai diperlukan");
             text6.requestFocus();
             return ;
         }
 
+        //fungsi untuk memasukkan nilai inputan kedalam database
         if (mDatabase.addpilihan(name, email, phone, date, time, essai, pilihan, Checkboxval,  radiotext, seekbar, image )){
 
             Intent intent = new Intent(AspirasiInput.this, MainActivity.class);
@@ -284,6 +302,7 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
 
     }
 
+    //fungsi untuk mengconvert gambar kedalam byte
     public static byte[] imageViewToByte(ImageView image) {
         Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -292,6 +311,7 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
         return byteArray;
     }
 
+    //fungsi untuk meminta akses kedalam galery device
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
@@ -310,6 +330,7 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    //fungsi cek akses galery apakah sudah diizinkan dan sesuai
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -330,6 +351,7 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    //fungsi ketika tombol dalm tampilan mendapat aksi klik
     @Override
     public void onClick (View view){
 
@@ -341,18 +363,20 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
         mDay = c.get(Calendar.DAY_OF_MONTH);
 
         switch (view.getId()) {
+            //saat tombol simpan diklik maka akan berjalan fungsi addpilihan()
             case R.id.simpan:
 
                 addpilihan();
 
                 break;
+                //fungsi saat tombol view ilihan diklik akan menampilkan list halaman data inputan
             case R.id.Viewpilihan:
 
                 startActivity(new Intent(this, Aspirasi.class));
                 finish();
 
                 break;
-
+                //fungsi saat date di klik akan muncul dialog kalender
             case R.id.Date:
 
                 final DatePickerDialog datePickerDialog = new DatePickerDialog(this,
@@ -378,7 +402,7 @@ public class AspirasiInput extends AppCompatActivity implements View.OnClickList
                 datePickerDialog.show();
 
                 break;
-
+            //fungsi saat time di klik akan muncul dialog jam
             case R.id.Time:
 
                 final TimePickerDialog timePickerDialog = new TimePickerDialog(this,

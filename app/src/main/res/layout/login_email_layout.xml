@@ -29,8 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:layout_below="@id/logologinemail"
-            android:hint="  E-Mail"
-            android:textSize="15dp"
+            android:hint="@string/e_mail"
+            android:textSize="15sp"
             android:padding="10dp"
             android:inputType="textEmailAddress"
             android:drawableLeft="@drawable/ic_email"/>
@@ -40,16 +40,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/E_mail"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:padding="10dp"
-            android:hint="  Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:drawableLeft="@drawable/ic_lock"/>
 
         <Button
             android:id="@+id/loginemail"
             android:layout_below="@+id/passwordemail"
-            android:text="Login"
+            android:text="@string/login"
             android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
 
         <TextView
             android:id="@+id/lupadisini"
-            android:text=" Lupa Password?"
+            android:text="@string/lupa_password"
             android:textColor="@color/colorPrimary"
             android:layout_below="@id/passwordemail"
             android:layout_alignParentRight="true"
@@ -76,12 +76,12 @@
                 android:id="@+id/belumpunyaakun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Belum punya akun? " />
+                android:text="@string/belum_punya_akun" />
 
             <TextView
                 android:id="@+id/daftardisini"
                 android:textColor="@color/colorPrimary"
-                android:text=" Daftar disini"
+                android:text="@string/daftar_disini"
                 android:layout_toRightOf="@+id/belumpunyaakun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

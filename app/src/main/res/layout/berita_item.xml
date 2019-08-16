@@ -12,29 +12,32 @@
         android:layout_margin="5dp"
         android:background="@drawable/button_borderless">
 
+        <!--untuk menampilkan text-->
         <TextView
             android:id="@+id/kategori"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="kategori"
+            android:text="@string/kategori"
             android:padding="10dp"
             android:layout_margin="10dp"
             android:textColor="@android:color/white"
             android:background="@drawable/colorbutton"/>
 
+        <!--untuk menampilkan gambar-->
         <ImageView
             android:layout_below="@id/kategori"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:id="@+id/fotoberita" />
 
+        <!--untuk menampilkan text-->
         <TextView
             android:id="@+id/judulberita"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tanggalberita"
-            android:text="Judul berita"
+            android:text="@string/judul_berita"
             android:padding="10dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
@@ -51,13 +54,13 @@
             android:layout_below="@id/fotoberita"
             android:layout_margin="10dp"
             android:layout_alignParentRight="true"
-            android:text="tanggal berita"/>
+            android:text="@string/tanggal_berita"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/showmore"
-            android:text="Show More"
+            android:text="@string/show_more"
             android:layout_below="@id/judulberita"
             android:textColor="@color/colorPrimaryDark"
             android:layout_margin="10dp"

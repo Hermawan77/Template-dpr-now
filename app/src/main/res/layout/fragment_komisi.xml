@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--bagian untuk membuat bagian atas toolbar-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,11 +12,12 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbarkomisi">
 
+        <!--untuk mempilkan text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daftar Komisi"
-            android:textSize="20dp"
+            android:text="@string/daftar_komisi"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:textColor="@android:color/white"
@@ -23,6 +25,7 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <!--bagian untuk membuat tab layout-->
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar_komisi"
         android:layout_below="@id/toolbarkomisi"
@@ -38,6 +41,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!--untuk membuat viewpager-->
     <android.support.v4.view.ViewPager
         android:id="@+id/container_komisi"
         android:layout_width="match_parent"

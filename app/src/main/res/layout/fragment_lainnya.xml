@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--bagian untuk membuat tab layout-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,8 +15,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DPR Now!"
-            android:textSize="20dp"
+            android:text="@string/dpr_now"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:textColor="@android:color/white"
@@ -23,14 +24,17 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <!--untuk menampilkan gambar-->
     <ImageView
         android:layout_margin="10dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/toolbarprofil"
         android:id="@+id/profile_image"
         android:layout_width="150dp"
-        android:layout_height="150dp" />
+        android:layout_height="150dp"
+        android:src="@drawable/you_tube_logo"/>
 
+    <!--untuk mempilkan text-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_margin="2dp"
@@ -41,6 +45,7 @@
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content" />
 
+    <!--untuk mempilkan text-->
     <TextView
         android:textSize="14sp"
         android:id="@+id/profile_email"
@@ -59,29 +64,23 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_margin="5dp"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profil" />
-
+        <!--untuk mempilkan text-->
         <TextView
             android:id="@+id/pengaturan"
             android:layout_margin="5dp"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pengaturan" />
+            android:text="@string/pengaturan" />
 
+        <!--untuk mempilkan text-->
         <TextView
             android:id="@+id/info"
             android:layout_margin="5dp"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Informasi" />
+            android:text="@string/informasi" />
 
         <TextView
             android:id="@+id/signOut"
@@ -89,7 +88,7 @@
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout" />
+            android:text="@string/logout" />
 
     </LinearLayout>
 

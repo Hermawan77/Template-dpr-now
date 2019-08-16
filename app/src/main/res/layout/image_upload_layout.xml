@@ -11,14 +11,14 @@
         android:id="@+id/edit_text"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/btn_image"
-        android:hint="Masukkan Nama File"
+        android:hint="@string/masukkan_nama_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/uploadimage"
         android:layout_below="@+id/btn_image"
-        android:text="Upload"
+        android:text="@string/upload"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -42,7 +42,7 @@
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pilih foto"/>
+        android:text="@string/pilih_foto"/>
 
     <TextView
         android:id="@+id/viewimage"
@@ -51,6 +51,6 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lihat foto yang terupload"/>
+        android:text="@string/lihat_foto_yang_terupload"/>
 
 </RelativeLayout>

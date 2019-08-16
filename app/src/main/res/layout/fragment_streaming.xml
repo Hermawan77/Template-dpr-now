@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="#fff">
 
+    <!--bagian untuk membuat bagian atas toolbar-->
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,6 +12,7 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbarstreaming">
 
+        <!--untuk mebuat text-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--untuk membuat fragment video streaming-->
         <fragment
             android:id="@+id/frame_fragment"
             android:name="com.google.android.youtube.player.YouTubePlayerSupportFragment"
@@ -42,6 +45,7 @@
             android:layout_below="@+id/frame_fragment"
             android:padding="5dp">
 
+            <!--untuk menampilkan gambar-->
             <ImageView
                 android:id="@+id/img_you_tube_logo"
                 android:layout_width="35dp"
@@ -58,6 +62,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/img_you_tube_logo">
 
+                <!--untuk menampilkan text-->
                 <TextView
                     android:id="@+id/txt_channel_name"
                     android:layout_width="wrap_content"
@@ -67,6 +72,7 @@
                     android:textColor="#333"
                     android:textSize="16sp" />
 
+                <!--untuk menampilkan text-->
                 <TextView
                     android:id="@+id/txt_total_video"
                     android:layout_width="wrap_content"
@@ -86,12 +92,14 @@
             android:layout_below="@+id/rly_subscribe"
             android:background="#646464" />
 
+        <!--untuk mebuat recycler view-->
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view_streaming"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/view_divider" />
 
+        <!--untuk menampilkan loading-->
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"

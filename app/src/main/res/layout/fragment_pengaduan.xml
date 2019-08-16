@@ -6,6 +6,7 @@
     android:padding="5dp"
     android:orientation="vertical">
 
+    <!--untuk membuat recyclerview-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rcFragmentPengaduan"
         android:scrollbars="vertical"

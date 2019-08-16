@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Information"></activity>
         <activity android:name=".Agenda_Activity.AgendaDetail" />
         <activity android:name=".Semuaanggota_Activity.SemuaAnggota" />
         <activity android:name=".Agenda_Activity.Agenda" />
@@ -42,7 +43,7 @@
         <activity android:name=".Login_Activity.Login_API" />
         <activity android:name=".Slide_Activity.Slide" />
         <activity android:name=".Aspirasi_Activity.Aspirasi" />
-        <activity android:name=".Undangundang_Activity.UndangUndangActivity"/>
+        <activity android:name=".Undangundang_Activity.UndangUndangActivity" />
         <activity
             android:name=".Login_Activity.Login_email_daftar"
             android:label="Daftar Akun" />

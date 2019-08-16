@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!--untuk menampilkan text-->
     <TextView
         android:id="@+id/textspinner"
         android:text="Input Tahun"
@@ -13,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <!--untuk menampilkan dropdown-->
     <Spinner
         android:id="@+id/spinner"
         android:layout_below="@id/toolbaruu"
@@ -21,6 +21,8 @@
         android:layout_height="wrap_content">
 
     </Spinner>
+
+    <!--bagian untuk membuat bagian atas toolbar-->
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -32,14 +34,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daftar Undang-Undang"
-            android:textSize="20dp"
+            android:text="@string/daftar_undang_undang"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:id="@+id/toolbar_title"
             android:textColor="@android:color/white" />
 
     </android.support.v7.widget.Toolbar>
 
+    <!--bagian untuk membuat recycler view-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_uu"
         android:layout_marginTop="15dp"
