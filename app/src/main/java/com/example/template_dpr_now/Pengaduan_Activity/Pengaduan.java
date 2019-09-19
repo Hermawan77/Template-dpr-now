@@ -1,9 +1,21 @@
 package com.example.template_dpr_now.Pengaduan_Activity;
 
+import android.annotation.TargetApi;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.text.format.DateFormat;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class Pengaduan {
     @SerializedName("id")
@@ -22,7 +34,7 @@ public class Pengaduan {
     private String isi_aduan;
     @SerializedName("createdAt")
     @Expose
-    private String tanggal;
+    private Long tanggal;
 
     //dari Model GetPengaduan
     @SerializedName("status")
@@ -70,12 +82,37 @@ public class Pengaduan {
     public void setIsi_aduan(String aduan) {
         this.isi_aduan = aduan;
     }
-    public String getTanggal() {
-        return tanggal;
-    }
 
-    public void setTanggal(String tgl) {
+    public String getTanggal() {
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(tanggal * 1);
+        String date = DateFormat.format("dd MMM yyyy", cal).toString();
+        return date;
+    }
+//    @TargetApi(Build.VERSION_CODES.O)
+//    public static long getDifferenceDays(Long tanggal) {
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+//        LocalDateTime now = LocalDateTime.now();
+//        dtf.format();
+//        String timeStamp = new SimpleDateFormat("dd MMM yyyy").format(Calendar.getInstance().getTime());
+//        long diff = tanggal - now;
+//        return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+//
+//    }
+    public String getWaktu(){
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(tanggal * 1);
+        String date = DateFormat.format("hh:mm:ss", cal).toString();
+        return date;
+    }
+    public void setTanggal(Long tgl) {
         this.tanggal = tgl;
+    }
+    private String ambilTanggal() {
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(tanggal * 1000);
+        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        return date;
     }
 //    public String ambilTanggal() throws ParseException {
 //        DateFormat outputFormat = new SimpleDateFormat("MM/yyyy");

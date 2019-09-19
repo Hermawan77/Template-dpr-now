@@ -35,6 +35,13 @@
 
 
             <TextView
+                android:id="@+id/waktu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
                 android:id="@+id/tvAduan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

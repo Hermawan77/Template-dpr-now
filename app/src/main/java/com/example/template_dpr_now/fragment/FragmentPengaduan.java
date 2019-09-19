@@ -43,13 +43,10 @@ public class FragmentPengaduan extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         //ma.getActivity();
         ma = this;
-//
-//        Type collectionType = new TypeToken<Collection<Pengaduan>>(){}.getType();
-//        Collection<Pengaduan> enums = gson.fromJson(yourJson, collectionType);
+
         Call<List<Pengaduan>> mCall;
         mCall = mApiInterface.ambilPengaduan();
-       // Call<Pengaduan> pengaduanCall = mApiInterface.ambilPengaduan();
-       mCall.enqueue(new Callback<List<Pengaduan>>() {
+        mCall.enqueue(new Callback<List<Pengaduan>>() {
             @Override
             public void onResponse(Call<List<Pengaduan>> call, Response<List<Pengaduan>>
                     response) {
@@ -58,9 +55,8 @@ public class FragmentPengaduan extends Fragment {
 //                Log.d("Retrofit Get", "Jumlah data Pengaduan: " +
 //                        String.valueOf(pengaduanList.size()));
                 mAdapter = new PengaduanAdapter(pengaduanList);
-               // mPengaduan_Adapter = new PengaduanAdapter(getActivity(), mPengaduan_Item);
+                // mPengaduan_Adapter = new PengaduanAdapter(getActivity(), mPengaduan_Item);
                 mRecyclerView.setAdapter(mAdapter);
-
             }
 
             @Override

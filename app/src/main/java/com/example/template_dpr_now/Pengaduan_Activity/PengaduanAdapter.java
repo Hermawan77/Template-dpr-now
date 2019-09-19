@@ -3,6 +3,7 @@ package com.example.template_dpr_now.Pengaduan_Activity;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,9 @@ import com.example.template_dpr_now.R;
 import com.example.template_dpr_now.fragment.KomisiItem;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyViewHolder> implements ListAdapter {
     List<Pengaduan> mPengaduanList;
@@ -27,6 +30,12 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
 //        mF_K1_List = F_K1_List;
     }
 
+    private String getDate(long time) {
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(time * 1000);
+        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        return date;
+    }
 
 
     @Override
@@ -41,7 +50,6 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
     public void onBindViewHolder (MyViewHolder holder,final int position){
 
         //memasukkan data ke holder
-        holder.mTextViewAduan.setText(mPengaduanList.get(position).getIsi_aduan());
 //        String tgl = mPengaduanList.get(position).getTanggal();
 //        DateFormat outputFormat = new SimpleDateFormat("MM/yyyy");
 //        DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
@@ -67,11 +75,14 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
 //        holder.timeLabel.setText(convertedDate);
 //        //memasukkan data ke holder
 //        Log.d("tanggal : ",outputText);
+
+        //String ambilTanggal = getDate(mPengaduanList.get(position).getTanggal());
         holder.mTextViewAduan.setText("Aduan : "+mPengaduanList.get(position).getIsi_aduan());
 
         holder.mTextViewNama.setText(mPengaduanList.get(position).getNama());
 
         holder.mTextViewTanggal.setText(mPengaduanList.get(position).getTanggal());
+        holder.mTextViewWaktu.setText(mPengaduanList.get(position).getWaktu());
         /*holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,14 +149,14 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.MyVi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewEmail, mTextViewNama, mTextViewNomor,mTextViewAduan,mTextViewTanggal;
+        public TextView mTextViewEmail, mTextViewNama, mTextViewNomor,mTextViewAduan,mTextViewTanggal,mTextViewWaktu;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             mTextViewNama = (TextView) itemView.findViewById(R.id.tvNama);
-
             mTextViewAduan = (TextView) itemView.findViewById(R.id.tvAduan);
             mTextViewTanggal = (TextView) itemView.findViewById(R.id.datetime);
+            mTextViewWaktu = (TextView) itemView.findViewById(R.id.waktu);
         }
     }
 }
