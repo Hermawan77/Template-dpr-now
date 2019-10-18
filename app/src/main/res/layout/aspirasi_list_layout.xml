@@ -185,18 +185,8 @@
 
                                 <!--bagian untuk membuat tombol-->
                                 <Button
-                                    android:id="@+id/buttonEdit"
-                                    android:layout_width="75dp"
-                                    android:layout_height="35dp"
-                                    android:textSize="10sp"
-                                    android:layout_margin="5dp"
-                                    android:background="@drawable/button_border"
-                                    android:text="@string/edit" />
-
-                                <!--bagian untuk membuat tombol-->
-                                <Button
                                     android:id="@+id/buttonDelete"
-                                    android:layout_width="75dp"
+                                    android:layout_width="100dp"
                                     android:layout_height="35dp"
                                     android:layout_margin="5dp"
                                     android:textSize="10sp"

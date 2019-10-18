@@ -88,14 +88,6 @@ public class AspirasiAdapter extends ArrayAdapter<Aspirasii> {
             }
         });
 
-        //aksi saat tombol edit(update) di klik
-        view.findViewById(R.id.buttonEdit).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateAspirasi(aspirasii);
-            }
-        });
-
         return view;
     }
 
