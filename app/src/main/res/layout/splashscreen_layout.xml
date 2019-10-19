@@ -19,13 +19,6 @@
                     android:layout_height="125dp"
                     android:src="@drawable/you_tube_logo"
                     android:textColor="@android:color/white"/>
-                <TextView
-                    android:id="@+id/nowlogo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/aplikasi_informasi_internal_dpr"
-                    android:textStyle="italic"
-                    android:textColor="@android:color/white"/>
 
         </LinearLayout>
 
